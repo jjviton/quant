@@ -104,7 +104,7 @@ def main():
     #ExponentialMovingAverage(df)
     #volatilidad_std, volatilidadMedia= volatility_j(df)
     #OBV(df[])
-    slope(df['Adj Close'])
+    slopeJ3(df['Adj Close'])
    
     
     

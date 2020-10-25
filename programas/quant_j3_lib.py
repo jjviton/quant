@@ -8,17 +8,61 @@ Created on Sun Sep 13 11:28:48 2020
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import statsmodels.api as sm
+import statsmodels.api as sm   #se usa en el Slope del curso, quitar
+
+from sklearn import linear_model
 
 
+
+#################################################### slopeJ3()
+def slopeJ3(ser,n=5):
+    """Function to calculate the slope of regression line for n consecutive points on a plot
+        
+    *** DUDAS: 
+    
+    Input Data: entrada es una serie/array/lista NO UN DATAFRAME. Hacemos una especie de rolling slope con una 
+    ventana de 'n' 05.
+    Returns: 
+    
+    Estado: programada 
+    Origen Curso Quant    (J3...2020)
+    """
+    #1.- Normalizamos  ¿¿??
+    #ser = (ser - ser.min())/(ser.max() - ser.min())         #Normalizamos la serie 
+
+    #2.- Creo un array con la variable independiente 'X'
+    X = np.array(range(len(ser)))  
+    serArray = ser.to_numpy()                  #creamos un array y lo llena de num consecutivos de la serie
+    #3.- Ploteamos
+    fig, ax = plt.subplots()  # Create a figure containing a single axes.
+    ax.plot(X,serArray)    
+    #4.- RegresionLineal
+       
+    
+    # Create linear regression object
+    regr = linear_model.LinearRegression()
+
+    # Train the model using the training sets
+    X1=X.reshape(-1,1)
+    #serArray.reshape(-1,1)
+    regr.fit(X1, serArray)
+
+    # Make predictions using the testing set
+    serLinearRegresion = regr.predict(X1)
+
+    #fig, bx = plt.subplots()  # Create a figure containing a single axes.
+    ax.plot(X,serLinearRegresion)    
+    
+    
+
+    return                          
+#################################################### slopeJ3()
 
 
 #################################################### slope()
 def slope(ser,n=5):
     """Function to calculate the slope of regression line for n consecutive points on a plot
-    Indicador de MOMENTO.  Sobre la base de que si el volumen subre bruscmante presionará el precio al alza.
-    Si el precio sube, suma el volumen de hoy al OBV; si baja lo resta.
-    Indicador que genrea falsas señales, NO usar solo!!
+    
     
     *** DUDAS: yo lo haria de otra manera con tensorflow u otras. Pero no reinventes la rueda, hazla girar!!!!
     No me parece que esté bien, normaliza las x, cuando es una serie de valores. lo hace en radianes. 
