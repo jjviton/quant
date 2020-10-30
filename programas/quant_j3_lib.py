@@ -17,12 +17,27 @@ from sklearn import linear_model
 #################################################### slopeJ3()
 def slopeJ3(ser,n=5):
     """Function to calculate the slope of regression line for n consecutive points on a plot
+    https://www.aprendemachinelearning.com/regresion-lineal-en-espanol-con-python/
+    Fucniona bastante bien, pero necesita una buena fuente de datos. Identificar Max/Min relativos.
         
-    *** DUDAS: 
+    *** DUDAS: esta funcion debemos acompañarla de otra que calcule los maximos//minimos relativos. Para calcular
+    la pendiente por tramos.
     
     Input Data: entrada es una serie/array/lista NO UN DATAFRAME. Hacemos una especie de rolling slope con una 
     ventana de 'n' 05.
-    Returns: 
+    Returns: pendiente[m] de la recta y el termino independiente[b]     y=mx+b
+    
+    Ejemplo:
+            m_,b_ =slopeJ3(df['Adj Close'])  # devuelve pendiente y termino independiente
+            print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
+    
+            var_03 = df.columns.get_loc("Adj Close")    # Para usar iLoc necesito la posicion de un 'label'
+            m_,b_ =slopeJ3(df.iloc[700:1100,var_03])    # devuelve pendiente y termino independiente
+            print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
+       
+            var_03 = df.columns.get_loc("Adj Close")    # Para usar iLoc necesito la posicion de un 'label'
+            m_,b_ =slopeJ3(df.iloc[900:1100,var_03])    # devuelve pendiente y termino independiente
+            print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
     
     Estado: programada 
     Origen Curso Quant    (J3...2020)
@@ -35,27 +50,27 @@ def slopeJ3(ser,n=5):
     serArray = ser.to_numpy()                  #creamos un array y lo llena de num consecutivos de la serie
     #3.- Ploteamos
     fig, ax = plt.subplots()  # Create a figure containing a single axes.
-    ax.plot(X,serArray)    
-    #4.- RegresionLineal
-       
-    
-    # Create linear regression object
+    ax.plot(X,serArray)     
+    #4.- Create linear regression object
     regr = linear_model.LinearRegression()
-
-    # Train the model using the training sets
+    #5.- Train the model using the training sets
     X1=X.reshape(-1,1)
-    #serArray.reshape(-1,1)
     regr.fit(X1, serArray)
-
-    # Make predictions using the testing set
+    #6.- Make predictions using the data set. Para dibujar la linea calculada por la regresion
     serLinearRegresion = regr.predict(X1)
-
-    #fig, bx = plt.subplots()  # Create a figure containing a single axes.
+    #7.- Pintamos la linea
     ax.plot(X,serLinearRegresion)    
-    
-    
-
-    return                          
+    #8.- parametros de la linea  y=mx+a
+    # Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente
+    print('Coefficients: \n', regr.coef_)
+    # Este es el valor donde corta el eje Y (en X=0)
+    print('Independent term: \n', regr.intercept_)
+            # Error Cuadrado Medio
+            #print("Mean squared error: %.2f" % mean_squared_error(ser, serLinearRegresion))
+            # Puntaje de Varianza. El mejor puntaje es un 1.0
+            #print('Variance score: %.2f' % r2_score(ser, serLinearRegresion))
+    # devolvemos pendente y puntoCorte
+    return(regr.coef_, regr.intercept_)                        
 #################################################### slopeJ3()
 
 
@@ -122,6 +137,27 @@ def OBV(DF):
 
 #################################################### OBV()
 
+#################################################### CAGR()
+def CAGR(DF):
+    """function to calculate Computed Annual Growth Rate
+    Beneficio anualizado en porcentaje
+
+    *** DUDAS: 
+    
+    Input Data: it needs a dataFrame containing a column [Adj_Close]
+    Returns: 
+    
+    Estado: programada 
+    Origen Curso Quant    (J3...2020)
+    """    
+    df = DF.copy()
+    df["daily_ret"] = DF["Adj Close"].pct_change()          #Porcetnaje de cambio respecto del anterior value
+    df["cum_return"] = (1 + df["daily_ret"]).cumprod()      #Return cumulative product over a DataFrame or Series axis.
+                                                            #va guardando en la celda el prodcuto acumulado de la anteriores
+    n = len(df)/252                                         #Calculo numero de años de la serie
+    CAGR = (df["cum_return"][-1])**(1/n) - 1                #Calculo CARG
+    return CAGR
+#################################################### CAGR()
 
 #################################################### Volatililty()
 def volatility(DF):
@@ -130,7 +166,7 @@ def volatility(DF):
     Basicamente es la desviacion standar de los precio repecto de la media/Esperanza matematica
     Lo multiplican por sqr(252), numero de sesiones al año  ¿¿??
     No debemos pasar mas de un año de datos
-    *** DUDAS: es un porcentage. No es una cantidad en valor absuloto euros.  quizas DataFrame.diff(periods=1, axis=0)
+    *** DUDAS: es un porcentaje. No es una cantidad en valor absuloto euros.  quizas DataFrame.diff(periods=1, axis=0)
     
     Input Data: it needs a dataFrame containing a column [Adj_Close]
     Returns: a number representing Volatility.

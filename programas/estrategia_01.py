@@ -104,10 +104,18 @@ def main():
     #ExponentialMovingAverage(df)
     #volatilidad_std, volatilidadMedia= volatility_j(df)
     #OBV(df[])
-    slopeJ3(df['Adj Close'])
+    m_,b_ =slopeJ3(df['Adj Close'])  # devuelve pendiente y termino independiente
+    print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
+    
+    var_03 = df.columns.get_loc("Adj Close")    # Para usar iLoc necesito la posicion de un 'label'
+    m_,b_ =slopeJ3(df.iloc[700:1100,var_03])    # devuelve pendiente y termino independiente
+    print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
+       
+    var_03 = df.columns.get_loc("Adj Close")    # Para usar iLoc necesito la posicion de un 'label'
+    m_,b_ =slopeJ3(df.iloc[900:1100,var_03])    # devuelve pendiente y termino independiente
+    print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
+    
    
-    
-    
     
     #Otros calculos
     
