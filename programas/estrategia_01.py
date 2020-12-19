@@ -19,6 +19,7 @@ from matplotlib import style
 import matplotlib.dates as mdates
 
 from quant_j3_lib import *  #ojo si no esta en el directorio y no se importó con PY
+from breakout import *
 
 
 style.use ('ggplot')   #poner Spider in graph automatico
@@ -32,6 +33,8 @@ def mensaje():
     'Calcula el promedio de dos números.'
     return 32
 #___________________________________________ mensaje FIN  
+
+
 
 
 ################################################## main()
@@ -91,7 +94,8 @@ def main():
     
   
     ################
-    #Ejemplos depueracion de la libreria  
+    #Ejemplos depueracion de la libreria
+    
     #df['tendencia']=tendencia_estadistica(df["Adj Close"], periodo =6, parametro=1)
     #MAX_min_Relativos(df["tendencia"], dataFrameStock= df)
     #salvarExcel(df)
@@ -104,17 +108,19 @@ def main():
     #ExponentialMovingAverage(df)
     #volatilidad_std, volatilidadMedia= volatility_j(df)
     #OBV(df[])
+    """
     m_,b_ =slopeJ3(df['Adj Close'])  # devuelve pendiente y termino independiente
     print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
-    
     var_03 = df.columns.get_loc("Adj Close")    # Para usar iLoc necesito la posicion de un 'label'
     m_,b_ =slopeJ3(df.iloc[700:1100,var_03])    # devuelve pendiente y termino independiente
     print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
-       
     var_03 = df.columns.get_loc("Adj Close")    # Para usar iLoc necesito la posicion de un 'label'
     m_,b_ =slopeJ3(df.iloc[900:1100,var_03])    # devuelve pendiente y termino independiente
     print ("LA ECUACION DE LA RECTA CALCULADA POR LA REGRESION LINEAL ES\n  y= ", m_, "X + ",b_)
+    """
     
+    #################################################### BreakOut()
+    estrategia_breakout_main()
    
     
     #Otros calculos

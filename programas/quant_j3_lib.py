@@ -11,6 +11,8 @@ import numpy as np
 import statsmodels.api as sm   #se usa en el Slope del curso, quitar
 
 from sklearn import linear_model
+from sklearn.metrics import mean_squared_error, r2_score
+from scipy.signal import find_peaks
 
 
 
@@ -18,7 +20,8 @@ from sklearn import linear_model
 def slopeJ3(ser,n=5):
     """Function to calculate the slope of regression line for n consecutive points on a plot
     https://www.aprendemachinelearning.com/regresion-lineal-en-espanol-con-python/
-    Fucniona bastante bien, pero necesita una buena fuente de datos. Identificar Max/Min relativos.
+    Regresion lineal de una nube de puntos.
+    Funciona bastante bien, pero necesita una buena fuente de datos. Identificar Max/Min relativos??.
         
     *** DUDAS: esta funcion debemos acompañarla de otra que calcule los maximos//minimos relativos. Para calcular
     la pendiente por tramos.
@@ -151,13 +154,16 @@ def CAGR(DF):
     Origen Curso Quant    (J3...2020)
     """    
     df = DF.copy()
-    df["daily_ret"] = DF["Adj Close"].pct_change()          #Porcetnaje de cambio respecto del anterior value
+    df["daily_ret"] = DF["Adj Close"].pct_change()          #Porcentaje de cambio respecto del anterior value
     df["cum_return"] = (1 + df["daily_ret"]).cumprod()      #Return cumulative product over a DataFrame or Series axis.
                                                             #va guardando en la celda el prodcuto acumulado de la anteriores
     n = len(df)/252                                         #Calculo numero de años de la serie
     CAGR = (df["cum_return"][-1])**(1/n) - 1                #Calculo CARG
     return CAGR
 #################################################### CAGR()
+
+#SharpeRatio  https://www.selfbank.es/centro-de-ayuda/fondos-de-inversion/que-es-el-ratio-de-sharpe
+
 
 #################################################### Volatililty()
 def volatility(DF):
@@ -202,7 +208,7 @@ def volatility_j(DF):
     volatilidad_std = df["daily_ret"].std()        #standart deviation en valor absoluto (entre que valores se mueve normalmente)
     volatilidadMedia=df['daily_ret'].mean()
     
-    return volatilidad_std, volatilidadMedia
+    return (volatilidad_std, volatilidadMedia)
 
 ################################################### Volatililty_j()
 
@@ -305,6 +311,7 @@ def ATR(DF,n=20):
        typical values n=20
        ATR calcula tres diferencias maximas(hoy max-min; hoyHight-previousClose; hoyLow-previousClose) 
        y se queda con la mayor. Luego media movil de n periodos 
+       Digamos que es un indicador de volatilidad reciente
        OJO: hace media simple... más interesante la ponderada exponencial
        
        Input Data: it needs a dataFrame containing a columns Hight, Low, Close
@@ -325,7 +332,7 @@ def ATR(DF,n=20):
     df2.dropna(inplace=True)                        #Quita las filas que que el ATR en nan     
     
     df2.iloc[:, [6,7]].plot()   #Pintamos 
-    return df2
+    return df2['ATR']
 #################################################### ATR
 
 
@@ -658,6 +665,7 @@ def MAX_min_Relativos(serie, dataFrameStock,tipo=1):
 ################################################## MAX_min_Relativos FIN
 
 
+
 ################################################## SalvarExcel
 def salvarExcel(df, nombreFichero):
    
@@ -698,9 +706,77 @@ def formula_cuadratica(a, b, c):
     x2 = (-b - sqrt(discriminante)) / (2 * a)
     return (x1, x2)
 ################################################## formula_cuadratica FIN
-
-
 #formula_cuadratica(2, 3, 4)
+
+
+
+################################################## MAX_min_Relativos_v2
+def MAX_min_Relativos_v2(serie, distancia = 5):
+    """ Este metodo calcula los maximos y minimos de una SERIE de un Dataframe.
+    Calcula los min/max relativos con scipy.signal y una ventana de 5 valores
+    luego con la curva de minimos hacemos una regresion lineal para saber la pendiente
+    devolvemos la pendiente y la precision con la que se ajusta (para saber la bondad)
+    
+    Si 
+
+    Comentarios J3: La funcion find_peak puede dar mucho mas juego con sus parametros. Estudiarla!!
+    
+    """
+      
+    # 1.-Calculo los max y minimos relativos
+    serieInv = serie.mul(-1) 
+    #scipy.signal.find_peaks(x, height=None, threshold=None, distance=None, prominence=None, width=None, wlen=None, rel_height=0.5, plateau_size=None)
+    peaks,_=find_peaks(serie, distance=distancia)
+    valley,_=find_peaks(serieInv, distance=distancia)
+     
+    
+    fig2=plt.figure()
+    secuencial= np.arange(0,serie.size, 1)
+    plt.plot(secuencial, serie, '.')
+    
+    plt.plot(peaks,serie[peaks],'green')
+    plt.plot(valley,serie[valley],'red')
+    #plt.plot(peaks,serie[peaks], 'x','green')
+    #plt.plot(valley,serie[valley], 'v','red')
+    plt.show()
+    
+    # 2.- Regresion lineal del periodo para dibujar la linea de tendencia
+    #3.- Ploteamos
+    X = np.array(range(len(valley))) 
+    fig, ax = plt.subplots()  # Create a figure containing a single axes.
+    #ax.plot(X,serie[peaks]) 
+    ax.plot(X,serie[valley]) 
+ 
+    #serArray = ser.to_numpy()                  #creamos un array y lo llena de num consecutivos de la serie
+    regr_p = linear_model.LinearRegression()
+    regr_v = linear_model.LinearRegression()
+    # 3.- Train the model using the training sets
+    X1=X.reshape(-1,1)
+    regr_v.fit(X1, serie[valley])
+    #6.- Make predictions using the data set. Para dibujar la linea calculada por la regresion
+    serLinearRegresion_v = regr_v.predict(X1)
+    #7.- Pintamos la linea
+    ax.plot(X,serLinearRegresion_v) 
+    ax.set_title("línea de Valores y Regresion Lineal")
+    
+    
+    # 8.- Calculo de coeficientes
+    pendiente= regr_v.coef_
+    X2=serLinearRegresion_v.reshape(-1,1)               #Reshape para cambiar filas por columnas
+    MS_error = mean_squared_error(X2,serie[valley])     #Best possible score is 0.0
+    precision = regr_v.score(X2,serie[valley])          #The best possible score is 1.0 
+    print('Pendiente', pendiente)
+    print('MeanSquareError {best=0}  ', MS_error)
+    print('Precision       {best=1}  ', precision)
+    
+    #  Creo un dataFrame con Rango, Pendiente y MS_Error y Precicision.   
+    Tendencia_ = pd.DataFrame(index=[1,2,3],columns=['rango','pendiente', 'meanSquareError', 'precicision']) #empty dataframe which will be filled with
+    
+    Tendencia_.loc[1,'pendiente']=pendiente  #♥Grabar en dataframe????
+    
+    return ()
+    
+################################################## MAX_min_Relativos_v2 FIN
 
 
 
@@ -741,6 +817,19 @@ Probar a sumar max y min crecientes a ver que pasa
 #################################### 2.- Cuento max o min consecutivos   
 
 
+
+
+"""
+
+
+"""
+CAJA de HERRRAMIENTAS
+El dia 1 el el 1-1-1.
+def convert_date_to_excel_ordinal(day, month, year):
+       offset = 693594
+       current = date(year,month,day)
+       n = current.toordinal()
+       return (n - offset)
 
 
 """
