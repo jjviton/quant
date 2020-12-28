@@ -29,10 +29,12 @@ plt.style.use("bmh")
 
 
 import quandl  #Para recoger datos
-import ta as ta
+import ta as ta  #Biblioteca generica
 
 
 from quant_j3_lib import * 
+from DataSet_J import *
+from telegram_bot import *
 
 variable_1 = 32
 variable_2 = 23
@@ -135,19 +137,22 @@ def main():
     #qd_data = quandl.get('SHARADAR/SEP', ticker='AAPL')
     # nos qudamos con los datos ajustados
     
-    start =dt.datetime(2001,1,1)
-    #start =dt.datetime.today() - dt.timedelta(days=20)
-    end = dt.datetime(2004,1,25)
-    #end= dt.datetime.today()
+    # Recogemos los valores desde yahooFinances
+    #start =dt.datetime(2000,1,1)
+    start =dt.datetime.today() - dt.timedelta(days=150)
+    #end = dt.datetime(2004,1,25)
+    end= dt.datetime.today()
     tickers = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC']  # apple,microsfoft,sp500, endesa
+    valorNum =3
     
     #a.- Leer de WEB
-    df =web.DataReader(tickers[0], 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
+    df =web.DataReader(tickers[valorNum], 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
     #df.to_csv('endesa.csv')
     #b.- Leer de .CSV
     #df = pd.read_csv('endesa.csv', parse_dates=True, index_col=0)
     #mostrar comienzo final del fichero
     
+    print(" Valores de ", tickers[valorNum])
     print(df.head())
     print(df.tail())    
     
@@ -160,9 +165,7 @@ def main():
     """     
     # 2.- Calculamos el RSI
     df['RSI']= ta.momentum.rsi(df['Close'])
-    
-    
-    
+
     # 3.- Dibujamos las gráficas
     fig, (ax1,ax2) = plt.subplots(2,1, figsize=(18, 8))
     
@@ -187,13 +190,13 @@ def main():
     
     ax1.plot(1,1,df.index, df['Close'], color="red", label='cierre')
     ax2.plot(2,1,df.index, df['RSI'], color="green", label='rsi')
-    ax2.set_xlabel('sesiones')
+    ax2.set_xlabel('Sesiones')
     ax1.set_title('Valor Cierre')
     ax2.set_title('RSI')
     ax1.set_xlim(start, end)
     ax2.set_xlim(start, end)
 
-    #Plotaer lineas constantes
+    #Plotaer lineas constantes de los limites RSI
     ax2.hlines(30,start,end, colors='yellow', linestyles='solid', label='30')
     ax2.hlines(70,start,end, colors='yellow', linestyles='solid',  label='70')
     
@@ -211,9 +214,19 @@ def main():
 
     
     #slopeJ3(df['Adj Close'])
-
-    MAX_min_Relativos_v2(df['Close'])
-   
+    #MovingAverage(df,long_=200,short_=50)
+    
+    #TESTING
+    Tendencias= MAX_min_Relativos_v3(df['Close'])
+    
+    #df['tendencia']=tendencia_estadistica(df["Adj Close"], periodo =6, parametro=1)
+    #MAX_min_Relativos(df["tendencia"], dataFrameStock= df)
+    
+    #Tendencias= MAX_min_Relativos_v2(df_test07['p'], distancia = 5)
+    #print(Tendencias.head())
+    #telegram_send('desde aqui te mandaré alertas para tu analisis')
+    
+    
 
 #Final funcion main()************************************************/
 

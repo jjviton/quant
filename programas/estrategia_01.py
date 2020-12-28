@@ -104,7 +104,7 @@ def main():
     #ATR(df)
     #BollBnd(df)
     #RSI(df)
-    #MovingAverage(df)
+    MovingAverage(df)
     #ExponentialMovingAverage(df)
     #volatilidad_std, volatilidadMedia= volatility_j(df)
     #OBV(df[])

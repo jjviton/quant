@@ -228,8 +228,8 @@ def MovingAverage(DF,long_=200,short_=50):
     df.Close.plot()     #ploatemos basicamente
     
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
-    ma_L = pd.Series( pd.Series.rolling(df['Adj Close'],long_).mean(), name='MA_'+ str(long_))
-    ma_S = pd.Series( pd.Series.rolling(df['Adj Close'],short_).mean(), name='MA_'+ str(short_))
+    ma_L = pd.Series( pd.Series.rolling(df['Close'],long_).mean(), name='MA_'+ str(long_))
+    ma_S = pd.Series( pd.Series.rolling(df['Close'],short_).mean(), name='MA_'+ str(short_))
     df=df.join(ma_L)
     df=df.join(ma_S)
     
@@ -710,71 +710,206 @@ def formula_cuadratica(a, b, c):
 
 
 
-################################################## MAX_min_Relativos_v2
-def MAX_min_Relativos_v2(serie, distancia = 5):
+################################################## MAX_min_Relativos_v3
+def MAX_min_Relativos_v3(serie, distancia = 4):
     """ Este metodo calcula los maximos y minimos de una SERIE de un Dataframe.
     Calcula los min/max relativos con scipy.signal y una ventana de 5 valores
-    luego con la curva de minimos hacemos una regresion lineal para saber la pendiente
-    devolvemos la pendiente y la precision con la que se ajusta (para saber la bondad)
     
-    Si 
+    Calculamos la pendiente entre las lienas que delimitan los maximos y/o minimos, sin regresion
 
     Comentarios J3: La funcion find_peak puede dar mucho mas juego con sus parametros. Estudiarla!!
     
     """
       
-    # 1.-Calculo los max y minimos relativos
+    # 1.-Calculo los max y minimos relativos. Distancia entre max min
     serieInv = serie.mul(-1) 
     #scipy.signal.find_peaks(x, height=None, threshold=None, distance=None, prominence=None, width=None, wlen=None, rel_height=0.5, plateau_size=None)
     peaks,_=find_peaks(serie, distance=distancia)
     valley,_=find_peaks(serieInv, distance=distancia)
-     
+    a=serie[peaks]   
+    peaksMax,_=find_peaks(a)
+    aInv=a.mul(-1)
+    peaksMin,_=find_peaks(aInv)
     
+    # 1.1.- CALCULANDO ....
+    dff = pd.DataFrame(index=[1,2,3],columns=('serie','pendiente')) 
+    dff['serie']=serie   #convierto serie en dataFrame           
+    dff.fillna(0, inplace=True)
+    XX = np.array(range(len(dff))) 
+  
+    # *.- Ploteamos    
     fig2=plt.figure()
     secuencial= np.arange(0,serie.size, 1)
-    plt.plot(secuencial, serie, '.')
-    
-    plt.plot(peaks,serie[peaks],'green')
-    plt.plot(valley,serie[valley],'red')
-    #plt.plot(peaks,serie[peaks], 'x','green')
-    #plt.plot(valley,serie[valley], 'v','red')
+    # La serie ce cierres
+    plt.plot(secuencial, serie, '.', label='serie')
+    plt.plot(secuencial, serie,'c')
+    # Picos y Valles
+    plt.plot(peaks,serie[peaks],'red', label='peaks')
+    plt.plot(valley,serie[valley],'green', label='valley')
+    plt.plot(peaks[peaksMax],a[peaksMax],'v') 
+    plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
+    plt.legend()    
     plt.show()
     
-    # 2.- Regresion lineal del periodo para dibujar la linea de tendencia
+    # 2.- Calculo la pendiente por arriba de maximos y por abajo de minimos
+    
+    j=0
+    pendiente=0
+    
+    for i in range(0, len(serie)-1):
+        #Pendiente = (incremento_de_Y / incremento_de_X)
+        a=peaks[j]
+        b=len(peaks)-2
+        c=j
+        d=i
+        if (i==peaks[j] and j<(len(peaks)-2)):
+            incremento_de_X = peaks[j+1] - peaks[j]
+            incremento_de_Y = serie[peaks[j+1]] - serie[peaks[j]]
+            pendiente = incremento_de_Y / incremento_de_X
+            j+=1
+        dff.loc[i,'pendiente']=pendiente
+    
+    
+    
+    
+    return #(Tendencia_)
+    
+################################################## MAX_min_Relativos_v3 FIN
+
+
+
+
+################################################## MAX_min_Relativos_v2
+def MAX_min_Relativos_v2(serie, distancia = 4):
+    """ Este metodo calcula los maximos y minimos de una SERIE de un Dataframe.
+    Calcula los min/max relativos con scipy.signal y una ventana de 5 valores
+    Luego con la curva de minimos hacemos una regresion lineal para saber la pendiente
+    devolvemos la pendiente y la precision con la que se ajusta (para saber la bondad)
+
+    Comentarios J3: La funcion find_peak puede dar mucho mas juego con sus parametros. Estudiarla!!
+    
+    """
+      
+    # 1.-Calculo los max y minimos relativos. Distancia entre max min
+    serieInv = serie.mul(-1) 
+    #scipy.signal.find_peaks(x, height=None, threshold=None, distance=None, prominence=None, width=None, wlen=None, rel_height=0.5, plateau_size=None)
+    peaks,_=find_peaks(serie, distance=distancia)
+    valley,_=find_peaks(serieInv, distance=distancia)
+    a=serie[peaks]   
+    peaksMax,_=find_peaks(a)
+    aInv=a.mul(-1)
+    peaksMin,_=find_peaks(aInv)
+    
+    # 1.1.- CALCULANDO MOVING AVERAGEs
+    dff = pd.DataFrame() 
+    dff['serie']=serie   #convierto serie en dataFrame
+    dff['10ma']=dff['serie'].rolling(window=10).mean() 
+    dff['20ma']=dff['serie'].rolling(window=20).mean()  
+    dff['50ma']=dff['serie'].rolling(window=50).mean()   
+    #dff.dropna(inplace=True)            #quitamos las filas/rows que tengas algun NaN... mejor sustituir por ceros
+    dff.fillna(0, inplace=True)
+    XX = np.array(range(len(dff))) 
+  
+    # *.- Ploteamos    
+    fig2=plt.figure()
+    secuencial= np.arange(0,serie.size, 1)
+    # La serie ce cierres
+    plt.plot(secuencial, serie, '.', label='serie')
+    plt.plot(secuencial, serie,'c')
+    # Picos y Valles
+    plt.plot(peaks,serie[peaks],'red', label='peaks')
+    plt.plot(valley,serie[valley],'green', label='valley')
+    plt.plot(peaks[peaksMax],a[peaksMax],'v') 
+    plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
+    # Las distintas mediasMoviles
+    plt.plot(XX, dff['10ma'], 'brown', label='10ma')
+    plt.plot(XX, dff['20ma'], 'orange', label='20ma')
+    plt.plot(XX, dff['50ma'], 'yellow', label='50ma')
+    #plt.plot(peaks,serie[peaks], 'x','green')
+    #plt.plot(valley,serie[valley], 'v','red')    
+    plt.legend()    
+    plt.show()
+    
+    # 2.- Regresion lineal del periodo dado para dibujar la linea de tendencia  (Peaks and Valleys)
     #3.- Ploteamos
     X = np.array(range(len(valley))) 
+    Xp = np.array(range(len(peaks)))
     fig, ax = plt.subplots()  # Create a figure containing a single axes.
-    #ax.plot(X,serie[peaks]) 
-    ax.plot(X,serie[valley]) 
+    ax.plot(peaks,serie[peaks], 'lightcoral',label="picos") 
+
+    ax.plot(valley,serie[valley], 'springgreen',label="valles") 
+    ax.plot(XX, dff['50ma'], 'gold', label='50ma')
  
     #serArray = ser.to_numpy()                  #creamos un array y lo llena de num consecutivos de la serie
-    regr_p = linear_model.LinearRegression()
-    regr_v = linear_model.LinearRegression()
+    regr_p  = linear_model.LinearRegression()
+    regr_v  = linear_model.LinearRegression()
+    regr_ma = linear_model.LinearRegression()
     # 3.- Train the model using the training sets
-    X1=X.reshape(-1,1)
+    #       X1=X.reshape(-1,1)
+    #       Xp1=Xp.reshape(-1,1)
+    X1=valley.reshape(-1,1)
+    Xp1=peaks.reshape(-1,1)
+    XX1=XX.reshape(-1,1)
     regr_v.fit(X1, serie[valley])
+    regr_p.fit(Xp1, serie[peaks])
+    regr_ma.fit(XX1, dff['50ma'])
+    
     #6.- Make predictions using the data set. Para dibujar la linea calculada por la regresion
     serLinearRegresion_v = regr_v.predict(X1)
-    #7.- Pintamos la linea
-    ax.plot(X,serLinearRegresion_v) 
-    ax.set_title("línea de Valores y Regresion Lineal")
+    serLinearRegresion_p = regr_p.predict(Xp1)
+    serLinearRegresion_ma = regr_ma.predict(XX1)
+    #7.- Pintamos la linea calculada con la regresión
+    ax.plot(valley,serLinearRegresion_v,'limegreen',label='Tendencia de Valles') 
+    ax.plot(peaks,serLinearRegresion_p,'red',label='Tendencia de Picos')
+    ax.plot(XX,serLinearRegresion_ma,'yellow',label='Tendencia de Moving Average-Media Móvil')
+    ax.legend()
+    ax.set_title("Línea de valores y Regresión lineal")
     
     
-    # 8.- Calculo de coeficientes
+    # 8.- Calculo de coeficientes y los guardo en un DataFrame
+    
+    #  Creo un dataFrame con Rango, Pendiente y MS_Error y Precicision.   
+    Tendencia_ = pd.DataFrame(index=[1,2,3],columns=['tipo','pendiente', 'meanSquareError_0', 'precision_1']) #empty dataframe which will be filled with
+
+    
+    #Valles
     pendiente= regr_v.coef_
     X2=serLinearRegresion_v.reshape(-1,1)               #Reshape para cambiar filas por columnas
-    MS_error = mean_squared_error(X2,serie[valley])     #Best possible score is 0.0
     precision = regr_v.score(X2,serie[valley])          #The best possible score is 1.0 
+    MS_error = mean_squared_error(X2,serie[valley])     #Best possible score is 0.0
+
+    Tendencia_.loc[1,'tipo']= 'valley'
+    Tendencia_.loc[1,'pendiente']=pendiente
+    Tendencia_.loc[1,'meanSquareError_0']=MS_error
+    Tendencia_.loc[1,'precision_1']= precision
+    
+    #Picos
+    pendiente= regr_p.coef_
+    Xp2=serLinearRegresion_p.reshape(-1,1)               #Reshape para cambiar filas por columnas
+    precision = regr_v.score(Xp2,serie[peaks])          #The best possible score is 1.0 
+    MS_error = mean_squared_error(Xp2,serie[peaks])     #Best possible score is 0.0
+
+    Tendencia_.loc[2,'tipo']= 'peaks'
+    Tendencia_.loc[2,'pendiente']=pendiente
+    Tendencia_.loc[2,'meanSquareError_0']=MS_error
+    Tendencia_.loc[2,'precision_1']= precision   
+    
+    #MovingAvarege
+    pendiente= regr_ma.coef_
+    Xma2=serLinearRegresion_ma.reshape(-1,1)               #Reshape para cambiar filas por columnas
+    precision = regr_ma.score(Xma2,dff['50ma'])          #The best possible score is 1.0 
+    MS_error = mean_squared_error(Xma2,dff['50ma'])     #Best possible score is 0.0
+
+    Tendencia_.loc[3,'tipo']= 'MovingAverage'
+    Tendencia_.loc[3,'pendiente']=pendiente
+    Tendencia_.loc[3,'meanSquareError_0']=MS_error
+    Tendencia_.loc[3,'precision_1']= precision      
+    
     print('Pendiente', pendiente)
     print('MeanSquareError {best=0}  ', MS_error)
     print('Precision       {best=1}  ', precision)
     
-    #  Creo un dataFrame con Rango, Pendiente y MS_Error y Precicision.   
-    Tendencia_ = pd.DataFrame(index=[1,2,3],columns=['rango','pendiente', 'meanSquareError', 'precicision']) #empty dataframe which will be filled with
-    
-    Tendencia_.loc[1,'pendiente']=pendiente  #♥Grabar en dataframe????
-    
-    return ()
+    return (Tendencia_)
     
 ################################################## MAX_min_Relativos_v2 FIN
 
