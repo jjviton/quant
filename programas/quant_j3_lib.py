@@ -12,7 +12,7 @@ import statsmodels.api as sm   #se usa en el Slope del curso, quitar
 
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
-from scipy.signal import find_peaks
+from scipy.signal import find_peaks, argrelextrema
 
 
 
@@ -50,7 +50,9 @@ def slopeJ3(ser,n=5):
 
     #2.- Creo un array con la variable independiente 'X'
     X = np.array(range(len(ser)))  
-    serArray = ser.to_numpy()                  #creamos un array y lo llena de num consecutivos de la serie
+    #serArray = ser.to_numpy()                  #creamos un array y lo llena de num consecutivos de la serie
+    serArray = ser 
+                               #si fuera un dataframe lo paso a numpy array 
     #3.- Ploteamos
     fig, ax = plt.subplots()  # Create a figure containing a single axes.
     ax.plot(X,serArray)     
@@ -709,31 +711,117 @@ def formula_cuadratica(a, b, c):
 #formula_cuadratica(2, 3, 4)
 
 
+################################################## MAX_min_Relativos_v3
+def tendecia_v1(df, peaks, valleys):
+    """ Vamos a intentar medir la fuerza de la tendencia de maximos decrecientes
+    tengo la serie de valores y las posiciones de maximos y minimos.
+    SIN ACABAR!!! por cambio de estrategia
+   
+    Comentarios J3: 
+      
+    Return:
+       
+    
+    """
+    
+    df['pendienteMAIN']=100   #Añado una colunma al dataframe para heredarla en el array
+    serArray = df.to_numpy()  
+    
+    # 1.-Si los maximos son decrecientes la tendencia es negativa
+    marca=0
+    for i in range (1,len(peaks)):
+        # primero: maximos decrecientes
+        if(serArray[peaks[i-1]][0]>serArray[peaks[i]][0]):   #mx van bajando
+            serArray[peaks[i]][4]=0
+            continue
+        else:   #se ha roto la tendencia bajista por un max creciente respecto del anterior
+                #Calculo la fuerza del tramo que se cierra (mejorar con regresionLineal)
+            print(peaks[i], serArray[peaks[i]][0])
+            #numero de sesiones bajando
+            print(serArray[0][0])
+            print(peaks[i])
+            marca=i  #apunto donde se rompe la tendencia
+            serArray[peaks[i]][3]=peaks[i]    #posicion en la serie
+            serArray[peaks[i]][4]=1    # mx subiendo
+            
+        # segundo: minimos crecientes
+        """
+        if(serArray[valleys[i]][0]<serArray[valleys[i+1]][0]):   #mx van bajando
+            serArray[0][3]=1
+            continue
+        else:   #se ha roto la tendencia bajista por un max creciente respecto del anterior
+                #Calculo la pendiente del tramo que se cierra (mejorar con regresionLineal)
+            print(peaks[i], serArray[peaks[i]][0])         
+        """    
+         
+    
+    
+    # 2.- Si los minimos son creciente la tendencia es positiva
+
+
+
+      
+    
+    #Devuelve el dataframe con la serie y la pendiente en cada punto.Más dos arrays de Picos y Valley.
+    return ()
+    
+################################################## tendecia_v1 FIN
+
+
+
+
 
 ################################################## MAX_min_Relativos_v3
-def MAX_min_Relativos_v3(serie, distancia = 4):
+def MAX_min_Relativos_v3(serie, distancia = 2):
     """ Este metodo calcula los maximos y minimos de una SERIE de un Dataframe.
-    Calcula los min/max relativos con scipy.signal y una ventana de 5 valores
+    Calcula los min/max relativos con scipy.signal argrelextrema y una ventana de x valores
+    La funcion Scipy find peaks no va bien pues no compara con los vecinos, mejor la greater.
     
     Calculamos la pendiente entre las lienas que delimitan los maximos y/o minimos, sin regresion
 
-    Comentarios J3: La funcion find_peak puede dar mucho mas juego con sus parametros. Estudiarla!!
+    Comentarios J3: 
+        OJO que este calculo de la tendencia es un indicador retrasado, va por detras del precio,
+        cuidado sobre todo en los ultimos valores.
+    Return:
+        Devuelve la serie + pendiente desde el max/min anterior hasta el punto atual, ultima pendiente desde ultimo
+        max/min tomando los puntos restantes.
+        Array de posicion en la serie de picos y valles.
     
     """
       
     # 1.-Calculo los max y minimos relativos. Distancia entre max min
+    """
     serieInv = serie.mul(-1) 
     #scipy.signal.find_peaks(x, height=None, threshold=None, distance=None, prominence=None, width=None, wlen=None, rel_height=0.5, plateau_size=None)
     peaks,_=find_peaks(serie, distance=distancia)
     valley,_=find_peaks(serieInv, distance=distancia)
-    a=serie[peaks]   
-    peaksMax,_=find_peaks(a)
-    aInv=a.mul(-1)
-    peaksMin,_=find_peaks(aInv)
+    """
+    # La funcion Argrelextrema busca los maximos relativos denttro de un rango de distancia 'orden'
+    # Devuelve una tupla de arrays
+    #serie['marcas_Mx_Mn']=1   #Añado una colunma al dataframe para heredarla en el array
+    serArray = serie.to_numpy()   
+    peaks=argrelextrema(serArray, np.greater, order=distancia)
+    valley=argrelextrema(serArray, np.less, order=distancia)
     
+    """  Ejemplo de la persona de telegram. Python ++
+    f[pair]['min'] = df[pair].iloc[argrelextrema(price.values, np.less_equal, order = 100)[-1]]
+    df[pair]['max'] = df[pair].iloc[argrelextrema(price.values, np.greater_equal, order = 100)[-1]]
+    """
+
     # 1.1.- CALCULANDO ....
-    dff = pd.DataFrame(index=[1,2,3],columns=('serie','pendiente')) 
-    dff['serie']=serie   #convierto serie en dataFrame           
+    dff = pd.DataFrame(columns=('serie','pendiente_MX','pendiente_MN','marcasMxMn'))   #index=[1,2,3],
+    dj =pd.DataFrame()
+    
+    for i in range(0, len(serie)):  
+        dff.loc[i,'serie']=serie[i]     #copio la serie porque al ser una serie temporal tiempo index time y no un secuencial   
+    
+    #Grabo los picos y valles en el array
+    for i in range(0,len(peaks[0])):
+        dff.loc[peaks[0][i],'marcasMxMn']=2
+    for i in range(0,len(valley[0])):
+        dff.loc[valley[0][i],'marcasMxMn']=1
+        
+    
     dff.fillna(0, inplace=True)
     XX = np.array(range(len(dff))) 
   
@@ -744,35 +832,122 @@ def MAX_min_Relativos_v3(serie, distancia = 4):
     plt.plot(secuencial, serie, '.', label='serie')
     plt.plot(secuencial, serie,'c')
     # Picos y Valles
-    plt.plot(peaks,serie[peaks],'red', label='peaks')
-    plt.plot(valley,serie[valley],'green', label='valley')
-    plt.plot(peaks[peaksMax],a[peaksMax],'v') 
-    plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
+    plt.plot(peaks[0],serie[peaks[0]],'red', label='peaks')
+    plt.plot(valley[0],serie[valley[0]],'green', label='valley')
+    #plt.plot(peaks[peaksMax],a[peaksMax],'v') 
+    #plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
     plt.legend()    
     plt.show()
     
     # 2.- Calculo la pendiente por arriba de maximos y por abajo de minimos
-    
-    j=0
+    #Peaks--------------------
+    j=1
     pendiente=0
     
-    for i in range(0, len(serie)-1):
+    for i in range(1, len(serie)-1):
         #Pendiente = (incremento_de_Y / incremento_de_X)
-        a=peaks[j]
-        b=len(peaks)-2
+        #a=peaks[0][j]
+        b=len(peaks[0])
         c=j
         d=i
-        if (i==peaks[j] and j<(len(peaks)-2)):
-            incremento_de_X = peaks[j+1] - peaks[j]
-            incremento_de_Y = serie[peaks[j+1]] - serie[peaks[j]]
-            pendiente = incremento_de_Y / incremento_de_X
-            j+=1
-        dff.loc[i,'pendiente']=pendiente
+        if( j<=(len(peaks[0])-1)):
+            if ((i)==peaks[0][j]):
+                incremento_de_X = peaks[0][j] - peaks[0][j-1]  
+                incremento_de_Y =  serie[peaks[0][j]] - serie[peaks[0][j-1]] 
+                pendiente = incremento_de_Y / incremento_de_X
+                j+=1
+        dff.loc[i,'pendiente_MX']=pendiente
+    
+    #Valleys------------------------
+    j=1
+    pendiente=0
+    
+    for i in range(1, len(serie)-1):
+        #Pendiente = (incremento_de_Y / incremento_de_X)
+        #a=peaks[0][j]
+        b=len(peaks[0])
+        c=j
+        d=i
+        if( j<=(len(valley[0])-1)):
+            if ((i)==valley[0][j]):
+                incremento_de_X = valley[0][j] - valley[0][j-1]  
+                incremento_de_Y =  serie[valley[0][j]] - serie[valley[0][j-1]] 
+                pendiente = incremento_de_Y / incremento_de_X
+                j+=1
+        dff.loc[i,'pendiente_MN']=pendiente
+        
+        
+    # Ultimo tramo de la recta (no tengo referecnias, regresion lineal¿?)
+    
+    """tengo que trabajar mejor el final de la serie que es lo importante para divergencias
+    creo que desde el ultimo punto pico/valley calcular regresion
+    """
+    
+    ###########################################################################
+    # Calculo la tendencia de la cola de datos desde el ultimo max/min.   
+    z = serie[-1]               #ultimo valor de la serie
+    p = serie[peaks[0][-1]]     #ultimo valor de la serie de maximos
+    v = serie[valley[0][-1]]    #ultimo valor de la serie de maximos
+    
+    if(peaks[0][-1] > valley[0][-1]):    #ultimo valor es un pico
+        x=peaks[0][-1]
+        cola = serArray[x:]
+    else:
+        x=valley[0][-1]
+        cola = serArray[x:]
+        
+    print(x)
+    print('cola =',cola)
+    """
+    incre_Y=cola[len(cola)-1]-cola[0]
+    incre_X=len(cola)-1
+    pendiente = incre_Y / incre_X
+    print (pendiente)
+    for i in range(x, len(dff)):
+        dff.loc[i,'pendiente_MN']=pendiente
+        dff.loc[i,'pendiente_MX']=pendiente 
+    """
+    
+    # CAlculo la pendiente de la cola de datos con regresion lineal
+    pendiente, independiente = slopeJ3(cola)
+    for i in range(x, len(dff)):
+        dff.loc[i,'pendiente_MN']=pendiente
+        dff.loc[i,'pendiente_MX']=pendiente     
     
     
+    """ 
+    ### ESPECIAL para el ultimo tramo de la serie desde el ultimo MAX/min  ¿hacer una regresion para determinar ultimas tendencias?
+    ## Especial, trato el último dato de la serie que siempre se queda fuera de el array [peaks], por tener una ventana de 4
+    z = serie[-1]           #ultimo valor de la serie
+    y = serie[peaks[-1]]    #ultimo valor de la serie de maximos
+    if z>=y:
+        peaks=np.append(peaks, len(serie)-1)
+        #peaks[1+len(peaks)] = z
+    else:
+        valley=np.append(valley, len(serie)-1)
+    """
+        
     
+    #salvarExcel(dff, 'pendiente_5enero') 
+        
+    # *.- Ploteamos    
+    fig2=plt.figure()
+    secuencial= np.arange(0,dff['serie'].size, 1)
+    # La serie ce cierres
+    plt.plot(secuencial, dff['serie'], '.', label='serie')
+    plt.plot(secuencial, dff['serie'],'c')
+    plt.plot(secuencial, 20+5*dff['pendiente_MX'],'tomato', label='pendiente_MX')
+    plt.plot(secuencial, 20+5*dff['pendiente_MN'],'palegreen', label='pendiente_MN')
+    # Picos y Valles
+    plt.plot(peaks[0],serie[peaks[0]],'red', label='peaks')
+    plt.plot(valley[0],serie[valley[0]],'green', label='valley')
+    #plt.plot(peaks[peaksMax],a[peaksMax],'v') 
+    #plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
+    plt.legend()    
+    plt.show()         
     
-    return #(Tendencia_)
+    #Devuelve el dataframe con la serie y la pendiente en cada punto.Más dos arrays de Picos y Valley.
+    return (dff, peaks[0], valley[0])
     
 ################################################## MAX_min_Relativos_v3 FIN
 
