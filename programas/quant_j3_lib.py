@@ -5,6 +5,9 @@ Created on Sun Sep 13 11:28:48 2020
 @author: INNOVACION
 """
 
+J3_DEBUG__ = True
+
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -77,6 +80,36 @@ def slopeJ3(ser,n=5):
     # devolvemos pendente y puntoCorte
     return(regr.coef_, regr.intercept_)                        
 #################################################### slopeJ3()
+
+
+#################################################### slopeJ3()
+def slopeJ3_2points(x1,y1,x2,y2):
+    """Funcion que calcula pendiente y punto de corte para dos puntos dadosde una serie temporal. 
+    *** DUDAS: 
+    
+    Input Data: dos puntos (timeStamp_1, precio_1)
+    Returns: pendiente[m] de la recta y el termino independiente[b]     y=mx+b
+    
+    Ejemplo:
+    
+    Estado: programandose
+    Origen J3   (J3...2020)
+    """
+    pendiente_= (y2-y1)/(x2-x1)
+    pto_corte_= (y1)-(pendiente_*x1)
+ 
+    
+    if (J3_DEBUG__):
+        print('***************** Pendiente de dos puntos:')
+        # Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente
+        print('\t Coefficients: ', pendiente_)
+        # Este es el valor donde corta el eje Y (en X=0)
+        print('\t Pto corte: ', pto_corte_)
+        print('\n')
+            
+    # devolvemos pendente y puntoCorte
+    return(pendiente_, pto_corte_)                        
+#################################################### slopeJ3_2points()
 
 
 #################################################### slope()

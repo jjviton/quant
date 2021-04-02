@@ -14,11 +14,13 @@ Animo....
 
 """
 
+
+
 ################################ IMPORTAMOS MODULOS A UTILIZAR.
 import pandas as pd
 import numpy as np
 import itertools
-import seaborn as sns
+#import seaborn as sns
 import datetime as dt
 import pandas_datareader as web
 
@@ -107,6 +109,31 @@ class Person:
 #################################################### Clases FIN
 
 
+#################################################### Clase para testing
+
+class TestingClass:
+
+    """CLASE PARA TESTEO
+    
+    Con esta funcion vamos a gestionar el testeo de funiones y el modo debug para 
+    pintar graficos y cademas.
+    Tenemos la variable global __J3 Debug, tendria que cambiarlo a uyn metodo.
+       
+    """    
+    def __init__(self, para1, para2):
+        self.para_01 = para1
+        self.para_02 = para2
+
+    def myfunc(self):
+        'docuemntacion sencilla...'
+        print("Hello my parametro is " + self.para_02)
+        
+    def testing_123(self):
+        slopeJ3_2points(1,3,2,4)
+
+#################################################### Clases FIN
+
+
 
 #/******************************** FUNCION PRINCIPAL main() *********/
 def main():
@@ -131,6 +158,15 @@ def main():
     ValueError -- Si (a == 0)
     
     """    
+    
+    """
+    TESTEO DE FUNCIONES ............................................................
+    """
+    #Llamadas a la Clase
+    ##### objetoTEST = TestingClass (3,2)
+    #objetoTEST.testing_123()
+    
+    
     # 1.- RECOGEMOS DATOS DE UNA FUENTE FIABLE (QUANDL/YFINANCES)
     #quandl.ApiConfig.api_key = "_T1Kr-ySr5mkA3Za1bKb" # mi clave
     #qd_data = quandl.get("AAPL", start_date= "2010-01-01", end_date= "2020-01-01")
@@ -138,12 +174,14 @@ def main():
     # nos qudamos con los datos ajustados
     
     # Recogemos los valores desde yahooFinances
-    start =dt.datetime(2015,1,1)
+    start =dt.datetime(2000,1,1)
     #start =dt.datetime.today() - dt.timedelta(days=150)
-    #end = dt.datetime(2004,1,25)
+    #end = dt.datetime(2020,12,30)
     end= dt.datetime.today()- dt.timedelta(days=2)
-    tickers = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC']  # apple,microsfoft,sp500, endesa
-    valorNum =3
+    
+    
+    tickers = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
+    valorNum = 5
     
     #a.- Leer de WEB
     df =web.DataReader(tickers[valorNum], 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
@@ -228,6 +266,8 @@ def main():
     '''
 
     # #################################################
+    # #################################################
+    # #################################################    
     # VAMOS A CREAR LA ESTRATEGIA 
     
     # 1.- Buscamos divergencia preci versu RSI en niveles de RSI de Sobrevendido (<30) 
@@ -239,87 +279,183 @@ def main():
     valorMax =0
     valor2MaxDecreciente =0
     indice2MaxDecreciente =0
+    var2Max_RSI=0
+    date2varMax_RSI=0
     fecha=0
+    diaInicioPrecio=dt.datetime.today()
+    diaInicioRSI=dt.datetime.today()
+    diaFinPrecio=dt.datetime.today()
+    diaFinRSI=dt.datetime.today()
+    ref_KeyData =1
     
     rsi_=df.columns.get_loc("RSI")
     marcaMxMn_=dff.columns.get_loc("marcasMxMn")
     valorSerie_=dff.columns.get_loc("serie")
-    
+
+    datosRelevantes = pd.DataFrame(columns=('fecha1', 'valorMIN_1', 'fecha2','valorMIN_2','fechaRSI1', 'valorMIN_RSI_1', 'fechaRSI2','valorMIN_RSI_2','fechaValorMAX_1','valorMAX_1','fechaValorMAX_2','valorMAX_2' ))    
     
     marca='buscando_RSI'
     marca2='nada'
     marca3='nada'
+    i_1=0
+    i_2=0
+    maxBajando = False
+    RSIsubiendo = False
+    
+    
     for i in range(15,len(df)):     #me falta saber como conseguir el indice numerico de una etiqueta
         
-        if(i==101):
+        if(i==174):
             a=5
     
-        # RSI menos de 30    
-        if(marca== 'buscando_RSI' and df.iloc[i,rsi_]<40):   #Me tegno que currar un maquina de estados son switch/case
-            print ('rsi <40  en', i)   
+        # RSI menos de 30 **************************************************************************RSI    
+        if(marca== 'buscando_RSI' and df.iloc[i,rsi_] < 20):   #Me tegno que currar un maquina de estados son switch/case
+            #print ('rsi <40  en', i)   
             marca='RSI_encontrado'
             index_de_RSI_menor_que_valor =df.index[i]
-        if(marca== 'RSI_encontrado' and df.iloc[i,rsi_]>50):   #el RSI se sale de overSlod
+        if(marca== 'RSI_encontrado' and df.iloc[i,rsi_] > 40):   #el RSI se sale de overSlod
             marca='buscando_RSI'
             marca2= 'nada'
             marca3= 'nada'
             #marca='RSI_encontrado'  # quitar solo para testeo del rango 100!!!!
+        #********************************************************************************************RSI
         
         
-        # maximos del precio decreciendo
+        # SON MINIMOS del precio decreciendo
         if(marca== 'RSI_encontrado'): 
-            # maximos del precio decreciendo
-            if (dff.iloc[i,marcaMxMn_] == 2 and marca2== 'nada'):
+            # minimos del precio decreciendo**************************************** valor_Min_decreciente
+            if (dff.iloc[i,marcaMxMn_] == 1 and marca2== 'nada'):
                 marca2= 'primerMax'
-                varMax=dff.iloc[i,0]
+                varMax=dff.iloc[i,0]  #almaceno posicion
                 valorMax =dff.iloc[i,0]
                 datevalorMax = df.index[i]
-            if (dff.iloc[i,marcaMxMn_] == 2 and marca2== 'primerMax' and 
+                diaInicioPrecio =df.index[i]
+                i_1=i
+                #print ("señal 20 en" ,i)
+                
+            if (dff.iloc[i,marcaMxMn_] == 1 and 
+                (marca2== 'primerMax' or marca2== 'ultimoMaxDecreciente') and 
                 dff.iloc[i,0] < varMax):
-                marca2= 'segundoMaxDecreciente'            
+                
+                varMax=dff.iloc[i,0]  #almaceno posicion
+                marca2= 'ultimoMaxDecreciente'            
                 valor2MaxDecreciente=dff.iloc[i,0]
                 datevalor2MaxDecreciente = df.index[i]
                 indice2MaxDecreciente = i
-                
-            if (dff.iloc[i,marcaMxMn_] == 2 and marca2== 'primerMax' and 
-                dff.iloc[i,0] > varMax):
+                diaFinPrecio =df.index[i]
+                i_2=i
+                #print ("señal 21 en" ,i)
+                            
+            if (dff.iloc[i,marcaMxMn_] == 1 and                 
+                (marca2== 'primerMax' or marca2== 'ultimoMaxDecreciente') and                 
+                dff.iloc[i,0] > varMax):                
                 #no es maximo decreciente
-                marca2= 'nada'                            
-            
+                marca2= 'nada'   
+                diaInicioPrecio =dt.datetime.today()
+                diaFinPrecio =dt.datetime.today()
+                #print ("señal 22 en" ,i)                         
+            #*********************************************************************** Valor_Min_decreciente
        
             
-            # minimos RSI creciente
+            # *********************************************************************  mínimos RSI creciente
             if (dff_RSI.iloc[i,marcaMxMn_] == 1 and marca3== 'nada'):
                 marca3= 'primerMIN_RSI'
-                varMax_RSI=dff.iloc[i,0]
+                varMax_RSI=dff_RSI.iloc[i,0]
+                valorMax_RSI =dff_RSI.iloc[i,0]
                 datevarMax_RSI=df.index[i]
-            if (dff_RSI.iloc[i,marcaMxMn_] == 1 and marca3== 'primerMIN_RSI' and 
-                dff.iloc[i,0] > varMax_RSI):
-                marca3= 'segundoMinCreciente_RSI'
-                var2Max_RSI=dff.iloc[i,0]
+                diaInicioRSI =df.index[i]
+                
+            if (dff_RSI.iloc[i,marcaMxMn_] == 1 and 
+                (marca3== 'primerMIN_RSI' or marca3== 'ultimoMinCreciente_RSI')and                                 
+                dff_RSI.iloc[i,0] > varMax_RSI):
+
+                varMax_RSI=dff_RSI.iloc[i,0]  #almaceno posicion
+                marca3= 'ultimoMinCreciente_RSI'
+                var2Max_RSI=dff_RSI.iloc[i,0]
                 date2varMax_RSI=df.index[i]
-            if (dff_RSI.iloc[i,marcaMxMn_] == 1 and marca3== 'primerMIN_RSI' and 
-                dff.iloc[i,0] < varMax_RSI):
+                diaFinRSI =df.index[i]
+
+
+            if (dff_RSI.iloc[i,marcaMxMn_] == 1 and 
+                (marca3== 'primerMIN_RSI' or marca3== 'ultimoMinCreciente_RSI')and 
+                dff_RSI.iloc[i,0] < varMax_RSI):
                 # minimo no creciente
                 marca3= 'nada'
-
-
+                diaInicioRSI =dt.datetime.today()
+                diaFinRSI =dt.datetime.today()
+            # *********************************************************************  mínimos RSI creciente
+                
+            
+            # ************************************ Fechas en mismo intervalo temporal
+            ventana = 20   #ubicar en el mismo tiempo las dos condiciones
+            if (( dt.timedelta(days=ventana) > abs(diaInicioPrecio - diaInicioRSI )) and 
+                ( dt.timedelta(days=ventana) > abs (diaFinPrecio - diaFinRSI ))):
+                intervaloValido=True
+            else:
+                intervaloValido=False
+            
+            # ************************************* Determinar la tendencia de los Maximos del valor, para esperar la ruptura
+            
+            #1.-Buscar los maximos en el intervalo donde se dan las condiciones anteriores
+            if((intervaloValido and marca2== 'ultimoMaxDecreciente' and marca3== 'ultimoMinCreciente_RSI') and (True)): 
                 
                 
-            if(marca2== 'segundoMaxDecreciente' and marca3== 'segundoMinCreciente_RSI'):
+                #J3
+                ventanita = 5 
+                primero=False
+                for jj in range((i_1-ventanita),(i_2+ventanita)):   # Intervalo de lon minimos consecutivos
+                    if(dff.iloc[jj,marcaMxMn_] == 2):      #busco marca de maximo en la tabla
+                        if (primero ==False):
+                            
+                            valor_1=dff.iloc[jj,0]
+                            valor_2=dff.iloc[jj,0]
+                            fechaValor_1= df.index[jj]
+                            fechaValor_2= df.index[jj]
+                            primero=True
+                        else:
+                            valor_2=dff.iloc[jj,0]
+                            fechaValor_2= df.index[jj]
+                   
+                #slopeJ3_2points(x1,y1,x2,y2):                
+                #slopeJ3_2points(fechaValor_1,valor_1,fechaValor_2,valor_2)      
+                #revisar si Dff y Df cumplen para calcular la pendiente          
+           
+            
+            
+            # **************************************************** PRESENTACION DE RESUTLADO Y EXCEL
+            
+            #2.- Creo un dataFrame para almacenar PUNTOS RELEVANTES
+  
+            if(intervaloValido and marca2== 'ultimoMaxDecreciente' and marca3== 'ultimoMinCreciente_RSI'):   #ojo
                 print ("señal en" ,i)
-                print ('index_de_RSI_menor_que_valor',index_de_RSI_menor_que_valor)
+                print ('index_de_RSI_menor_que_valor',index_de_RSI_menor_que_valor)                
                 print ('valorMax',valorMax, 'en fecha', datevalorMax)
-                print ('valor2MaxDecreciente',valor2MaxDecreciente, 'en fecha', datevalor2MaxDecreciente)
-                    
-                print ('valorMin RSI',varMax_RSI , 'en fecha', datevarMax_RSI )
+                print ('valor2MaxDecreciente',valor2MaxDecreciente, 'en fecha', datevalor2MaxDecreciente)                    
+                print ('valorMin RSI',valorMax_RSI , 'en fecha', datevarMax_RSI )
                 print ('valor2MinCrecietne RSI',var2Max_RSI, 'en fecha', date2varMax_RSI)
-                    
-                    
-                    
                 print ('fecha', df.index[i])
-                    
-                break
+                
+                datosRelevantes.loc[ref_KeyData,'valorMIN_1']= valorMax
+                datosRelevantes.loc[ref_KeyData,'valorMIN_2']= valor2MaxDecreciente
+                datosRelevantes.loc[ref_KeyData,'fecha1']= datevalorMax
+                datosRelevantes.loc[ref_KeyData,'fecha2']= datevalor2MaxDecreciente
+ 
+                datosRelevantes.loc[ref_KeyData,'valorMIN_RSI_1']= valorMax_RSI
+                datosRelevantes.loc[ref_KeyData,'valorMIN_RSI_2']= var2Max_RSI
+                datosRelevantes.loc[ref_KeyData,'fechaRSI1']= datevarMax_RSI
+                datosRelevantes.loc[ref_KeyData,'fechaRSI2']= date2varMax_RSI
+                
+                datosRelevantes.loc[ref_KeyData,'valorMAX_1']= valor_1
+                datosRelevantes.loc[ref_KeyData,'valorMAX_2']= valor_2
+                datosRelevantes.loc[ref_KeyData,'fechaValorMAX_1']= fechaValor_1
+                datosRelevantes.loc[ref_KeyData,'fechaValorMAX_2']= fechaValor_2
+                
+    
+                
+                ref_KeyData =ref_KeyData+1
+
+                   
+                continue #break
         
     """ 
     señal en 773
@@ -330,10 +466,11 @@ def main():
     valor2MinCrecietne RSI 18.125 en fecha 2018-01-08 00:00:00
     fecha 2018-01-09 00:00:00
     """
+      
         
-        
-        
-        
+    print(datosRelevantes.head())
+    print(datosRelevantes.tail())          
+    salvarExcel(datosRelevantes , tickers[valorNum]+"_señal_PRECIO_RSI")    
     
     
     
@@ -346,9 +483,9 @@ def main():
     #salvarExcel(dff, "tendencia_3")
     
     
-    print(dff.tail())
-    print(valleys)
-    print(peaks)
+    #print(dff.tail())
+    #print(valleys)
+    #print(peaks)
     
     #df['tendencia']=tendencia_estadistica(df["Adj Close"], periodo =6, parametro=1)
     #MAX_min_Relativos(df["tendencia"], dataFrameStock= df)
