@@ -186,12 +186,13 @@ def main():
     #valorNum = 7
     for i in range(len(tickers)): 
         analisis(tickers[i], start, end)
-        
+     
+    print ("that´s all")        
     
 #/******************************** FUNCION PRINCIPAL main() *********/ 
     
 def analisis(instrumento, start, end):
-    """Estrategia basica, v0
+    """Estrategia divergencias Precio vr RSI, v0
 
     Funcion que recibe el nombre de un insturmeto para analizar. busca datos en Yahoo y realiza la priemra estrategia con 
     por divergencias con RSI y graba un excel.
@@ -264,7 +265,7 @@ def analisis(instrumento, start, end):
     ax1.plot(1,1,df.index, df['Close'], color="red", label='cierre')
     ax2.plot(2,1,df.index, df['RSI'], color="green", label='rsi')
     ax2.set_xlabel('Sesiones')
-    ax1.set_title('Valor Cierre')
+    ax1.set_title('Valor Cierre  '+instrumento)
     ax2.set_title('RSI')
     ax1.set_xlim(start, end)
     ax2.set_xlim(start, end)
@@ -526,7 +527,7 @@ def analisis(instrumento, start, end):
     print(datosRelevantes.tail())          
     salvarExcel(datosRelevantes , "deliverables/"+instrumento+"_señal_PRECIO_RSI")  
     
-    print ("that´s all")
+
     
     
     

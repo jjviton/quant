@@ -5,7 +5,7 @@ Created on Sun Sep 13 11:28:48 2020
 @author: INNOVACION
 """
 
-J3_DEBUG__ = True
+J3_DEBUG__ = False
 
 
 import pandas as pd
@@ -269,9 +269,10 @@ def MovingAverage(DF,long_=200,short_=50):
     df=df.join(ma_S)
     
     #visualizar
-    print (df.head())
-    dfAux=df[['Adj Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
-    dfAux.plot(figsize=(16,8),title='Moving Average')
+    if (J3_DEBUG__):
+        print (df.head())
+        dfAux=df[['Adj Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
+        dfAux.plot(figsize=(16,8),title='Moving Average')
   
     return df
 
@@ -858,19 +859,20 @@ def MAX_min_Relativos_v3(serie, distancia = 2):
     dff.fillna(0, inplace=True)
     XX = np.array(range(len(dff))) 
   
-    # *.- Ploteamos    
-    fig2=plt.figure()
-    secuencial= np.arange(0,serie.size, 1)
-    # La serie ce cierres
-    plt.plot(secuencial, serie, '.', label='serie')
-    plt.plot(secuencial, serie,'c')
-    # Picos y Valles
-    plt.plot(peaks[0],serie[peaks[0]],'red', label='peaks')
-    plt.plot(valley[0],serie[valley[0]],'green', label='valley')
-    #plt.plot(peaks[peaksMax],a[peaksMax],'v') 
-    #plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
-    plt.legend()    
-    plt.show()
+    # *.- Ploteamos   
+    if (J3_DEBUG__):
+        fig2=plt.figure()
+        secuencial= np.arange(0,serie.size, 1)
+        # La serie ce cierres
+        plt.plot(secuencial, serie, '.', label='serie')
+        plt.plot(secuencial, serie,'c')
+        # Picos y Valles
+        plt.plot(peaks[0],serie[peaks[0]],'red', label='peaks')
+        plt.plot(valley[0],serie[valley[0]],'green', label='valley')
+        #plt.plot(peaks[peaksMax],a[peaksMax],'v') 
+        #plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
+        plt.legend()    
+        plt.show()
     
     # 2.- Calculo la pendiente por arriba de maximos y por abajo de minimos
     #Peaks--------------------
@@ -963,21 +965,22 @@ def MAX_min_Relativos_v3(serie, distancia = 2):
     
     #salvarExcel(dff, 'pendiente_5enero') 
         
-    # *.- Ploteamos    
-    fig2=plt.figure()
-    secuencial= np.arange(0,dff['serie'].size, 1)
-    # La serie ce cierres
-    plt.plot(secuencial, dff['serie'], '.', label='serie')
-    plt.plot(secuencial, dff['serie'],'c')
-    plt.plot(secuencial, 20+5*dff['pendiente_MX'],'tomato', label='pendiente_MX')
-    plt.plot(secuencial, 20+5*dff['pendiente_MN'],'palegreen', label='pendiente_MN')
-    # Picos y Valles
-    plt.plot(peaks[0],serie[peaks[0]],'red', label='peaks')
-    plt.plot(valley[0],serie[valley[0]],'green', label='valley')
-    #plt.plot(peaks[peaksMax],a[peaksMax],'v') 
-    #plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
-    plt.legend()    
-    plt.show()         
+    # *.- Ploteamos  
+    if (J3_DEBUG__):
+        fig2=plt.figure()
+        secuencial= np.arange(0,dff['serie'].size, 1)
+        # La serie ce cierres
+        plt.plot(secuencial, dff['serie'], '.', label='serie')
+        plt.plot(secuencial, dff['serie'],'c')
+        plt.plot(secuencial, 20+5*dff['pendiente_MX'],'tomato', label='pendiente_MX')
+        plt.plot(secuencial, 20+5*dff['pendiente_MN'],'palegreen', label='pendiente_MN')
+        # Picos y Valles
+        plt.plot(peaks[0],serie[peaks[0]],'red', label='peaks')
+        plt.plot(valley[0],serie[valley[0]],'green', label='valley')
+        #plt.plot(peaks[peaksMax],a[peaksMax],'v') 
+        #plt.plot(peaks[peaksMin],a[peaksMin],'v',color='yellow') 
+        plt.legend()    
+        plt.show()         
     
     #Devuelve el dataframe con la serie y la pendiente en cada punto.Más dos arrays de Picos y Valley.
     return (dff, peaks[0], valley[0])
