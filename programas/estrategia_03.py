@@ -130,6 +130,8 @@ class TestingClass:
         
     def testing_123(self):
         slopeJ3_2points(1,3,2,4)
+    def debugging_(self):
+        return (J3_DEBUG__)
 
 #################################################### Clases FIN
 
@@ -181,16 +183,45 @@ def main():
     
     
     tickers = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
-    valorNum = 5
+    #valorNum = 7
+    for i in range(len(tickers)): 
+        analisis(tickers[i], start, end)
+        
+    
+#/******************************** FUNCION PRINCIPAL main() *********/ 
+    
+def analisis(instrumento, start, end):
+    """Estrategia basica, v0
+
+    Funcion que recibe el nombre de un insturmeto para analizar. busca datos en Yahoo y realiza la priemra estrategia con 
+    por divergencias con RSI y graba un excel.
+    
+        
+    Utiliza la fórmula general (también conocida
+    coloquialmente como el "chicharronero").
+
+    Parámetros:
+    a -- 
+    b -- 
+    c -- 
+    
+    Devuelve:
+    Valores trabajados y ordenados
+
+    Excepciones:
+    ValueError -- Si (a == 0)
+    
+    """      
     
     #a.- Leer de WEB
-    df =web.DataReader(tickers[valorNum], 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
+    #df =web.DataReader(tickers[valorNum], 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
+    df =web.DataReader(instrumento, 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
     #df.to_csv('endesa.csv')
     #b.- Leer de .CSV
     #df = pd.read_csv('endesa.csv', parse_dates=True, index_col=0)
     #mostrar comienzo final del fichero
     
-    print(" Valores de ", tickers[valorNum])
+    print(" Valores de ", instrumento)
     print(df.head())
     print(df.tail())    
     
@@ -204,6 +235,9 @@ def main():
     # 2.- Calculamos el RSI
     df['RSI']= ta.momentum.rsi(df['Close'])
     df['MiIndice']= list(range(len(df)))
+    
+    # 2bis.- Calculamos MA
+    df= MovingAverage(df,long_=40,short_=10)
 
     # 3.- Dibujamos las gráficas
     fig, (ax1,ax2) = plt.subplots(2,1, figsize=(18, 8))
@@ -395,34 +429,53 @@ def main():
                 intervaloValido=False
             
             # ************************************* Determinar la tendencia de los Maximos del valor, para esperar la ruptura
+            # estamos analizando si sería mejor la rotura de la media movil de las ultimas sesiones, da un efecto parecido ¿vale?
             
             #1.-Buscar los maximos en el intervalo donde se dan las condiciones anteriores
-            if((intervaloValido and marca2== 'ultimoMaxDecreciente' and marca3== 'ultimoMinCreciente_RSI') and (True)): 
-                
-                
-                #J3
-                ventanita = 5 
-                primero=False
-                for jj in range((i_1-ventanita),(i_2+ventanita)):   # Intervalo de lon minimos consecutivos
-                    if(dff.iloc[jj,marcaMxMn_] == 2):      #busco marca de maximo en la tabla
-                        if (primero ==False):
-                            
-                            valor_1=dff.iloc[jj,0]
-                            valor_2=dff.iloc[jj,0]
-                            fechaValor_1= df.index[jj]
-                            fechaValor_2= df.index[jj]
-                            primero=True
-                        else:
-                            valor_2=dff.iloc[jj,0]
-                            fechaValor_2= df.index[jj]
-                   
-                #slopeJ3_2points(x1,y1,x2,y2):                
-                #slopeJ3_2points(fechaValor_1,valor_1,fechaValor_2,valor_2)      
-                #revisar si Dff y Df cumplen para calcular la pendiente          
+            if (False):     # quito esta parte en favor de las medias moviles
+                if((intervaloValido and marca2== 'ultimoMaxDecreciente' and marca3== 'ultimoMinCreciente_RSI') and (True)): 
+                    
+                    
+                    #J3
+                    ventanita = 5 
+                    primero=False
+                    for jj in range((i_1-ventanita),(i_2+ventanita)):   # Intervalo de lon minimos consecutivos
+                        if(dff.iloc[jj,marcaMxMn_] == 2):      #busco marca de maximo en la tabla
+                            if (primero ==False):
+                                
+                                valor_1=dff.iloc[jj,0]
+                                valor_2=dff.iloc[jj,0]
+                                fechaValor_1= df.index[jj]
+                                fechaValor_2= df.index[jj]
+                                primero=True
+                            else:
+                                valor_2=dff.iloc[jj,0]
+                                fechaValor_2= df.index[jj]
+                       
+                    #slopeJ3_2points(x1,y1,x2,y2):                
+                    #slopeJ3_2points(fechaValor_1,valor_1,fechaValor_2,valor_2)      
+                    #revisar si Dff y Df cumplen para calcular la pendiente          
            
+            #1bis.- Analisis con MediaMovil del punto de entrada
+
+            # Ya tengo la MA corta y larga; ahora comprobar que le precio supere al alza
+                             #J3
+            ventanita = 20 
+            close_=df.columns.get_loc("Close")
+            ma_=df.columns.get_loc("MA_10")
+            for jj in range((i),(i+ventanita)):   # busco el corte en futuro inmediato
+                if(jj>len(df)):
+                    break
+                if(df.iloc[jj,close_] > df.iloc[jj,ma_]):
+                    valor_2=dff.iloc[jj,0]
+                    fechaValor_2= df.index[jj]
+                    break
+            
+                
             
             
-            # **************************************************** PRESENTACION DE RESUTLADO Y EXCEL
+            
+            # **************************************************** PRESENTACION DE RESULTADO Y EXCEL
             
             #2.- Creo un dataFrame para almacenar PUNTOS RELEVANTES
   
@@ -445,10 +498,11 @@ def main():
                 datosRelevantes.loc[ref_KeyData,'fechaRSI1']= datevarMax_RSI
                 datosRelevantes.loc[ref_KeyData,'fechaRSI2']= date2varMax_RSI
                 
-                datosRelevantes.loc[ref_KeyData,'valorMAX_1']= valor_1
-                datosRelevantes.loc[ref_KeyData,'valorMAX_2']= valor_2
-                datosRelevantes.loc[ref_KeyData,'fechaValorMAX_1']= fechaValor_1
-                datosRelevantes.loc[ref_KeyData,'fechaValorMAX_2']= fechaValor_2
+                # Quito del excel los maximos decrecientes, voy a probar con la MA.
+                #datosRelevantes.loc[ref_KeyData,'valorMAX_1']= valor_1
+                datosRelevantes.loc[ref_KeyData,'valorCORTE']= valor_2
+                #datosRelevantes.loc[ref_KeyData,'fechaValorMAX_1']= fechaValor_1
+                datosRelevantes.loc[ref_KeyData,'fechaValorCORTE']= fechaValor_2
                 
     
                 
@@ -470,7 +524,9 @@ def main():
         
     print(datosRelevantes.head())
     print(datosRelevantes.tail())          
-    salvarExcel(datosRelevantes , tickers[valorNum]+"_señal_PRECIO_RSI")    
+    salvarExcel(datosRelevantes , "deliverables/"+instrumento+"_señal_PRECIO_RSI")  
+    
+    print ("that´s all")
     
     
     

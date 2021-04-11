@@ -253,14 +253,14 @@ def MovingAverage(DF,long_=200,short_=50):
     typical values 
     
     Input Data: it needs a dataFrame containing a column [Adj_Close]
-    Returns; same dataFrame with a new column [MACD] and new column[Signal] and [Histo]
+    Returns; same dataFrame with a new column [...] and new column[Signal] and [Histo]
     
     Estado: programada y probada. 
     Origen      (J3...2020)
     """
 
     df = DF.copy()
-    df.Close.plot()     #ploatemos basicamente
+    df.Close.plot(title='Precio cierre')     #ploatemos basicamente
     
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
     ma_L = pd.Series( pd.Series.rolling(df['Close'],long_).mean(), name='MA_'+ str(long_))
@@ -270,7 +270,7 @@ def MovingAverage(DF,long_=200,short_=50):
     
     #visualizar
     print (df.head())
-    dfAux=df[['Adj Close', 'MA_200', 'MA_50']]
+    dfAux=df[['Adj Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
     dfAux.plot(figsize=(16,8),title='Moving Average')
   
     return df
