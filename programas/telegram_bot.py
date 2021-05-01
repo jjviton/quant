@@ -55,4 +55,4 @@ def telegram_send( mensaje ):
 #################################################### func_mensaje() FIN
 
 
-#telegram_send('soy un robot, bot para los amigos')
+#telegram_send('soy un j3 robot, bot para los amigos')

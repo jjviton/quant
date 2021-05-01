@@ -5,6 +5,7 @@ ESTRATEGIA DE INVERSION AUTOMATICA COMPLETA BASADA EN RSI
     fuente:https://www.youtube.com/watch?v=4dVB_g5YeSE
 
 Started on 13/12/2020
+Version2: traemos el analisis al presente.
 
 Objetivo: Despues de realizar varios cursos de inversion algoritmica y de estudiar un poquito, la mejor 
 manera de empezar es programar una estrategia completa y tratar todas las dificultades que puedan salir.
@@ -169,6 +170,7 @@ def main():
     #objetoTEST.testing_123()
     
     
+        
     # 1.- RECOGEMOS DATOS DE UNA FUENTE FIABLE (QUANDL/YFINANCES)
     #quandl.ApiConfig.api_key = "_T1Kr-ySr5mkA3Za1bKb" # mi clave
     #qd_data = quandl.get("AAPL", start_date= "2010-01-01", end_date= "2020-01-01")
@@ -176,19 +178,37 @@ def main():
     # nos qudamos con los datos ajustados
     
     # Recogemos los valores desde yahooFinances
-    start =dt.datetime(2000,1,1)
-    #start =dt.datetime.today() - dt.timedelta(days=150)
-    #end = dt.datetime(2020,12,30)
-    end= dt.datetime.today()- dt.timedelta(days=2)
+    #start =dt.datetime(2000,1,1)
+    start =dt.datetime.today() - dt.timedelta(days=1000)
+    #end = dt.datetime(2019,10,1)
+    end= dt.datetime.today()  - dt.timedelta(days=2)
     
     
-    tickers2 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
-    tickers = ['BTC-EUR','EURUSD=X','EURGBP=X','EURCHF=X','GBPJPY=X','AUDUSD=X','GBP=X'] 
+    tickers4 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
+    tickers1 = ['^GSPC', 'ELE.MC','SAN.MC']
+    tickers2= ['BTC-EUR','EURUSD=X','EURGBP=X','EURCHF=X','GBPJPY=X','AUDUSD=X','GBP=X'] 
+    tickers1= ['USDJPY=X'] 
+    
+    
+    #tickers =['COFFEE', 'COPPER','CORN', 'OIL.WTI_N1#', 'OIL_M1#', 'SOYBEAN', 'WHEAT']
+    tickers44=['KC=F',      'HG=F',  'CORN',   'CL=F',      'ZS=F',    'ZW=F']
+    
+    
+    tickers=['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 'EURCAD=X', 'EURAUD=X','USDCHF=X', 
+             'USDJPY=X','GBPCAD=X', 'GBPUSD=X', 'GBPJPY=X', 'GBPCHF=X', 'GBPNZD=X', 'GBPAUD=X',
+             'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X',
+             'KC=F','HG=F', 'CORN', 'CL=F', 'ZS=F','ZW=F']
+    
+    tickers6=['CADCHF', 'CADJPY', 'CHFPJY', 'AUDUSD', 'AUDCAD', 'AUDCHF', 'AUDJPY', 'AUDNZD', 'ES35', 'GERMAN30', 'NAS100',
+              'SPX500', 'US30', 'EURX50', 'FRENCH40', 'JPN225', 'XAGUSD', 'XAUUSD', 'UKOUSD', 'USOUSD', 'COFFEE', 'COPPER','CORN', 'OIL.WTI_N1#', 'OIL_M1#', 'SOYBEAN', 'WHEAT']
+
+
+    telegram_send("Ejecutando la estrategia Divergencia Precio_RSI.\n Si encuentro algo te lo mando")
     #valorNum = 7
     for i in range(len(tickers)): 
         analisis(tickers[i], start, end)
      
-    print ("that´s all")        
+    print ("******************************************************************************************************that´s all")        
     
 #/******************************** FUNCION PRINCIPAL main() *********/ 
     
@@ -223,7 +243,7 @@ def analisis(instrumento, start, end):
     #df = pd.read_csv('endesa.csv', parse_dates=True, index_col=0)
     #mostrar comienzo final del fichero
     
-    print(" Valores de ", instrumento)
+    print("*************************************************************************************** INSTRUMENTO ==>>  ", instrumento)
     print(df.head())
     print(df.tail())    
     
@@ -236,10 +256,14 @@ def analisis(instrumento, start, end):
     """     
     # 2.- Calculamos el RSI
     df['RSI']= ta.momentum.rsi(df['Close'])
-    df['MiIndice']= list(range(len(df)))
+    
     
     # 2bis.- Calculamos MA
     df= MovingAverage(df,long_=40,short_=10)
+    
+    # 2rebis .- removeo nan
+    df.dropna(inplace=True)  #remover missing values
+    df['MiIndice']= list(range(len(df)))
 
     # 3.- Dibujamos las gráficas
     fig, (ax1,ax2) = plt.subplots(2,1, figsize=(18, 8))
@@ -291,7 +315,7 @@ def analisis(instrumento, start, end):
     #slopeJ3(df['Adj Close'])
     #MovingAverage(df,long_=200,short_=50)
     
-    #TESTING
+    #MAXIMOS RELATIVOS
     #salvarExcel(df, "tendencia")
     dff,peaks,valleys= MAX_min_Relativos_v3(df['Close'])
     dff_RSI,peaks_RSI,valleys_RSI= MAX_min_Relativos_v3(df['RSI'])
@@ -345,7 +369,7 @@ def analisis(instrumento, start, end):
             a=5
     
         # RSI menos de 30 **************************************************************************RSI    
-        if(marca== 'buscando_RSI' and df.iloc[i,rsi_] < 20):   #Me tegno que currar un maquina de estados son switch/case
+        if(marca== 'buscando_RSI' and df.iloc[i,rsi_] < 30):   #Me tegno que currar un maquina de estados son switch/case
             #print ('rsi <40  en', i)   
             marca='RSI_encontrado'
             index_de_RSI_menor_que_valor =df.index[i]
@@ -524,12 +548,29 @@ def analisis(instrumento, start, end):
     """
       
         
-    print(datosRelevantes.head())
-    print(datosRelevantes.tail())          
-    salvarExcel(datosRelevantes , "deliverables/"+instrumento+"_señal_PRECIO_RSI")  
-    
+    # Ordeno de más reciente a más lejano en el tiempo
+    # Si no hay datosRelevantes salto
+    if(not (datosRelevantes.empty)):
+        datosRelevantes.sort_values(by=['fechaValorCORTE'],axis=0, ascending=False,inplace=True)  
+        datosRelevantes.reset_index(inplace=True)
+        print(datosRelevantes.head())
+        print(datosRelevantes.tail())  
+        
+        
+        # Preparado para buscar en tiempo Real. 
+        # La fecha de corte se tiene que haber dato en los ultimos 5 dias
+        
+        #busco si el dato es de las ultimas sesiones
+        
+        fechaAntiguedad=  dt.datetime.today()- dt.timedelta(days=5)     #datosRelevantes.loc[1,'fechaValorCORTE'] -dt.timedelta(days=5)     #
+        if(datosRelevantes.loc[0,'fechaValorCORTE']> fechaAntiguedad):
+            salvarExcel(datosRelevantes , "deliverables/"+instrumento+"_señal_PRECIO_RSI")  
+            telegram_send("Señal encontrada para el instrumento " +instrumento+ " divergencia Precio_RSI")
 
+            
+        
     
+        #salvarExcel(datosRelevantes , "deliverables/"+instrumento+"_señal_PRECIO_RSI") 
     
     
     
