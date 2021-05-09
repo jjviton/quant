@@ -57,8 +57,9 @@ def slopeJ3(ser,n=5):
     serArray = ser 
                                #si fuera un dataframe lo paso a numpy array 
     #3.- Ploteamos
-    fig, ax = plt.subplots()  # Create a figure containing a single axes.
-    ax.plot(X,serArray)     
+    if (J3_DEBUG__):
+        fig, ax = plt.subplots()  # Create a figure containing a single axes.
+        ax.plot(X,serArray)     
     #4.- Create linear regression object
     regr = linear_model.LinearRegression()
     #5.- Train the model using the training sets
@@ -66,8 +67,10 @@ def slopeJ3(ser,n=5):
     regr.fit(X1, serArray)
     #6.- Make predictions using the data set. Para dibujar la linea calculada por la regresion
     serLinearRegresion = regr.predict(X1)
+
     #7.- Pintamos la linea
-    ax.plot(X,serLinearRegresion)    
+    if (J3_DEBUG__):
+        ax.plot(X,serLinearRegresion)    
     #8.- parametros de la linea  y=mx+a
     # Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente
     print('Coefficients: \n', regr.coef_)
@@ -260,7 +263,8 @@ def MovingAverage(DF,long_=200,short_=50):
     """
 
     df = DF.copy()
-    df.Close.plot(title='Precio cierre')     #ploatemos basicamente
+    if (J3_DEBUG__):
+        df.Close.plot(title='Precio cierre')     #ploatemos basicamente
     
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
     ma_L = pd.Series( pd.Series.rolling(df['Close'],long_).mean(), name='MA_'+ str(long_))
