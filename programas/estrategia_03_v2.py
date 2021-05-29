@@ -11,11 +11,18 @@ Objetivo: Despues de realizar varios cursos de inversion algoritmica y de estudi
 manera de empezar es programar una estrategia completa y tratar todas las dificultades que puedan salir.
 Animo....
 
+Estrategia: Primero RSI por debajo de un valor (20 o 30), Luego buscamos divergencia 
+            minimos del precio bajando, minimos RSI subiendo
+            luego la señal se genera cuando el precio corte al alza la media de 10 sesiones.
+
+Maduracion: Este proyecto tal cual está lanzado y buscando diariamente. Comunica al Telegram.
+    Mayo 2020
+
 @author: J3Viton
 
 """
 
-
+TELEGRAM__ = True  
 
 ################################ IMPORTAMOS MODULOS A UTILIZAR.
 import pandas as pd
@@ -35,7 +42,7 @@ import quandl  #Para recoger datos
 import ta as ta  #Biblioteca generica
 
 
-from quant_j3_lib import * 
+from quant_j3_lib import *
 from DataSet_J import *
 from telegram_bot import *
 
@@ -181,13 +188,13 @@ def main():
     #start =dt.datetime(2000,1,1)
     start =dt.datetime.today() - dt.timedelta(days=1000)
     #end = dt.datetime(2019,10,1)
-    end= dt.datetime.today()  - dt.timedelta(days=2)
+    end= dt.datetime.today()  #- dt.timedelta(days=1)
     
     
     tickers4 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
     tickers1 = ['^GSPC', 'ELE.MC','SAN.MC']
     tickers2= ['BTC-EUR','EURUSD=X','EURGBP=X','EURCHF=X','GBPJPY=X','AUDUSD=X','GBP=X'] 
-    tickers3= ['USDJPY=X'] 
+    tickers3= ['USDCAD=X'] 
     
     
     #tickers =['COFFEE', 'COPPER','CORN', 'OIL.WTI_N1#', 'OIL_M1#', 'SOYBEAN', 'WHEAT']
@@ -196,7 +203,7 @@ def main():
     
     tickers=['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 'EURCAD=X', 'EURAUD=X','USDCHF=X', 
              'USDJPY=X','GBPCAD=X', 'GBPUSD=X', 'GBPJPY=X', 'GBPCHF=X', 'GBPNZD=X', 'GBPAUD=X',
-             'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X','JPY=X','EURSEK=X',
+             'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X','JPY=X','EURSEK=X','USDCAD=X','CHF=X','AUDCAD=X',
              'KC=F','HG=F', 'CORN', 'CL=F', 'ZS=F','ZW=F','GC=F','X','ZW=F',
              'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC',
              'ETH-USD','PFE'
@@ -205,14 +212,15 @@ def main():
     tickers6=['CADCHF', 'CADJPY', 'CHFPJY', 'AUDUSD', 'AUDCAD', 'AUDCHF', 'AUDJPY', 'AUDNZD', 'ES35', 'GERMAN30', 'NAS100',
               'SPX500', 'US30', 'EURX50', 'FRENCH40', 'JPN225', 'XAGUSD', 'XAUUSD', 'UKOUSD', 'USOUSD', 'COFFEE', 'COPPER','CORN', 'OIL.WTI_N1#', 'OIL_M1#', 'SOYBEAN', 'WHEAT']
 
-
-    telegram_send("Ejecutando la estrategia Divergencia Precio_RSI.\n Si encuentro algo te lo mando")
+    if(TELEGRAM__):
+        telegram_send("Ejecutando la estrategia Divergencia Precio_RSI V2.0.\n Si encuentro algo te lo mando")
+        
     #valorNum = 7
     for i in range(len(tickers)): 
         analisis(tickers[i], start, end)
      
-    print ("******************************************************************************************************that´s all") 
-    print ("****************************************************************************************************************")       
+    print ("**********************************************************************************************that´s all") 
+    print ("********************************************************************************************************")       
     
 #/******************************** FUNCION PRINCIPAL main() *********/ 
     
@@ -247,7 +255,7 @@ def analisis(instrumento, start, end):
     #df = pd.read_csv('endesa.csv', parse_dates=True, index_col=0)
     #mostrar comienzo final del fichero
     
-    print("*************************************************************************************** INSTRUMENTO ==>>  ", instrumento)
+    print("*************************************************************************** INSTRUMENTO ==>>  ", instrumento)
     print(df.head())
     print(df.tail())    
     
@@ -370,7 +378,7 @@ def analisis(instrumento, start, end):
     
     for i in range(15,len(df)):     #me falta saber como conseguir el indice numerico de una etiqueta
         
-        if(i==174):
+        if(i==651):
             a=5
     
         # RSI menos de 30 **************************************************************************RSI    
@@ -378,7 +386,7 @@ def analisis(instrumento, start, end):
             #print ('rsi <40  en', i)   
             marca='RSI_encontrado'
             index_de_RSI_menor_que_valor =df.index[i]
-        if(marca== 'RSI_encontrado' and df.iloc[i,rsi_] > 40):   #el RSI se sale de overSlod
+        if(marca== 'RSI_encontrado' and df.iloc[i,rsi_] > 50):   #el RSI se sale de overSlod
             marca='buscando_RSI'
             marca2= 'nada'
             marca3= 'nada'
@@ -388,8 +396,8 @@ def analisis(instrumento, start, end):
         
         # SON MINIMOS del precio decreciendo
         if(marca== 'RSI_encontrado'): 
-            # minimos del precio decreciendo**************************************** valor_Min_decreciente
-            if (dff.iloc[i,marcaMxMn_] == 1 and marca2== 'nada'):
+            # minimos del precio decreciendo**************************************** Instrumento Min_decreciente
+            if (dff.iloc[i,marcaMxMn_] == 1 and marca2== 'nada'):           #marcaMXMn==1 es minimo
                 marca2= 'primerMax'
                 varMax=dff.iloc[i,0]  #almaceno posicion
                 valorMax =dff.iloc[i,0]
@@ -414,7 +422,7 @@ def analisis(instrumento, start, end):
             if (dff.iloc[i,marcaMxMn_] == 1 and                 
                 (marca2== 'primerMax' or marca2== 'ultimoMaxDecreciente') and                 
                 dff.iloc[i,0] > varMax):                
-                #no es maximo decreciente
+                #no es mínimo decreciente
                 marca2= 'nada'   
                 diaInicioPrecio =dt.datetime.today()
                 diaFinPrecio =dt.datetime.today()
@@ -449,6 +457,12 @@ def analisis(instrumento, start, end):
                 diaInicioRSI =dt.datetime.today()
                 diaFinRSI =dt.datetime.today()
             # *********************************************************************  mínimos RSI creciente
+            
+            
+            # J3: el proceso de arriba que calcula secuencias creciente/decrecientes, pierde el primer valor cuando cambia la
+            # tendencia. Cuando borramos la marca, no tenemos en cuenta que este punto es el primero de la serie en sentido inverso
+            # por este motivo necesita TRES puntos para determinal max/min decrecientes/crecientes
+            
                 
             
             # ************************************ Fechas en mismo intervalo temporal
@@ -489,13 +503,14 @@ def analisis(instrumento, start, end):
            
             #1bis.- Analisis con MediaMovil del punto de entrada
 
-            # Ya tengo la MA corta y larga; ahora comprobar que le precio supere al alza
-                             #J3
+            # Tengo la MA corta y larga; ahora comprobar que le precio supere al alza
+            ######################## RSI por debajo del valor, divergencia y esperar que el precio supere la MA10
+                            
             ventanita = 20 
             close_=df.columns.get_loc("Close")
             ma_=df.columns.get_loc("MA_10")
             for jj in range((i),(i+ventanita)):   # busco el corte en futuro inmediato
-                if(jj>len(df)):
+                if(jj>=len(df)):
                     break
                 if(df.iloc[jj,close_] > df.iloc[jj,ma_]):
                     valor_2=dff.iloc[jj,0]
@@ -570,7 +585,8 @@ def analisis(instrumento, start, end):
         fechaAntiguedad=  dt.datetime.today()- dt.timedelta(days=5)     #datosRelevantes.loc[1,'fechaValorCORTE'] -dt.timedelta(days=5)     #
         if(datosRelevantes.loc[0,'fechaValorCORTE']> fechaAntiguedad):
             salvarExcel(datosRelevantes , "deliverables/"+instrumento+"_señal_PRECIO_RSI")  
-            telegram_send("Señal encontrada para el instrumento " +instrumento+ " divergencia Precio_RSI")
+            if(TELEGRAM__):
+                telegram_send("****  Señal encontrada para el instrumento " +instrumento+ " divergencia Precio_RSI")
 
             
         

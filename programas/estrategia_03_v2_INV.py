@@ -11,6 +11,8 @@ Objetivo: Despues de realizar varios cursos de inversion algoritmica y de estudi
 manera de empezar es programar una estrategia completa y tratar todas las dificultades que puedan salir.
 Animo....
 
+
+
 @author: J3Viton
 
 """
