@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['temp.py', 'quant_j3_lib.py', '..\\..\\estrategia_03_v2.py']
+recent_files = ['quant_j3_lib.py', '..\\..\\estrategia_03_v2.py', 'temp.py']
 

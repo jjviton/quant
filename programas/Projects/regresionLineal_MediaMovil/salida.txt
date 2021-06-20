@@ -1,0 +1,879 @@
+{'id': 1473252352, 'first_name': 'vital_bot', 'is_bot': True, 'username': 'vital_quant_bot', 'can_join_groups': True, 'can_read_all_group_messages': False, 'supports_inline_queries': False}
+Coefficients: 
+ [0.00642829]
+Independent term: 
+ 10.270781244163771
+              High     Low    Open   Close     Volume  Adj Close  MA_200  MA_50
+Date                                                                           
+2013-04-02  12.650  12.340  12.415  12.590  4480003.0   9.285468     NaN    NaN
+2013-04-03  12.600  12.410  12.545  12.550  2527950.0   9.255966     NaN    NaN
+2013-04-04  12.640  12.225  12.625  12.285  2054271.0   9.060523     NaN    NaN
+2013-04-05  12.380  12.110  12.350  12.180  3401491.0   8.983081     NaN    NaN
+2013-04-08  12.345  12.190  12.190  12.220  1857863.0   9.012584     NaN    NaN
+              High     Low    Open   Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                        ...                                
+2013-04-02  12.650  12.340  12.415  12.590  ...     NaN    NaN      NaN     NaN
+2013-04-03  12.600  12.410  12.545  12.550  ...     NaN    NaN      NaN     NaN
+2013-04-04  12.640  12.225  12.625  12.285  ...     NaN    NaN      NaN     NaN
+2013-04-05  12.380  12.110  12.350  12.180  ...     NaN    NaN      NaN     NaN
+2013-04-08  12.345  12.190  12.190  12.220  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.01507437]]
+Independent term: 
+ [20.53415957]
+Coefficients: 
+ [-0.00428234]
+Independent term: 
+ 22.73624319944453
+Coefficients: 
+ [0.00302479]
+Independent term: 
+ 3.669705064965256
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2013-04-02  2.51223  2.41775  2.42330  ...   2.236902     NaN    NaN
+2013-04-03  2.47333  2.35661  2.47333  ...   2.137263     NaN    NaN
+2013-04-04  2.47333  2.34549  2.34549  ...   2.147222     NaN    NaN
+2013-04-05  2.46221  2.31770  2.46221  ...   2.077477     NaN    NaN
+2013-04-08  2.42330  2.31770  2.31770  ...   2.117329     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2013-04-02  2.51223  2.41775  2.42330  2.49556  ...     NaN    NaN      NaN     NaN
+2013-04-03  2.47333  2.35661  2.47333  2.38440  ...     NaN    NaN      NaN     NaN
+2013-04-04  2.47333  2.34549  2.34549  2.39551  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.46221  2.31770  2.46221  2.31770  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.42330  2.31770  2.31770  2.36216  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.01088395]]
+Independent term: 
+ [6.92152161]
+Coefficients: 
+ [-7.51054225e-05]
+Independent term: 
+ 8.095668326964535
+Coefficients: 
+ [0.00540968]
+Independent term: 
+ 9.215306932306719
+              High     Low    Open   Close     Volume  Adj Close  MA_200  MA_50
+Date                                                                           
+2013-04-02  14.210  13.830  13.860  14.150  4645515.0   7.744476     NaN    NaN
+2013-04-03  14.270  13.860  14.085  13.885  2368334.0   7.599439     NaN    NaN
+2013-04-04  14.170  13.870  13.985  14.005  2624519.0   7.665114     NaN    NaN
+2013-04-05  14.190  13.590  14.090  13.765  2153817.0   7.533760     NaN    NaN
+2013-04-08  14.095  13.835  13.855  14.000  2529200.0   7.662378     NaN    NaN
+              High     Low    Open   Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                        ...                                
+2013-04-02  14.210  13.830  13.860  14.150  ...     NaN    NaN      NaN     NaN
+2013-04-03  14.270  13.860  14.085  13.885  ...     NaN    NaN      NaN     NaN
+2013-04-04  14.170  13.870  13.985  14.005  ...     NaN    NaN      NaN     NaN
+2013-04-05  14.190  13.590  14.090  13.765  ...     NaN    NaN      NaN     NaN
+2013-04-08  14.095  13.835  13.855  14.000  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.03196695]]
+Independent term: 
+ [16.16108574]
+Coefficients: 
+ [0.01789684]
+Independent term: 
+ 16.02326482954314
+Coefficients: 
+ [-0.00044033]
+Independent term: 
+ 1.5866788528472933
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2013-04-02  1.05632  1.03283  1.04972  ...   0.832409     NaN    NaN
+2013-04-03  1.05118  1.02843  1.04972  ...   0.815526     NaN    NaN
+2013-04-04  1.06513  1.02476  1.03503  ...   0.814939     NaN    NaN
+2013-04-05  1.03650  1.01301  1.01742  ...   0.816485     NaN    NaN
+2013-04-08  1.03503  1.01742  1.02035  ...   0.816485     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2013-04-02  1.05632  1.03283  1.04972  1.04972  ...     NaN    NaN      NaN     NaN
+2013-04-03  1.05118  1.02843  1.04972  1.02843  ...     NaN    NaN      NaN     NaN
+2013-04-04  1.06513  1.02476  1.03503  1.02769  ...     NaN    NaN      NaN     NaN
+2013-04-05  1.03650  1.01301  1.01742  1.01962  ...     NaN    NaN      NaN     NaN
+2013-04-08  1.03503  1.01742  1.02035  1.01962  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00173847]]
+Independent term: 
+ [0.25200582]
+Coefficients: 
+ [-7.36946449e-05]
+Independent term: 
+ 0.43696181852303784
+Coefficients: 
+ [0.00058765]
+Independent term: 
+ 7.255369972993594
+             High    Low   Open  Close     Volume  Adj Close  MA_200  MA_50
+Date                                                                       
+2013-04-02  8.064  7.960  8.025  8.036   766304.0   4.999707     NaN    NaN
+2013-04-03  8.060  7.901  7.998  7.930   735753.0   4.933758     NaN    NaN
+2013-04-04  8.000  7.861  7.934  7.916  1053668.0   4.925047     NaN    NaN
+2013-04-05  8.130  7.887  7.887  7.950  1965259.0   4.946201     NaN    NaN
+2013-04-08  8.080  7.950  7.960  7.950   855937.0   4.946201     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  8.064  7.960  8.025  8.036  ...     NaN    NaN      NaN     NaN
+2013-04-03  8.060  7.901  7.998  7.930  ...     NaN    NaN      NaN     NaN
+2013-04-04  8.000  7.861  7.934  7.916  ...     NaN    NaN      NaN     NaN
+2013-04-05  8.130  7.887  7.887  7.950  ...     NaN    NaN      NaN     NaN
+2013-04-08  8.080  7.950  7.960  7.950  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.03019761]]
+Independent term: 
+ [6.02133853]
+Coefficients: 
+ [0.01622761]
+Independent term: 
+ 5.966906551276761
+Coefficients: 
+ [0.01898167]
+Independent term: 
+ 19.667867870882773
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2013-04-02  15.4801  15.0001  15.0001  ...  15.303848     NaN    NaN
+2013-04-03  15.4201  15.0001  15.4201  ...  15.066582     NaN    NaN
+2013-04-04  15.4801  15.0601  15.0601  ...  15.244533     NaN    NaN
+2013-04-05  15.6001  15.0601  15.4801  ...  15.185214     NaN    NaN
+2013-04-08  15.5401  15.0601  15.2401  ...  14.888631     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2013-04-02  15.4801  15.0001  15.0001  15.4801  ...     NaN    NaN      NaN     NaN
+2013-04-03  15.4201  15.0001  15.4201  15.2401  ...     NaN    NaN      NaN     NaN
+2013-04-04  15.4801  15.0601  15.0601  15.4201  ...     NaN    NaN      NaN     NaN
+2013-04-05  15.6001  15.0601  15.4801  15.3601  ...     NaN    NaN      NaN     NaN
+2013-04-08  15.5401  15.0601  15.2401  15.0601  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[-0.10429865]]
+Independent term: 
+ [105.52818102]
+Coefficients: 
+ [0.09492104]
+Independent term: 
+ 75.88611763835993
+Coefficients: 
+ [-0.00077896]
+Independent term: 
+ 4.52328697582689
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2013-04-02  5.08990  4.88725  4.94098  ...   3.139173     NaN    NaN
+2013-04-03  5.06068  4.91176  5.05031  ...   3.047122     NaN    NaN
+2013-04-04  5.08142  4.86557  4.98245  ...   3.026143     NaN    NaN
+2013-04-05  4.98716  4.82787  4.92967  ...   3.019152     NaN    NaN
+2013-04-08  4.97679  4.88442  4.93249  ...   3.026730     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2013-04-02  5.08990  4.88725  4.94098  5.07859  ...     NaN    NaN      NaN     NaN
+2013-04-03  5.06068  4.91176  5.05031  4.92967  ...     NaN    NaN      NaN     NaN
+2013-04-04  5.08142  4.86557  4.98245  4.89573  ...     NaN    NaN      NaN     NaN
+2013-04-05  4.98716  4.82787  4.92967  4.88442  ...     NaN    NaN      NaN     NaN
+2013-04-08  4.97679  4.88442  4.93249  4.89668  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00966541]]
+Independent term: 
+ [1.62056755]
+Coefficients: 
+ [0.0031243]
+Independent term: 
+ 2.0417470466239522
+Coefficients: 
+ [0.0008295]
+Independent term: 
+ 8.431162784667212
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2014-06-30  8.85601  8.50354  8.81195  ...   6.964145     NaN    NaN
+2014-07-01  9.07191  8.59165  8.60928  ...   7.274460     NaN    NaN
+2014-07-02  9.15562  8.82958  8.88686  ...   7.462095     NaN    NaN
+2014-07-03  9.38473  9.06310  9.12037  ...   7.541478     NaN    NaN
+2014-07-04  9.38473  9.08072  9.38473  ...   7.620860     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2014-06-30  8.85601  8.50354  8.81195  8.50354  ...     NaN    NaN      NaN     NaN
+2014-07-01  9.07191  8.59165  8.60928  8.88245  ...     NaN    NaN      NaN     NaN
+2014-07-02  9.15562  8.82958  8.88686  9.11156  ...     NaN    NaN      NaN     NaN
+2014-07-03  9.38473  9.06310  9.12037  9.20849  ...     NaN    NaN      NaN     NaN
+2014-07-04  9.38473  9.08072  9.38473  9.30542  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.0162984]]
+Independent term: 
+ [6.23462329]
+Coefficients: 
+ [0.00032234]
+Independent term: 
+ 7.884432731361817
+Coefficients: 
+ [0.00368859]
+Independent term: 
+ 2.2562560189309453
+             High    Low   Open  Close      Volume  Adj Close  MA_200  MA_50
+Date                                                                        
+2013-04-02  3.722  3.622  3.637  3.715  78992620.0   2.667228     NaN    NaN
+2013-04-03  3.729  3.632  3.711  3.635  45916894.0   2.609791     NaN    NaN
+2013-04-04  3.763  3.649  3.683  3.654  38838728.0   2.623432     NaN    NaN
+2013-04-05  3.835  3.679  3.730  3.728  67870308.0   2.676561     NaN    NaN
+2013-04-08  3.759  3.675  3.732  3.683  30993896.0   2.644253     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  3.722  3.622  3.637  3.715  ...     NaN    NaN      NaN     NaN
+2013-04-03  3.729  3.632  3.711  3.635  ...     NaN    NaN      NaN     NaN
+2013-04-04  3.763  3.649  3.683  3.654  ...     NaN    NaN      NaN     NaN
+2013-04-05  3.835  3.679  3.730  3.728  ...     NaN    NaN      NaN     NaN
+2013-04-08  3.759  3.675  3.732  3.683  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00254035]]
+Independent term: 
+ [10.76438788]
+Coefficients: 
+ [0.0068221]
+Independent term: 
+ 9.704273001179772
+Coefficients: 
+ [-0.00151596]
+Independent term: 
+ 7.6238117873709035
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2013-04-02  10.4997  10.2427  10.3465  ...   5.781260     NaN    NaN
+2013-04-03  10.4305  10.1883  10.4058  ...   5.644957     NaN    NaN
+2013-04-04  10.4651  10.2427  10.3020  ...   5.658576     NaN    NaN
+2013-04-05  10.4453  10.1141  10.2377  ...   5.653116     NaN    NaN
+2013-04-08  10.3119  10.2179  10.2624  ...   5.658576     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2013-04-02  10.4997  10.2427  10.3465  10.4849  ...     NaN    NaN      NaN     NaN
+2013-04-03  10.4305  10.1883  10.4058  10.2377  ...     NaN    NaN      NaN     NaN
+2013-04-04  10.4651  10.2427  10.3020  10.2624  ...     NaN    NaN      NaN     NaN
+2013-04-05  10.4453  10.1141  10.2377  10.2525  ...     NaN    NaN      NaN     NaN
+2013-04-08  10.3119  10.2179  10.2624  10.2624  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00658582]]
+Independent term: 
+ [2.72813161]
+Coefficients: 
+ [-0.00148253]
+Independent term: 
+ 3.753271114340108
+Coefficients: 
+ [0.0226846]
+Independent term: 
+ 22.081301013776596
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  21.504999  21.155001  21.180000  ...  18.522444     NaN    NaN
+2013-04-03  21.540001  21.215000  21.375000  ...  18.453072     NaN    NaN
+2013-04-04  21.395000  20.820000  21.395000  ...  18.188593     NaN    NaN
+2013-04-05  21.025000  20.674999  20.969999  ...  18.054180     NaN    NaN
+2013-04-08  21.025000  20.790001  20.799999  ...  18.127890     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  21.504999  21.155001  21.180000  ...    NaN      NaN     NaN
+2013-04-03  21.540001  21.215000  21.375000  ...    NaN      NaN     NaN
+2013-04-04  21.395000  20.820000  21.395000  ...    NaN      NaN     NaN
+2013-04-05  21.025000  20.674999  20.969999  ...    NaN      NaN     NaN
+2013-04-08  21.025000  20.790001  20.799999  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.07096225]]
+Independent term: 
+ [49.2919567]
+Coefficients: 
+ [0.03199622]
+Independent term: 
+ 50.71165807088777
+Coefficients: 
+ [0.01104159]
+Independent term: 
+ 33.19447688394709
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  41.650002  40.860001  40.950001  ...  32.114830     NaN    NaN
+2013-04-03  41.400002  40.450001  41.250000  ...  32.005112     NaN    NaN
+2013-04-04  40.990002  40.200001  40.990002  ...  31.636786     NaN    NaN
+2013-04-05  40.494999  39.910000  40.400002  ...  31.421278     NaN    NaN
+2013-04-08  40.930000  40.330002  40.349998  ...  31.809189     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  41.650002  40.860001  40.950001  ...    NaN      NaN     NaN
+2013-04-03  41.400002  40.450001  41.250000  ...    NaN      NaN     NaN
+2013-04-04  40.990002  40.200001  40.990002  ...    NaN      NaN     NaN
+2013-04-05  40.494999  39.910000  40.400002  ...    NaN      NaN     NaN
+2013-04-08  40.930000  40.330002  40.349998  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.01270567]]
+Independent term: 
+ [56.13110271]
+Coefficients: 
+ [0.02021325]
+Independent term: 
+ 53.56767639820902
+Coefficients: 
+ [-0.00130297]
+Independent term: 
+ 19.582543981795947
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  20.642799  19.563900  20.602100  ...  18.361483     NaN    NaN
+2013-04-03  19.669701  18.881901  19.458000  ...  18.380493     NaN    NaN
+2013-04-04  20.093201  19.368401  19.624901  ...  18.140261     NaN    NaN
+2013-04-05  19.435600  18.490999  19.360300  ...  17.619795     NaN    NaN
+2013-04-08  19.136299  18.607000  18.867599  ...  17.734152     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  20.642799  19.563900  20.602100  ...    NaN      NaN     NaN
+2013-04-03  19.669701  18.881901  19.458000  ...    NaN      NaN     NaN
+2013-04-04  20.093201  19.368401  19.624901  ...    NaN      NaN     NaN
+2013-04-05  19.435600  18.490999  19.360300  ...    NaN      NaN     NaN
+2013-04-08  19.136299  18.607000  18.867599  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.08836682]]
+Independent term: 
+ [9.98674092]
+Coefficients: 
+ [0.04959812]
+Independent term: 
+ 9.29615653008776
+Coefficients: 
+ [5.24356746e-06]
+Independent term: 
+ 1.897045435954399
+             High    Low   Open  Close     Volume  Adj Close  MA_200  MA_50
+Date                                                                       
+2013-04-02  2.469  2.377  2.410  2.465  4731323.0   1.489167     NaN    NaN
+2013-04-03  2.477  2.385  2.456  2.400  5335658.0   1.449899     NaN    NaN
+2013-04-04  2.452  2.366  2.414  2.378  3189008.0   1.436608     NaN    NaN
+2013-04-05  2.429  2.344  2.380  2.366  3919991.0   1.429358     NaN    NaN
+2013-04-08  2.400  2.300  2.369  2.327  5155576.0   1.405797     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  2.469  2.377  2.410  2.465  ...     NaN    NaN      NaN     NaN
+2013-04-03  2.477  2.385  2.456  2.400  ...     NaN    NaN      NaN     NaN
+2013-04-04  2.452  2.366  2.414  2.378  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.429  2.344  2.380  2.366  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.400  2.300  2.369  2.327  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00299523]]
+Independent term: 
+ [1.26004109]
+Coefficients: 
+ [0.00013606]
+Independent term: 
+ 1.5458364290828353
+Coefficients: 
+ [0.02824145]
+Independent term: 
+ 3.4518848147478565
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2015-05-07  13.8334  13.2208  13.6703  ...  13.288137     NaN    NaN
+2015-05-08  13.8378  13.3266  13.8378  ...  13.150187     NaN    NaN
+2015-05-11  13.5293  13.2208  13.4059  ...  12.934564     NaN    NaN
+2015-05-12  13.3266  13.2208  13.2472  ...  13.020754     NaN    NaN
+2015-05-13  13.7893  13.3178  13.3178  ...  13.365721     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2015-05-07  13.8334  13.2208  13.6703  13.5822  ...     NaN    NaN      NaN     NaN
+2015-05-08  13.8378  13.3266  13.8378  13.4412  ...     NaN    NaN      NaN     NaN
+2015-05-11  13.5293  13.2208  13.4059  13.2208  ...     NaN    NaN      NaN     NaN
+2015-05-12  13.3266  13.2208  13.2472  13.3089  ...     NaN    NaN      NaN     NaN
+2015-05-13  13.7893  13.3178  13.3178  13.6615  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[-0.03814959]]
+Independent term: 
+ [52.59597667]
+Coefficients: 
+ [-0.0028745]
+Independent term: 
+ 48.25125072011111
+Coefficients: 
+ [-0.00108584]
+Independent term: 
+ 6.217819614832165
+             High    Low   Open  Close       Volume  Adj Close  MA_200  MA_50
+Date                                                                         
+2013-04-02  6.919  6.625  6.762  6.919  210013218.0   4.471842     NaN    NaN
+2013-04-03  6.898  6.680  6.858  6.736   38342200.0   4.353567     NaN    NaN
+2013-04-04  6.918  6.631  6.815  6.677   46272048.0   4.315434     NaN    NaN
+2013-04-05  6.758  6.516  6.719  6.629   44921597.0   4.284412     NaN    NaN
+2013-04-08  6.630  6.495  6.563  6.507   48026158.0   4.283753     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  6.919  6.625  6.762  6.919  ...     NaN    NaN      NaN     NaN
+2013-04-03  6.898  6.680  6.858  6.736  ...     NaN    NaN      NaN     NaN
+2013-04-04  6.918  6.631  6.815  6.677  ...     NaN    NaN      NaN     NaN
+2013-04-05  6.758  6.516  6.719  6.629  ...     NaN    NaN      NaN     NaN
+2013-04-08  6.630  6.495  6.563  6.507  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.01533889]]
+Independent term: 
+ [2.40320062]
+Coefficients: 
+ [0.00620895]
+Independent term: 
+ 2.8300674245355886
+Coefficients: 
+ [-0.00023957]
+Independent term: 
+ 3.0299127076323447
+             High    Low   Open  Close      Volume  Adj Close  MA_200  MA_50
+Date                                                                        
+2013-04-02  2.700  2.625  2.635  2.700  10465672.0   1.900259     NaN    NaN
+2013-04-03  2.720  2.636  2.702  2.650   7134189.0   1.865069     NaN    NaN
+2013-04-04  2.710  2.621  2.678  2.638   4894674.0   1.856624     NaN    NaN
+2013-04-05  2.679  2.581  2.650  2.605   5041498.0   1.833398     NaN    NaN
+2013-04-08  2.638  2.579  2.619  2.579  10780816.0   1.815099     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  2.700  2.625  2.635  2.700  ...     NaN    NaN      NaN     NaN
+2013-04-03  2.720  2.636  2.702  2.650  ...     NaN    NaN      NaN     NaN
+2013-04-04  2.710  2.621  2.678  2.638  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.679  2.581  2.650  2.605  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.638  2.579  2.619  2.579  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00570733]]
+Independent term: 
+ [1.70178444]
+Coefficients: 
+ [0.00197713]
+Independent term: 
+ 1.8941382611861177
+Coefficients: 
+ [-0.00127352]
+Independent term: 
+ 10.15829529582096
+             High   Low   Open  Close    Volume  Adj Close  MA_200  MA_50
+Date                                                                     
+2013-04-02  5.440  5.24  5.345  5.300  148792.0   4.975097     NaN    NaN
+2013-04-03  5.480  5.30  5.350  5.405  228355.0   5.073661     NaN    NaN
+2013-04-04  5.490  5.35  5.490  5.385  397175.0   5.054887     NaN    NaN
+2013-04-05  5.475  5.33  5.475  5.380  199409.0   5.050194     NaN    NaN
+2013-04-08  5.465  5.34  5.340  5.400  150858.0   5.068968     NaN    NaN
+             High   Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                   ...                                
+2013-04-02  5.440  5.24  5.345  5.300  ...     NaN    NaN      NaN     NaN
+2013-04-03  5.480  5.30  5.350  5.405  ...     NaN    NaN      NaN     NaN
+2013-04-04  5.490  5.35  5.490  5.385  ...     NaN    NaN      NaN     NaN
+2013-04-05  5.475  5.33  5.475  5.380  ...     NaN    NaN      NaN     NaN
+2013-04-08  5.465  5.34  5.340  5.400  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.02222868]]
+Independent term: 
+ [3.3670412]
+Coefficients: 
+ [0.00851857]
+Independent term: 
+ 4.155689760389009
+Coefficients: 
+ [0.04275048]
+Independent term: 
+ 85.70644862570114
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2015-02-11  70.199997  65.000000  65.099998  ...  54.991493     NaN    NaN
+2015-02-12  73.699997  69.199997  69.750000  ...  54.991493     NaN    NaN
+2015-02-13  74.000000  69.209999  70.500000  ...  58.133865     NaN    NaN
+2015-02-16  73.500000  70.440002  72.000000  ...  56.955479     NaN    NaN
+2015-02-17  75.269997  72.199997  73.070000  ...  58.840900     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2015-02-11  70.199997  65.000000  65.099998  ...    NaN      NaN     NaN
+2015-02-12  73.699997  69.199997  69.750000  ...    NaN      NaN     NaN
+2015-02-13  74.000000  69.209999  70.500000  ...    NaN      NaN     NaN
+2015-02-16  73.500000  70.440002  72.000000  ...    NaN      NaN     NaN
+2015-02-17  75.269997  72.199997  73.070000  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.11348969]]
+Independent term: 
+ [124.16877621]
+Coefficients: 
+ [0.05927237]
+Independent term: 
+ 125.12092183644134
+Coefficients: 
+ [0.00073382]
+Independent term: 
+ 4.671822950114729
+               High    Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                 ...                          
+2013-04-02  2.58666  2.514  2.51466  ...   1.962551     NaN    NaN
+2013-04-03  2.64666  2.524  2.53333  ...   1.961531     NaN    NaN
+2013-04-04  2.68900  2.380  2.59600  ...   1.825037     NaN    NaN
+2013-04-05  2.41700  2.244  2.41100  ...   1.786695     NaN    NaN
+2013-04-08  2.34300  2.282  2.34300  ...   1.795442     NaN    NaN
+
+[5 rows x 8 columns]
+               High    Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                          ...                                
+2013-04-02  2.58666  2.514  2.51466  2.55933  ...     NaN    NaN      NaN     NaN
+2013-04-03  2.64666  2.524  2.53333  2.55800  ...     NaN    NaN      NaN     NaN
+2013-04-04  2.68900  2.380  2.59600  2.38000  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.41700  2.244  2.41100  2.33000  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.34300  2.282  2.34300  2.31400  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.0082374]]
+Independent term: 
+ [3.82367145]
+Coefficients: 
+ [0.00285704]
+Independent term: 
+ 4.259380520597314
+Coefficients: 
+ [0.00565941]
+Independent term: 
+ 6.990925490880363
+                High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                    ...                          
+2013-04-02  10.02500  9.41125  9.85625  ...   3.653172     NaN    NaN
+2013-04-03   9.59500  9.40500  9.45000  ...   3.664301     NaN    NaN
+2013-04-04   9.54500  9.28250  9.54500  ...   3.611076     NaN    NaN
+2013-04-05   9.43625  9.20000  9.36125  ...   3.579625     NaN    NaN
+2013-04-08   9.41375  9.30000  9.30750  ...   3.617850     NaN    NaN
+
+[5 rows x 8 columns]
+                High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                             ...                                
+2013-04-02  10.02500  9.41125  9.85625  9.43750  ...     NaN    NaN      NaN     NaN
+2013-04-03   9.59500  9.40500  9.45000  9.46625  ...     NaN    NaN      NaN     NaN
+2013-04-04   9.54500  9.28250  9.54500  9.32875  ...     NaN    NaN      NaN     NaN
+2013-04-05   9.43625  9.20000  9.36125  9.24750  ...     NaN    NaN      NaN     NaN
+2013-04-08   9.41375  9.30000  9.30750  9.34625  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[-0.00156742]]
+Independent term: 
+ [15.87149325]
+Coefficients: 
+ [-0.00283825]
+Independent term: 
+ 16.120275561533262
+Coefficients: 
+ [0.00875723]
+Independent term: 
+ -1.2279223510458923
+             High   Low   Open  Close   Volume  Adj Close  MA_200  MA_50
+Date                                                                    
+2013-04-02  2.665  2.46  2.665  2.505  10394.0   2.268215     NaN    NaN
+2013-04-03  2.795  2.42  2.420  2.580  27078.0   2.336125     NaN    NaN
+2013-04-04  2.550  2.50  2.550  2.520  11563.0   2.281797     NaN    NaN
+2013-04-05  2.530  2.46  2.500  2.530   7997.0   2.290852     NaN    NaN
+2013-04-08  2.520  2.39  2.390  2.505   6687.0   2.268215     NaN    NaN
+             High   Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                   ...                                
+2013-04-02  2.665  2.46  2.665  2.505  ...     NaN    NaN      NaN     NaN
+2013-04-03  2.795  2.42  2.420  2.580  ...     NaN    NaN      NaN     NaN
+2013-04-04  2.550  2.50  2.550  2.520  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.530  2.46  2.500  2.530  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.520  2.39  2.390  2.505  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.10189793]]
+Independent term: 
+ [11.80299385]
+Coefficients: 
+ [0.05649767]
+Independent term: 
+ 10.49335262672809
+Coefficients: 
+ [0.00539444]
+Independent term: 
+ 18.579023874102862
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  18.434999  17.920000  18.290001  ...  12.257506     NaN    NaN
+2013-04-03  18.379999  17.254999  18.299999  ...  11.660959     NaN    NaN
+2013-04-04  17.700001  17.285000  17.549999  ...  11.567644     NaN    NaN
+2013-04-05  17.469999  16.975000  17.379999  ...  11.520989     NaN    NaN
+2013-04-08  17.420000  17.055000  17.250000  ...  11.397679     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  18.434999  17.920000  18.290001  ...    NaN      NaN     NaN
+2013-04-03  18.379999  17.254999  18.299999  ...    NaN      NaN     NaN
+2013-04-04  17.700001  17.285000  17.549999  ...    NaN      NaN     NaN
+2013-04-05  17.469999  16.975000  17.379999  ...    NaN      NaN     NaN
+2013-04-08  17.420000  17.055000  17.250000  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.02768944]]
+Independent term: 
+ [22.63330116]
+Coefficients: 
+ [0.01801483]
+Independent term: 
+ 22.485454252193968
+Coefficients: 
+ [0.00369919]
+Independent term: 
+ 21.09707915420342
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  21.040001  20.530001  20.549999  ...  15.886425     NaN    NaN
+2013-04-03  21.190001  20.840000  20.870001  ...  15.939736     NaN    NaN
+2013-04-04  21.030001  20.430000  21.030001  ...  15.642722     NaN    NaN
+2013-04-05  20.620001  20.000000  20.570000  ...  15.391401     NaN    NaN
+2013-04-08  20.440001  20.100000  20.180000  ...  15.376171     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  21.040001  20.530001  20.549999  ...    NaN      NaN     NaN
+2013-04-03  21.190001  20.840000  20.870001  ...    NaN      NaN     NaN
+2013-04-04  21.030001  20.430000  21.030001  ...    NaN      NaN     NaN
+2013-04-05  20.620001  20.000000  20.570000  ...    NaN      NaN     NaN
+2013-04-08  20.440001  20.100000  20.180000  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.04299722]]
+Independent term: 
+ [22.70181343]
+Coefficients: 
+ [0.01685497]
+Independent term: 
+ 23.631593286364634
+Coefficients: 
+ [0.00349101]
+Independent term: 
+ 14.816528168550665
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  18.650000  18.160000  18.180000  ...  11.170932     NaN    NaN
+2013-04-03  18.495001  18.219999  18.430000  ...  11.080062     NaN    NaN
+2013-04-04  18.450001  17.770000  18.450001  ...  10.895293     NaN    NaN
+2013-04-05  18.225000  17.684999  18.049999  ...  10.749901     NaN    NaN
+2013-04-08  18.235001  17.820000  17.820000  ...  10.916495     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  18.650000  18.160000  18.180000  ...    NaN      NaN     NaN
+2013-04-03  18.495001  18.219999  18.430000  ...    NaN      NaN     NaN
+2013-04-04  18.450001  17.770000  18.450001  ...    NaN      NaN     NaN
+2013-04-05  18.225000  17.684999  18.049999  ...    NaN      NaN     NaN
+2013-04-08  18.235001  17.820000  17.820000  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[-0.0014569]]
+Independent term: 
+ [18.77010656]
+Coefficients: 
+ [-0.0099917]
+Independent term: 
+ 20.4627972661474
+Coefficients: 
+ [0.03964472]
+Independent term: 
+ 26.191350435879635
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  43.494999  42.400002  42.400002  ...  30.955666     NaN    NaN
+2013-04-03  44.259998  42.865002  43.000000  ...  31.225626     NaN    NaN
+2013-04-04  44.884998  43.419998  43.919998  ...  31.387604     NaN    NaN
+2013-04-05  44.040001  42.525002  43.599998  ...  31.254423     NaN    NaN
+2013-04-08  44.375000  42.814999  43.990002  ...  31.286821     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  43.494999  42.400002  42.400002  ...    NaN      NaN     NaN
+2013-04-03  44.259998  42.865002  43.000000  ...    NaN      NaN     NaN
+2013-04-04  44.884998  43.419998  43.919998  ...    NaN      NaN     NaN
+2013-04-05  44.040001  42.525002  43.599998  ...    NaN      NaN     NaN
+2013-04-08  44.375000  42.814999  43.990002  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.28692219]]
+Independent term: 
+ [91.78499241]
+Coefficients: 
+ [0.17588128]
+Independent term: 
+ 87.85265597266492
+Coefficients: 
+ [0.0049514]
+Independent term: 
+ 11.291819311184392
+                 High        Low       Open  ...  Adj Close  MA_200  MA_50
+Date                                         ...                          
+2013-04-02  16.590000  16.309999  16.395000  ...  10.257853     NaN    NaN
+2013-04-03  16.500000  16.250000  16.299999  ...  10.195208     NaN    NaN
+2013-04-04  16.514999  16.045000  16.299999  ...  10.148228     NaN    NaN
+2013-04-05  16.500000  15.915000  16.299999  ...  10.104375     NaN    NaN
+2013-04-08  16.315001  16.055000  16.100000  ...  10.088713     NaN    NaN
+
+[5 rows x 8 columns]
+                 High        Low       Open  ...  MA_50  EMA_200  EMA_20
+Date                                         ...                        
+2013-04-02  16.590000  16.309999  16.395000  ...    NaN      NaN     NaN
+2013-04-03  16.500000  16.250000  16.299999  ...    NaN      NaN     NaN
+2013-04-04  16.514999  16.045000  16.299999  ...    NaN      NaN     NaN
+2013-04-05  16.500000  15.915000  16.299999  ...    NaN      NaN     NaN
+2013-04-08  16.315001  16.055000  16.100000  ...    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[-0.0033631]]
+Independent term: 
+ [22.6658761]
+Coefficients: 
+ [0.00218119]
+Independent term: 
+ 21.753336568937844
+Coefficients: 
+ [0.00661289]
+Independent term: 
+ 13.763042387787355
+               High      Low     Open  ...  Adj Close  MA_200  MA_50
+Date                                   ...                          
+2013-04-02  14.7725  14.3625  14.4025  ...  12.789599     NaN    NaN
+2013-04-03  14.8600  14.5825  14.6925  ...  12.776502     NaN    NaN
+2013-04-04  14.6700  14.0525  14.6700  ...  12.267974     NaN    NaN
+2013-04-05  14.1225  13.5200  14.0675  ...  11.829288     NaN    NaN
+2013-04-08  14.0000  13.6050  13.6050  ...  12.113015     NaN    NaN
+
+[5 rows x 8 columns]
+               High      Low     Open    Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                            ...                                
+2013-04-02  14.7725  14.3625  14.4025  14.6500  ...     NaN    NaN      NaN     NaN
+2013-04-03  14.8600  14.5825  14.6925  14.6350  ...     NaN    NaN      NaN     NaN
+2013-04-04  14.6700  14.0525  14.6700  14.0525  ...     NaN    NaN      NaN     NaN
+2013-04-05  14.1225  13.5200  14.0675  13.5500  ...     NaN    NaN      NaN     NaN
+2013-04-08  14.0000  13.6050  13.6050  13.8750  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[-0.01198304]]
+Independent term: 
+ [24.39594676]
+Coefficients: 
+ [-0.01773315]
+Independent term: 
+ 26.653533349637257
+Coefficients: 
+ [-0.0003025]
+Independent term: 
+ 4.692454463112496
+             High    Low   Open  Close     Volume  Adj Close  MA_200  MA_50
+Date                                                                       
+2013-04-02  3.080  2.971  2.971  3.068  3113061.0   2.317073     NaN    NaN
+2013-04-03  3.070  2.992  3.065  3.000  3370464.0   2.265717     NaN    NaN
+2013-04-04  3.028  2.959  3.022  2.983  2976534.0   2.252877     NaN    NaN
+2013-04-05  2.960  2.742  2.960  2.765  3656694.0   2.088236     NaN    NaN
+2013-04-08  2.838  2.645  2.720  2.736  5331721.0   2.066334     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  3.080  2.971  2.971  3.068  ...     NaN    NaN      NaN     NaN
+2013-04-03  3.070  2.992  3.065  3.000  ...     NaN    NaN      NaN     NaN
+2013-04-04  3.028  2.959  3.022  2.983  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.960  2.742  2.960  2.765  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.838  2.645  2.720  2.736  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.00732753]]
+Independent term: 
+ [1.13716413]
+Coefficients: 
+ [-0.00130935]
+Independent term: 
+ 2.2216468658194657
+Coefficients: 
+ [0.00825798]
+Independent term: 
+ 4.731877437264073
+             High    Low   Open  Close     Volume  Adj Close  MA_200  MA_50
+Date                                                                       
+2013-04-02  2.460  2.350  2.396  2.451  1552135.0   1.996988     NaN    NaN
+2013-04-03  2.594  2.456  2.461  2.552  2749332.0   2.079279     NaN    NaN
+2013-04-04  2.590  2.470  2.545  2.490  1887855.0   2.028764     NaN    NaN
+2013-04-05  2.500  2.373  2.468  2.410  2937549.0   1.963583     NaN    NaN
+2013-04-08  2.476  2.389  2.401  2.405  1402366.0   1.959509     NaN    NaN
+             High    Low   Open  Close  ...  MA_200  MA_50  EMA_200  EMA_20
+Date                                    ...                                
+2013-04-02  2.460  2.350  2.396  2.451  ...     NaN    NaN      NaN     NaN
+2013-04-03  2.594  2.456  2.461  2.552  ...     NaN    NaN      NaN     NaN
+2013-04-04  2.590  2.470  2.545  2.490  ...     NaN    NaN      NaN     NaN
+2013-04-05  2.500  2.373  2.468  2.410  ...     NaN    NaN      NaN     NaN
+2013-04-08  2.476  2.389  2.401  2.405  ...     NaN    NaN      NaN     NaN
+
+[5 rows x 10 columns]
+Coefficients: 
+ [[0.0188284]]
+Independent term: 
+ [26.75887461]
+Coefficients: 
+ [0.06303503]
+Independent term: 
+ 17.099278582526388

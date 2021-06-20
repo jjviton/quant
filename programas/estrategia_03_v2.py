@@ -14,6 +14,12 @@ Animo....
 Estrategia: Primero RSI por debajo de un valor (20 o 30), Luego buscamos divergencia 
             minimos del precio bajando, minimos RSI subiendo
             luego la señal se genera cuando el precio corte al alza la media de 10 sesiones.
+Notas: 
+    Cuando llega un minimo que no es creciente, no se apunta como primer minimo para la serie de minimos decrecientes.
+    Puede darse la señal el mismo dia que se analiza 
+    Maximo o minimo relevante, cuando tiene dos puntos a los lados menores/mayores
+    
+            
 
 Maduracion: Este proyecto tal cual está lanzado y buscando diariamente. Comunica al Telegram.
     Mayo 2020
@@ -22,7 +28,7 @@ Maduracion: Este proyecto tal cual está lanzado y buscando diariamente. Comunic
 
 """
 
-TELEGRAM__ = True  
+TELEGRAM__ = True
 
 ################################ IMPORTAMOS MODULOS A UTILIZAR.
 import pandas as pd
@@ -188,7 +194,7 @@ def main():
     #start =dt.datetime(2000,1,1)
     start =dt.datetime.today() - dt.timedelta(days=1000)
     #end = dt.datetime(2019,10,1)
-    end= dt.datetime.today()  #- dt.timedelta(days=1)
+    end= dt.datetime.today()  - dt.timedelta(days=1)        #Quito hoy para no ver el valor antes del cierre
     
     
     tickers4 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
@@ -203,7 +209,7 @@ def main():
     
     tickers=['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 'EURCAD=X', 'EURAUD=X','USDCHF=X', 
              'USDJPY=X','GBPCAD=X', 'GBPUSD=X', 'GBPJPY=X', 'GBPCHF=X', 'GBPNZD=X', 'GBPAUD=X',
-             'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X','JPY=X','EURSEK=X','USDCAD=X','CHF=X','AUDCAD=X',
+             'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X','JPY=X','EURSEK=X','USDCAD=X','AUDCAD=X',
              'KC=F','HG=F', 'CORN', 'CL=F', 'ZS=F','ZW=F','GC=F','X','ZW=F',
              'ELE.MC','SAN.MC', 'BBVA.MC','ANA.MC','MTS.MC','GRF.MC',
              'ETH-USD','PFE'

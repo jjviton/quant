@@ -5,7 +5,7 @@ Created on Sun Sep 13 11:28:48 2020
 @author: INNOVACION
 """
 
-J3_DEBUG__ = False   
+J3_DEBUG__ =True 
   
 
 
@@ -20,8 +20,42 @@ from scipy.signal import find_peaks, argrelextrema
 
 
 
+############################################## Save Signals
+
+def saveSignal(fichero, estrategia, instrumento, fecha):
+    """Funcion que registra en un excel las señales para suposterior anailisis
+    Input Data: entreda estrategia+instrumenteo+fecha
+    Returns:nada
+    Ejemplo:    
+                quant_j.saveSignal('nobreFicherosinXLS', 'RegresionMedia b0', instrumento,dt.datetime.today() )
+    Estado: programada 
+    Origen  (J3...2021)
+    """
+    try:
+        df_sg=pd.read_excel(fichero +'.xls', index_col=0)  
+    except (OSError, IOError):
+        print('!')
+        df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2'))
+    
+    new_row = {'estrategia':estrategia, 'instrumento':instrumento, 'fecha':fecha}
+    #append row to the dataframe
+    df_sg = df_sg.append(new_row, ignore_index=True) 
+    salvarExcel(df_sg, fichero)  
+    return 
+
+############################################## Safe Signals
+
+
+#################################################### RegresionLineal()
+def linearRegresion_J3(ser,instrumento=" "):
+    """ esta funcion llama a slopeJ3, ahcen lo mismito... solo por ser coherente con los nombre
+    """
+    (coef_, intercept_) = slopeJ3(ser,instrumento=instrumento)
+    
+    # devolvemos pendente y puntoCorte
+    return(coef_, intercept_)     
 #################################################### slopeJ3()
-def slopeJ3(ser,n=5):
+def slopeJ3(ser,n=5,instrumento=" "):
     """Function to calculate the slope of regression line for n consecutive points on a plot
     https://www.aprendemachinelearning.com/regresion-lineal-en-espanol-con-python/
     Regresion lineal de una nube de puntos.
@@ -60,6 +94,7 @@ def slopeJ3(ser,n=5):
     #3.- Ploteamos
     if (J3_DEBUG__):
         fig, ax = plt.subplots()  # Create a figure containing a single axes.
+        ax.set_title('Regresion Lineal  '+ instrumento + '   '+ str(len(ser)))
         ax.plot(X,serArray)     
     #4.- Create linear regression object
     regr = linear_model.LinearRegression()
@@ -71,7 +106,8 @@ def slopeJ3(ser,n=5):
 
     #7.- Pintamos la linea
     if (J3_DEBUG__):
-        ax.plot(X,serLinearRegresion)    
+        ax.plot(X,serLinearRegresion)
+        
     #8.- parametros de la linea  y=mx+a
     # Veamos los coeficienetes obtenidos, En nuestro caso, serán la Tangente
     print('Coefficients: \n', regr.coef_)
@@ -84,6 +120,8 @@ def slopeJ3(ser,n=5):
     # devolvemos pendente y puntoCorte
     return(regr.coef_, regr.intercept_)                        
 #################################################### slopeJ3()
+
+ 
 
 
 #################################################### slopeJ3()
@@ -252,7 +290,7 @@ def volatility_j(DF):
 ################################################### Volatililty_j()
 
 #################################################### Media Movil Simple
-def MovingAverage(DF,long_=200,short_=50):
+def MovingAverage(DF,long_=200,short_=50,instrumento="_"):
     """Function to calculate 
     typical values 
     
@@ -264,20 +302,18 @@ def MovingAverage(DF,long_=200,short_=50):
     """
 
     df = DF.copy()
-    if (J3_DEBUG__):
-        df.Close.plot(title='Precio cierre')     #ploatemos basicamente
-    
+
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
-    ma_L = pd.Series( pd.Series.rolling(df['Close'],long_).mean(), name='MA_'+ str(long_))
-    ma_S = pd.Series( pd.Series.rolling(df['Close'],short_).mean(), name='MA_'+ str(short_))
+    ma_L = pd.Series( pd.Series.rolling(df['Adj Close'],long_).mean(), name='MA_'+ str(long_))
+    ma_S = pd.Series( pd.Series.rolling(df['Adj Close'],short_).mean(), name='MA_'+ str(short_))
     df=df.join(ma_L)
     df=df.join(ma_S)
     
     #visualizar
     if (J3_DEBUG__):
         print (df.head())
-        dfAux=df[['Adj Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
-        dfAux.plot(figsize=(16,8),title='Moving Average')
+        dfAux2=df[['Adj Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
+        dfAux2.plot(figsize=(16,8),title='Moving Average   '+ instrumento)
   
     return df
 
@@ -291,14 +327,14 @@ def ExponentialMovingAverage(DF,long_=200,short_=30):
     typical values 
     
     Input Data: it needs a dataFrame containing a column [Adj_Close]
-    Returns; same dataFrame with a new column [MACD] and new column[Signal] and [Histo]
+    Returns; 
     
     Estado: programada y probada. 
     Origen      (J3...2020)
     """
 
     df = DF.copy()
-    df.Close.plot()     #ploatemos basicamente
+    #df.Close.plot()     #ploatemos basicamente
     
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
     ema_L = pd.Series( pd.Series.ewm(df['Adj Close'],span=long_, min_periods=long_-1,adjust=False).mean(), name='EMA_'+ str(long_))
@@ -308,9 +344,11 @@ def ExponentialMovingAverage(DF,long_=200,short_=30):
     df=df.join(ema_S)
     
     #visualizar
-    print (df.head())
-    dfAux=df[['Adj Close', 'EMA_200', 'EMA_30']]
-    dfAux.plot(figsize=(16,8),title='Exponential Moving Average')
+    if (J3_DEBUG__):
+        print (df.head())
+        colors=['cyan', 'lightgreen', 'green']
+        dfAux=df[['Adj Close', 'EMA_200', 'EMA_20']]
+        dfAux.plot(figsize=(16,8),title='Exponential Moving Average',color=colors)
   
     return df
 
@@ -399,8 +437,13 @@ def BollBnd(DF,n=20):
     df["BB_width"] = df["BB_up"] - df["BB_dn"]
     df.dropna(inplace=True)
 
-    df.iloc[-100:, [6,7,8]].plot(title="BollingerBands")   #Pintamos los ultimos 100 valores
-    df.iloc[-500:-100, [6,7,8]].plot(title="BollingerBands")   #Pintamos el rango especificado desde atrás
+    if (J3_DEBUG__):
+        BB_up_=df.columns.get_loc("BB_up")
+        BB_dn_=df.columns.get_loc("BB_dn")
+        colors=['violet', 'lightgreen', 'tomato']
+        df.iloc[-n:, [5,BB_up_,BB_dn_]].plot(title="BollingerBands LAST "+str(n),color=colors)   #Pintamos los ultimos 100 valores
+        df.iloc[-220:, [5,BB_up_,BB_dn_]].plot(title="BollingerBands LAST 220",color=colors)   #Pintamo,s el rango especificado desde atrás
+        df.iloc[:,     [5,BB_up_,BB_dn_]].plot(title="BollingerBands ",color=colors)
 
 
     return df
@@ -715,6 +758,13 @@ def salvarExcel(df, nombreFichero):
              sheet_name="data")
     var =9
 ################################################## SalvarExcel
+
+################################################## LeerExcel
+def leerExcel(nombreFichero):
+    df.read_excel('tmp.xlsx', index_col=0)  
+    return df        
+
+################################################## LeerExcel
 
 
 ################################################## formula_cuadratica 
