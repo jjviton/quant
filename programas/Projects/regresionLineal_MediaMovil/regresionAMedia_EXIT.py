@@ -3,19 +3,18 @@
 
 """
 ******************************************************************************
-ESTRATEGIA DE INVERSION AUTOMATICA COMPLETA BASADA EN 
+ESTRATEGIA DE INVERSION AUTOMATICA COMPLETA BASADA EN REGRESION A LA MEDIA SSAALLIIDDAA
 ******************************************************************************
 ******************************************************************************
 Our rules are:
 
-Trade only with the trend, meaning both the 100-period linear regression line and 100-period moving average are in agreement.
+Trade only with the trend, meaning both the 200-period linear regression line and 200-period moving average are in agreement.
 When the above rule is true, take long trades when price hits the bottom band of the Keltner channel. Likewise, when both the linear regression line and moving average are in agreement in a downtrending market, a touch of the upper band of the Keltner channel would be a signal to go short.
 To exit a trade, we can use either a shift in the trend – i.e., the slope of either the linear regression line or moving average changes (opposite the direction of the trade) – or a touch of the linear regression line.
 
 Fuente: https://www.daytrading.com/linear-regression-line
 
-JA rule is: media rapida corta hacia abajo a la MA larga;cuando hace minimo empieza la serie para la regresion.
-            espero corte rapida a MA corta hacia arriba. Espero 'toque' bollinger abajo para ver que empieza a subir
+
             
 
 
@@ -63,12 +62,23 @@ df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2
 #/***************************************  Guardamos Informacion en fichero JSON 
 import json
 
-with open('config.json', 'r') as file:
-    config = json.load(file)
+with open('config.json', 'r') as file1:
+    config = json.load(file1)
 
 database_depar =    config['departamento']
 database_password = config['PRODUCTION']['DB_PASSWORD']
 empleado = config['empleados'][0]['nombre']
+
+
+
+    
+with open('senales.json', 'r') as file2:
+    senalesG = json.load(file2)    
+
+file1.close()
+file2.close()
+
+
 
 #/***************************************  Guardamos configuracion en fichero
 
@@ -99,9 +109,6 @@ def func_mensaje():
     message.setSize(8)
     message.draw(win)
 #################################################### func_mensaje() FIN
-
-
-
 
 
 #################################################### Clase para testing
@@ -294,25 +301,30 @@ def main():
     #end = '2021-1-20'
     
     #start =dt.datetime(2000,1,1)
-    start =dt.datetime.today() - dt.timedelta(days=1000)
+    start =dt.datetime.today() - dt.timedelta(days=1000)    #un año tiene 250 sesiones.
     #end = dt.datetime(2019,10,1)
     end= dt.datetime.today()  - dt.timedelta(days=1)        #Quito hoy para no ver el valor al ejecutar antes del cierre
+    #end = '2021-9-19'
     
- 
+    if(TELEGRAM__):
+        telegram_send("2.- SALIDA Estrategia Regresion a la media V0.1. SALIDA \n ")
+        
 
     # Create Regressionanalyis class
     #ra = Regressionanalysis('^NSEI', start, end, interval='60m')
     #ra.linear_regression(independent='Open', dependent='Close')
     # Me resulta complicado con esta libreria, no merece la pena ahora que estamos porbando, ya llegaran tiempos de afinar.
     
-    tickers5 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC']  #,'ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
-    tickers__ = ['SAN.MC'] 
-    tickers = ['FER.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
-        
-    #valorNum = 7
-    for i in range(len(tickers)): 
-        analisis(tickers[i], start, end)
-
+    for i in range(len(senalesG)):
+        estado=  analisis(senalesG['regresiones'][i]['ticker'], start, end, i)
+        if (estado ==99):
+            senalesG['regresiones'][i]['BuySell']=99
+    
+    with open('senales.json', 'w') as file:
+        json.dump(senalesG ,file)
+    file.close()
+            
+    
     print ("******************************************************************************That´s all") 
     print ("****************************************************************************************")       
     
@@ -326,7 +338,7 @@ estado = MaquinaE['reposo']
    
    
 #/******************************** FUNCION PRINCIPAL *********/    
-def analisis(instrumento, start, end):
+def analisis(instrumento, start, end, i):
     """Estrategia divergencias Precio vr RSI, v0
 
     Funcion que recibe el nombre de un insturmeto para analizar. busca datos en Yahoo y realiza la priemra estrategia con 
@@ -370,52 +382,55 @@ def analisis(instrumento, start, end):
     # 3.- regresion lineal precio n ultimas sesiones  (220 = sesiones anuales)
     df_aux= df.iloc[-200:, [4]]   #4-> Adj Close
     # 3.1.- Calculamos media de las ultimas 'n' sesiones y la regresion lineal
-    coef_linear, intercept_ =quant_j.linearRegresion_J3(df_aux,instrumento=instrumento)
+    coef_linear, intercept_linear =quant_j.linearRegresion_J3(df_aux,instrumento=instrumento)
 
 
 
-    ######################################################  ESTRATEGIA
-    parada =9 
+    ######################################################  ESTRATEGIA de SALIDA
+    # O tendencia cambia a negativa
+    # O precio llega al valor de la regresion lineal 
+    ######################################################
+   
     
-    # 1.- MEDIA DE 200 SESIONES ACCENDENTE
+    # 1.- MEDIA EXPONENCIAL DE 200 SESIONES 
     #   Calculamos de la media aritmetica la regresion lineal para ver la esencia
     ema200_=df.columns.get_loc("EMA_200")
     df_aux2= df.iloc[-200:, ema200_]
-    # 3.1.- Calculamos media de las ultimas 'n' sesiones y la regresion lineal
-    coef_ema200_, intercept_ma200_ =quant_j.linearRegresion_J3(df_aux2,instrumento=instrumento+'  de ema200')  
+    # 1.1.- Calculamos media de las ultimas 'n' sesiones y la regresion lineal
+    coef_ema200_, intercept_ema200_ =quant_j.linearRegresion_J3(df_aux2,instrumento=instrumento+'  de ema200')  
     
-    
-    # 4.- Bollinger 
-    df= quant_j.BollBnd(df,n=20)
-    
-    # 2.- Ambas pendientes//tendencias son ascendentes (ma220 y linearRegresion)
+    # 2.- Alguna pendiente descendente
+    if (coef_linear<0  or  coef_ema200_<0):  # 1.- si cambia la tendencia
+        señal = True
 
-    if (coef_linear>0  and  coef_ema200_>0):
-        bb_up_ = df.columns.get_loc("BB_up")
-        bb_dn_ = df.columns.get_loc("BB_dn")
-        price_ = df.columns.get_loc("Adj Close")   
-        indiceHoy_ = len(df)-1
+    indiceHoy_ = len(df)-1
+    price_ = df.columns.get_loc("Adj Close")   
         
-        a=df.iloc[indiceHoy_,price_] 
-        b=1* df.iloc[indiceHoy_,bb_dn_]
+    a=df.iloc[indiceHoy_,price_]  # precio hoy
+    b= (200*senalesG['regresiones'][i]['coef_precio'] + senalesG['regresiones'][i]['intercep_precio'])  #precio al que espero qeu alcance
+    #Esto de arriba se puede hacer más sencillo, tengo los datos de Precio y beneficion esperado
         
-        
-        if( df.iloc[indiceHoy_,price_] < ( 1* df.iloc[indiceHoy_,bb_dn_]) ):   #Precio por debajo de la banda de Bollinger, dentro de tendencia ascendente
+     # 3.- Precio supera la liena de regresion lineal del dia de la señal... mejorable :-)
+    if( a > b ):  
             señal =True
-        else:
-            señal = False
-        
+       
     if (señal == True):
-        parada=8
-        #Guardar las señales
-        #df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2'))
-        quant_j.saveSignal('RegresMedia_33', 'RegresionMedia b0', instrumento,end )
+
+        quant_j.saveSignal('RegresMedia_', 'RegresionMedia b0 (OUT)', instrumento,end, 99, 99, df.iloc[indiceHoy_,price_] , 0)
         
         if(TELEGRAM__):
-            telegram_send("Señal en la estrategia Regresión a la Media b0.0.\nMira " +instrumento)
-            
+            telegram_send("Señal SALIDA en la estrategia Regresión a la Media b0.0.\nMira " +instrumento)
+        
+        #actualizamos JSON, senales.
+        #senalesG['regresiones'][indice]['BuySell']=99        # Marca de salida
 
-  
+        
+        #with open('senales.json', 'w') as file:
+        #    json.dump(senalesG ,file)
+        #file.close()
+        
+        #Devolvemos que se ha producido señal de salida
+        return(99)
 
 #/*******************************************/
 #/* Programa Principal  *********************/

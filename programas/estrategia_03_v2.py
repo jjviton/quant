@@ -46,6 +46,7 @@ plt.style.use("bmh")
 
 import quandl  #Para recoger datos
 import ta as ta  #Biblioteca generica
+import yfinance as yf
 
 
 from quant_j3_lib import *
@@ -219,7 +220,7 @@ def main():
               'SPX500', 'US30', 'EURX50', 'FRENCH40', 'JPN225', 'XAGUSD', 'XAUUSD', 'UKOUSD', 'USOUSD', 'COFFEE', 'COPPER','CORN', 'OIL.WTI_N1#', 'OIL_M1#', 'SOYBEAN', 'WHEAT']
 
     if(TELEGRAM__):
-        telegram_send("Ejecutando la estrategia Divergencia Precio_RSI V2.0.\n Si encuentro algo te lo mando")
+        telegram_send("1.- Ejecutando la estrategia Divergencia Precio_RSI V2.0.\n Si encuentro algo te lo mando")
         
     #valorNum = 7
     for i in range(len(tickers)): 
@@ -255,7 +256,8 @@ def analisis(instrumento, start, end):
     
     #a.- Leer de WEB
     #df =web.DataReader(tickers[valorNum], 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
-    df =web.DataReader(instrumento, 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
+    df = yf.download(instrumento, start, end)
+    #df =web.DataReader(instrumento, 'yahoo', start, end)   # leemos los valore sde tesl    #Guardarlo en fichero .CSV
     #df.to_csv('endesa.csv')
     #b.- Leer de .CSV
     #df = pd.read_csv('endesa.csv', parse_dates=True, index_col=0)

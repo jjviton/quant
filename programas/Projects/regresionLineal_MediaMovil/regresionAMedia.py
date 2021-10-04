@@ -14,8 +14,7 @@ To exit a trade, we can use either a shift in the trend – i.e., the slope of e
 
 Fuente: https://www.daytrading.com/linear-regression-line
 
-JA rule is: media rapida corta hacia abajo a la MA larga;cuando hace minimo empieza la serie para la regresion.
-            espero corte rapida a MA corta hacia arriba. Espero 'toque' bollinger abajo para ver que empieza a subir
+
             
 
 
@@ -32,7 +31,7 @@ Objetivo:
 
 # J3_DEBUG__ = False  #variable global (global J3_DEBUG__ )
 
-TELEGRAM__ = True
+TELEGRAM__ = False
 
 
 ################################ IMPORTAMOS MODULOS A UTILIZAR.
@@ -63,12 +62,22 @@ df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2
 #/***************************************  Guardamos Informacion en fichero JSON 
 import json
 
-with open('config.json', 'r') as file:
-    config = json.load(file)
+with open('config.json', 'r') as file1:
+    config = json.load(file1)
 
 database_depar =    config['departamento']
 database_password = config['PRODUCTION']['DB_PASSWORD']
 empleado = config['empleados'][0]['nombre']
+
+
+
+with open('senales.json', 'r') as file:
+    senales = json.load(file)
+
+file1.close()
+file.close()
+
+
 
 #/***************************************  Guardamos configuracion en fichero
 
@@ -294,11 +303,14 @@ def main():
     #end = '2021-1-20'
     
     #start =dt.datetime(2000,1,1)
-    start =dt.datetime.today() - dt.timedelta(days=1000)
+    start =dt.datetime.today() - dt.timedelta(days=1000)    #un año tiene 250 sesiones.
     #end = dt.datetime(2019,10,1)
     end= dt.datetime.today()  - dt.timedelta(days=1)        #Quito hoy para no ver el valor al ejecutar antes del cierre
+    #end = '2021-9-19'
     
- 
+    if(TELEGRAM__):
+        telegram_send("2.- Estrategia Regresion a la media V0.1.\n ")
+        
 
     # Create Regressionanalyis class
     #ra = Regressionanalysis('^NSEI', start, end, interval='60m')
@@ -306,13 +318,14 @@ def main():
     # Me resulta complicado con esta libreria, no merece la pena ahora que estamos porbando, ya llegaran tiempos de afinar.
     
     tickers5 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC']  #,'ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
-    tickers__ = ['SAN.MC'] 
+    tickers_ = ['CLNX.MC'] 
     tickers = ['FER.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
         
     #valorNum = 7
     for i in range(len(tickers)): 
         analisis(tickers[i], start, end)
-
+    
+    
     print ("******************************************************************************That´s all") 
     print ("****************************************************************************************")       
     
@@ -370,7 +383,7 @@ def analisis(instrumento, start, end):
     # 3.- regresion lineal precio n ultimas sesiones  (220 = sesiones anuales)
     df_aux= df.iloc[-200:, [4]]   #4-> Adj Close
     # 3.1.- Calculamos media de las ultimas 'n' sesiones y la regresion lineal
-    coef_linear, intercept_ =quant_j.linearRegresion_J3(df_aux,instrumento=instrumento)
+    coef_linear, intercept_linear =quant_j.linearRegresion_J3(df_aux,instrumento=instrumento)
 
 
 
@@ -382,7 +395,7 @@ def analisis(instrumento, start, end):
     ema200_=df.columns.get_loc("EMA_200")
     df_aux2= df.iloc[-200:, ema200_]
     # 3.1.- Calculamos media de las ultimas 'n' sesiones y la regresion lineal
-    coef_ema200_, intercept_ma200_ =quant_j.linearRegresion_J3(df_aux2,instrumento=instrumento+'  de ema200')  
+    coef_ema200_, intercept_ema200_ =quant_j.linearRegresion_J3(df_aux2,instrumento=instrumento+'  de ema200')  
     
     
     # 4.- Bollinger 
@@ -407,15 +420,34 @@ def analisis(instrumento, start, end):
         
     if (señal == True):
         parada=8
-        #Guardar las señales
-        #df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2'))
-        quant_j.saveSignal('RegresMedia_33', 'RegresionMedia b0', instrumento,end )
+        beneficio =(200*coef_linear + intercept_linear)-( df.iloc[indiceHoy_,price_] )
+        quant_j.saveSignal('RegresMedia_', 'RegresionMedia b0 (IN)', instrumento,end, coef_linear, coef_ema200_, df.iloc[indiceHoy_,price_] , beneficio)
         
         if(TELEGRAM__):
             telegram_send("Señal en la estrategia Regresión a la Media b0.0.\nMira " +instrumento)
+        #actualizamos JSON, senales.
+        
+        #Añado un mienbro a la lista
+        senales['regresiones'].append({"ticker": "jjj", "fecha": "26-09-2021", "BuySell" : 0, "coef_precio": 9.99, "intercep_precio": 9.9, "coef_ema": 9.9, "intercep_ema": 9.9, "precioIN": 9, "beneficio": 9.9})
+        
+        indice =senales['indice']
+                
+        senales['regresiones'][indice]['ticker']=instrumento
+        senales['regresiones'][indice]['BuySell']=1
+        senales['regresiones'][indice]['coef_ema']=coef_ema200_[0]
+        senales['regresiones'][indice]['intercep_ema']=intercept_ema200_
+        senales['regresiones'][indice]['coef_precio']=coef_linear[0][0]         #no sé muy bien por qué esta difererencia de ser array o serie
+        senales['regresiones'][indice]['intercep_precio']=intercept_linear[0]
+        senales['regresiones'][indice]['precioIN']=df.iloc[indiceHoy_,price_]
+        senales['regresiones'][indice]['beneficio']=beneficio[0][0]
+        senales['regresiones'][indice]['fecha']=end.strftime('%d-%m-%Y')
+        senales['indice']=indice+1
+        with open('senales.json', 'w') as file:
+            json.dump(senales ,file)
+        file.close()
             
 
-  
+
 
 #/*******************************************/
 #/* Programa Principal  *********************/

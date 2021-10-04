@@ -5,7 +5,7 @@ Created on Sun Sep 13 11:28:48 2020
 @author: INNOVACION
 """
 
-J3_DEBUG__ =True 
+J3_DEBUG__ =False
   
 
 
@@ -13,6 +13,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import statsmodels.api as sm   #se usa en el Slope del curso, quitar
+
+from openpyxl import load_workbook
 
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
@@ -22,7 +24,7 @@ from scipy.signal import find_peaks, argrelextrema
 
 ############################################## Save Signals
 
-def saveSignal(fichero, estrategia, instrumento, fecha):
+def saveSignal(fichero, estrategia, instrumento, fecha, parametro1, parametro2,parametro3,parametro4):
     """Funcion que registra en un excel las señales para suposterior anailisis
     Input Data: entreda estrategia+instrumenteo+fecha
     Returns:nada
@@ -33,11 +35,12 @@ def saveSignal(fichero, estrategia, instrumento, fecha):
     """
     try:
         df_sg=pd.read_excel(fichero +'.xls', index_col=0)  
+        #wb = load_workbook(filename = 'empty_book.xlsx')
     except (OSError, IOError):
         print('!')
-        df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2'))
+        df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2','aux3', 'aux4'))
     
-    new_row = {'estrategia':estrategia, 'instrumento':instrumento, 'fecha':fecha}
+    new_row = {'estrategia':estrategia, 'instrumento':instrumento, 'fecha':fecha, 'aux1':parametro1,'aux2':parametro2,'aux3':parametro3,'aux4':parametro4}
     #append row to the dataframe
     df_sg = df_sg.append(new_row, ignore_index=True) 
     salvarExcel(df_sg, fichero)  
@@ -440,10 +443,10 @@ def BollBnd(DF,n=20):
     if (J3_DEBUG__):
         BB_up_=df.columns.get_loc("BB_up")
         BB_dn_=df.columns.get_loc("BB_dn")
-        colors=['violet', 'lightgreen', 'tomato']
-        df.iloc[-n:, [5,BB_up_,BB_dn_]].plot(title="BollingerBands LAST "+str(n),color=colors)   #Pintamos los ultimos 100 valores
-        df.iloc[-220:, [5,BB_up_,BB_dn_]].plot(title="BollingerBands LAST 220",color=colors)   #Pintamo,s el rango especificado desde atrás
-        df.iloc[:,     [5,BB_up_,BB_dn_]].plot(title="BollingerBands ",color=colors)
+        colors=['violet', 'lightgreen', 'lime']
+        df.iloc[-n:, [4,BB_up_,BB_dn_]].plot(title="BollingerBands LAST "+str(n),color=colors)   #Pintamos los ultimos 100 valores
+        df.iloc[-220:, [4,BB_up_,BB_dn_]].plot(title="BollingerBands LAST 220",color=colors)   #Pintamo,s el rango especificado desde atrás
+        df.iloc[:,     [4,BB_up_,BB_dn_]].plot(title="BollingerBands ",color=colors)
 
 
     return df
