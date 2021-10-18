@@ -88,6 +88,10 @@ def slopeJ3(ser,n=5,instrumento=" "):
     """
     #1.- Normalizamos  ¿¿??
     #ser = (ser - ser.min())/(ser.max() - ser.min())         #Normalizamos la serie 
+    
+    if ser.empty:
+        print('DataFrame is empty!')
+        return (0,0)
 
     #2.- Creo un array con la variable independiente 'X'
     X = np.array(range(len(ser)))  
@@ -293,6 +297,27 @@ def volatility_j(DF):
 ################################################### Volatililty_j()
 
 #################################################### Media Movil Simple
+def MovingAverageSingle(DF,n=50,instrumento="_"):
+    """Function to calculate 
+    typical values 
+    
+    Input Data: it needs a dataFrame containing a column [Adj_Close]
+    Returns; same dataFrame with a new column [...] and new column[Signal] and [Histo]
+    
+    Estado: programada y probada. 
+    Origen      (J3...2020)
+    """
+
+    df = DF.copy()
+    ma_ = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean(), name='MA_')    
+    df=df.join(ma_)
+     
+    return df
+
+#################################################### Media Movil Simple
+
+
+#################################################### Media Movil Simple (larga y corta)
 def MovingAverage(DF,long_=200,short_=50,instrumento="_"):
     """Function to calculate 
     typical values 
@@ -504,6 +529,45 @@ def RSI(DF, n=14):
 
 #################################################### RSI
 
+
+
+#################################################### Pretty Good Osscilator
+def PGO(DF, n=20):
+    """Function to calculate Pretty Good OScillator
+       typical values n=14
+       Calculo: El pretty good indicator es un calculo entre el precio de cierre, la media
+       movil simple y el ATR
+       
+       Input Data: it needs a dataFrame containing a columns Close
+       Returns; dataFrame plus PGO column
+       
+       Improvements: SMA hacerla de un periodo, no de dos que 'mancha todo'
+       
+       Estado:  
+       Origen WEB     (J3...2021)
+       """
+
+    df = DF.copy()  
+    #def MovingAverageSingle(DF,n=50,instrumento="_"):
+    df=MovingAverageSingle(df,n,instrumento="_")
+    df=df.join(ATR(df,n=20))
+    
+    df.dropna(inplace=True)
+    
+    df['PGO']=(df['Adj Close']-df['MA_'])/ df['ATR']
+    
+       
+    #Ploteamos
+    #df['RSI'].plot()
+    if (J3_DEBUG__):
+        print (df.head())
+        colors=['cyan', 'lightgreen', 'green']
+        dfAux=df[['PGO']]
+        dfAux.plot(figsize=(16,8),title='PrettyGoodIndicator',color=colors)
+    
+    return df
+
+#################################################### Pretty Good Osscilator
 
 
 
