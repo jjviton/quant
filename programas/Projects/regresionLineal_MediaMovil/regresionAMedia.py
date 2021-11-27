@@ -35,15 +35,18 @@ TELEGRAM__ = True
 
 
 
+
 ################################ IMPORTAMOS MODULOS A UTILIZAR.
 import pandas as pd
 import numpy as np
 import datetime as dt
 import pandas_datareader as web
+import time
 
 import yfinance as yf
 
 import statsmodels.api as sm
+import matplotlib
 
 import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = 18, 8
@@ -144,7 +147,7 @@ def main():
     #end = '2021-1-20'
     
     #start =dt.datetime(2000,1,1)
-    start =dt.datetime.today() - dt.timedelta(days=500)    #un año tiene 250 sesiones.
+    start =dt.datetime.today() - dt.timedelta(days=400)    #un año tiene 250 sesiones.
     #end = dt.datetime(2019,10,1)
     end= dt.datetime.today()  - dt.timedelta(days=1)        #Quito hoy para no ver el valor al ejecutar antes del cierre
     #end = '2021-9-19'
@@ -159,17 +162,31 @@ def main():
     # Me resulta complicado con esta libreria, no merece la pena ahora que estamos porbando, ya llegaran tiempos de afinar.
     
     tickers5 = ['AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC']  #,'ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
-    tickers_ = ['CLNX.MC'] 
+    tickers_ = ['BKT.MC'] 
     tickers = ['FER.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
-
+    tickersCurrencies =['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 'EURCAD=X', 'EURAUD=X','USDCHF=X', 
+             'USDJPY=X','GBPCAD=X', 'GBPUSD=X', 'GBPJPY=X', 'GBPCHF=X', 'GBPNZD=X', 'GBPAUD=X',
+             'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X','JPY=X','EURSEK=X','USDCAD=X','AUDCAD=X',
+             'KC=F','HG=F', 'CORN', 'CL=F', 'ZS=F','ZW=F','GC=F','X','ZW=F',
+             'ETH-USD','PFE'
+             ]
         
     #VALORES DEL IBEX 
+
     for i in range(len(tickers)): 
         print(tickers[i])
         analisis(tickers[i], start, end)
-
+        #time.sleep (1)
+        
+    
+    for i in range(len(tickersCurrencies)): 
+        print(tickersCurrencies[i])
+        analisis(tickersCurrencies[i], start, end)        
+        #time.sleep (1)
+        
     
     #VALORES DEL SP50
+    
     sp_url= 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
     sp=pd.read_html(sp_url,header=0)[0]
     print (sp.info())
@@ -179,6 +196,7 @@ def main():
          #df = yf.download(symbol, start, end)
          print(symbol)
          analisis(symbol, start, end)
+         #time.sleep (1)
     
     
     
@@ -257,7 +275,7 @@ def analisis(instrumento, start, end):
     ######################################################  ESTRATEGIA
     parada =9 
     
-    # 1.- MEDIA DE 200 SESIONES ACCENDENTE
+    # 1.- MEDIA DE 200 SESIONES ASCENDENTE
     #   Calculamos de la media aritmetica la regresion lineal para ver la esencia
     ema200_=df.columns.get_loc("EMA_200")
     df_aux2= df.iloc[-200:, ema200_]

@@ -90,7 +90,7 @@ def slopeJ3(ser,n=5,instrumento=" "):
     #ser = (ser - ser.min())/(ser.max() - ser.min())         #Normalizamos la serie 
     
     if ser.empty:
-        print('DataFrame is empty!')
+        print('DataFrame is empty!++')
         return (0,0)
 
     #2.- Creo un array con la variable independiente 'X'
@@ -332,15 +332,15 @@ def MovingAverage(DF,long_=200,short_=50,instrumento="_"):
     df = DF.copy()
 
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
-    ma_L = pd.Series( pd.Series.rolling(df['Adj Close'],long_).mean(), name='MA_'+ str(long_))
-    ma_S = pd.Series( pd.Series.rolling(df['Adj Close'],short_).mean(), name='MA_'+ str(short_))
+    ma_L = pd.Series( pd.Series.rolling(df['Close'],long_).mean(), name='MA_'+ str(long_))
+    ma_S = pd.Series( pd.Series.rolling(df['Close'],short_).mean(), name='MA_'+ str(short_))
     df=df.join(ma_L)
     df=df.join(ma_S)
     
     #visualizar
     if (J3_DEBUG__):
         print (df.head())
-        dfAux2=df[['Adj Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
+        dfAux2=df[['Close', 'MA_'+str(long_), 'MA_'+str(short_)]]
         dfAux2.plot(figsize=(16,8),title='Moving Average   '+ instrumento)
   
     return df
@@ -365,8 +365,8 @@ def ExponentialMovingAverage(DF,long_=200,short_=30):
     #df.Close.plot()     #ploatemos basicamente
     
     #MA = pd.Series( pd.Series.rolling(df['Adj Close'],n).mean() ,name='MA_'+str(n))
-    ema_L = pd.Series( pd.Series.ewm(df['Adj Close'],span=long_, min_periods=long_-1,adjust=False).mean(), name='EMA_'+ str(long_))
-    ema_S = pd.Series( pd.Series.ewm(df['Adj Close'],span=short_, min_periods=short_ -1,adjust=False).mean(), name='EMA_'+ str(short_ ))
+    ema_L = pd.Series( pd.Series.ewm(df['Close'],span=long_, min_periods=long_-1,adjust=False).mean(), name='EMA_'+ str(long_))
+    ema_S = pd.Series( pd.Series.ewm(df['Close'],span=short_, min_periods=short_ -1,adjust=False).mean(), name='EMA_'+ str(short_ ))
     #    ema_S = pd.Series( pd.Series.rolling(df['Adj Close'],short_).mean(), name='MA_'+ str(short_))
     df=df.join(ema_L)   #añade una columna al dataFrame
     df=df.join(ema_S)
@@ -375,7 +375,7 @@ def ExponentialMovingAverage(DF,long_=200,short_=30):
     if (J3_DEBUG__):
         print (df.head())
         colors=['cyan', 'lightgreen', 'green']
-        dfAux=df[['Adj Close', 'EMA_200', 'EMA_20']]
+        dfAux=df[['Close', 'EMA_200', 'EMA_20']]
         dfAux.plot(figsize=(16,8),title='Exponential Moving Average',color=colors)
   
     return df
@@ -458,10 +458,10 @@ def BollBnd(DF,n=20):
        """
        
     df = DF.copy()
-    df["MA"] = df['Adj Close'].rolling(n).mean()    #calculo media movil SIMPLE del valor de cierre
+    df["MA"] = df['Close'].rolling(n).mean()    #calculo media movil SIMPLE del valor de cierre
     # Bandas son la media más/menos 2 standart deviation
-    df["BB_up"] = df["MA"] + 2*df['Adj Close'].rolling(n).std(ddof=0) #ddof=0 is required since we want to take the standard deviation of the population and not sample
-    df["BB_dn"] = df["MA"] - 2*df['Adj Close'].rolling(n).std(ddof=0) #ddof=0 is required since we want to take the standard deviation of the population and not sample
+    df["BB_up"] = df["MA"] + 2*df['Close'].rolling(n).std(ddof=0) #ddof=0 is required since we want to take the standard deviation of the population and not sample
+    df["BB_dn"] = df["MA"] - 2*df['Close'].rolling(n).std(ddof=0) #ddof=0 is required since we want to take the standard deviation of the population and not sample
     df["BB_width"] = df["BB_up"] - df["BB_dn"]
     df.dropna(inplace=True)
 
@@ -828,7 +828,11 @@ def salvarExcel(df, nombreFichero):
 
 ################################################## LeerExcel
 def leerExcel(nombreFichero):
-    df.read_excel('tmp.xlsx', index_col=0)  
+    df = pd.DataFrame({'A' : []})  
+    try:
+        df=pd.read_excel(nombreFichero+'.xls', index_col=0)  
+    except:
+        print ('fichero no existe')
     return df        
 
 ################################################## LeerExcel
