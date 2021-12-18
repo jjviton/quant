@@ -91,7 +91,7 @@ class StrategyClass:
        
     """  
     
-    dfLog = pd.DataFrame(columns=('Date','Senal', 'Price','Objetivo'))
+    dfLog = pd.DataFrame(columns=('Date','Senal', 'Price','Objetivo','ExitReason'))
     dfCartera = pd.DataFrame(columns=['instrumento','long_short_out', 'date','precio'])
     #dfCartera.set_index('instrumento',inplace=True)
 
@@ -110,7 +110,8 @@ class StrategyClass:
         dfx2=StrategyClass.dfCartera
         
     def analisis(self, instrumento, startDate, endDate, DF):
-        """Funcion que....
+        """Funcion de entrada al analisis. Primero buscamos en el excel 'Cartera' si estamos invertidos en el instrumento, shor or long. Si no está el insturmento
+        creamos la entrada. Si tenemos el instrumento y estamos dentro analizamos si salimos, viceversa. 
         Returns:nada
 
         """
@@ -210,24 +211,14 @@ class StrategyClass:
 def estrategiaSALIDA(instrumento, startt, endd, df):
     """Estrategia divergencias Precio vr RSI, v0
 
-    Funcion que recibe el nombre de un insturmeto para analizar. busca datos en Yahoo y realiza la priemra estrategia con 
-    por divergencias con RSI y graba un excel.
-    
+    Funcion que gestiona la estrategia de salida. Analiza dos casos, salida por StopLoss o por TakeProfit. (por ahora no hacemos trailing stopLoss)
         
-    Utiliza la fórmula general (también conocida
-    coloquialmente como el "chicharronero").
+    ToDo:
+        Trailing Stoploss
+        Costes de transaccion
+        Money management
+        Mejorar teoria del stoploss y takeProfit.
 
-    Parámetros:
-    a -- 
-    b -- 
-    c -- 
-    
-    Devuelve:
-    Valores trabajados y ordenados
-
-    Excepciones:
-    ValueError -- Si (a == 0)
-    
     """    
     # 0.- Lemos los datos    
     try:
@@ -242,15 +233,6 @@ def estrategiaSALIDA(instrumento, startt, endd, df):
     except:
         #resultados['senal']   =  503     #Service Unavaliable
         return #resultados
-    """
-            col_ =  StrategyClass.dfCartera.instrumento.isin([instrumento])   # devuelve una serie con true/false donde esta el obejto buscado
-            linea_2 = col_[col_==True]   # hago una serie con los true, normalmente un solo elemento
-            linea_3=linea_2.index
-            linea_=linea_3[0]
-            #print(linea_)
-    """
-    
- 
     
     col_ =          StrategyClass.dfCartera.instrumento.isin([instrumento]) 
     linea_2 = col_[col_==True]
@@ -267,20 +249,23 @@ def estrategiaSALIDA(instrumento, startt, endd, df):
     indiceHoy_ = len(df)-1                          #Revisar este punto
     PrecioHoy =   df.iloc[indiceHoy_,price_]
     
-    if (endd== '2013-03-21'):
+    if (endd== '2013-03-21'):   #BreakPoint under demant :-)  j3viton
         parada=9
         print('precio hoy', PrecioHoy)
         print('precio compra', precioCompra_[linea_])
     
     if( PrecioHoy < (precioCompra_)   or (PrecioHoy > 1,20*(precioCompra_) ) ):    #-(precioCompra*0.1))) :
-        señal =  0   # salta el stoploss y me salgo
+        señal =  0   # salta el stoploss y me salgo ?????
         StrategyClass.dfCartera.iloc[linea_ , l_s_o]  = 0            
         StrategyClass.dfCartera.iloc[linea_ , precio_]  = PrecioHoy
         
         
         StrategyClass.dfLog.loc[endd,'Date'] = endd
         StrategyClass.dfLog.loc[endd,'Senal']= 0
-        StrategyClass.dfLog.loc[endd,'Price']= df.iloc[indiceHoy_,price_]    
+        StrategyClass.dfLog.loc[endd,'Price']= df.iloc[indiceHoy_,price_]   
+        
+        if( PrecioHoy < (precioCompra_) ):
+            StrategyClass.dfLog.loc[endd,'ExitReason'] = -1    # Marca la razaon de la salida -1 salgo por stopLoss, 1 takeProfit
         
         dfx=StrategyClass.dfLog
         dfx2=StrategyClass.dfCartera
@@ -593,7 +578,7 @@ if __name__ == '__main__':
         
     #From Jupyter
     # Rango completo para backTesting
-    start2 =dt.datetime(2005,1,2)
+    start2 =dt.datetime(2000,1,2)
     end2   =dt.datetime(2021,11,23)
     start_G= start2.strftime("%Y-%m-%d")
     end_G  =   end2.strftime("%Y-%m-%d")
@@ -601,21 +586,21 @@ if __name__ == '__main__':
     print('Tamaño timeseries a analizar:  ', TOTAL_len, 'sesiones')
     
     #ventana de analisis 200 sesiones
-    startWindow2 =dt.datetime(2010,1,5)
+    startWindow2 =dt.datetime(2000,1,5)
     endWindow2   =startWindow2 + dt.timedelta(days=1000) 
     startWindow= startWindow2.strftime("%Y-%m-%d")
     endWindow  =   endWindow2.strftime("%Y-%m-%d")
     window_len= (endWindow2-startWindow2).days
     print('Tamaño de la ventana a analizar paso a paso:  ', window_len, 'sesiones')
      
-    instrumento ="AAPL"
+    instrumento ='TEF.MC'
     dff = yf.download(instrumento, start_G,end_G)
     
     regreMedia= StrategyClass()    #Creamos la clase
     
     dfe = pd.DataFrame({'A' : []})   #df empty
     
-    #TOTAL_len =1000    
+    TOTAL_len =1000    
     for i in range(TOTAL_len):
         endWindow3   =endWindow2 + dt.timedelta(days=i) 
         endWindow    =endWindow3.strftime("%Y-%m-%d")
@@ -623,8 +608,13 @@ if __name__ == '__main__':
         
         if(endWindow in dff.index):
             df_aux= dff.loc[startWindow:endWindow]    #voy pasando los datos desplazando la ventana
+            
             recogo = regreMedia.analisis(instrumento, startWindow, endWindow, df_aux) #Llamada a la clase estrategia. LA CLAVE DE TODO!!!
-            print ('...................................................Analizando, muestra', i, 'fecha', endWindow)
+            
+            
+            print ('...................................................Analizando, muestra', i, 'de', TOTAL_len, 'fecha', endWindow)
+            print ('......................................................................_______________.................')
+            #print(colored('Hello, World!', 'green', 'on_red'))
             """
             if(recogo['senal'] == 1 ):
                 dff.loc[[endWindow],['Senal']]= 1

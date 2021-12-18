@@ -99,8 +99,11 @@ def CAGR(retornos):
         ----
     '''
     retorno_acumulado = retornos.fillna(0).add(1).cumprod()
-    cagr = (retorno_acumulado[-1] / retorno_acumulado[0]) ** (
-                365 / (retornos.index[-1] - retornos.index[0]).days ) - 1
+    # cambiamos los no value por ceros, sumamos 1 a cada una de las celdas y prodcuto acumulativo (multiplica todas las anterioeres)
+    dt_inicial = dt.datetime.strptime(retornos.index[1], '%Y-%m-%d')
+    dt_final = dt.datetime.strptime(retornos.index[-1], '%Y-%m-%d')
+    cagr = (retorno_acumulado[-1] / retorno_acumulado[1]) ** (
+                365 / (dt_final - dt_inicial).days ) - 1
     return cagr
 
 
