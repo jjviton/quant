@@ -91,7 +91,7 @@ class StrategyClass:
     """  
     
     dfLog = pd.DataFrame(columns=('Date','Senal', 'Price','Objetivo','ExitReason'))
-    dfCartera = pd.DataFrame(columns=['instrumento','long_short_out', 'date','precio','beneficio'])
+    dfCartera = pd.DataFrame(columns=['instrumento','long_short_out', 'date','precio','beneficio','stoploss'])
     #dfCartera.set_index('instrumento',inplace=True)
 
     
@@ -171,7 +171,7 @@ class StrategyClass:
         return resultado  # SELL_ HOLD_
     
     def analisis_OUT(self, instrumento, startDate, endDate, DF):
-
+        
         print('aqui estoy en out')
         estrategiaSALIDA(instrumento, startDate, endDate, DF)
         
@@ -183,6 +183,34 @@ class StrategyClass:
         dfx2=StrategyClass.dfCartera
         
         return
+    @classmethod 
+    def analisis_P_L(self, ddf, beneficio):
+        """
+        Descripcion: this method evaluates the convenience of the inversion measuring Profit and loss
+        Currrent method asumes profit line three times bigger than stopLoss line
+        
+        Parameters
+        ----------
+        ddf : TYPE
+            DESCRIPTION.
+        beneficio : TYPE
+            DESCRIPTION.
+
+        Returns
+        -------
+        TYPE
+            DESCRIPTION.
+
+        """
+        # Caluclo el ATR de la serie de precios
+        df=quant_j.ATR(ddf,n=20)
+        #last ATR 
+        a=df[-1]
+        b=ddf['Close'][-1]
+        #Estrategia hacia nuestro mejor interés.
+        if ( 2*(df[-1]) > (beneficio)): # 2*ATR > beneficio  -> noGo!!!
+            return False
+        return True
     
     def analisis_Log(self):
         return True
@@ -240,6 +268,8 @@ def estrategiaSALIDA(instrumento, startt, endd, df):
     precioCompra_=  StrategyClass.dfCartera.iloc[linea_ , precio_]   
     beneficio_ =    StrategyClass.dfCartera.columns.get_loc("beneficio")
     beneficioEsperado_=  StrategyClass.dfCartera.iloc[linea_ , beneficio_]  
+    stoplossLOC_ =    StrategyClass.dfCartera.columns.get_loc("stoploss")
+    stoploss_=  StrategyClass.dfCartera.iloc[linea_ , stoplossLOC_]   
     
     #Condicion de salida " precio baja un 10% el precio de entrada
     
@@ -264,7 +294,7 @@ def estrategiaSALIDA(instrumento, startt, endd, df):
 
    
     
-    if( PrecioHoy < (precioCompra_) ):   
+    if( PrecioHoy < (precioCompra_ - (beneficioEsperado_/3)) ):      #Un poco de money management  Otra: (PrecioEntrada-2*ATR)
         señal =  0   # salta el stoploss y me salgo ?????
         StrategyClass.dfCartera.iloc[linea_ , l_s_o]  = 0   #OUT         
         #StrategyClass.dfCartera.iloc[linea_ , precio_]  = PrecioHoy
@@ -388,7 +418,10 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     
     # 2.- Ambas pendientes//tendencias son ascendentes (ma220 y linearRegresion)
      
-    indiceHoy_ = np.where(df.index == endd)[0][0]
+    try:
+        indiceHoy_ = np.where(df.index == endd)[0][0]
+    except:
+        return
     
     price_ = df.columns.get_loc("Close")  
     
@@ -406,6 +439,11 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
             señal =True
         else:
             señal = False
+        
+        
+        beneficio = ((200*coef_linear + intercept_linear)-( df.iloc[indiceHoy_,price_] ))    
+        if (beneficio[0]<0):   #caso estraño pero subidad rapidad dejan la regresion lineal por abajo
+            señal = False           
     
     ######################################################  ESTRATEGIA
     #######################################################################    
@@ -414,11 +452,16 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     ####################
     ## SEÑAL DE COMPRA
     
+    ### Analizamos el P&L de la operacion
+    if(señal == True):
+        goNogo= StrategyClass.analisis_P_L(df, beneficio)
+        señal = goNogo
+    
+    
     if (señal == True):
         print('***************** Señal...')        
         parada=8
-        beneficio = ((200*coef_linear + intercept_linear)-( df.iloc[indiceHoy_,price_] ))
-        
+ 
         #Guardo en EXCEL file
         quant_j.saveSignal('RegresMedia_', 'RegresionMedia b0 (IN)', instrumento,endd, coef_linear, coef_ema200_, df.iloc[indiceHoy_,price_] , beneficio)
         
@@ -450,6 +493,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         date__ = StrategyClass.dfCartera.columns.get_loc("date")
         precio__ = StrategyClass.dfCartera.columns.get_loc("precio")
         beneficio__ = StrategyClass.dfCartera.columns.get_loc("beneficio")
+        stoploss__ = StrategyClass.dfCartera.columns.get_loc("stoploss")
         
         
         linea_ = StrategyClass.dfCartera.instrumento.isin([instrumento])
@@ -458,6 +502,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         StrategyClass.dfCartera.iloc[linea_ , date__]       = endd        
         StrategyClass.dfCartera.iloc[linea_, precio__]      = df.iloc[indiceHoy_,price_]
         StrategyClass.dfCartera.iloc[linea_, beneficio__]   = beneficio[0] 
+        StrategyClass.dfCartera.iloc[linea_, stoploss__]    = 99 
         
         
         #StrategyClass.dfCartera.loc['Objetivo']    =beneficio[0]  + df.iloc[indiceHoy_,price_]
@@ -542,6 +587,20 @@ if __name__ == '__main__':
 
     """
     
+    ############################ Pruebas
+    """
+    instrumento ='MTS.MC'
+    
+    start =dt.datetime(2010,1,2)
+    end =dt.datetime.today()  
+    df = yf.download(instrumento, start,end)
+    quant_j.MogalefBands(df,paraA_=200,paraB_=50,instrumento="_")
+    """    
+        
+    
+    ############################ Pruebas FIN
+    
+    
     # Enter start and end date
     #start = '2020-1-20'
     #end = '2021-1-20'
@@ -568,25 +627,30 @@ if __name__ == '__main__':
         
     #From Jupyter
     # Rango completo para backTesting
-    start2 =dt.datetime(2000,1,2)
-    end2   =dt.datetime(2021,11,23)
+    start2 =dt.datetime(2010,1,6)
+    #start2 =dt.datetime.today()-dt.timedelta(days=1)
+    #end2 =dt.datetime(2021,12,18)
+    end2 =dt.datetime.today()  #-dt.timedelta(days=1)
     start_G= start2.strftime("%Y-%m-%d")
     end_G  =   end2.strftime("%Y-%m-%d")
     TOTAL_len= (end2-start2).days
     print('Tamaño timeseries a analizar:  ', TOTAL_len, 'sesiones')
     
     #ventana de analisis 200 sesiones
-    startWindow2 =dt.datetime(2000,1,5)
-    endWindow2   =startWindow2 + dt.timedelta(days=1000) 
+    #startWindow2 =dt.datetime(2012,1,5)
+    startWindow2 = start2
+    endWindow2   =startWindow2 + dt.timedelta(days=500) 
     startWindow= startWindow2.strftime("%Y-%m-%d")
     endWindow  =   endWindow2.strftime("%Y-%m-%d")
     window_len= (endWindow2-startWindow2).days
     print('Tamaño de la ventana a analizar paso a paso:  ', window_len, 'sesiones')
      
-    instrumento ='ACX.MC'
+    instrumento ='MSFT' #'ACX.MC'
     dff = yf.download(instrumento, start_G,end_G)
     
     regreMedia= StrategyClass()    #Creamos la clase
+    
+    #regreMedia.analisis_P_L(dff, 4)  #Solo para probar el ATR
     
     dfe = pd.DataFrame({'A' : []})   #df empty
     

@@ -53,19 +53,26 @@ def DrawDown (rets, info=True):
     import numpy as np
     # rets es una serie de Pandas con los retornos
     rets = rets.fillna(0).add(1).cumprod()
+    # Rellena los NaN con 1. Suma 1. Producto acumulativo
+    
+    
     dd = rets.div(rets.cummax()).sub(1)
-    maxdd = dd.min()
-    fmaxdd = dd.idxmin()
+    #compara valor actual con anterior y deja el mayor
+    
+    maxdd = dd.min()  # minimo valor de una serie
+    fmaxdd = dd.idxmin()  # indice del minimo valor de una serie
     inicio = rets.loc[:fmaxdd].idxmax()
+    
+    
     try:
         fin = dd[fmaxdd:][dd[fmaxdd:]==0].index[0]
     except:
         fin = np.nan    
-    if  0: #info:
+    if  info:
         if fin != fin:
-            print ('Máximo Drawdown : {}% \nInicio : {} \nAún en curso'.format(-round(maxdd*100,2), inicio.date() ))
+            print ('Máximo Drawdown... : {}% \nInicio : {} \nAún en curso'.format(-round(maxdd*100,2), inicio )) #inicio.date() ))
         else:
-            print ('Máximo Drawdown : {}% \nInicio : {} \nFin    : {}'.format(-round(maxdd*100,2), inicio.date(), fin.date() ))
+            print ('Máximo Drawdown : {}% \nInicio : {} \nFin    : {}'.format(-round(maxdd*100,2), inicio, fin))  # inicio.date(), fin.date() ))
     return dd, maxdd, inicio, fin
 
 

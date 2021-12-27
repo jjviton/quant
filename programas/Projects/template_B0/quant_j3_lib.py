@@ -20,6 +20,51 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from scipy.signal import find_peaks, argrelextrema
 
+#################################  Mogalef bands
+
+def MogalefBands(df,paraA_=200,paraB_=50,instrumento="_"): 
+    #// Calculation Mogalef Bands
+    #// variables std1=7 linear1=3
+    
+    #CP=(open+high+low+2*close)/5
+    cp= (df['Open']+df['High']+df['Low']+2*df['Close']) / 5
+    
+    F=LinearRegression[linear1](CP)
+    E=std[std1](F)
+    
+    coef_ema200_, intercept_ema200_ =quant_j.linearRegresion_J3(df_aux2,instrumento=instrumento) #+'  de ema200')  
+    
+    """
+    if barindex<8 then
+    Median = undefined
+    BandHigh = undefined
+    BandLow = undefined
+    
+    Else
+    BandHigh = F+(E*2)
+    BandLow = F-(E*2)
+    BandMedHigh = F+E
+    BandMedLow = F-E
+    
+    if F<BandHigh[1]and F>BandLow[1]then
+    E=E[1]
+    BandHigh=BandHigh[1]
+    BandLow=BandLow[1]
+    BandMedHigh=BandMedHigh[1]
+    BandMedLow=BandMedLow[1]
+    
+    endif
+    
+    Median =(BandHigh+BandLow)/2
+    Endif
+    
+    return BandHigh as"Mogalef Band High", Median as "Mogalef Median Band », BandLow as "Mogalef Band Low", BandMedHigh as"Mogalef Band Med High », BandMedLow as "Mogalef Band Med Low"
+    """
+    return
+################################ END MogalefBands
+
+
+
 
 
 ############################################## Save Signals
@@ -430,16 +475,16 @@ def ATR(DF,n=20):
        
     df = DF.copy()
     df['H-L']=abs(df['High']-df['Low'])                     # Today High minus Low  
-    df['H-PC']=abs(df['High']-df['Adj Close'].shift(1))     # Shift nos mueve a la fila anterior (presentHigh menos previousClose)
-    df['L-PC']=abs(df['Low']-df['Adj Close'].shift(1))      # Today´s Low minus previousClose
+    df['H-PC']=abs(df['High']-df['Close'].shift(1))     # Shift nos mueve a la fila anterior (presentHigh menos previousClose)
+    df['L-PC']=abs(df['Low']-df['Close'].shift(1))      # Today´s Low minus previousClose
     df['TR']=df[['H-L','H-PC','L-PC']].max(axis=1,skipna=False)  # Obtiene el Max de las tres columnas
-    df['ATR'] = df['TR'].rolling(n).mean()
-    #df['ATR'] = df['TR'].ewm(span=n,adjust=False,min_periods=n).mean()  #En caso de querer hacer media exponencial
-    df2 = df.drop(['H-L','H-PC','L-PC'],axis=1)     #Quitamos columnas intermedias
-    df2.dropna(inplace=True)                        #Quita las filas que que el ATR en nan     
+    #df['ATR'] = df['TR'].rolling(n).mean()
+    df['ATR'] = df['TR'].ewm(span=n,adjust=False,min_periods=n).mean()  #En caso de querer hacer media exponencial
+    ##df2 = df.drop(['H-L','H-PC','L-PC'],axis=1)     #Quitamos columnas intermedias
+    df.dropna(inplace=True)                        #Quita las filas que que el ATR en nan     
     
-    df2.iloc[:, [6,7]].plot()   #Pintamos 
-    return df2['ATR']
+    df.iloc[:, [6,7]].plot()   #Pintamos 
+    return df['ATR']
 #################################################### ATR
 
 
