@@ -212,6 +212,31 @@ class StrategyClass:
             return False
         return True
     
+    @classmethod 
+    def analisisEconomics(self, instrumento):
+        """
+        Descripcion: this method evaluates the convenience of the inversion measuring Profit and loss
+        Currrent method asumes profit line three times bigger than stopLoss line
+        
+
+        """
+    ########################################
+    ## ECONOMICS
+    
+        data=StrategyClass.dfLog
+    
+        data['Dif_Close'] = data.Price.pct_change()
+    
+        data['Retornos'] = data.Dif_Close * data.Senal.shift(1)
+        
+        data['Capital'] = (data.Retornos + 1).cumprod() * 100
+        
+        StrategyClass.dfLog=data
+        quant_j.salvarExcel(StrategyClass.dfLog, "log"+instrumento)
+           
+        return     
+    
+
     def analisis_Log(self):
         return True
     
@@ -654,7 +679,7 @@ if __name__ == '__main__':
     
     dfe = pd.DataFrame({'A' : []})   #df empty
     
-    #TOTAL_len =1000    
+    TOTAL_len =1000    
     for i in range(TOTAL_len):
         endWindow3   =endWindow2 + dt.timedelta(days=i) 
         endWindow    =endWindow3.strftime("%Y-%m-%d")
@@ -687,6 +712,8 @@ if __name__ == '__main__':
     ########################################
     ## ECONOMICS
     
+    StrategyClass.analisisEconomics(instrumento)
+    """
     data=StrategyClass.dfLog
 
     data['Dif_Close'] = data.Price.pct_change()
@@ -699,7 +726,7 @@ if __name__ == '__main__':
     quant_j.salvarExcel(StrategyClass.dfLog, "log"+instrumento)
     
     data.to_pickle('almacen')    #df = pd.read_pickle(file_name)
-
+    """
 
     
     print ("******************************************************************************That´s all") 

@@ -1,0 +1,172 @@
+{'id': 1473252352, 'first_name': 'vital_bot', 'is_bot': True, 'username': 'vital_quant_bot', 'can_join_groups': True, 'can_read_all_group_messages': False, 'supports_inline_queries': False}
+[*********************100%***********************]  1 of 1 completed
+FER.MC
+DataFrame is empty!++
+FER.MC False
+Precio 25.670000076293945 *************  Kalman 25.876777399183652
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+COL.MC
+DataFrame is empty!++
+COL.MC False
+Precio 8.020000457763672 *************  Kalman 8.081064242536943
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+IBE.MC
+DataFrame is empty!++
+IBE.MC False
+Precio 10.145000457763672 *************  Kalman 10.067773234216162
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+NTGY.MC
+DataFrame is empty!++
+NTGY.MC False
+Precio 28.440000534057617 *************  Kalman 28.36624239226739
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SAB.MC
+DataFrame is empty!++
+SAB.MC False
+Precio 0.6416000127792358 *************  Kalman 0.6441403272085873
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ACX.MC
+DataFrame is empty!++
+ACX.MC False
+Precio 12.020000457763672 *************  Kalman 11.741732904144179
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PHM.MC
+DataFrame is empty!++
+PHM.MC False
+Precio 55.880001068115234 *************  Kalman 55.515144146492986
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SAN.MC
+DataFrame is empty!++
+SAN.MC False
+Precio 3.0824999809265137 *************  Kalman 3.0658026476390794
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+MRL.MC
+DataFrame is empty!++
+MRL.MC False
+Precio 9.95199966430664 *************  Kalman 9.823465419408732
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TEF.MC
+TEF.MC True
+checkOUT Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+AMS.MC
+DataFrame is empty!++
+AMS.MC False
+Precio 62.29999923706055 *************  Kalman 61.049125617272765
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+VIS.MC
+DataFrame is empty!++
+VIS.MC False
+Precio 54.20000076293945 *************  Kalman 54.490462418987136
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+MTS.MC
+DataFrame is empty!++
+MTS.MC False
+Precio 28.8700008392334 *************  Kalman 29.15209592401603
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+MAP.MC
+DataFrame is empty!++
+MAP.MC False
+Precio 1.8674999475479126 *************  Kalman 1.8853236370983117
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+CLNX.MC
+DataFrame is empty!++
+CLNX.MC False
+Precio 43.189998626708984 *************  Kalman 43.78723553862111
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+BBVA.MC
+DataFrame is empty!++
+BBVA.MC False
+Precio 5.625999927520752 *************  Kalman 5.552246014341702
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+CABK.MC
+CABK.MC True
+checkOUT Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+MEL.MC
+MEL.MC True
+checkOUT Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+AENA.MC
+AENA.MC True
+checkOUT Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+BKT.MC
+BKT.MC True
+checkOUT Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+REE.MC
+DataFrame is empty!++
+REE.MC False
+Precio 17.854999542236328 *************  Kalman 18.037906064401867
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+FDR.MC
+DataFrame is empty!++
+FDR.MC False
+Precio 29.899999618530273 *************  Kalman 30.89460449733209
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ACS.MC
+DataFrame is empty!++
+ACS.MC False
+Precio 23.110000610351562 *************  Kalman 23.178740423924786
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ITX.MC
+DataFrame is empty!++
+ITX.MC False
+Precio 28.100000381469727 *************  Kalman 27.92303753479852
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ENG.MC
+DataFrame is empty!++
+ENG.MC False
+Precio 19.80500030517578 *************  Kalman 19.95519628775119
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ANA.MC
+DataFrame is empty!++
+ANA.MC False
+Precio 152.5 *************  Kalman 156.84872434410613
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ELE.MC
+DataFrame is empty!++
+ELE.MC False
+Precio 19.760000228881836 *************  Kalman 19.686462421075245
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+GRF.MC
+DataFrame is empty!++
+GRF.MC False
+Precio 16.614999771118164 *************  Kalman 16.3650147205122
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+IAG.MC
+DataFrame is empty!++
+IAG.MC False
+Precio 1.8854999542236328 *************  Kalman 1.8622613088466629
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SGRE.MC
+DataFrame is empty!++
+SGRE.MC False
+Precio 16.290000915527344 *************  Kalman 18.914887182813672
+checkIN Time 2022-01-27 00:00:00
+[*********************100%***********************]  1 of 1 completed

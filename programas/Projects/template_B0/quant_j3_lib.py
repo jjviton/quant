@@ -483,7 +483,7 @@ def ATR(DF,n=20):
     ##df2 = df.drop(['H-L','H-PC','L-PC'],axis=1)     #Quitamos columnas intermedias
     df.dropna(inplace=True)                        #Quita las filas que que el ATR en nan     
     
-    df.iloc[:, [6,7]].plot()   #Pintamos 
+    #df.iloc[:, [6,7]].plot()   #Pintamos 
     return df['ATR']
 #################################################### ATR
 
