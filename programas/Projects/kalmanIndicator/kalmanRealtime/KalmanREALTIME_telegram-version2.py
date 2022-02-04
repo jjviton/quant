@@ -72,7 +72,7 @@ def checkKalman(instrumento_ ='app'):
         print('instrumento no existe')
     
     del data["Adj Close"]
-    data['Kalman']= quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
+    data=    quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
 
     indiceLast_ = (len(data)-2)    ### ojo parece que da la ultima version cotizada, no la ultima hora
     price_ = data.columns.get_loc("Close")  
@@ -153,7 +153,7 @@ def checkKalman_OUT(instrumento_ ='app'):
         print('instrumento no existe')
     
     del data["Adj Close"]
-    data['Kalman']= quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
+    data= quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
 
     indiceLast_ = (len(data)-2)    ### ojo parece que da la ultima version cotizada, no la ultima hora
     price_ = data.columns.get_loc("Close")  
@@ -201,7 +201,7 @@ def checkKalman_OUT(instrumento_ ='app'):
 # In[7]:
 
 
-miDelay =5
+miDelay =2
 
 #TICKERS
 

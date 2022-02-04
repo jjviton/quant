@@ -7,14 +7,14 @@ SAB.MC,False
 ACX.MC,False
 PHM.MC,False
 SAN.MC,False
-MRL.MC,False
+MRL.MC,True
 TEF.MC,True
 AMS.MC,False
 VIS.MC,False
 MTS.MC,False
 MAP.MC,False
 CLNX.MC,False
-BBVA.MC,False
+BBVA.MC,True
 CABK.MC,True
 MEL.MC,True
 AENA.MC,True
