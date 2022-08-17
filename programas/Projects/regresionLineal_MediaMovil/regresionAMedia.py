@@ -9,8 +9,10 @@ ESTRATEGIA DE INVERSION AUTOMATICA COMPLETA BASADA EN
 Our rules are:
 
 Trade only with the trend, meaning both the 200-period linear regression line and 200-period moving average are in agreement.
-When the above rule is true, take long trades when price hits the bottom band of the Keltner channel. Likewise, when both the linear regression line and moving average are in agreement in a downtrending market, a touch of the upper band of the Keltner channel would be a signal to go short.
-To exit a trade, we can use either a shift in the trend – i.e., the slope of either the linear regression line or moving average changes (opposite the direction of the trade) – or a touch of the linear regression line.
+When the above rule is true, take long trades when price hits the bottom band of the Keltner channel. Likewise, when both the linear regression line and moving average 
+are in agreement in a downtrending market, a touch of the upper band of the Keltner channel would be a signal to go short.
+To exit a trade, we can use either a shift in the trend – i.e., the slope of either the linear regression line or moving average changes 
+(opposite the direction of the trade) – or a touch of the linear regression line.
 
 Fuente: https://www.daytrading.com/linear-regression-line
 
@@ -49,7 +51,8 @@ import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = 18, 8
 plt.style.use("bmh")   
 """
-
+import sys
+sys.path.insert(0,"C:\\Users\\INNOVACION\\Documents\\J3\\100.- cursos\\Quant_udemy\\programas\\Projects\\libreria")
 import quant_j3_lib as quant_j
 from telegram_bot import *
 

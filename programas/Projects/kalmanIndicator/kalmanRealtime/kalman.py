@@ -12,6 +12,10 @@ Trade only with the trend, meaning both the 200-period linear regression line an
 When the above rule is true, take long trades when price hits the bottom band of the Keltner channel. Likewise, when both the linear regression line and moving average are in agreement in a downtrending market, a touch of the upper band of the Keltner channel would be a signal to go short.
 To exit a trade, we can use either a shift in the trend – i.e., the slope of either the linear regression line or moving average changes (opposite the direction of the trade) – or a touch of the linear regression line.
 
+RIESGO DE RUNINA:
+    https://www.youtube.com/watch?v=axyGqJFRM7Q
+
+
 Fuente: 
 
 
@@ -39,6 +43,7 @@ import numpy as np
 import datetime as dt
 import yfinance as yf
 import matplotlib.pyplot as plt
+from time import sleep
 
 import statsmodels.api as sm
 
@@ -50,6 +55,8 @@ plt.style.use("bmh")
 
 import quant_j3_lib as quant_j
 from telegram_bot import *
+dentro =True
+fuera  =False
 
 
 
@@ -93,12 +100,12 @@ class StrategyClass:
     #dfCartera.set_index('instrumento',inplace=True)
     
     #Variable
-    backtesting = False  #variable de la clase, se accede con el nombre
+    backtesting = False  #variable de la clase, se accede con el nombre StrategyClass.backtesting
 
     
     def __init__(self, instrumento= 'IBE.MC', real_back=False, para2=1):
         
-        StrategyClass.backtesting = real_back
+        StrategyClass.backtesting = real_back    #true => backTesting
         self.para_02 = para2   #variable de la isntancia
         self.__privado = "atributoPrivado"
         self.dfLog = pd.DataFrame(columns=('Date','Senal', 'Price'))
@@ -108,7 +115,7 @@ class StrategyClass:
         self.endDate =1
         
         global TELEGRAM__
-        if(StrategyClass.backtesting == True):
+        if(StrategyClass.backtesting == True):   #backtesting
             TELEGRAM__ = False
         else:
             TELEGRAM__ = True
@@ -381,7 +388,11 @@ def estrategiaSALIDA(instrumento, startt, endd, df):
         dfx=StrategyClass.dfLog
         dfx2=StrategyClass.dfCartera 
         
-    #StrategyClass.dfCartera.iloc[linea_ , precio_]  = PrecioHoy  
+    #StrategyClass.dfCartera.iloc[linea_ , precio_]  = PrecioHoy 
+    
+    
+    if(not TELEGRAM__):
+        telegram_send("3.OUT Señal Kalman v1\n"+ instrumento +"\nPrecio = " + str(df.iloc[(indiceLast_-i),price_]) )
         
     return
 
@@ -391,9 +402,9 @@ def estrategiaSALIDA(instrumento, startt, endd, df):
 
 def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     """  ESTRATEGIA BASADA EN KALMAN COMO INDICADOR DE TENDENCIA 
-    (Me resulta raro, kalman es un estimador ... no sé habrá que pensarlo)
+    (Me resulta raro, kalman es un estimador ... no sé, habrá que pensarlo)
     
-    Entreda: Cuando sale de sobreventa, segunda vela por encima de la linea sobreventa = entreda
+    Entreda: Cuando sale de sobreventa, segunda vela por encima de la linea sobreventa = entrada
     Stoploss: Entre en sobreventa o cruza bajista la linea central despues de haberla rebasado (break even)
     TakeProfit: si llega a sobrevente salir cuadno la linea cambia de color
     
@@ -410,7 +421,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         if df.empty:
             df = yf.download(instrumento, startt, endd)
             df.dropna(inplace=True)  
-            print ('descargo datos desde Spyder')
+            print ('Descargo datos desde Spyder')
             #yf.download("AMZN AAPL GOOG", start="2017-01-01", end="2017-04-30")
             #df =web.DataReader(instrumento, 'yahoo', start, end)    DA ERROR DE YAHOO FINANCES
         else:
@@ -434,6 +445,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
 
     # 1.- CALCULAMOS EL FILTRO DE KALMAN
    
+    """
     # Construct a Kalman filter
     kf = KalmanFilter(transition_matrices = [1],
                   observation_matrices = [1],
@@ -449,12 +461,75 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     state_meansS = pd.Series(state_meansS.flatten(), index=df.index)
     
     df['Kalman'] = state_meansS
+    """
+    
+    df['Kalman']=    quant_j.kalmanIndicator(df,paraA_=200,paraB_=50,instrumento=instrumento)
 
-    # Compute the rolling mean with various lookback windows
-    #mean30 = df.Close.rolling(window = 30).mean()
-    #mean60 = df.Close.rolling(window = 60).mean()
-    #mean90 = df.Close.rolling(window = 90).mean()
+    indiceLast_ = (len(df)-2)    ### ojo parece que da la ultima version cotizada, no la ultima hora (en rango de horas)
+    price_ = df.columns.get_loc("Close")  
+    kalman_ = df.columns.get_loc("Kalman")  
+    volumen_ = df.columns.get_loc("Volume") 
+    open_ = df.columns.get_loc("Open")  
+    
+    print(instrumento)
+   
+    contador =0
+    señal =fuera
+   
+    # Compruebo Kalman
+    # Según la estrategia tenemos que buscar, dos velas alcistas no necesariamente consecutivas entre una ventana anterior. 
+    # estas velas alcistas detras de una condicion de reset (dos velas rojas por debajo kalman)
+    
+    for i in range(5):
+        #vela verde por encima de kalman entera
+        if (df.iloc[(indiceLast_-i),price_] > df.iloc[(indiceLast_),kalman_]  and  
+            df.iloc[(indiceLast_-i),open_] > df.iloc[(indiceLast_),kalman_]  and
+            df.iloc[(indiceLast_-i),price_] > df.iloc[(indiceLast_),open_]):
+            contador += 1
+            df.iloc[(indiceLast_-i),volumen_] =99.0
+    #tres velas verdes y la ultima verde
+    if (contador > 2  and
+       df.iloc[(indiceLast_),price_] > df.iloc[(indiceLast_),kalman_]  and 
+       df.iloc[(indiceLast_-i),open_] > df.iloc[(indiceLast_),kalman_] ): 
+        señal=dentro 
+    
+    #Compruebo Media 200 velas positiva
+    #quant_j3.MovingAverage(data,long_=200,short_=50)
+    data2= quant_j.MovingAverage(df,long_=200,short_=50)
+    # 1.- MEDIA DE 200 SESIONES ACCENDENTE
+    #   Calculamos de la media aritmetica la regresion lineal para ver la esencia
+    ma200_=data2.columns.get_loc("MA_200")
+    data_aux2= data2.iloc[-200:, ma200_]
+    data_aux2.dropna(inplace=True)  
+    # 3.1.- Calculamos media de las ultimas 'n' sesiones y la regresion lineal
+    coef_ema200_, intercept_ema200_ =quant_j.linearRegresion_J3(data_aux2) #+'  de ema200') 
+    
+      
+    #pendiente positiva y vela por encima media200
+    if (señal ==dentro):
+        if (coef_ema200_ > 0  and 
+            df.iloc[(indiceLast_),price_] > data_aux2[-1] and 
+            df.iloc[(indiceLast_-i),open_] > data_aux2[-1] ): 
+           
+            señal=dentro     
+        else:
+            señal =fuera
 
+  
+    print(instrumento,señal)
+    print ('Precio', df.iloc[(indiceLast_-i),price_], '*************  ''Kalman', df.iloc[(indiceLast_-i),kalman_])
+    print ('checkIN Time',df.index[indiceLast_])
+    
+    if (señal ==dentro):
+        print ('Entramos del mercado')
+        
+        if(not TELEGRAM__):
+            telegram_send("3.IN Señal Kalman v1\n"+ instrumento +"\nPrecio = " + str(df.iloc[(indiceLast_-i),price_]) + "\n***  Kalman level = "+ str(df.iloc[(indiceLast_-i),kalman_])+
+                     "\nTime: " + str(df.index[indiceLast_]))
+        #sleep(5)
+           
+       
+        
     # Plot original data and estimated mean
     #plt.plot(state_means)
     plt.plot(df.Kalman[-410:])
@@ -470,6 +545,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     
 ################################################################################################
    
+    """
     # 2.- Comprobar si en las utimas sesiones precio por encima de Kalman
 
     price_ = df.columns.get_loc("Close")  
@@ -495,6 +571,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
 
     if (contador > 2):       # dos cierres por encima del indice.
        señal =True
+    """   
        
     beneficio =np.array([1.1,2.0])  # heredeado el concepto de beneficio aqui, no se usa más
     
@@ -504,7 +581,7 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     a=dff[-1]
     #last Price
     b=df['Close'][-1]
-    beneficio[0] = (2 * a)    #dos veces el ATR
+    beneficio[0] = (1.0 * a)    #dos veces el ATR
 
 
     ######################################################  ESTRATEGIA
@@ -637,7 +714,7 @@ if __name__ == '__main__':
     
     """    
     
-    kalmanClass= StrategyClass(real_back=True)    #Creamos la clase
+    kalmanClass= StrategyClass(real_back=True)    #Creamos la clase, para backTESTING
     
     """
     if( TELEGRAM__):
@@ -714,7 +791,7 @@ if __name__ == '__main__':
         window_len= (endWindow2-startWindow2).days
         print('Tamaño de la ventana a analizar paso a paso:  ', window_len, 'sesiones')
          
-        instrumento ='ACX.MC'
+        instrumento ='FTNT'
         dff = yf.download(instrumento, start_G,end_G)
         
         #regreMedia= StrategyClass()    #Creamos la clase
@@ -723,7 +800,7 @@ if __name__ == '__main__':
         
         
         
-        TOTAL_len =500   
+        TOTAL_len =500     # para acotar
         for i in range(TOTAL_len):
             endWindow3   =endWindow2 + dt.timedelta(days=i) 
             endWindow    =endWindow3.strftime("%Y-%m-%d")

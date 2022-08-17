@@ -24,6 +24,8 @@
 import numpy as np
 import pandas as pd
 
+from sp500 import tickers_sp500
+
 #Data Source
 import yfinance as yf
 
@@ -72,7 +74,7 @@ def checkKalman(instrumento_ ='app'):
         print('instrumento no existe')
     
     del data["Adj Close"]
-    data=    quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
+    data['Kalman']=    quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
 
     indiceLast_ = (len(data)-2)    ### ojo parece que da la ultima version cotizada, no la ultima hora
     price_ = data.columns.get_loc("Close")  
@@ -153,7 +155,7 @@ def checkKalman_OUT(instrumento_ ='app'):
         print('instrumento no existe')
     
     del data["Adj Close"]
-    data= quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
+    data['Kalman']= quant_j3.kalmanIndicator(data,paraA_=200,paraB_=50,instrumento=instrumento_)
 
     indiceLast_ = (len(data)-2)    ### ojo parece que da la ultima version cotizada, no la ultima hora
     price_ = data.columns.get_loc("Close")  
@@ -205,7 +207,7 @@ miDelay =2
 
 #TICKERS
 
-tickers = ['FER.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
+tickers = ['FER.MC','SAN.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
 
 tickersCurrencies =['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 'EURCAD=X', 'EURAUD=X','USDCHF=X', 
          'USDJPY=X','GBPCAD=X', 'GBPUSD=X', 'GBPJPY=X', 'GBPCHF=X', 'GBPNZD=X', 'GBPAUD=X',
@@ -214,8 +216,13 @@ tickersCurrencies =['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 
          'ETH-USD','PFE',
         '^IXIC', '^GSPC', '^GDAXI'
          ]
+
+
+   
+
+
 try: 
-    df1 = pd.read_csv('tickersIbex_estadoIN_OUT.csv')
+    df1 = pd.read_csv('tickersSP500_estadoIN_OUT.csv')   #('tickersIbex_estadoIN_OUT.csv')
     # converting to dict
     Ibex_dict = dict(df1.values)
     
@@ -225,27 +232,27 @@ try:
 
 except:
     #Currencies_dict = dict.fromkeys(tickersCurrencies, fuera) #convertir el array en un diccionario
-    Ibex_dict = dict.fromkeys(tickers, fuera)
+    Ibex_dict = dict.fromkeys(tickers_sp500, fuera)   #'fuera' es el valor que se asigna en el diccionario, una variable
 
 
 
 
 
 #VALORES DEL IBEX 
-for i in range(len(tickers)): 
+for i in range(len(tickers_sp500)): 
 
-    if (Ibex_dict[tickers[i]]==fuera):
-        señal= checkKalman(tickers[i])     
-        Ibex_dict[tickers[i]]=señal
+    if (Ibex_dict[tickers_sp500[i]]==fuera):
+        señal= checkKalman(tickers_sp500[i])     
+        Ibex_dict[tickers_sp500[i]]=señal
         sleep(miDelay)
     else: 
-        señal= checkKalman_OUT(tickers[i])     
-        Ibex_dict[tickers[i]]=señal
+        señal= checkKalman_OUT(tickers_sp500[i])     
+        Ibex_dict[tickers_sp500[i]]=señal
         sleep(miDelay)            
 
 df=pd.DataFrame(list(Ibex_dict.items()),
                columns=['tickers', 'in_out'])
-df.to_csv('tickersIbex_estadoIN_OUT.csv',index=False)
+df.to_csv('tickersSP500_estadoIN_OUT.csv',index=False)
     
           
 
@@ -255,10 +262,10 @@ df.to_csv('tickersIbex_estadoIN_OUT.csv',index=False)
 # In[8]:
 
 
-
+"""
 
 #Interval required 1 minute
-data = yf.download(tickers='REE.MC', period='1d', interval='1m')
+#data = yf.download(tickers='REE.MC', period='1d', interval='1m')
 
 #declare figure
 fig = go.Figure()
@@ -294,3 +301,4 @@ fig.update_xaxes(
 #Show
 fig.show()
 
+"""

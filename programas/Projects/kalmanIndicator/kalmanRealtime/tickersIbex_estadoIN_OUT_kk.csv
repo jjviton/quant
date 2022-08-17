@@ -3,16 +3,16 @@ FER.MC,False
 COL.MC,False
 IBE.MC,False
 NTGY.MC,False
-SAB.MC,False
+SAB.MC,True
 ACX.MC,False
 PHM.MC,False
-SAN.MC,False
+SAN.MC,True
 MRL.MC,True
 TEF.MC,True
 AMS.MC,False
 VIS.MC,False
 MTS.MC,False
-MAP.MC,False
+MAP.MC,True
 CLNX.MC,False
 BBVA.MC,True
 CABK.MC,True
@@ -27,5 +27,5 @@ ENG.MC,False
 ANA.MC,False
 ELE.MC,False
 GRF.MC,False
-IAG.MC,False
+IAG.MC,True
 SGRE.MC,False

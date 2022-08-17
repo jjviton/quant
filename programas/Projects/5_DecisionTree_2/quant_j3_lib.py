@@ -121,11 +121,14 @@ def kalmanIndicator(df,paraA_=200,paraB_=50,instrumento="_"):
 
     # Use the observed values of the price to get a rolling mean
     #state_means, _ = kf.filter(df.Close)
-    state_meansS, _ =kf.smooth(df.Close)
+    (state_meansS, covar) =kf.smooth(df.Close)
     #state_means = pd.Series(state_means.flatten(), index=df.index)
     state_meansS = pd.Series(state_meansS.flatten(), index=df.index)
     
     df['Kalman'] = state_meansS
+    
+
+    
     return df
 
 ################################################# KalmanIndicator
@@ -374,7 +377,7 @@ def volatility(DF):
     Origen Curso Quant    (J3...2020)
     """
     df = DF.copy()
-    df["daily_ret"] = DF["Adj Close"].pct_change()   #Porcentage de cambio repescto anterior
+    df["daily_ret"] = DF["Close"].pct_change()   #Porcentage de cambio repescto anterior
     vol = df["daily_ret"].std() * np.sqrt(252)       #standart deviation   
     
     return vol
@@ -516,7 +519,8 @@ def MACD(DF,a=12,b=26,c=9):
     del df["MA_Slow"]
     
     #plot
-    df.iloc[:, [6,7,8]].plot()   #Pintamos el MACD y Signal y Histo
+    if (J3_DEBUG__):
+        df.iloc[:, [6,7,8]].plot()   #Pintamos el MACD y Signal y Histo
     
     return df
 #################################################### MACD
@@ -638,7 +642,7 @@ def RSI(DF, n=14):
        """
 
     df = DF.copy()
-    df['delta']=df['Adj Close'] - df['Adj Close'].shift(1)
+    df['delta']=df['Close'] - df['Close'].shift(1)
     df['gain']=np.where(df['delta']>=0,df['delta'],0)
     df['loss']=np.where(df['delta']<0,abs(df['delta']),0)
     avg_gain = []
@@ -668,7 +672,8 @@ def RSI(DF, n=14):
     del df["RS"]
     
     #Ploteamos
-    df['RSI'].plot()
+    if (J3_DEBUG__):
+        df['RSI'].plot()
     
     return df
 

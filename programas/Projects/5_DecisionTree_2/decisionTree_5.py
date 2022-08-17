@@ -5,7 +5,7 @@
 ******************************************************************************
 ESTRATEGIA DE INVERSION BASADA EN 
 
-v4.- es la testada en real 'externo' el 30enero
+v5.- añadimos el peso de las features para el calculo final.
 
 
 
@@ -38,6 +38,7 @@ import numpy as np
 import datetime as dt
 import yfinance as yf
 import time
+from datetime import datetime
 
 import statsmodels.api as sm
 
@@ -87,6 +88,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 #/***************************Funciones con tareas parciales */
 
+df_metrica=pd.DataFrame(columns=['METRICA','PESO','Importancia'])  
 
 
 
@@ -103,6 +105,7 @@ class StrategyClass:
     dfCartera = pd.DataFrame(columns=['instrumento','long_short_out', 'date','precio','beneficio','stoploss'])
     #dfCartera.set_index('instrumento',inplace=True)
     
+    
     #Variable
     backtesting = False  #variable de la clase, se accede con el nombre
 
@@ -112,7 +115,7 @@ class StrategyClass:
         self.para_02 = para2   #variable de la isntancia
         self.__privado = "atributoPrivado"
         self.dfLog = pd.DataFrame(columns=('Date','Senal', 'Price'))
-        
+             
         self.instrumento =1
         self.startDate=1
         self.endDate =1
@@ -486,6 +489,15 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
     
     df= quant_j.MACD(df,a=12,b=26,c=9)
     
+    #volatilidad= 100* quant_j.volatility(df.iloc[-100:,])
+    
+    
+    
+    # Quitamos columnas para analizar resultdos con datos distintos
+    df.drop('x', axis=1,inplace=True)
+    df.drop('Adj Close', axis=1,inplace=True)
+    
+    
     df_original=df.copy()
     
     
@@ -500,6 +512,8 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         #Guardo el ultimo valor
         #df_last=df.iloc[-3:-2,]   # 3 dias antes del ultimo valor que tengo
         
+        
+        ############################################################################################### ETIQUETA
         df['y']= df.Close.shift((-1)*lag_)          # ponemos la condicon del valor de la accion en 10 dias (ejemplo para empezar)
         df.dropna(inplace=True)                     # limpio columnas sin datos
                 
@@ -534,7 +548,20 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         y2 = df.y
         X2 = df.drop('y', axis=1)
         
-        X_train, X_test, y_train, y_test = train_test_split(X2, y2, test_size=0.2, random_state=42)
+
+
+        
+        
+        #Partimos el dataser en dos de manera random
+        #↑X_train, X_test, y_train, y_test = train_test_split(X2, y2, test_size=0.2, random_state=42)
+        
+        # Hacemos un split separando los ultimos datos de la serie en lugar de ramdon.
+        X_train= X2.iloc[:-24]
+        X_test=  X2.iloc[-24:]
+        y_train= y2.iloc[:-24]
+        y_test=  y2.iloc[-24:]
+        
+        
                
         start_time = time.time()
        
@@ -550,9 +577,48 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         print(instrumento)
         #print("Fecha de analisis...")
         print(df_last)
-        print(df_last['x'])
+        #print(df_last['x'])
         y_pred_last = rf_clf.predict(df_last)
         print("Precio de cierre para la fecha",dfBACK['targetDate'], "es de", y_pred_last, "desde la fecha", df_last.index)
+        
+        print("score",rf_clf.score(X_test, y_test))
+        
+        
+        
+        
+        #########################################
+        # Analisis del randomForest
+        #########################################
+        
+        # Get numerical feature importances
+        importances = list(rf_clf.feature_importances_)
+        #importances.sort()
+        # List of features for later use
+        feature_list = list(df.columns)
+
+        df_metrica['METRICA']=feature_list[0:(len(feature_list) -1 )]   
+        df_metrica['PESO']=importances  
+        df_metrica.sort_values('PESO',ascending=False, inplace=True)
+        df_metrica.reset_index(inplace = True, drop = True)
+        df_metrica.fillna(0, inplace=True)
+        
+
+        for i in range(len(feature_list)-1):
+            for j in feature_list:
+                if (df_metrica.loc[i,'METRICA']==j):
+                    df_metrica.loc[i,'Importancia']=df_metrica.loc[i,'Importancia']+i   #0.'METRICA'
+        
+
+            
+            
+           
+        print(instrumento)
+        print(df_metrica)
+        print("¿Siguiente? ", end="")
+        nombre = input()
+        
+        
+        
     
         # Preparo un excel para backtrading
       
@@ -561,8 +627,11 @@ def analisisENTRADA(instrumento, startt, endd, df):    #analisis_v2
         dfBACK[lag_] = df_last.index
         #dfBACK[col]= str(lag_)+"sesioness"
         dfBACK['PREDICCION'+str(lag_)]  =y_pred_last
+        #dfBACK['volatilidad']=volatilidad
         
-    quant_j.salvarExcel(dfBACK, 'backk_5Feb'+ instrumento )
+    now = datetime.now()
+    date_time = now.strftime("%m%d%Y_%H%M")    
+    quant_j.salvarExcel(dfBACK, date_time+'backk_'+ instrumento )
     
   
     parada=0
@@ -824,10 +893,10 @@ if __name__ == '__main__':
     #end = '2021-9-19'
     
     #TICKERS
-    tickers = [ 'EURUSD=X','EURGBP=X','EURJPY=X','USDCAD=X','GBPUSD=X','USDJPY=X','GBPJPY=X','BTC-USD', '^DJI', '^GDAXI', '^GSPC', 'SI=F', 'GC=F','NQ=F','AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC',
+    tickers__ = [ 'EURUSD=X','EURGBP=X','EURJPY=X','USDCAD=X','GBPUSD=X','USDJPY=X','GBPJPY=X','BTC-USD', '^DJI', '^GDAXI', '^GSPC', 'SI=F', 'GC=F','NQ=F','AAPL', 'MSFT', '^GSPC', 'ELE.MC','SAN.MC', 'BBVA.MC',
                'ETH-USD', 'LTC-USD', 'NEO-USD', 'XMR-USD', 'ZEC-USD' ]  #,'ANA.MC','MTS.MC','GRF.MC']  # apple,microsfoft,sp500, endesa
-    tickers_ = ['NQ=F'] 
-    tickers__ = ['FER.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
+    tickers = ['NQ=F','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC'] 
+    tickers_ = ['FER.MC','COL.MC','IBE.MC','NTGY.MC','SAB.MC','ACX.MC','PHM.MC','SAN.MC','MRL.MC','TEF.MC','AMS.MC','VIS.MC','MTS.MC','MAP.MC','CLNX.MC','BBVA.MC','CABK.MC','MEL.MC','AENA.MC','BKT.MC','REE.MC','FDR.MC','ACS.MC','ITX.MC','ENG.MC','ANA.MC','ELE.MC','GRF.MC','IAG.MC','SGRE.MC']
     tickersCurrencies =['EURUSD=X', 'EURGBP=X' ,'EURCHF=X', 'EURJPY=X', 'EURNZD=X', 'EURCAD=X', 'EURAUD=X','USDCHF=X', 
              'USDJPY=X','GBPCAD=X', 'GBPUSD=X', 'GBPJPY=X', 'GBPCHF=X', 'GBPNZD=X', 'GBPAUD=X',
              'NZDCAD=X', 'NZDUSD=X', 'NZDCHF=X', 'NZDJPY=X','JPY=X','EURSEK=X','USDCAD=X','AUDCAD=X',

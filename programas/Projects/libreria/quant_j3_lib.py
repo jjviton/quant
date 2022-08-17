@@ -14,7 +14,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import statsmodels.api as sm   #se usa en el Slope del curso, quitar
 
+#from openpyxl import load_workimport
+from openpyxl import Workbook
 from openpyxl import load_workbook
+from openpyxl.utils.dataframe import dataframe_to_rows
+
 
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
@@ -64,34 +68,73 @@ def MogalefBands(df,paraA_=200,paraB_=50,instrumento="_"):
 ################################ END MogalefBands
 
 
-
-
-
-############################################## Save Signals
-
-def saveSignal(fichero, estrategia, instrumento, fecha, parametro1, parametro2,parametro3,parametro4):
-    """Funcion que registra en un excel las señales para suposterior anailisis
-    Input Data: entreda estrategia+instrumenteo+fecha
-    Returns:nada
-    Ejemplo:    
-                quant_j.saveSignal('nobreFicherosinXLS', 'RegresionMedia b0', instrumento,dt.datetime.today() )
-    Estado: programada 
-    Origen  (J3...2021)
-    """
-    try:
-        df_sg=pd.read_excel(fichero +'.xls', index_col=0)  
-        #wb = load_workbook(filename = 'empty_book.xlsx')
-    except (OSError, IOError):
-        print('!')
-        df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2','aux3', 'aux4'))
+########################################################################  SuperBandPass
+def super_bandpass(data_base, flen = 40, slen = 60, column='Close'):
+    '''Función que devuelve un dataframe con el filtro super bandpass calculado'''
     
-    new_row = {'estrategia':estrategia, 'instrumento':instrumento, 'fecha':fecha, 'aux1':parametro1,'aux2':parametro2,'aux3':parametro3,'aux4':parametro4}
-    #append row to the dataframe
-    df_sg = df_sg.append(new_row, ignore_index=True) 
-    salvarExcel(df_sg, fichero)  
-    return 
+    data = data_base.copy()
+    
+    a1= 5/flen
+    a2= 5/slen
 
-############################################## Safe Signals
+    pb = [data[column].iloc[:2].mean()] * 2
+    # pb = [0, 0]
+    for f in range(2, data.shape[0]):
+        pb_n = (a1 - a2) * data[column].iloc[f] + (a2*(1 - a1) - a1 * (1 - a2))* data[column].iloc[f - 1] + ((1 - a1) + (1 - a2))*(pb[f-1])- (1 - a1)* (1 - a2)*(pb[f-2])
+        pb += [pb_n]
+    data['PB'] = pb
+
+    data['RMS+'] = data['PB'].pow(2).rolling(50).sum().div(50).pow(.5)
+    data['RMS-'] = -data['RMS+']
+
+    data['Sell Signal'] = data['PB'].lt(data['RMS+']) & data['PB'].shift().gt(data['RMS+'].shift())
+    data['Buy Signal'] = data['PB'].gt(data['RMS-']) & data['PB'].shift().lt(data['RMS-'].shift())
+    
+    return data
+########################################################################  SuperBandPass (end)
+
+def kalmanIndicator(df,paraA_=200,paraB_=50,instrumento="_"):
+    """
+    Calcula el indicador de Kalman. necesita df['Close']
+    
+    Args:
+        df (TYPE): DESCRIPTION.
+        paraA_ (TYPE, optional): DESCRIPTION. Defaults to 200.
+        paraB_ (TYPE, optional): DESCRIPTION. Defaults to 50.
+        instrumento (TYPE, optional): DESCRIPTION. Defaults to "_".
+
+    Returns:
+        TYPE: DESCRIPTION.
+
+    """
+
+    
+    from pykalman import KalmanFilter
+    
+    # Construct a Kalman filter
+    kf = KalmanFilter(transition_matrices = [1],
+                  observation_matrices = [1],
+                  initial_state_mean = 0,
+                  initial_state_covariance = 1,
+                  observation_covariance=1,
+                  transition_covariance=.01)
+
+    # Use the observed values of the price to get a rolling mean
+    #state_means, _ = kf.filter(df.Close)
+    (state_meansS, covar) =kf.smooth(df.Close)
+    #state_means = pd.Series(state_means.flatten(), index=df.index)
+    state_meansS = pd.Series(state_meansS.flatten(), index=df.index)
+    
+    df['Kalman'] = state_meansS
+    
+
+    
+    return df
+
+################################################# KalmanIndicator
+
+
+
 
 
 #################################################### RegresionLineal()
@@ -310,7 +353,7 @@ def volatility(DF):
     Origen Curso Quant    (J3...2020)
     """
     df = DF.copy()
-    df["daily_ret"] = DF["Adj Close"].pct_change()   #Porcentage de cambio repescto anterior
+    df["daily_ret"] = DF["Close"].pct_change()   #Porcentage de cambio repescto anterior
     vol = df["daily_ret"].std() * np.sqrt(252)       #standart deviation   
     
     return vol
@@ -440,8 +483,8 @@ def MACD(DF,a=12,b=26,c=9):
        """
        
     df = DF.copy()
-    df["MA_Fast"]=df["Adj Close"].ewm(span=a,min_periods=a).mean()  #medias exponencial ponderado
-    df["MA_Slow"]=df["Adj Close"].ewm(span=b,min_periods=b).mean()
+    df["MA_Fast"]=df["Close"].ewm(span=a,min_periods=a).mean()  #medias exponencial ponderado
+    df["MA_Slow"]=df["Close"].ewm(span=b,min_periods=b).mean()
     df["MACD"]=df["MA_Fast"]-df["MA_Slow"]
     df["Signal"]=df["MACD"].ewm(span=c,min_periods=c).mean()
     df.dropna(inplace=True)  #remover missing values
@@ -452,7 +495,8 @@ def MACD(DF,a=12,b=26,c=9):
     del df["MA_Slow"]
     
     #plot
-    df.iloc[:, [6,7,8]].plot()   #Pintamos el MACD y Signal y Histo
+    if (J3_DEBUG__):
+        df.iloc[:, [6,7,8]].plot()   #Pintamos el MACD y Signal y Histo
     
     return df
 #################################################### MACD
@@ -524,6 +568,42 @@ def BollBnd(DF,n=20):
 #################################################### BB
 
 
+#################################################### BB volumen
+def BollBnd_volume(DF,n=20):
+    """Function to calculate BollingerBands
+       typical values n=20
+       Calculo: mediaMovil del precio de cierre, menos/más 2 standart deviations
+       OJO: hace media simple... más interesante la ponderada exponencial
+       
+       Input Data: it needs a dataFrame containing a columns Close
+       Returns; MA, BB_up, BB_down, BB_width
+       
+       Estado:  
+       Origen Curso Quant     (J3...2020)
+       """
+       
+    df = DF.copy()
+    df["MA_V"] = df['Volume'].rolling(n).mean()    #calculo media movil SIMPLE del valor de cierre
+    # Bandas son la media más/menos 2 standart deviation
+    df["BBV_up"] = df["MA_V"] + 2*df['Volume'].rolling(n).std(ddof=0) #ddof=0 is required since we want to take the standard deviation of the population and not sample
+    df["BBV_dn"] = df["MA_V"] - 2*df['Volume'].rolling(n).std(ddof=0) #ddof=0 is required since we want to take the standard deviation of the population and not sample
+    df["BBV_width"] = df["BBV_up"] - df["BBV_dn"]
+    df.dropna(inplace=True)
+
+    if (J3_DEBUG__):
+        BB_up_=df.columns.get_loc("BBV_up")
+        BB_dn_=df.columns.get_loc("BBV_dn")
+        colors=['violet', 'lightgreen', 'lime']
+        df.iloc[-n:, [4,BBV_up_,BBV_dn_]].plot(title="BollingerBands VOL LAST "+str(n),color=colors)   #Pintamos los ultimos 100 valores
+        df.iloc[-220:, [4,BBV_up_,BBV_dn_]].plot(title="BollingerBands VOL LAST 220",color=colors)   #Pintamo,s el rango especificado desde atrás
+        df.iloc[:,     [4,BBV_up_,BBV_dn_]].plot(title="BollingerBands VOLUME",color=colors)
+
+
+    return df
+
+#################################################### BB
+
+
 #################################################### RSI
 def RSI(DF, n=14):
     """Function to calculate RSI
@@ -538,7 +618,7 @@ def RSI(DF, n=14):
        """
 
     df = DF.copy()
-    df['delta']=df['Adj Close'] - df['Adj Close'].shift(1)
+    df['delta']=df['Close'] - df['Close'].shift(1)
     df['gain']=np.where(df['delta']>=0,df['delta'],0)
     df['loss']=np.where(df['delta']<0,abs(df['delta']),0)
     avg_gain = []
@@ -568,7 +648,8 @@ def RSI(DF, n=14):
     del df["RS"]
     
     #Ploteamos
-    df['RSI'].plot()
+    if (J3_DEBUG__):
+        df['RSI'].plot()
     
     return df
 
@@ -859,28 +940,6 @@ def MAX_min_Relativos(serie, dataFrameStock,tipo=1):
     #df[['max_min']].plot()
 
 ################################################## MAX_min_Relativos FIN
-
-
-
-################################################## SalvarExcel
-def salvarExcel(df, nombreFichero):
-   
-    df.to_excel(nombreFichero+".xls", 
-             index=True,
-             sheet_name="data")
-    var =9
-################################################## SalvarExcel
-
-################################################## LeerExcel
-def leerExcel(nombreFichero):
-    df = pd.DataFrame({'A' : []})  
-    try:
-        df=pd.read_excel(nombreFichero+'.xls', index_col=0)  
-    except:
-        print ('fichero no existe')
-    return df        
-
-################################################## LeerExcel
 
 
 ################################################## formula_cuadratica 
@@ -1294,6 +1353,142 @@ def MAX_min_Relativos_v2(serie, distancia = 4):
     return (Tendencia_)
     
 ################################################## MAX_min_Relativos_v2 FIN
+
+
+
+
+
+
+################################################## SalvarExcel
+def salvarExcel(df, nombreFichero):
+   
+    df.to_excel(nombreFichero+".xlsx", 
+             index=True,
+             sheet_name="data")
+    var =9
+################################################## SalvarExcel
+
+################################################## LeerExcel
+def leerExcel(nombreFichero):
+    df = pd.DataFrame({'A' : []})  
+    try:
+        df=pd.read_excel(nombreFichero+'.xlsx', index_col=0)  
+    except:
+        print ('fichero no existe 454')
+    return df        
+
+################################################## LeerExcel
+
+
+################################################## SalvarExcel
+def salvarExcelTOTEST(df, nombreFichero, nombreSheet="data"):
+   
+    
+   df.to_excel(nombreFichero+".xlsx", 
+          index=True,
+          sheet_name="data")
+    
+   """
+    wb = Workbook()
+    
+    try:
+        wb = load_workbook(filename = nombreFichero+'.xlsx')  
+
+
+    except:
+        print("fichero no existe ($)")
+        return
+    #ws1 = wb.create_sheet(nombreSheet)
+    #ws1.title = nombreSheet
+    #wb.active = 0
+    #ws = wb.active
+    std=wb.get_sheet_by_name(nombreSheet)
+    wb.remove_sheet(std)
+
+    
+    for r in dataframe_to_rows(df, index=True, header=True):
+        ws.append(r)
+    
+    wb.save(filename = nombreFichero+'.xlsx')
+    return
+    """
+################################################## SalvarExcel
+
+################################################## LeerExcel
+def leerExcelTOTEST(nombreFichero,nombreSheet="data"):
+    
+    df = pd.DataFrame()
+  
+    wb = Workbook()
+    try:
+        wb = load_workbook(filename = nombreFichero+'.xlsx')
+        wb.active = 0
+        ws = wb.active
+        
+        data = ws.values
+        # Get the first line in file as a header line
+        columns = next(data)[0:]
+        # Create a DataFrame based on the second and subsequent lines of data
+        df = pd.DataFrame(data, columns=columns)        
+        
+        
+        
+        """
+        wb = load_workbook(filename = nombreFichero+'.xlsx')
+        
+        for i, s in enumerate(wb.sheetnames):
+            if s == nombreSheet:
+                break
+        wb.active = i
+        ws = wb.active
+        df = pd.BooleanDtype()
+        df= pd.DataFrame(ws.values)
+
+        dfff= (df.iloc[:,1:])
+        """        
+    except:
+        print ('fichero no existe (8)')
+    
+    
+    """
+    df = pd.DataFrame({'A' : []})  
+    try:
+        df=pd.read_excel(nombreFichero+'.xlsx', index_col=0)  
+    except:
+        print ('fichero no existe')
+    """    
+    return df     
+
+################################################## LeerExcel
+
+
+############################################## Save Signals
+
+def saveSignal(fichero, estrategia, instrumento, fecha, parametro1=1, parametro2=2,parametro3=3,parametro4=4):
+    """Funcion que registra en un excel las señales para suposterior anailisis
+    Input Data: entreda estrategia+instrumenteo+fecha
+    Returns:nada
+    Ejemplo:    
+                quant_j.saveSignal('nobreFicherosinXLS', 'RegresionMedia b0', instrumento,dt.datetime.today() )
+    Estado: programada 
+    Origen  (J3...2021)
+    """
+    try:
+        df_sg=pd.read_excel(fichero +'.xls', index_col=0)  
+        #wb = load_workbook(filename = 'empty_book.xlsx')
+    except (OSError, IOError):
+        print('!')
+        df_sg = pd.DataFrame(columns=('estrategia','instrumento', 'fecha', 'aux1', 'aux2','aux3', 'aux4'))
+    
+    new_row = {'estrategia':estrategia, 'instrumento':instrumento, 'fecha':fecha, 'aux1':parametro1,'aux2':parametro2,'aux3':parametro3,'aux4':parametro4}
+    #append row to the dataframe
+    df_sg = df_sg.append(new_row, ignore_index=True) 
+    salvarExcel(df_sg, fichero)  
+    return 
+
+
+############################################## Safe Signals
+
 
 
 
