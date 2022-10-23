@@ -10,3 +10,6 @@ rem python regresionAMedia.py >salida.txt
 
 cd C:\Users\INNOVACION\Documents\J3\100.- cursos\Quant_udemy\programas\Projects\6_regresionLineal
 python regresionAMedia.py >salida.txt
+
+cd C:\Users\INNOVACION\Documents\J3\100.- cursos\Quant_udemy\programas\Projects\6_regresionLineal\6_regresionLineal_v2
+python regresionAMedia.py   

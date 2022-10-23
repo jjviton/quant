@@ -55,4 +55,10 @@ def telegram_send( mensaje ):
 #################################################### func_mensaje() FIN
 
 
+def telegram_send_document(file):
+    
+    document = open(file, 'rb')
+    bot.send_document(chat_id3, document)
+
+
 #telegram_send('soy un j3 robot, bot para los amigos')

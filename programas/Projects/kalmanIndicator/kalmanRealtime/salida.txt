@@ -3,173 +3,827 @@
 ZTS
 DataFrame is empty!++
 ZTS False
-Precio 174.05999755859375 *************  Kalman 174.88767462632035
-checkIN Time 2022-08-16 00:00:00
+Precio 149.39999389648438 *************  Kalman 154.96685685797934
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 ZION
 DataFrame is empty!++
 ZION False
-Precio 56.38999938964844 *************  Kalman 54.96812687502869
-checkIN Time 2022-08-16 00:00:00
+Precio 52.7599983215332 *************  Kalman 55.04003292972909
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 ZBRA
 DataFrame is empty!++
 ZBRA False
-Precio 328.8699951171875 *************  Kalman 331.0407123357421
-checkIN Time 2022-08-16 00:00:00
+Precio 264.95001220703125 *************  Kalman 283.96786902894064
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 ZBH
 ZBH True
-checkOUT Time 2022-08-16 00:00:00
+checkOUT Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 YUM
 DataFrame is empty!++
 YUM False
-Precio 119.18000030517578 *************  Kalman 118.86664125212688
-checkIN Time 2022-08-16 00:00:00
+Precio 107.7699966430664 *************  Kalman 111.80013025099014
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 XYL
 DataFrame is empty!++
-XYL True
-Precio 100.4800033569336 *************  Kalman 94.52739671311093
-checkIN Time 2022-08-16 00:00:00
-Entramos del mercado
+XYL False
+Precio 88.36000061035156 *************  Kalman 92.02093201277464
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 XRAY
 DataFrame is empty!++
 XRAY False
-Precio 37.040000915527344 *************  Kalman 36.43965960238065
-checkIN Time 2022-08-16 00:00:00
+Precio 29.350000381469727 *************  Kalman 31.0135921590525
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 XOM
-XOM True
-checkOUT Time 2022-08-16 00:00:00
+Salimos del mercado
+XOM False
+checkOUT Time 2022-10-03 00:00:00
+SALIMOS del mercado
 [*********************100%***********************]  1 of 1 completed
 XEL
 XEL True
-checkOUT Time 2022-08-16 00:00:00
+checkOUT Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WYNN
 DataFrame is empty!++
 WYNN False
-Precio 65.3499984741211 *************  Kalman 64.561327624202
-checkIN Time 2022-08-16 00:00:00
+Precio 66.55999755859375 *************  Kalman 64.18083321060458
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WY
 DataFrame is empty!++
 WY False
-Precio 36.08000183105469 *************  Kalman 35.86399988241311
-checkIN Time 2022-08-16 00:00:00
+Precio 27.809999465942383 *************  Kalman 30.630043007480552
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WTW
 DataFrame is empty!++
 WTW False
-Precio 215.3699951171875 *************  Kalman 209.75366232234092
-checkIN Time 2022-08-16 00:00:00
+Precio 203.5500030517578 *************  Kalman 206.43159623034572
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WST
 DataFrame is empty!++
-WST True
-Precio 338.8399963378906 *************  Kalman 330.1321808002357
-checkIN Time 2022-08-16 00:00:00
-Entramos del mercado
+WST False
+Precio 246.38999938964844 *************  Kalman 270.2041051619098
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WRK
 DataFrame is empty!++
-WRK True
-Precio 41.66999816894531 *************  Kalman 41.54882224730635
-checkIN Time 2022-08-16 00:00:00
-Entramos del mercado
+WRK False
+Precio 31.510000228881836 *************  Kalman 34.98829617980525
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WRB
 WRB True
-checkOUT Time 2022-08-16 00:00:00
+checkOUT Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WMT
 DataFrame is empty!++
 WMT False
-Precio 129.13999938964844 *************  Kalman 130.2985955020802
-checkIN Time 2022-08-16 00:00:00
+Precio 130.9499969482422 *************  Kalman 133.01778093259006
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WMB
-WMB True
-checkOUT Time 2022-08-16 00:00:00
+Salimos del mercado
+WMB False
+checkOUT Time 2022-10-03 00:00:00
+SALIMOS del mercado
 [*********************100%***********************]  1 of 1 completed
 WM
 DataFrame is empty!++
 WM False
-Precio 170.07000732421875 *************  Kalman 165.49054062506494
-checkIN Time 2022-08-16 00:00:00
+Precio 163.22000122070312 *************  Kalman 167.36389902212235
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WHR
 DataFrame is empty!++
 WHR False
-Precio 166.63999938964844 *************  Kalman 167.50240523693336
-checkIN Time 2022-08-16 00:00:00
+Precio 137.24000549316406 *************  Kalman 145.64958402453726
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WFC
 DataFrame is empty!++
-WFC True
-Precio 44.33000183105469 *************  Kalman 43.73200487617871
-checkIN Time 2022-08-16 00:00:00
-Entramos del mercado
+WFC False
+Precio 40.029998779296875 *************  Kalman 42.32072753172395
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WELL
 DataFrame is empty!++
 WELL False
-Precio 83.30999755859375 *************  Kalman 82.47129417002097
-checkIN Time 2022-08-16 00:00:00
+Precio 64.30999755859375 *************  Kalman 69.75119468714037
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WEC
 WEC True
-checkOUT Time 2022-08-16 00:00:00
+checkOUT Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WDC
-WDC True
-checkOUT Time 2022-08-16 00:00:00
+Salimos del mercado
+WDC False
+checkOUT Time 2022-10-03 00:00:00
+SALIMOS del mercado
 [*********************100%***********************]  1 of 1 completed
 WBA
 DataFrame is empty!++
 WBA False
-Precio 39.900001525878906 *************  Kalman 39.70298047702219
-checkIN Time 2022-08-16 00:00:00
+Precio 32.43000030517578 *************  Kalman 33.90698504942369
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WAT
 WAT True
-checkOUT Time 2022-08-16 00:00:00
+checkOUT Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 WAB
 DataFrame is empty!++
-WAB True
-Precio 94.4000015258789 *************  Kalman 91.87653082711405
-checkIN Time 2022-08-16 00:00:00
-Entramos del mercado
+WAB False
+Precio 80.75 *************  Kalman 85.81775033989257
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 VZ
 DataFrame is empty!++
 VZ False
-Precio 44.84000015258789 *************  Kalman 46.03061900239615
-checkIN Time 2022-08-16 00:00:00
+Precio 38.88999938964844 *************  Kalman 40.4027222908019
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 VTRS
 DataFrame is empty!++
 VTRS False
-Precio 10.770000457763672 *************  Kalman 10.33025497060856
-checkIN Time 2022-08-16 00:00:00
+Precio 8.479999542236328 *************  Kalman 9.120618234373778
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 VTR
 DataFrame is empty!++
 VTR False
-Precio 51.5 *************  Kalman 51.32255835946342
-checkIN Time 2022-08-16 00:00:00
+Precio 40.40999984741211 *************  Kalman 44.52844887791315
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 VRTX
 VRTX True
-checkOUT Time 2022-08-16 00:00:00
+checkOUT Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
 VRSN
 DataFrame is empty!++
 VRSN False
-Precio 199.85000610351562 *************  Kalman 192.9246480164773
-checkIN Time 2022-08-16 00:00:00
+Precio 172.52999877929688 *************  Kalman 179.00936296031992
+checkIN Time 2022-10-03 00:00:00
 [*********************100%***********************]  1 of 1 completed
+VRSK
+DataFrame is empty!++
+VRSK False
+Precio 171.02999877929688 *************  Kalman 180.41098642598908
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+VNO
+DataFrame is empty!++
+VNO False
+Precio 23.049999237060547 *************  Kalman 25.18420169867518
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+VMC
+DataFrame is empty!++
+VMC False
+Precio 152.33999633789062 *************  Kalman 161.21226662569657
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+VLO
+Salimos del mercado
+VLO False
+checkOUT Time 2022-10-03 00:00:00
+SALIMOS del mercado
+[*********************100%***********************]  1 of 1 completed
+VFC
+DataFrame is empty!++
+VFC False
+Precio 35.06999969482422 *************  Kalman 37.0078125911147
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+V
+V True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+USB
+DataFrame is empty!++
+USB False
+Precio 40.959999084472656 *************  Kalman 43.640186581429305
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+URI
+DataFrame is empty!++
+URI False
+Precio 264.45001220703125 *************  Kalman 284.0062661627961
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UPS
+DataFrame is empty!++
+UPS False
+Precio 164.77000427246094 *************  Kalman 176.40376672605166
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UNP
+DataFrame is empty!++
+UNP False
+Precio 197.25 *************  Kalman 211.4555789756531
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UNH
+UNH True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ULTA
+DataFrame is empty!++
+ULTA False
+Precio 394.1099853515625 *************  Kalman 409.63500106647274
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UHS
+DataFrame is empty!++
+UHS False
+Precio 87.80999755859375 *************  Kalman 95.46803184274118
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UDR
+DataFrame is empty!++
+UDR False
+Precio 40.54999923706055 *************  Kalman 43.398768161238294
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UAL
+UAL True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UAA
+DataFrame is empty!++
+UAA False
+Precio 7.75 *************  Kalman 8.008681491234071
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+UA
+DataFrame is empty!++
+UA False
+Precio 6.849999904632568 *************  Kalman 7.105508698985597
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TYL
+DataFrame is empty!++
+TYL False
+Precio 341.75 *************  Kalman 358.0949098654597
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TXT
+DataFrame is empty!++
+TXT False
+Precio 58.88999938964844 *************  Kalman 61.7137590574173
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TXN
+DataFrame is empty!++
+TXN False
+Precio 160.7100067138672 *************  Kalman 163.804373025242
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TWTR
+DataFrame is empty!++
+TWTR False
+Precio 42.09000015258789 *************  Kalman 42.20181484321045
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TTWO
+DataFrame is empty!++
+TTWO False
+Precio 109.9000015258789 *************  Kalman 117.62773226043079
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TT
+DataFrame is empty!++
+TT False
+Precio 144.86000061035156 *************  Kalman 152.50699605359662
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TSN
+DataFrame is empty!++
+TSN False
+Precio 68.55999755859375 *************  Kalman 71.25604911731766
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TSLA
+DataFrame is empty!++
+TSLA False
+Precio 282.94000244140625 *************  Kalman 282.42753487057024
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TSCO
+DataFrame is empty!++
+TSCO False
+Precio 188.57000732421875 *************  Kalman 191.19218763179543
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TRV
+DataFrame is empty!++
+TRV False
+Precio 151.24000549316406 *************  Kalman 158.75355087492855
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TROW
+DataFrame is empty!++
+TROW False
+Precio 106.76000213623047 *************  Kalman 112.498759632385
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TRMB
+DataFrame is empty!++
+TRMB False
+Precio 55.25 *************  Kalman 58.84172801037663
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TPR
+DataFrame is empty!++
+TPR False
+Precio 29.030000686645508 *************  Kalman 31.657143044743286
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TMUS
+DataFrame is empty!++
+TMUS False
+Precio 132.67999267578125 *************  Kalman 138.40176633339956
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TMO
+DataFrame is empty!++
+TMO False
+Precio 508.6600036621094 *************  Kalman 535.256423532627
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TJX
+DataFrame is empty!++
+TJX False
+Precio 60.56999969482422 *************  Kalman 63.149762156480996
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TGT
+DataFrame is empty!++
+TGT False
+Precio 148.47000122070312 *************  Kalman 157.99026285718128
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TFX
+TFX True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TFC
+DataFrame is empty!++
+TFC False
+Precio 43.040000915527344 *************  Kalman 45.935581557618036
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TER
+DataFrame is empty!++
+TER False
+Precio 78.37000274658203 *************  Kalman 81.94031048112048
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TEL
+DataFrame is empty!++
+TEL False
+Precio 113.44000244140625 *************  Kalman 119.64115888969206
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TECH
+DataFrame is empty!++
+TECH False
+Precio 282.5400085449219 *************  Kalman 307.3104596080209
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TDY
+DataFrame is empty!++
+TDY False
+Precio 343.760009765625 *************  Kalman 362.30150504238264
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TDG
+DataFrame is empty!++
+TDG False
+Precio 531.8300170898438 *************  Kalman 569.5506521695241
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+TAP
+DataFrame is empty!++
+TAP False
+Precio 47.59000015258789 *************  Kalman 49.9962142556612
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+T
+T True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SYY
+DataFrame is empty!++
+SYY False
+Precio 72.9800033569336 *************  Kalman 77.20569360793537
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SYK
+DataFrame is empty!++
+SYK False
+Precio 202.67999267578125 *************  Kalman 211.81460933923066
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SYF
+DataFrame is empty!++
+SYF False
+Precio 28.110000610351562 *************  Kalman 30.726449755947748
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SWKS
+DataFrame is empty!++
+SWKS False
+Precio 93.26000213623047 *************  Kalman 95.87048514474687
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SWK
+DataFrame is empty!++
+SWK False
+Precio 77.66999816894531 *************  Kalman 83.4464727015664
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+STZ
+STZ True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+STX
+DataFrame is empty!++
+STX False
+Precio 56.529998779296875 *************  Kalman 61.02857840697071
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+STT
+DataFrame is empty!++
+STT False
+Precio 61.279998779296875 *************  Kalman 66.46735110081923
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+STE
+DataFrame is empty!++
+STE False
+Precio 160.72000122070312 *************  Kalman 182.1126625873798
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SRE
+SRE True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SPGI
+DataFrame is empty!++
+SPGI False
+Precio 313.2699890136719 *************  Kalman 334.0266280140919
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SPG
+DataFrame is empty!++
+SPG False
+Precio 89.02999877929688 *************  Kalman 95.92350858360571
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SO
+SO True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SNPS
+SNPS True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SNA
+SNA True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SLB
+DataFrame is empty!++
+SLB False
+Precio 33.97999954223633 *************  Kalman 37.18605465626524
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SJM
+DataFrame is empty!++
+SJM False
+Precio 136.58999633789062 *************  Kalman 139.41133467792596
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SIVB
+DataFrame is empty!++
+SIVB False
+Precio 333.8399963378906 *************  Kalman 366.43624651934954
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SHW
+DataFrame is empty!++
+SHW False
+Precio 208.55999755859375 *************  Kalman 220.00683412116217
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SEE
+DataFrame is empty!++
+SEE False
+Precio 44.380001068115234 *************  Kalman 48.43961375843796
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SEDG
+SEDG True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SCHW
+DataFrame is empty!++
+SCHW False
+Precio 71.62999725341797 *************  Kalman 72.54317221151352
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SBUX
+DataFrame is empty!++
+SBUX False
+Precio 84.27999877929688 *************  Kalman 86.96369036239186
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SBNY
+DataFrame is empty!++
+SBNY False
+Precio 150.13999938964844 *************  Kalman 165.6964518071049
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+SBAC
+DataFrame is empty!++
+SBAC False
+Precio 284.2099914550781 *************  Kalman 303.55470738154406
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RTX
+DataFrame is empty!++
+RTX False
+Precio 81.0 *************  Kalman 84.9493036541557
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RSG
+RSG True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ROST
+DataFrame is empty!++
+ROST False
+Precio 84.4000015258789 *************  Kalman 87.22063233797495
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ROP
+DataFrame is empty!++
+ROP False
+Precio 366.8999938964844 *************  Kalman 383.8952768724177
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ROL
+ROL True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+ROK
+DataFrame is empty!++
+ROK False
+Precio 212.1300048828125 *************  Kalman 230.2961394764762
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RMD
+DataFrame is empty!++
+RMD False
+Precio 212.32000732421875 *************  Kalman 222.21921080893716
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RL
+DataFrame is empty!++
+RL False
+Precio 85.5199966430664 *************  Kalman 90.40507596625085
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RJF
+DataFrame is empty!++
+RJF False
+Precio 100.0 *************  Kalman 103.95531819787273
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RHI
+DataFrame is empty!++
+RHI False
+Precio 73.81999969482422 *************  Kalman 76.70386815528668
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RF
+DataFrame is empty!++
+RF False
+Precio 20.40999984741211 *************  Kalman 21.23558048397135
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+REGN
+REGN True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+REG
+DataFrame is empty!++
+REG False
+Precio 52.779998779296875 *************  Kalman 56.98269927031169
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RE
+DataFrame is empty!++
+RE False
+Precio 253.85000610351562 *************  Kalman 267.6485283238277
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+RCL
+DataFrame is empty!++
+RCL False
+Precio 45.7599983215332 *************  Kalman 44.527731500862096
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+QRVO
+DataFrame is empty!++
+QRVO False
+Precio 82.26000213623047 *************  Kalman 86.17619460519981
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+QCOM
+DataFrame is empty!++
+QCOM False
+Precio 120.33999633789062 *************  Kalman 124.4431343056839
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PYPL
+DataFrame is empty!++
+PYPL False
+Precio 85.75 *************  Kalman 90.78058940127873
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PXD
+Salimos del mercado
+PXD False
+checkOUT Time 2022-10-03 00:00:00
+SALIMOS del mercado
+[*********************100%***********************]  1 of 1 completed
+PWR
+DataFrame is empty!++
+PWR False
+Precio 125.55000305175781 *************  Kalman 134.89864056683467
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PVH
+DataFrame is empty!++
+PVH False
+Precio 46.36000061035156 *************  Kalman 52.25241313328643
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PTC
+DataFrame is empty!++
+PTC False
+Precio 104.23999786376953 *************  Kalman 110.97981358600518
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PSX
+Salimos del mercado
+PSX False
+checkOUT Time 2022-10-03 00:00:00
+SALIMOS del mercado
+[*********************100%***********************]  1 of 1 completed
+PSA
+DataFrame is empty!++
+PSA False
+Precio 287.489990234375 *************  Kalman 308.3078435565284
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PRU
+DataFrame is empty!++
+PRU False
+Precio 87.18000030517578 *************  Kalman 91.87808572995459
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PPL
+PPL True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PPG
+DataFrame is empty!++
+PPG False
+Precio 111.05999755859375 *************  Kalman 117.61560306080044
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+POOL
+DataFrame is empty!++
+POOL False
+Precio 317.6700134277344 *************  Kalman 331.2007885422109
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PNW
+DataFrame is empty!++
+PNW False
+Precio 68.25 *************  Kalman 71.42789364545412
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PNR
+DataFrame is empty!++
+PNR False
+Precio 40.81999969482422 *************  Kalman 42.99384614925673
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PNC
+DataFrame is empty!++
+PNC False
+Precio 148.02999877929688 *************  Kalman 157.17454320826172
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PM
+PM True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PLD
+DataFrame is empty!++
+PLD False
+Precio 102.27999877929688 *************  Kalman 112.33447623940435
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PKI
+DataFrame is empty!++
+PKI False
+Precio 118.06999969482422 *************  Kalman 128.38402268274504
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PKG
+DataFrame is empty!++
+PKG False
+Precio 113.29000091552734 *************  Kalman 122.81845970187824
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PHM
+DataFrame is empty!++
+PHM False
+Precio 37.540000915527344 *************  Kalman 39.58962251138068
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PH
+DataFrame is empty!++
+PH False
+Precio 238.2899932861328 *************  Kalman 258.116643620012
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PGR
+DataFrame is empty!++
+PGR False
+Precio 119.0999984741211 *************  Kalman 122.3148673767744
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PG
+DataFrame is empty!++
+PG False
+Precio 131.97999572753906 *************  Kalman 135.30108104872545
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PFG
+DataFrame is empty!++
+PFG False
+Precio 71.47000122070312 *************  Kalman 74.8020749718538
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PFE
+PFE True
+checkOUT Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PEP
+DataFrame is empty!++
+PEP False
+Precio 166.00999450683594 *************  Kalman 168.827661485041
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PENN
+DataFrame is empty!++
+PENN False
+Precio 26.530000686645508 *************  Kalman 29.43346744661681
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PEG
+DataFrame is empty!++
+PEG False
+Precio 59.560001373291016 *************  Kalman 62.75758210493471
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PEAK
+DataFrame is empty!++
+PEAK False
+Precio 22.799999237060547 *************  Kalman 24.75126750188449
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+PCAR
+DataFrame is empty!++
+PCAR False
+Precio 82.95999908447266 *************  Kalman 86.11502202136955
+checkIN Time 2022-10-03 00:00:00
+[*********************100%***********************]  1 of 1 completed
+
+1 Failed download:
+- PBCT: No data found, symbol may be delisted
