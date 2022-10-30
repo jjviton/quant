@@ -141,7 +141,7 @@ class TradingAI:
 
 
 
-    def Observations (self, diaObservable='1971-7-15' ):
+    def Observations (self, game, _stage):
         """
         Descripcion: This function returns all today´s data. Market basic data and featured data
                 
@@ -153,33 +153,19 @@ class TradingAI:
             numpay array containing al information
         """
         
-        # - Llama a Juego para conseguir es estado de todo el tablero de juego
-        #head = game.snake[0]
-        
         # State son los 11 estados que definen la posicon actual del juego. Se obtienen de las propiedades de la clase game
-        state = [
-            # Danger straight
-            1,
-            # Danger right
-            1,
-            # Danger left
-            0,
-            # Move direction
-            0,
-            1,
-            0,
-            0,
-            # Food location 
-            1,  # food left
-            0,  # food right
-            1,  # food up
-            0  # food down
-            ]
-
-        state[0] = 3
-
-
-        return np.array(state, dtype=int)
+        state = np.zeros(11)
+ 
+        state[0] = game.df.loc[_stage,'Open']   
+        state[1] = game.df.loc[_stage,'Close']   
+        state[2] = game.df.loc[_stage,'High']   
+        state[3] = game.df.loc[_stage,'Low']   
+        state[4] = game.df.loc[_stage,'Volume'] 
+        state[5] = game.df.loc[_stage,'DeltaVol_EMA']
+        state[6] = game.df.loc[_stage,'Kalman']   
+        state[7] = game.df.loc[_stage,'Futuro']    
+        
+        return np.array(state, dtype=float)
     
     
 
@@ -207,42 +193,36 @@ class TradingAI:
             self._place_food()
     """
 
-    def play_step(self, action):
+    def play_step(self, game, _stage, action):
         """
-        self.frame_iteration += 1
-        # 1. collect user input
+        Descripcion: Avanza un paso en la secuencia temporal de precios. No es como un juego que tiene un 'mapa'... en nuestro caso
+        de acciones tenemos una serie temporal, digamos lineal (unidimensional)
         
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
+                
+        Parameters
+        ----------
+            Recibe un array de tres elementos con uno seteado Buy//Hold//Sell  [0,1,0]    
+        Returns
+        -------
+            reward
+        """        
         
-        # 2. move
-        ##self._move(action) # update the head
-        ##self.snake.insert(0, self.head)
+        # Calculo el Reward (empiezo con la simplest version). Esta es la parte más compleja y que requiere de mi...
+        reward =0
         
-        # 3. check if game over
-        reward = 0
-        game_over = False
-        if self.is_collision() or self.frame_iteration > 100*len(self.snake):
-            game_over = True
-            reward = -10
-            return reward, game_over, self.score
-
-        # 4. place new food or just move
-        if self.head == self.food:
-            self.score += 1
-            reward = 10
-            self._place_food()
+        # Si el dia siguente abre mas alto reward++
+        # Si el dia sigueitne abre más bajo reward--
+        
+        if   (game.df.loc[_stage,'Futuro'] > game.df.loc[_stage,'Close']):
+            reward +=10  
+            self.score +=1
+        elif (game.df.loc[_stage,'Futuro'] < game.df.loc[_stage,'Close']):
+            reward -=10
         else:
-            self.snake.pop()
+            reward +=0
+
         
-        # 5. update ui and clock
-        self._update_ui()
-        self.clock.tick(SPEED)
-        # 6. return game over and score
-        """
-        return 2 #reward, game_over, self.score
+        return reward, False, self.score
 
 
     def is_collision(self, pt=None):

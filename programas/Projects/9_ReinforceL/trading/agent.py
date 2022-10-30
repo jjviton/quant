@@ -63,45 +63,25 @@ class Agent:
         self.memory = deque(maxlen=MAX_MEMORY) # popleft()  # array de doble entrada
         self.model = Linear_QNet(11, 256, 3)
         self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
+        
+        self.stage =0  # Indice con el que recorro el trading track
 
 
-    def get_state(self, game):
+    def get_state(self, game, _stage):
         """
-        Fucnion que devuelve el estado actual del tablero de juego
+        Funcion que devuelve el estado actual del tablero de juego
         Returns:un array con la información
 
-        """
+        """  
+        state= game.Observations( game, _stage)
         
-        game.Observations('2021-9-19' )
-        
-        # 1.- Llama a Juego para conseguir es estado de todo el tablero de juego
-        #head = game.snake[0]
-        
-        # State son los 11 estados que definen la posicon actual del juego. Se obtienen de las propiedades de la clase game
-        state = [
-            # Danger straight
-            1,
-            # Danger right
-            1,
-            # Danger left
-            0,
-            # Move direction
-            0,
-            1,
-            0,
-            0,
-            # Food location 
-            1,  # food left
-            0,  # food right
-            1,  # food up
-            0  # food down
-            ]
-
-        return np.array(state, dtype=int)
+        return np.array(state, dtype=float)
+  
     
     def get_action(self, state):
         """
         Funcion que calcula el siguiente movimiento segun el tradeoff explorar//explotar
+        Trading: creo el array de decision [comprar, mantener, vender]
         Returns:un array con la información
 
         """
@@ -112,8 +92,8 @@ class Agent:
         
         #Exploration
         if random.randint(0, 200) < self.epsilon:
-            move = random.randint(0, 2)
-            final_move[move] = 1   #action es un array [0,0,1]  recto, giro derecha. giro izquierda
+            move = random.randint(0, 2)    #decision aleatoria C/M/V
+            final_move[move] = 1   #action es un array [0,0,1]  Compro, Mantengo, Vendo   B/H/S
         
         #Explotation
         else:
@@ -122,7 +102,7 @@ class Agent:
             move = torch.argmax(prediction).item()              # Me devuelve la probabilidad para cada accion. Argmax me dice el indice de la mayor
             final_move[move] = 1                                # Pongo a 1, el indice de la mayor probalilidad
 
-        return final_move   # el array de siguiente accion [1,0,0]    
+        return final_move   # el array de siguiente accion [1,0,0]    // Buy/Hold/Sell
 
 
 
@@ -169,24 +149,35 @@ def train():
     plot_mean_scores = []
     total_score = 0
     record = 0
+    
+    #Llamamos a los constructores
     agent = Agent()
     game = TradingAI()
-    while True:
+    agent.stage =0
+    
+    while agent.stage < 500:    #hasta que stage llegue al final y ¿repetimos?
+    
+       
         # get old state
-        state_old = agent.get_state(game)
+        state_old = agent.get_state( game,agent.stage)
 
         # get move
         final_move = agent.get_action(state_old)
 
         # perform move and get new state
-        reward, done, score = game.play_step(final_move)
-        state_new = agent.get_state(game)
+        reward, done, score = game.play_step(game, agent.stage, final_move)
+        agent.stage+=1
+        print('reward', reward)
+        state_new = agent.get_state(game, agent.stage)
 
         # train short memory
         agent.train_short_memory(state_old, final_move, reward, state_new, done)
 
         # remember
         agent.remember(state_old, final_move, reward, state_new, done)
+        
+        if (agent.stage == 498):
+            done = True
 
         if done:
             # train long memory, plot result
@@ -195,16 +186,20 @@ def train():
             agent.train_long_memory()
 
             if score > record:
-                record = score
-                agent.model.save()
+               record = score
+               agent.model.save()   # Solo debemos hacer save de la red si ha ido bien???
 
-            print('Game', agent.n_games, 'Score', score, 'Record:', record)
+            #print('Game', agent.n_games, 'Score', score, 'Record:', record)
 
-            plot_scores.append(score)
-            total_score += score
-            mean_score = total_score / agent.n_games
-            plot_mean_scores.append(mean_score)
-            plot(plot_scores, plot_mean_scores)
+            #plot_scores.append(score)
+            #total_score += score
+            #mean_score = total_score / agent.n_games
+            #plot_mean_scores.append(mean_score)
+            #plot(plot_scores, plot_mean_scores)
+            
+            print('Acabado \n')
+            print('Reward',reward, 'score', score)
+            return
 
 
 if __name__ == '__main__':
