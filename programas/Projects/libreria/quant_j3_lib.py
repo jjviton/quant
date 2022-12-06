@@ -24,6 +24,18 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from scipy.signal import find_peaks, argrelextrema
 
+
+
+####################  Media de HULL
+def WMA(s, period):
+    
+    return s.rolling(period).apply(lambda x: ((np.arange(period)+1)*x).sum()/(np.arange(period)+1).sum(), raw=True)
+
+def HMA(s, period):
+    ''' Media que sigue más cercana al precio y detecta los cambios'''
+    return WMA(WMA(s, period//2).multiply(2).sub(WMA(s, period)), int(np.sqrt(period)))
+   
+
 #################################  Mogalef bands
 
 def MogalefBands(df,paraA_=200,paraB_=50,instrumento="_"): 

@@ -1,0 +1,5040 @@
+{'id': 1473252352, 'first_name': 'vital_bot', 'is_bot': True, 'username': 'vital_quant_bot', 'can_join_groups': True, 'can_read_all_group_messages': False, 'supports_inline_queries': False}
+Tamaño timeseries global a analizar:   2874 sesiones
+Tamaño de la ventana a analizar paso a paso:   500 sesiones
+[*********************100%***********************]  1 of 1 completed
+end date: 2016-05-16
+ Datos desde archivo
+Coefficients: 
+ [-0.02354382]
+Independent term: 
+ 123.11743592924182
+Coefficients: 
+ [-0.07409643]
+Independent term: 
+ 124.80383432530645
+Coefficients: 
+ [-0.03265331]
+Independent term: 
+ 122.47169646140999
+................................................Analizando, muestra 0 de 2874 fecha 2016-05-16
+end date: 2016-05-17
+ Datos desde archivo
+Coefficients: 
+ [-0.02380676]
+Independent term: 
+ 123.14863829491708
+Coefficients: 
+ [-0.0742602]
+Independent term: 
+ 124.74246507103763
+Coefficients: 
+ [-0.0330262]
+Independent term: 
+ 122.49133536538669
+................................................Analizando, muestra 1 de 2874 fecha 2016-05-17
+end date: 2016-05-18
+ Datos desde archivo
+Coefficients: 
+ [-0.02407026]
+Independent term: 
+ 123.17999496282863
+Coefficients: 
+ [-0.07435119]
+Independent term: 
+ 124.67091808945386
+Coefficients: 
+ [-0.03339317]
+Independent term: 
+ 122.51078480108922
+................................................Analizando, muestra 2 de 2874 fecha 2016-05-18
+end date: 2016-05-19
+ Datos desde archivo
+Coefficients: 
+ [-0.02427335]
+Independent term: 
+ 123.20422949598692
+Coefficients: 
+ [-0.07436324]
+Independent term: 
+ 124.60154277402964
+Coefficients: 
+ [-0.0337515]
+Independent term: 
+ 122.52989571452513
+................................................Analizando, muestra 3 de 2874 fecha 2016-05-19
+end date: 2016-05-20
+ Datos desde archivo
+Coefficients: 
+ [-0.02448385]
+Independent term: 
+ 123.22941970223867
+Coefficients: 
+ [-0.0743765]
+Independent term: 
+ 124.53045207806488
+Coefficients: 
+ [-0.0341019]
+Independent term: 
+ 122.54870064237355
+................................................Analizando, muestra 4 de 2874 fecha 2016-05-20
+end date: 2016-05-21
+..............Día sin sesión, next please
+end date: 2016-05-22
+..............Día sin sesión, next please
+end date: 2016-05-23
+ Datos desde archivo
+Coefficients: 
+ [-0.02468205]
+Independent term: 
+ 123.25320353089312
+Coefficients: 
+ [-0.07434478]
+Independent term: 
+ 124.45579506034282
+Coefficients: 
+ [-0.0344441]
+Independent term: 
+ 122.5671796096013
+................................................Analizando, muestra 7 de 2874 fecha 2016-05-23
+end date: 2016-05-24
+ Datos desde archivo
+Coefficients: 
+ [-0.02490656]
+Independent term: 
+ 123.28022034515482
+Coefficients: 
+ [-0.07437922]
+Independent term: 
+ 124.38390274275595
+Coefficients: 
+ [-0.0347797]
+Independent term: 
+ 122.58541391365554
+................................................Analizando, muestra 8 de 2874 fecha 2016-05-24
+end date: 2016-05-25
+ Datos desde archivo
+Coefficients: 
+ [-0.02509033]
+Independent term: 
+ 123.30239448920621
+Coefficients: 
+ [-0.07428237]
+Independent term: 
+ 124.3032609227878
+Coefficients: 
+ [-0.03510703]
+Independent term: 
+ 122.60330751956835
+................................................Analizando, muestra 9 de 2874 fecha 2016-05-25
+end date: 2016-05-26
+ Datos desde archivo
+Coefficients: 
+ [-0.02527261]
+Independent term: 
+ 123.32445064487281
+Coefficients: 
+ [-0.07424448]
+Independent term: 
+ 124.23056070583971
+Coefficients: 
+ [-0.03542634]
+Independent term: 
+ 122.62086952587406
+................................................Analizando, muestra 10 de 2874 fecha 2016-05-26
+end date: 2016-05-27
+ Datos desde archivo
+Coefficients: 
+ [-0.02546857]
+Independent term: 
+ 123.34822709140684
+Coefficients: 
+ [-0.07431722]
+Independent term: 
+ 124.16926359945269
+Coefficients: 
+ [-0.0357386]
+Independent term: 
+ 122.63814818521541
+................................................Analizando, muestra 11 de 2874 fecha 2016-05-27
+end date: 2016-05-28
+..............Día sin sesión, next please
+end date: 2016-05-29
+..............Día sin sesión, next please
+end date: 2016-05-30
+ Datos desde archivo
+Coefficients: 
+ [-0.02561325]
+Independent term: 
+ 123.36583027536307
+Coefficients: 
+ [-0.07446612]
+Independent term: 
+ 124.12926835928391
+Coefficients: 
+ [-0.03604171]
+Independent term: 
+ 122.65502115004917
+................................................Analizando, muestra 14 de 2874 fecha 2016-05-30
+end date: 2016-05-31
+ Datos desde archivo
+Coefficients: 
+ [-0.02575132]
+Independent term: 
+ 123.38267461265006
+Coefficients: 
+ [-0.07501731]
+Independent term: 
+ 124.1438975206062
+Coefficients: 
+ [-0.03633572]
+Independent term: 
+ 122.67148582218528
+................................................Analizando, muestra 15 de 2874 fecha 2016-05-31
+end date: 2016-06-01
+ Datos desde archivo
+Coefficients: 
+ [-0.02589354]
+Independent term: 
+ 123.40007271802635
+Coefficients: 
+ [-0.07563383]
+Independent term: 
+ 124.16589079899575
+Coefficients: 
+ [-0.0366212]
+Independent term: 
+ 122.68756761643272
+................................................Analizando, muestra 16 de 2874 fecha 2016-06-01
+end date: 2016-06-02
+ Datos desde archivo
+Coefficients: 
+ [-0.02608448]
+Independent term: 
+ 123.42349452876537
+Coefficients: 
+ [-0.07618776]
+Independent term: 
+ 124.16810144339034
+Coefficients: 
+ [-0.03690072]
+Independent term: 
+ 122.70340707286088
+................................................Analizando, muestra 17 de 2874 fecha 2016-06-02
+end date: 2016-06-03
+ Datos desde archivo
+Coefficients: 
+ [-0.02629804]
+Independent term: 
+ 123.44976203042148
+Coefficients: 
+ [-0.07667544]
+Independent term: 
+ 124.15591071854777
+Coefficients: 
+ [-0.03717555]
+Independent term: 
+ 122.7190727735449
+................................................Analizando, muestra 18 de 2874 fecha 2016-06-03
+end date: 2016-06-04
+..............Día sin sesión, next please
+end date: 2016-06-05
+..............Día sin sesión, next please
+end date: 2016-06-06
+ Datos desde archivo
+Coefficients: 
+ [-0.02659952]
+Independent term: 
+ 123.48694543426944
+Coefficients: 
+ [-0.07742104]
+Independent term: 
+ 124.1572582893941
+Coefficients: 
+ [-0.03744988]
+Independent term: 
+ 122.73480108842429
+................................................Analizando, muestra 21 de 2874 fecha 2016-06-06
+end date: 2016-06-07
+ Datos desde archivo
+Coefficients: 
+ [-0.0268642]
+Independent term: 
+ 123.51967763820772
+Coefficients: 
+ [-0.07806793]
+Independent term: 
+ 124.15336860998353
+Coefficients: 
+ [-0.03772208]
+Independent term: 
+ 122.7504975022271
+................................................Analizando, muestra 22 de 2874 fecha 2016-06-07
+end date: 2016-06-08
+ Datos desde archivo
+Coefficients: 
+ [-0.02713138]
+Independent term: 
+ 123.55280795271767
+Coefficients: 
+ [-0.07892894]
+Independent term: 
+ 124.17673407369585
+Coefficients: 
+ [-0.03799233]
+Independent term: 
+ 122.76617227200913
+................................................Analizando, muestra 23 de 2874 fecha 2016-06-08
+end date: 2016-06-09
+ Datos desde archivo
+Coefficients: 
+ [-0.02741333]
+Independent term: 
+ 123.58786292283078
+Coefficients: 
+ [-0.0797116]
+Independent term: 
+ 124.18560882112872
+Coefficients: 
+ [-0.03826139]
+Independent term: 
+ 122.78186720963721
+................................................Analizando, muestra 24 de 2874 fecha 2016-06-09
+end date: 2016-06-10
+ Datos desde archivo
+Coefficients: 
+ [-0.02767651]
+Independent term: 
+ 123.62067350508887
+Coefficients: 
+ [-0.08050629]
+Independent term: 
+ 124.19985020082389
+Coefficients: 
+ [-0.03852847]
+Independent term: 
+ 122.7975358971337
+................................................Analizando, muestra 25 de 2874 fecha 2016-06-10
+end date: 2016-06-11
+..............Día sin sesión, next please
+end date: 2016-06-12
+..............Día sin sesión, next please
+end date: 2016-06-13
+ Datos desde archivo
+Coefficients: 
+ [-0.02795904]
+Independent term: 
+ 123.65598941912356
+Coefficients: 
+ [-0.08150346]
+Independent term: 
+ 124.23576884483224
+Coefficients: 
+ [-0.0387945]
+Independent term: 
+ 122.8132321080496
+................................................Analizando, muestra 28 de 2874 fecha 2016-06-13
+end date: 2016-06-14
+ Datos desde archivo
+Coefficients: 
+ [-0.02824758]
+Independent term: 
+ 123.69215290540193
+Coefficients: 
+ [-0.0824871]
+Independent term: 
+ 124.26775647405368
+Coefficients: 
+ [-0.03905981]
+Independent term: 
+ 122.82897352094189
+................................................Analizando, muestra 29 de 2874 fecha 2016-06-14
+end date: 2016-06-15
+ Datos desde archivo
+Coefficients: 
+ [-0.02853619]
+Independent term: 
+ 123.7284213918594
+Coefficients: 
+ [-0.08336831]
+Independent term: 
+ 124.28542669951027
+Coefficients: 
+ [-0.03932442]
+Independent term: 
+ 122.84476190327173
+................................................Analizando, muestra 30 de 2874 fecha 2016-06-15
+end date: 2016-06-16
+ Datos desde archivo
+Coefficients: 
+ [-0.0288289]
+Independent term: 
+ 123.76530345216412
+Coefficients: 
+ [-0.0842354]
+Independent term: 
+ 124.29956163662584
+Coefficients: 
+ [-0.03958854]
+Independent term: 
+ 122.86060944215326
+................................................Analizando, muestra 31 de 2874 fecha 2016-06-16
+end date: 2016-06-17
+ Datos desde archivo
+Coefficients: 
+ [-0.02916148]
+Independent term: 
+ 123.80731903135721
+Coefficients: 
+ [-0.08519465]
+Independent term: 
+ 124.31562787070203
+Coefficients: 
+ [-0.03985392]
+Independent term: 
+ 122.8766207718637
+................................................Analizando, muestra 32 de 2874 fecha 2016-06-17
+end date: 2016-06-18
+..............Día sin sesión, next please
+end date: 2016-06-19
+..............Día sin sesión, next please
+end date: 2016-06-20
+ Datos desde archivo
+Coefficients: 
+ [-0.02949156]
+Independent term: 
+ 123.84912922396272
+Coefficients: 
+ [-0.08611759]
+Independent term: 
+ 124.32672042277322
+Coefficients: 
+ [-0.04012041]
+Independent term: 
+ 122.8927878176022
+................................................Analizando, muestra 35 de 2874 fecha 2016-06-20
+end date: 2016-06-21
+ Datos desde archivo
+Coefficients: 
+ [-0.02984891]
+Independent term: 
+ 123.89451263280824
+Coefficients: 
+ [-0.08720503]
+Independent term: 
+ 124.3522398319529
+Coefficients: 
+ [-0.04038914]
+Independent term: 
+ 122.90917994973482
+................................................Analizando, muestra 36 de 2874 fecha 2016-06-21
+end date: 2016-06-22
+ Datos desde archivo
+Coefficients: 
+ [-0.03016516]
+Independent term: 
+ 123.93478170390769
+Coefficients: 
+ [-0.08813023]
+Independent term: 
+ 124.36547749305838
+Coefficients: 
+ [-0.04065828]
+Independent term: 
+ 122.92568735985179
+................................................Analizando, muestra 37 de 2874 fecha 2016-06-22
+end date: 2016-06-23
+ Datos desde archivo
+Coefficients: 
+ [-0.0304761]
+Independent term: 
+ 123.97447782587969
+Coefficients: 
+ [-0.08902135]
+Independent term: 
+ 124.37477920987713
+Coefficients: 
+ [-0.04092761]
+Independent term: 
+ 122.94229597520068
+................................................Analizando, muestra 38 de 2874 fecha 2016-06-23
+end date: 2016-06-24
+ Datos desde archivo
+Coefficients: 
+ [-0.03077112]
+Independent term: 
+ 124.01224071586803
+Coefficients: 
+ [-0.08992386]
+Independent term: 
+ 124.38882861692514
+Coefficients: 
+ [-0.04119646]
+Independent term: 
+ 122.95896460430262
+................................................Analizando, muestra 39 de 2874 fecha 2016-06-24
+end date: 2016-06-25
+..............Día sin sesión, next please
+end date: 2016-06-26
+..............Día sin sesión, next please
+end date: 2016-06-27
+ Datos desde archivo
+Coefficients: 
+ [-0.03117101]
+Independent term: 
+ 124.06355963965363
+Coefficients: 
+ [-0.09122371]
+Independent term: 
+ 124.4287935581492
+Coefficients: 
+ [-0.04146921]
+Independent term: 
+ 122.97596636587998
+................................................Analizando, muestra 42 de 2874 fecha 2016-06-27
+end date: 2016-06-28
+ Datos desde archivo
+Coefficients: 
+ [-0.03157603]
+Independent term: 
+ 124.11567206270661
+Coefficients: 
+ [-0.09246883]
+Independent term: 
+ 124.45925371426256
+Coefficients: 
+ [-0.04174595]
+Independent term: 
+ 122.99330864572673
+................................................Analizando, muestra 43 de 2874 fecha 2016-06-28
+end date: 2016-06-29
+ Datos desde archivo
+Coefficients: 
+ [-0.03193842]
+Independent term: 
+ 124.16242112138418
+Coefficients: 
+ [-0.09361626]
+Independent term: 
+ 124.48652758697965
+Coefficients: 
+ [-0.04202478]
+Independent term: 
+ 123.01087483115222
+................................................Analizando, muestra 44 de 2874 fecha 2016-06-29
+end date: 2016-06-30
+ Datos desde archivo
+Coefficients: 
+ [-0.03229098]
+Independent term: 
+ 124.20801920240704
+Coefficients: 
+ [-0.09470803]
+Independent term: 
+ 124.50804913421176
+Coefficients: 
+ [-0.04230523]
+Independent term: 
+ 123.02863636799526
+................................................Analizando, muestra 45 de 2874 fecha 2016-06-30
+end date: 2016-07-01
+ Datos desde archivo
+Coefficients: 
+ [-0.03262535]
+Independent term: 
+ 124.25137556402487
+Coefficients: 
+ [-0.09572361]
+Independent term: 
+ 124.52326441295112
+Coefficients: 
+ [-0.04258649]
+Independent term: 
+ 123.04654376579883
+................................................Analizando, muestra 46 de 2874 fecha 2016-07-01
+end date: 2016-07-02
+..............Día sin sesión, next please
+end date: 2016-07-03
+..............Día sin sesión, next please
+end date: 2016-07-04
+ Datos desde archivo
+Coefficients: 
+ [-0.03297614]
+Independent term: 
+ 124.29697816381946
+Coefficients: 
+ [-0.09678146]
+Independent term: 
+ 124.53912016341935
+Coefficients: 
+ [-0.04286923]
+Independent term: 
+ 123.06463857546717
+................................................Analizando, muestra 49 de 2874 fecha 2016-07-04
+end date: 2016-07-05
+ Datos desde archivo
+Coefficients: 
+ [-0.03331916]
+Independent term: 
+ 124.34168518563463
+Coefficients: 
+ [-0.09788761]
+Independent term: 
+ 124.56257174477649
+Coefficients: 
+ [-0.04315306]
+Independent term: 
+ 123.08289857210693
+................................................Analizando, muestra 50 de 2874 fecha 2016-07-05
+end date: 2016-07-06
+ Datos desde archivo
+Coefficients: 
+ [-0.03370879]
+Independent term: 
+ 124.39259635132596
+Coefficients: 
+ [-0.09917028]
+Independent term: 
+ 124.59660233454917
+Coefficients: 
+ [-0.04343983]
+Independent term: 
+ 123.10144312179334
+................................................Analizando, muestra 51 de 2874 fecha 2016-07-06
+end date: 2016-07-07
+ Datos desde archivo
+Coefficients: 
+ [-0.03409089]
+Independent term: 
+ 124.44265137889352
+Coefficients: 
+ [-0.10042367]
+Independent term: 
+ 124.62777034930329
+Coefficients: 
+ [-0.04372914]
+Independent term: 
+ 123.12024821717814
+................................................Analizando, muestra 52 de 2874 fecha 2016-07-07
+end date: 2016-07-08
+ Datos desde archivo
+Coefficients: 
+ [-0.03447966]
+Independent term: 
+ 124.49371083441591
+Coefficients: 
+ [-0.10171013]
+Independent term: 
+ 124.66067232274298
+Coefficients: 
+ [-0.04402117]
+Independent term: 
+ 123.13932731854975
+................................................Analizando, muestra 53 de 2874 fecha 2016-07-08
+end date: 2016-07-09
+..............Día sin sesión, next please
+end date: 2016-07-10
+..............Día sin sesión, next please
+end date: 2016-07-11
+ Datos desde archivo
+Coefficients: 
+ [-0.03486501]
+Independent term: 
+ 124.54444771956871
+Coefficients: 
+ [-0.10295478]
+Independent term: 
+ 124.68800075587941
+Coefficients: 
+ [-0.04431569]
+Independent term: 
+ 123.15866734440336
+................................................Analizando, muestra 56 de 2874 fecha 2016-07-11
+end date: 2016-07-12
+ Datos desde archivo
+Coefficients: 
+ [-0.03517404]
+Independent term: 
+ 124.5852393828715
+Coefficients: 
+ [-0.1038268]
+Independent term: 
+ 124.68508165387965
+Coefficients: 
+ [-0.04460961]
+Independent term: 
+ 123.17806648841287
+................................................Analizando, muestra 57 de 2874 fecha 2016-07-12
+end date: 2016-07-13
+ Datos desde archivo
+Coefficients: 
+ [-0.03539321]
+Independent term: 
+ 124.6142431506776
+Coefficients: 
+ [-0.1043721]
+Independent term: 
+ 124.66191858889451
+Coefficients: 
+ [-0.04520426]
+Independent term: 
+ 123.1928311859301
+................................................Analizando, muestra 58 de 2874 fecha 2016-07-13
+end date: 2016-07-14
+ Datos desde archivo
+Coefficients: 
+ [-0.03563322]
+Independent term: 
+ 124.64608492178215
+Coefficients: 
+ [-0.10504465]
+Independent term: 
+ 124.64964292839392
+Coefficients: 
+ [-0.04579969]
+Independent term: 
+ 123.2073268251586
+................................................Analizando, muestra 59 de 2874 fecha 2016-07-14
+end date: 2016-07-15
+ Datos desde archivo
+Coefficients: 
+ [-0.03582683]
+Independent term: 
+ 124.6718354218237
+Coefficients: 
+ [-0.10552492]
+Independent term: 
+ 124.62373960238784
+Coefficients: 
+ [-0.04639397]
+Independent term: 
+ 123.22142048463354
+................................................Analizando, muestra 60 de 2874 fecha 2016-07-15
+end date: 2016-07-16
+..............Día sin sesión, next please
+end date: 2016-07-17
+..............Día sin sesión, next please
+end date: 2016-07-18
+ Datos desde archivo
+Coefficients: 
+ [-0.03600632]
+Independent term: 
+ 124.69576675983738
+Coefficients: 
+ [-0.1059054]
+Independent term: 
+ 124.58799659729004
+Coefficients: 
+ [-0.04698612]
+Independent term: 
+ 123.23501825689878
+................................................Analizando, muestra 63 de 2874 fecha 2016-07-18
+end date: 2016-07-19
+ Datos desde archivo
+Coefficients: 
+ [-0.0361565]
+Independent term: 
+ 124.71584100950304
+Coefficients: 
+ [-0.10618658]
+Independent term: 
+ 124.54664905946646
+Coefficients: 
+ [-0.04757518]
+Independent term: 
+ 123.24806930966062
+................................................Analizando, muestra 64 de 2874 fecha 2016-07-19
+end date: 2016-07-20
+ Datos desde archivo
+Coefficients: 
+ [-0.03630347]
+Independent term: 
+ 124.73553449059303
+Coefficients: 
+ [-0.10649217]
+Independent term: 
+ 124.50914080947193
+Coefficients: 
+ [-0.04816142]
+Independent term: 
+ 123.26061728478315
+................................................Analizando, muestra 65 de 2874 fecha 2016-07-20
+end date: 2016-07-21
+ Datos desde archivo
+Coefficients: 
+ [-0.03640801]
+Independent term: 
+ 124.74957776064132
+Coefficients: 
+ [-0.10675231]
+Independent term: 
+ 124.47689447431422
+Coefficients: 
+ [-0.04874442]
+Independent term: 
+ 123.2727195453755
+................................................Analizando, muestra 66 de 2874 fecha 2016-07-21
+end date: 2016-07-22
+ Datos desde archivo
+Coefficients: 
+ [-0.03656027]
+Independent term: 
+ 124.77008233595741
+Coefficients: 
+ [-0.10716975]
+Independent term: 
+ 124.45223503340537
+Coefficients: 
+ [-0.04932576]
+Independent term: 
+ 123.28445601789322
+................................................Analizando, muestra 67 de 2874 fecha 2016-07-22
+end date: 2016-07-23
+..............Día sin sesión, next please
+end date: 2016-07-24
+..............Día sin sesión, next please
+end date: 2016-07-25
+ Datos desde archivo
+Coefficients: 
+ [-0.03669037]
+Independent term: 
+ 124.78764568592948
+Coefficients: 
+ [-0.10745731]
+Independent term: 
+ 124.41612662130328
+Coefficients: 
+ [-0.04990419]
+Independent term: 
+ 123.29571642190726
+................................................Analizando, muestra 70 de 2874 fecha 2016-07-25
+end date: 2016-07-26
+ Datos desde archivo
+Coefficients: 
+ [-0.03684414]
+Independent term: 
+ 124.80845595053067
+Coefficients: 
+ [-0.10780196]
+Independent term: 
+ 124.38079452856263
+Coefficients: 
+ [-0.05048028]
+Independent term: 
+ 123.30651321898841
+................................................Analizando, muestra 71 de 2874 fecha 2016-07-26
+end date: 2016-07-27
+ Datos desde archivo
+Coefficients: 
+ [-0.03702043]
+Independent term: 
+ 124.83237280646878
+Coefficients: 
+ [-0.10819277]
+Independent term: 
+ 124.34502530226067
+Coefficients: 
+ [-0.05105454]
+Independent term: 
+ 123.31684667255331
+................................................Analizando, muestra 72 de 2874 fecha 2016-07-27
+end date: 2016-07-28
+ Datos desde archivo
+Coefficients: 
+ [-0.0371892]
+Independent term: 
+ 124.8553260850762
+Coefficients: 
+ [-0.10853661]
+Independent term: 
+ 124.30478273647935
+Coefficients: 
+ [-0.0516265]
+Independent term: 
+ 123.32667688214465
+................................................Analizando, muestra 73 de 2874 fecha 2016-07-28
+end date: 2016-07-29
+ Datos desde archivo
+Coefficients: 
+ [-0.03736151]
+Independent term: 
+ 124.87881679821918
+Coefficients: 
+ [-0.1087354]
+Independent term: 
+ 124.24398686878718
+Coefficients: 
+ [-0.05219475]
+Independent term: 
+ 123.33580434469829
+................................................Analizando, muestra 74 de 2874 fecha 2016-07-29
+end date: 2016-07-30
+..............Día sin sesión, next please
+end date: 2016-07-31
+..............Día sin sesión, next please
+end date: 2016-08-01
+ Datos desde archivo
+Coefficients: 
+ [-0.03761508]
+Independent term: 
+ 124.91347213858468
+Coefficients: 
+ [-0.10920443]
+Independent term: 
+ 124.19583570793493
+Coefficients: 
+ [-0.05276201]
+Independent term: 
+ 123.34436187070067
+................................................Analizando, muestra 77 de 2874 fecha 2016-08-01
+end date: 2016-08-02
+ Datos desde archivo
+Coefficients: 
+ [-0.03786272]
+Independent term: 
+ 124.9473991063401
+Coefficients: 
+ [-0.1096933]
+Independent term: 
+ 124.15152812786957
+Coefficients: 
+ [-0.05332849]
+Independent term: 
+ 123.35239337574711
+................................................Analizando, muestra 78 de 2874 fecha 2016-08-02
+end date: 2016-08-03
+ Datos desde archivo
+Coefficients: 
+ [-0.03815056]
+Independent term: 
+ 124.98692814790498
+Coefficients: 
+ [-0.11041812]
+Independent term: 
+ 124.1266032409668
+Coefficients: 
+ [-0.05389654]
+Independent term: 
+ 123.3600969564956
+................................................Analizando, muestra 79 de 2874 fecha 2016-08-03
+end date: 2016-08-04
+ Datos desde archivo
+Coefficients: 
+ [-0.03842357]
+Independent term: 
+ 125.02451344128556
+Coefficients: 
+ [-0.11101595]
+Independent term: 
+ 124.08847160111613
+Coefficients: 
+ [-0.0544649]
+Independent term: 
+ 123.36734446539728
+................................................Analizando, muestra 80 de 2874 fecha 2016-08-04
+end date: 2016-08-05
+ Datos desde archivo
+Coefficients: 
+ [-0.03869612]
+Independent term: 
+ 125.06212422936147
+Coefficients: 
+ [-0.11158398]
+Independent term: 
+ 124.04598550027876
+Coefficients: 
+ [-0.05503324]
+Independent term: 
+ 123.37409711251054
+................................................Analizando, muestra 81 de 2874 fecha 2016-08-05
+end date: 2016-08-06
+..............Día sin sesión, next please
+end date: 2016-08-07
+..............Día sin sesión, next please
+end date: 2016-08-08
+ Datos desde archivo
+Coefficients: 
+ [-0.03893086]
+Independent term: 
+ 125.09459712707695
+Coefficients: 
+ [-0.11205724]
+Independent term: 
+ 124.00132517344916
+Coefficients: 
+ [-0.05560065]
+Independent term: 
+ 123.38033818774376
+................................................Analizando, muestra 84 de 2874 fecha 2016-08-08
+end date: 2016-08-09
+ Datos desde archivo
+Coefficients: 
+ [-0.03915602]
+Independent term: 
+ 125.12581898615575
+Coefficients: 
+ [-0.11243746]
+Independent term: 
+ 123.94665734476118
+Coefficients: 
+ [-0.05616619]
+Independent term: 
+ 123.38597320423149
+................................................Analizando, muestra 85 de 2874 fecha 2016-08-09
+end date: 2016-08-10
+ Datos desde archivo
+Coefficients: 
+ [-0.03938935]
+Independent term: 
+ 125.15825201633479
+Coefficients: 
+ [-0.11279933]
+Independent term: 
+ 123.88676267709305
+Coefficients: 
+ [-0.0567297]
+Independent term: 
+ 123.39095618406095
+................................................Analizando, muestra 86 de 2874 fecha 2016-08-10
+end date: 2016-08-11
+ Datos desde archivo
+Coefficients: 
+ [-0.03964456]
+Independent term: 
+ 125.19381162118971
+Coefficients: 
+ [-0.11318959]
+Independent term: 
+ 123.82380865068578
+Coefficients: 
+ [-0.05729149]
+Independent term: 
+ 123.39526317377863
+................................................Analizando, muestra 87 de 2874 fecha 2016-08-11
+end date: 2016-08-12
+ Datos desde archivo
+Coefficients: 
+ [-0.03987202]
+Independent term: 
+ 125.22557987484922
+Coefficients: 
+ [-0.11342143]
+Independent term: 
+ 123.74756705212948
+Coefficients: 
+ [-0.05785]
+Independent term: 
+ 123.398768685006
+................................................Analizando, muestra 88 de 2874 fecha 2016-08-12
+end date: 2016-08-13
+..............Día sin sesión, next please
+end date: 2016-08-14
+..............Día sin sesión, next please
+end date: 2016-08-15
+ Datos desde archivo
+Coefficients: 
+ [-0.04011256]
+Independent term: 
+ 125.25925621475591
+Coefficients: 
+ [-0.11347118]
+Independent term: 
+ 123.64293265727028
+Coefficients: 
+ [-0.05840344]
+Independent term: 
+ 123.40119817726735
+................................................Analizando, muestra 91 de 2874 fecha 2016-08-15
+end date: 2016-08-16
+ Datos desde archivo
+Coefficients: 
+ [-0.04034981]
+Independent term: 
+ 125.29254973122424
+Coefficients: 
+ [-0.11351302]
+Independent term: 
+ 123.53791051266799
+Coefficients: 
+ [-0.0589518]
+Independent term: 
+ 123.40255849901264
+................................................Analizando, muestra 92 de 2874 fecha 2016-08-16
+end date: 2016-08-17
+ Datos desde archivo
+Coefficients: 
+ [-0.040617]
+Independent term: 
+ 125.33013434898045
+Coefficients: 
+ [-0.11367627]
+Independent term: 
+ 123.43973397553857
+Coefficients: 
+ [-0.05949632]
+Independent term: 
+ 123.40292840425171
+................................................Analizando, muestra 93 de 2874 fecha 2016-08-17
+end date: 2016-08-18
+ Datos desde archivo
+Coefficients: 
+ [-0.04088883]
+Independent term: 
+ 125.36846265058035
+Coefficients: 
+ [-0.11389837]
+Independent term: 
+ 123.34757793938937
+Coefficients: 
+ [-0.06003763]
+Independent term: 
+ 123.40237765335756
+................................................Analizando, muestra 94 de 2874 fecha 2016-08-18
+end date: 2016-08-19
+ Datos desde archivo
+Coefficients: 
+ [-0.04114871]
+Independent term: 
+ 125.4051920209696
+Coefficients: 
+ [-0.11408515]
+Independent term: 
+ 123.25392216355054
+Coefficients: 
+ [-0.06057542]
+Independent term: 
+ 123.40090048430476
+................................................Analizando, muestra 95 de 2874 fecha 2016-08-19
+end date: 2016-08-20
+..............Día sin sesión, next please
+end date: 2016-08-21
+..............Día sin sesión, next please
+end date: 2016-08-22
+ Datos desde archivo
+Coefficients: 
+ [-0.04138909]
+Independent term: 
+ 125.43924597806321
+Coefficients: 
+ [-0.11420183]
+Independent term: 
+ 123.15648188007413
+Coefficients: 
+ [-0.06110902]
+Independent term: 
+ 123.39846845839203
+................................................Analizando, muestra 98 de 2874 fecha 2016-08-22
+end date: 2016-08-23
+ Datos desde archivo
+Coefficients: 
+ [-0.04163467]
+Independent term: 
+ 125.47411771634305
+Coefficients: 
+ [-0.11419504]
+Independent term: 
+ 123.04073115448455
+Coefficients: 
+ [-0.06163723]
+Independent term: 
+ 123.39490888322877
+................................................Analizando, muestra 99 de 2874 fecha 2016-08-23
+end date: 2016-08-24
+ Datos desde archivo
+Coefficients: 
+ [-0.04187352]
+Independent term: 
+ 125.50811422119206
+Coefficients: 
+ [-0.11411778]
+Independent term: 
+ 122.91737431654289
+Coefficients: 
+ [-0.06215943]
+Independent term: 
+ 123.39015729550056
+................................................Analizando, muestra 100 de 2874 fecha 2016-08-24
+end date: 2016-08-25
+ Datos desde archivo
+Coefficients: 
+ [-0.04209989]
+Independent term: 
+ 125.54041051311448
+Coefficients: 
+ [-0.1139578]
+Independent term: 
+ 122.78659052720711
+Coefficients: 
+ [-0.06267484]
+Independent term: 
+ 123.38415165601505
+................................................Analizando, muestra 101 de 2874 fecha 2016-08-25
+end date: 2016-08-26
+ Datos desde archivo
+Coefficients: 
+ [-0.04232168]
+Independent term: 
+ 125.57212587987433
+Coefficients: 
+ [-0.11385531]
+Independent term: 
+ 122.6646083752077
+Coefficients: 
+ [-0.06318409]
+Independent term: 
+ 123.37699202138013
+................................................Analizando, muestra 102 de 2874 fecha 2016-08-26
+end date: 2016-08-27
+..............Día sin sesión, next please
+end date: 2016-08-28
+..............Día sin sesión, next please
+end date: 2016-08-29
+ Datos desde archivo
+Coefficients: 
+ [-0.04249526]
+Independent term: 
+ 125.5970054694497
+Coefficients: 
+ [-0.1135139]
+Independent term: 
+ 122.52562323043595
+Coefficients: 
+ [-0.06368489]
+Independent term: 
+ 123.36852069012697
+................................................Analizando, muestra 105 de 2874 fecha 2016-08-29
+end date: 2016-08-30
+ Datos desde archivo
+Coefficients: 
+ [-0.04266863]
+Independent term: 
+ 125.62191318956884
+Coefficients: 
+ [-0.11315876]
+Independent term: 
+ 122.38475665533721
+Coefficients: 
+ [-0.06417717]
+Independent term: 
+ 123.35873199326342
+................................................Analizando, muestra 106 de 2874 fecha 2016-08-30
+end date: 2016-08-31
+ Datos desde archivo
+Coefficients: 
+ [-0.0428046]
+Independent term: 
+ 125.64149334900105
+Coefficients: 
+ [-0.11267571]
+Independent term: 
+ 122.23850808214785
+Coefficients: 
+ [-0.06465974]
+Independent term: 
+ 123.34758548668515
+................................................Analizando, muestra 107 de 2874 fecha 2016-08-31
+end date: 2016-09-01
+ Datos desde archivo
+Coefficients: 
+ [-0.04292362]
+Independent term: 
+ 125.65867223099013
+Coefficients: 
+ [-0.11207205]
+Independent term: 
+ 122.08155327184876
+Coefficients: 
+ [-0.0651315]
+Independent term: 
+ 123.33498815121415
+................................................Analizando, muestra 108 de 2874 fecha 2016-09-01
+end date: 2016-09-02
+ Datos desde archivo
+Coefficients: 
+ [-0.04304105]
+Independent term: 
+ 125.675659816685
+Coefficients: 
+ [-0.11145281]
+Independent term: 
+ 121.923059595592
+Coefficients: 
+ [-0.06559241]
+Independent term: 
+ 123.3209391108597
+................................................Analizando, muestra 109 de 2874 fecha 2016-09-02
+end date: 2016-09-03
+..............Día sin sesión, next please
+end date: 2016-09-04
+..............Día sin sesión, next please
+end date: 2016-09-05
+ Datos desde archivo
+Coefficients: 
+ [-0.04313433]
+Independent term: 
+ 125.68918559252366
+Coefficients: 
+ [-0.11067407]
+Independent term: 
+ 121.75109494223524
+Coefficients: 
+ [-0.06604098]
+Independent term: 
+ 123.30531877087338
+................................................Analizando, muestra 112 de 2874 fecha 2016-09-05
+end date: 2016-09-06
+ Datos desde archivo
+Coefficients: 
+ [-0.04323822]
+Independent term: 
+ 125.70428480739778
+Coefficients: 
+ [-0.10987299]
+Independent term: 
+ 121.57288672148292
+Coefficients: 
+ [-0.06647712]
+Independent term: 
+ 123.28808064102873
+................................................Analizando, muestra 113 de 2874 fecha 2016-09-06
+end date: 2016-09-07
+ Datos desde archivo
+Coefficients: 
+ [-0.04340102]
+Independent term: 
+ 125.72799873517943
+Coefficients: 
+ [-0.10938309]
+Independent term: 
+ 121.41719190341324
+Coefficients: 
+ [-0.06690405]
+Independent term: 
+ 123.26946483269424
+................................................Analizando, muestra 114 de 2874 fecha 2016-09-07
+end date: 2016-09-08
+ Datos desde archivo
+Coefficients: 
+ [-0.04355086]
+Independent term: 
+ 125.74987592915362
+Coefficients: 
+ [-0.10876885]
+Independent term: 
+ 121.24908997265261
+Coefficients: 
+ [-0.06732061]
+Independent term: 
+ 123.24936160025602
+................................................Analizando, muestra 115 de 2874 fecha 2016-09-08
+end date: 2016-09-09
+ Datos desde archivo
+Coefficients: 
+ [-0.04368266]
+Independent term: 
+ 125.76916135278606
+Coefficients: 
+ [-0.1081377]
+Independent term: 
+ 121.08455564128819
+Coefficients: 
+ [-0.06772675]
+Independent term: 
+ 123.22782124245536
+................................................Analizando, muestra 116 de 2874 fecha 2016-09-09
+end date: 2016-09-10
+..............Día sin sesión, next please
+end date: 2016-09-11
+..............Día sin sesión, next please
+end date: 2016-09-12
+ Datos desde archivo
+Coefficients: 
+ [-0.04380728]
+Independent term: 
+ 125.7874399241698
+Coefficients: 
+ [-0.10737537]
+Independent term: 
+ 120.90494405717992
+Coefficients: 
+ [-0.06812127]
+Independent term: 
+ 123.20470803663171
+................................................Analizando, muestra 119 de 2874 fecha 2016-09-12
+end date: 2016-09-13
+ Datos desde archivo
+Coefficients: 
+ [-0.04394985]
+Independent term: 
+ 125.80839723013702
+Coefficients: 
+ [-0.10667088]
+Independent term: 
+ 120.72720273601476
+Coefficients: 
+ [-0.06850485]
+Independent term: 
+ 123.18005624259573
+................................................Analizando, muestra 120 de 2874 fecha 2016-09-13
+end date: 2016-09-14
+ Datos desde archivo
+Coefficients: 
+ [-0.0440663]
+Independent term: 
+ 125.82555382955726
+Coefficients: 
+ [-0.10587719]
+Independent term: 
+ 120.54619045997732
+Coefficients: 
+ [-0.06887671]
+Independent term: 
+ 123.1538486228682
+................................................Analizando, muestra 121 de 2874 fecha 2016-09-14
+end date: 2016-09-15
+ Datos desde archivo
+Coefficients: 
+ [-0.04417852]
+Independent term: 
+ 125.8421253006951
+Coefficients: 
+ [-0.10522904]
+Independent term: 
+ 120.38593890517505
+Coefficients: 
+ [-0.06923843]
+Independent term: 
+ 123.1263072326424
+................................................Analizando, muestra 122 de 2874 fecha 2016-09-15
+end date: 2016-09-16
+ Datos desde archivo
+Coefficients: 
+ [-0.04430416]
+Independent term: 
+ 125.86072020367531
+Coefficients: 
+ [-0.10463124]
+Independent term: 
+ 120.22794813697018
+Coefficients: 
+ [-0.06959059]
+Independent term: 
+ 123.09746783865562
+................................................Analizando, muestra 123 de 2874 fecha 2016-09-16
+end date: 2016-09-17
+..............Día sin sesión, next please
+end date: 2016-09-18
+..............Día sin sesión, next please
+end date: 2016-09-19
+ Datos desde archivo
+Coefficients: 
+ [-0.04441784]
+Independent term: 
+ 125.87758221303208
+Coefficients: 
+ [-0.10408243]
+Independent term: 
+ 120.08041146577294
+Coefficients: 
+ [-0.06993379]
+Independent term: 
+ 123.06744737723392
+................................................Analizando, muestra 126 de 2874 fecha 2016-09-19
+end date: 2016-09-20
+ Datos desde archivo
+Coefficients: 
+ [-0.04454242]
+Independent term: 
+ 125.89610409418034
+Coefficients: 
+ [-0.10354485]
+Independent term: 
+ 119.93070197261981
+Coefficients: 
+ [-0.07026823]
+Independent term: 
+ 123.03623598017306
+................................................Analizando, muestra 127 de 2874 fecha 2016-09-20
+end date: 2016-09-21
+ Datos desde archivo
+Coefficients: 
+ [-0.04467291]
+Independent term: 
+ 125.91554644431021
+Coefficients: 
+ [-0.10293483]
+Independent term: 
+ 119.76936551563776
+Coefficients: 
+ [-0.07059327]
+Independent term: 
+ 123.00372980639659
+................................................Analizando, muestra 128 de 2874 fecha 2016-09-21
+end date: 2016-09-22
+ Datos desde archivo
+Coefficients: 
+ [-0.04483446]
+Independent term: 
+ 125.9396711741107
+Coefficients: 
+ [-0.10234807]
+Independent term: 
+ 119.60063274554352
+Coefficients: 
+ [-0.07090924]
+Independent term: 
+ 122.96986814409958
+................................................Analizando, muestra 129 de 2874 fecha 2016-09-22
+end date: 2016-09-23
+ Datos desde archivo
+Coefficients: 
+ [-0.04497966]
+Independent term: 
+ 125.96140253377541
+Coefficients: 
+ [-0.10166479]
+Independent term: 
+ 119.42455129367202
+Coefficients: 
+ [-0.07121527]
+Independent term: 
+ 122.93459135951821
+................................................Analizando, muestra 130 de 2874 fecha 2016-09-23
+end date: 2016-09-24
+..............Día sin sesión, next please
+end date: 2016-09-25
+..............Día sin sesión, next please
+end date: 2016-09-26
+ Datos desde archivo
+Coefficients: 
+ [-0.04511992]
+Independent term: 
+ 125.98244181882663
+Coefficients: 
+ [-0.10111379]
+Independent term: 
+ 119.26767167390284
+Coefficients: 
+ [-0.07151277]
+Independent term: 
+ 122.89810459647727
+................................................Analizando, muestra 133 de 2874 fecha 2016-09-26
+end date: 2016-09-27
+ Datos desde archivo
+Coefficients: 
+ [-0.04527248]
+Independent term: 
+ 126.00537640251942
+Coefficients: 
+ [-0.10062545]
+Independent term: 
+ 119.11484655465652
+Coefficients: 
+ [-0.07180244]
+Independent term: 
+ 122.8604602378522
+................................................Analizando, muestra 134 de 2874 fecha 2016-09-27
+end date: 2016-09-28
+ Datos desde archivo
+Coefficients: 
+ [-0.04541855]
+Independent term: 
+ 126.02738426338873
+Coefficients: 
+ [-0.1001161]
+Independent term: 
+ 118.96135625013665
+Coefficients: 
+ [-0.07208417]
+Independent term: 
+ 122.82166318324808
+................................................Analizando, muestra 135 de 2874 fecha 2016-09-28
+end date: 2016-09-29
+ Datos desde archivo
+Coefficients: 
+ [-0.04554788]
+Independent term: 
+ 126.04691368420734
+Coefficients: 
+ [-0.09952052]
+Independent term: 
+ 118.80209676372472
+Coefficients: 
+ [-0.07235717]
+Independent term: 
+ 122.78166749748168
+................................................Analizando, muestra 136 de 2874 fecha 2016-09-29
+end date: 2016-09-30
+ Datos desde archivo
+Coefficients: 
+ [-0.04566661]
+Independent term: 
+ 126.06488105666728
+Coefficients: 
+ [-0.09897087]
+Independent term: 
+ 118.6525515940652
+Coefficients: 
+ [-0.07262198]
+Independent term: 
+ 122.74058176709941
+................................................Analizando, muestra 137 de 2874 fecha 2016-09-30
+end date: 2016-10-01
+..............Día sin sesión, next please
+end date: 2016-10-02
+..............Día sin sesión, next please
+end date: 2016-10-03
+ Datos desde archivo
+Coefficients: 
+ [-0.04577204]
+Independent term: 
+ 126.0808714877692
+Coefficients: 
+ [-0.09832924]
+Independent term: 
+ 118.49536910782999
+Coefficients: 
+ [-0.07287778]
+Independent term: 
+ 122.69834084511663
+................................................Analizando, muestra 140 de 2874 fecha 2016-10-03
+end date: 2016-10-04
+ Datos desde archivo
+Coefficients: 
+ [-0.04586754]
+Independent term: 
+ 126.09538755262537
+Coefficients: 
+ [-0.09760375]
+Independent term: 
+ 118.33051837180977
+Coefficients: 
+ [-0.07312381]
+Independent term: 
+ 122.65487992498426
+................................................Analizando, muestra 141 de 2874 fecha 2016-10-04
+end date: 2016-10-05
+ Datos desde archivo
+Coefficients: 
+ [-0.04593029]
+Independent term: 
+ 126.10494597090728
+Coefficients: 
+ [-0.09666483]
+Independent term: 
+ 118.14885019672451
+Coefficients: 
+ [-0.07335805]
+Independent term: 
+ 122.61004380828514
+................................................Analizando, muestra 142 de 2874 fecha 2016-10-05
+end date: 2016-10-06
+ Datos desde archivo
+Coefficients: 
+ [-0.04597451]
+Independent term: 
+ 126.11169716506637
+Coefficients: 
+ [-0.09562477]
+Independent term: 
+ 117.96041443895938
+Coefficients: 
+ [-0.0735796]
+Independent term: 
+ 122.56377883943614
+................................................Analizando, muestra 143 de 2874 fecha 2016-10-06
+end date: 2016-10-07
+ Datos desde archivo
+Coefficients: 
+ [-0.04600827]
+Independent term: 
+ 126.11686264129646
+Coefficients: 
+ [-0.09453813]
+Independent term: 
+ 117.76967827868107
+Coefficients: 
+ [-0.07378815]
+Independent term: 
+ 122.5160763462943
+................................................Analizando, muestra 144 de 2874 fecha 2016-10-07
+end date: 2016-10-08
+..............Día sin sesión, next please
+end date: 2016-10-09
+..............Día sin sesión, next please
+end date: 2016-10-10
+ Datos desde archivo
+Coefficients: 
+ [-0.04606126]
+Independent term: 
+ 126.1249873721547
+Coefficients: 
+ [-0.09353472]
+Independent term: 
+ 117.5833746224019
+Coefficients: 
+ [-0.07398463]
+Independent term: 
+ 122.46699473710134
+................................................Analizando, muestra 147 de 2874 fecha 2016-10-10
+end date: 2016-10-11
+ Datos desde archivo
+Coefficients: 
+ [-0.04609331]
+Independent term: 
+ 126.12991293566735
+Coefficients: 
+ [-0.09253127]
+Independent term: 
+ 117.40468113913465
+Coefficients: 
+ [-0.07416917]
+Independent term: 
+ 122.4166234575196
+................................................Analizando, muestra 148 de 2874 fecha 2016-10-11
+end date: 2016-10-12
+ Datos desde archivo
+Coefficients: 
+ [-0.04613354]
+Independent term: 
+ 126.13610851321788
+Coefficients: 
+ [-0.09161217]
+Independent term: 
+ 117.23443100658815
+Coefficients: 
+ [-0.07434274]
+Independent term: 
+ 122.36505935353021
+................................................Analizando, muestra 149 de 2874 fecha 2016-10-12
+end date: 2016-10-13
+ Datos desde archivo
+Coefficients: 
+ [-0.04614534]
+Independent term: 
+ 126.13792959388684
+Coefficients: 
+ [-0.09060002]
+Independent term: 
+ 117.06219217328884
+Coefficients: 
+ [-0.0745045]
+Independent term: 
+ 122.31229450596565
+................................................Analizando, muestra 150 de 2874 fecha 2016-10-13
+end date: 2016-10-14
+ Datos desde archivo
+Coefficients: 
+ [-0.04617176]
+Independent term: 
+ 126.14201624499448
+Coefficients: 
+ [-0.08981459]
+Independent term: 
+ 116.9149512515851
+Coefficients: 
+ [-0.07465684]
+Independent term: 
+ 122.25858959796187
+................................................Analizando, muestra 151 de 2874 fecha 2016-10-14
+end date: 2016-10-15
+..............Día sin sesión, next please
+end date: 2016-10-16
+..............Día sin sesión, next please
+end date: 2016-10-17
+ Datos desde archivo
+Coefficients: 
+ [-0.04618788]
+Independent term: 
+ 126.14451393504869
+Coefficients: 
+ [-0.08903046]
+Independent term: 
+ 116.7717252235982
+Coefficients: 
+ [-0.07479986]
+Independent term: 
+ 122.20399393254533
+................................................Analizando, muestra 154 de 2874 fecha 2016-10-17
+end date: 2016-10-18
+ Datos desde archivo
+Coefficients: 
+ [-0.04620766]
+Independent term: 
+ 126.14758721598535
+Coefficients: 
+ [-0.08816889]
+Independent term: 
+ 116.61700475892025
+Coefficients: 
+ [-0.07493289]
+Independent term: 
+ 122.14840200046945
+................................................Analizando, muestra 155 de 2874 fecha 2016-10-18
+end date: 2016-10-19
+ Datos desde archivo
+Coefficients: 
+ [-0.04622556]
+Independent term: 
+ 126.1503727482034
+Coefficients: 
+ [-0.08725741]
+Independent term: 
+ 116.45648682551598
+Coefficients: 
+ [-0.07505552]
+Independent term: 
+ 122.09176602857936
+................................................Analizando, muestra 156 de 2874 fecha 2016-10-19
+end date: 2016-10-20
+ Datos desde archivo
+Coefficients: 
+ [-0.04625482]
+Independent term: 
+ 126.15493747862652
+Coefficients: 
+ [-0.08645677]
+Independent term: 
+ 116.30665378285877
+Coefficients: 
+ [-0.07516896]
+Independent term: 
+ 122.03420272265183
+................................................Analizando, muestra 157 de 2874 fecha 2016-10-20
+end date: 2016-10-21
+ Datos desde archivo
+Coefficients: 
+ [-0.04626308]
+Independent term: 
+ 126.15622930936152
+Coefficients: 
+ [-0.08541064]
+Independent term: 
+ 116.13209325648066
+Coefficients: 
+ [-0.07527087]
+Independent term: 
+ 121.97547526527697
+................................................Analizando, muestra 158 de 2874 fecha 2016-10-21
+end date: 2016-10-22
+..............Día sin sesión, next please
+end date: 2016-10-23
+..............Día sin sesión, next please
+end date: 2016-10-24
+ Datos desde archivo
+Coefficients: 
+ [-0.04627516]
+Independent term: 
+ 126.15812112582206
+Coefficients: 
+ [-0.08455488]
+Independent term: 
+ 115.98158060557807
+Coefficients: 
+ [-0.07536325]
+Independent term: 
+ 121.9158345223944
+................................................Analizando, muestra 161 de 2874 fecha 2016-10-24
+end date: 2016-10-25
+ Datos desde archivo
+Coefficients: 
+ [-0.04627503]
+Independent term: 
+ 126.15810116119552
+Coefficients: 
+ [-0.08355982]
+Independent term: 
+ 115.8172569696227
+Coefficients: 
+ [-0.07544481]
+Independent term: 
+ 121.85515215868524
+................................................Analizando, muestra 162 de 2874 fecha 2016-10-25
+end date: 2016-10-26
+ Datos desde archivo
+Coefficients: 
+ [-0.04627812]
+Independent term: 
+ 126.15858757647625
+Coefficients: 
+ [-0.0825428]
+Independent term: 
+ 115.64900870935242
+Coefficients: 
+ [-0.07551543]
+Independent term: 
+ 121.7933994875476
+................................................Analizando, muestra 163 de 2874 fecha 2016-10-26
+end date: 2016-10-27
+ Datos desde archivo
+Coefficients: 
+ [-0.04626909]
+Independent term: 
+ 126.1571639945137
+Coefficients: 
+ [-0.0815096]
+Independent term: 
+ 115.48334980523408
+Coefficients: 
+ [-0.07557508]
+Independent term: 
+ 121.7306129235445
+................................................Analizando, muestra 164 de 2874 fecha 2016-10-27
+end date: 2016-10-28
+ Datos desde archivo
+Coefficients: 
+ [-0.04624188]
+Independent term: 
+ 126.1528649260331
+Coefficients: 
+ [-0.08024202]
+Independent term: 
+ 115.29365107066594
+Coefficients: 
+ [-0.07562151]
+Independent term: 
+ 121.66656355187406
+................................................Analizando, muestra 165 de 2874 fecha 2016-10-28
+end date: 2016-10-29
+..............Día sin sesión, next please
+end date: 2016-10-30
+..............Día sin sesión, next please
+end date: 2016-10-31
+ Datos desde archivo
+Coefficients: 
+ [-0.04623074]
+Independent term: 
+ 126.15110133305187
+Coefficients: 
+ [-0.07895381]
+Independent term: 
+ 115.09543852734922
+Coefficients: 
+ [-0.07565467]
+Independent term: 
+ 121.60117922327184
+................................................Analizando, muestra 168 de 2874 fecha 2016-10-31
+end date: 2016-11-01
+ Datos desde archivo
+Coefficients: 
+ [-0.04621185]
+Independent term: 
+ 126.14810364393045
+Coefficients: 
+ [-0.07765838]
+Independent term: 
+ 114.89950350974922
+Coefficients: 
+ [-0.07567461]
+Independent term: 
+ 121.53449588283877
+................................................Analizando, muestra 169 de 2874 fecha 2016-11-01
+end date: 2016-11-02
+ Datos desde archivo
+Coefficients: 
+ [-0.04621099]
+Independent term: 
+ 126.14796603806083
+Coefficients: 
+ [-0.07642858]
+Independent term: 
+ 114.70569860202163
+Coefficients: 
+ [-0.07568211]
+Independent term: 
+ 121.46654765118885
+................................................Analizando, muestra 170 de 2874 fecha 2016-11-02
+end date: 2016-11-03
+ Datos desde archivo
+Coefficients: 
+ [-0.04622748]
+Independent term: 
+ 126.15059497896698
+Coefficients: 
+ [-0.0752708]
+Independent term: 
+ 114.51505452284172
+Coefficients: 
+ [-0.07567802]
+Independent term: 
+ 121.39737856533468
+................................................Analizando, muestra 171 de 2874 fecha 2016-11-03
+end date: 2016-11-04
+ Datos desde archivo
+Coefficients: 
+ [-0.04625102]
+Independent term: 
+ 126.15435273403318
+Coefficients: 
+ [-0.07406925]
+Independent term: 
+ 114.3161097125153
+Coefficients: 
+ [-0.07566201]
+Independent term: 
+ 121.32691817873946
+................................................Analizando, muestra 172 de 2874 fecha 2016-11-04
+end date: 2016-11-05
+..............Día sin sesión, next please
+end date: 2016-11-06
+..............Día sin sesión, next please
+end date: 2016-11-07
+ Datos desde archivo
+Coefficients: 
+ [-0.04624361]
+Independent term: 
+ 126.1531676612949
+Coefficients: 
+ [-0.07230996]
+Independent term: 
+ 114.05533575029516
+Coefficients: 
+ [-0.07562866]
+Independent term: 
+ 121.25456412472509
+................................................Analizando, muestra 175 de 2874 fecha 2016-11-07
+end date: 2016-11-08
+ Datos desde archivo
+Coefficients: 
+ [-0.04622887]
+Independent term: 
+ 126.15080452255792
+Coefficients: 
+ [-0.07056406]
+Independent term: 
+ 113.79960906413064
+Coefficients: 
+ [-0.07557826]
+Independent term: 
+ 121.18038546740576
+................................................Analizando, muestra 176 de 2874 fecha 2016-11-08
+end date: 2016-11-09
+ Datos desde archivo
+Coefficients: 
+ [-0.046198]
+Independent term: 
+ 126.14584472921463
+Coefficients: 
+ [-0.06885355]
+Independent term: 
+ 113.55528259505087
+Coefficients: 
+ [-0.07551135]
+Independent term: 
+ 121.10451379703407
+................................................Analizando, muestra 177 de 2874 fecha 2016-11-09
+end date: 2016-11-10
+ Datos desde archivo
+Coefficients: 
+ [-0.04614539]
+Independent term: 
+ 126.13737369016395
+Coefficients: 
+ [-0.06725966]
+Independent term: 
+ 113.3353561458303
+Coefficients: 
+ [-0.07542924]
+Independent term: 
+ 121.02720874577832
+................................................Analizando, muestra 178 de 2874 fecha 2016-11-10
+end date: 2016-11-11
+ Datos desde archivo
+Coefficients: 
+ [-0.04606682]
+Independent term: 
+ 126.12469858073221
+Coefficients: 
+ [-0.06568672]
+Independent term: 
+ 113.1287985514171
+Coefficients: 
+ [-0.0753323]
+Independent term: 
+ 120.94861759956576
+................................................Analizando, muestra 179 de 2874 fecha 2016-11-11
+end date: 2016-11-12
+..............Día sin sesión, next please
+end date: 2016-11-13
+..............Día sin sesión, next please
+end date: 2016-11-14
+ Datos desde archivo
+Coefficients: 
+ [-0.04598768]
+Independent term: 
+ 126.11190388232924
+Coefficients: 
+ [-0.06408386]
+Independent term: 
+ 112.91891918011565
+Coefficients: 
+ [-0.07522038]
+Independent term: 
+ 120.86872010285482
+................................................Analizando, muestra 182 de 2874 fecha 2016-11-14
+end date: 2016-11-15
+ Datos desde archivo
+Coefficients: 
+ [-0.04587489]
+Independent term: 
+ 126.09363101927384
+Coefficients: 
+ [-0.0624605]
+Independent term: 
+ 112.72006407894305
+Coefficients: 
+ [-0.07509341]
+Independent term: 
+ 120.78763894838805
+................................................Analizando, muestra 183 de 2874 fecha 2016-11-15
+end date: 2016-11-16
+ Datos desde archivo
+Coefficients: 
+ [-0.04574139]
+Independent term: 
+ 126.07195954742119
+Coefficients: 
+ [-0.06077306]
+Independent term: 
+ 112.5213993880998
+Coefficients: 
+ [-0.07495092]
+Independent term: 
+ 120.70538780848469
+................................................Analizando, muestra 184 de 2874 fecha 2016-11-16
+end date: 2016-11-17
+ Datos desde archivo
+Coefficients: 
+ [-0.04561468]
+Independent term: 
+ 126.0513491804292
+Coefficients: 
+ [-0.05940647]
+Independent term: 
+ 112.36308862145268
+Coefficients: 
+ [-0.07479625]
+Independent term: 
+ 120.62237985637492
+................................................Analizando, muestra 185 de 2874 fecha 2016-11-17
+end date: 2016-11-18
+ Datos desde archivo
+Coefficients: 
+ [-0.04545185]
+Independent term: 
+ 126.0248079673703
+Coefficients: 
+ [-0.05792745]
+Independent term: 
+ 112.20472070494694
+Coefficients: 
+ [-0.0746284]
+Independent term: 
+ 120.53862205387315
+................................................Analizando, muestra 186 de 2874 fecha 2016-11-18
+end date: 2016-11-19
+..............Día sin sesión, next please
+end date: 2016-11-20
+..............Día sin sesión, next please
+end date: 2016-11-21
+ Datos desde archivo
+Coefficients: 
+ [-0.04527214]
+Independent term: 
+ 125.99545494834112
+Coefficients: 
+ [-0.05616121]
+Independent term: 
+ 112.01549536633848
+Coefficients: 
+ [-0.07444465]
+Independent term: 
+ 120.45381482315145
+................................................Analizando, muestra 189 de 2874 fecha 2016-11-21
+end date: 2016-11-22
+ Datos desde archivo
+Coefficients: 
+ [-0.04510145]
+Independent term: 
+ 125.96751837747598
+Coefficients: 
+ [-0.05434085]
+Independent term: 
+ 111.81600925388621
+Coefficients: 
+ [-0.07424461]
+Independent term: 
+ 120.3678665090294
+................................................Analizando, muestra 190 de 2874 fecha 2016-11-22
+end date: 2016-11-23
+ Datos desde archivo
+Coefficients: 
+ [-0.04492298]
+Independent term: 
+ 125.93824950587806
+Coefficients: 
+ [-0.05249833]
+Independent term: 
+ 111.61730819929892
+Coefficients: 
+ [-0.07402823]
+Independent term: 
+ 120.28079627709178
+................................................Analizando, muestra 191 de 2874 fecha 2016-11-23
+end date: 2016-11-24
+ Datos desde archivo
+Coefficients: 
+ [-0.04470705]
+Independent term: 
+ 125.90276561860115
+Coefficients: 
+ [-0.05038582]
+Independent term: 
+ 111.39862358321004
+Coefficients: 
+ [-0.07379298]
+Independent term: 
+ 120.19241644929197
+................................................Analizando, muestra 192 de 2874 fecha 2016-11-24
+end date: 2016-11-25
+ Datos desde archivo
+Coefficients: 
+ [-0.04447536]
+Independent term: 
+ 125.86461333562485
+Coefficients: 
+ [-0.04832007]
+Independent term: 
+ 111.19329148933069
+Coefficients: 
+ [-0.07353952]
+Independent term: 
+ 120.10287291735207
+................................................Analizando, muestra 193 de 2874 fecha 2016-11-25
+end date: 2016-11-26
+..............Día sin sesión, next please
+end date: 2016-11-27
+..............Día sin sesión, next please
+end date: 2016-11-28
+ Datos desde archivo
+Coefficients: 
+ [-0.04426089]
+Independent term: 
+ 125.82922552948024
+Coefficients: 
+ [-0.04646463]
+Independent term: 
+ 111.00949016741853
+Coefficients: 
+ [-0.07327012]
+Independent term: 
+ 120.01239149695472
+................................................Analizando, muestra 196 de 2874 fecha 2016-11-28
+end date: 2016-11-29
+ Datos desde archivo
+Coefficients: 
+ [-0.04407115]
+Independent term: 
+ 125.79785527364096
+Coefficients: 
+ [-0.04468035]
+Independent term: 
+ 110.82554952706863
+Coefficients: 
+ [-0.07298564]
+Independent term: 
+ 119.9209801340703
+................................................Analizando, muestra 197 de 2874 fecha 2016-11-29
+end date: 2016-11-30
+ Datos desde archivo
+Coefficients: 
+ [-0.04386387]
+Independent term: 
+ 125.76351514925604
+Coefficients: 
+ [-0.0429422]
+Independent term: 
+ 110.65555419124773
+Coefficients: 
+ [-0.0726867]
+Independent term: 
+ 119.82878684110689
+................................................Analizando, muestra 198 de 2874 fecha 2016-11-30
+end date: 2016-12-01
+ Datos desde archivo
+Coefficients: 
+ [-0.04360474]
+Independent term: 
+ 125.72050006085242
+Coefficients: 
+ [-0.04083969]
+Independent term: 
+ 110.45931885221111
+Coefficients: 
+ [-0.07236982]
+Independent term: 
+ 119.73555830390394
+................................................Analizando, muestra 199 de 2874 fecha 2016-12-01
+end date: 2016-12-02
+ Datos desde archivo
+Coefficients: 
+ [-0.04336639]
+Independent term: 
+ 125.68085471448718
+Coefficients: 
+ [-0.03870491]
+Independent term: 
+ 110.25086343452112
+Coefficients: 
+ [-0.07203485]
+Independent term: 
+ 119.64118323057676
+................................................Analizando, muestra 200 de 2874 fecha 2016-12-02
+end date: 2016-12-03
+..............Día sin sesión, next please
+end date: 2016-12-04
+..............Día sin sesión, next please
+end date: 2016-12-05
+ Datos desde archivo
+Coefficients: 
+ [-0.04313945]
+Independent term: 
+ 125.64303104434808
+Coefficients: 
+ [-0.03654991]
+Independent term: 
+ 110.03566562254038
+Coefficients: 
+ [-0.07168176]
+Independent term: 
+ 119.54560594094457
+................................................Analizando, muestra 203 de 2874 fecha 2016-12-05
+end date: 2016-12-06
+ Datos desde archivo
+Coefficients: 
+ [-0.04290571]
+Independent term: 
+ 125.60399651159497
+Coefficients: 
+ [-0.03452667]
+Independent term: 
+ 109.84151815841447
+Coefficients: 
+ [-0.07131206]
+Independent term: 
+ 119.4490478535562
+................................................Analizando, muestra 204 de 2874 fecha 2016-12-06
+end date: 2016-12-07
+ Datos desde archivo
+Coefficients: 
+ [-0.04266927]
+Independent term: 
+ 125.56443304025619
+Coefficients: 
+ [-0.03225124]
+Independent term: 
+ 109.61572275417954
+Coefficients: 
+ [-0.07092339]
+Independent term: 
+ 119.35120382271666
+................................................Analizando, muestra 205 de 2874 fecha 2016-12-07
+end date: 2016-12-08
+ Datos desde archivo
+Coefficients: 
+ [-0.04244259]
+Independent term: 
+ 125.5264265397885
+Coefficients: 
+ [-0.03009653]
+Independent term: 
+ 109.40256494436692
+Coefficients: 
+ [-0.07051716]
+Independent term: 
+ 119.25221239109126
+................................................Analizando, muestra 206 de 2874 fecha 2016-12-08
+end date: 2016-12-09
+ Datos desde archivo
+Coefficients: 
+ [-0.04220913]
+Independent term: 
+ 125.48720513797106
+Coefficients: 
+ [-0.02785742]
+Independent term: 
+ 109.18179813897432
+Coefficients: 
+ [-0.07009268]
+Independent term: 
+ 119.15200926420455
+................................................Analizando, muestra 207 de 2874 fecha 2016-12-09
+end date: 2016-12-10
+..............Día sin sesión, next please
+end date: 2016-12-11
+..............Día sin sesión, next please
+end date: 2016-12-12
+ Datos desde archivo
+Coefficients: 
+ [-0.04194629]
+Independent term: 
+ 125.4429606051542
+Coefficients: 
+ [-0.02539931]
+Independent term: 
+ 108.94526121338802
+Coefficients: 
+ [-0.06964797]
+Independent term: 
+ 119.05044958210686
+................................................Analizando, muestra 210 de 2874 fecha 2016-12-12
+end date: 2016-12-13
+ Datos desde archivo
+Coefficients: 
+ [-0.04169509]
+Independent term: 
+ 125.40059051423974
+Coefficients: 
+ [-0.02305772]
+Independent term: 
+ 108.72002323776928
+Coefficients: 
+ [-0.06918439]
+Independent term: 
+ 118.94765927022291
+................................................Analizando, muestra 211 de 2874 fecha 2016-12-13
+end date: 2016-12-14
+ Datos desde archivo
+Coefficients: 
+ [-0.04144074]
+Independent term: 
+ 125.35760512788984
+Coefficients: 
+ [-0.02080472]
+Independent term: 
+ 108.50866973421466
+Coefficients: 
+ [-0.068703]
+Independent term: 
+ 118.8437887275761
+................................................Analizando, muestra 212 de 2874 fecha 2016-12-14
+end date: 2016-12-15
+ Datos desde archivo
+Coefficients: 
+ [-0.04114267]
+Independent term: 
+ 125.30713171537545
+Coefficients: 
+ [-0.01816961]
+Independent term: 
+ 108.26626559471016
+Coefficients: 
+ [-0.06820018]
+Independent term: 
+ 118.73853974117942
+................................................Analizando, muestra 213 de 2874 fecha 2016-12-15
+end date: 2016-12-16
+ Datos desde archivo
+Coefficients: 
+ [-0.04082352]
+Independent term: 
+ 125.25298266564798
+Coefficients: 
+ [-0.01544594]
+Independent term: 
+ 108.02216589970375
+Coefficients: 
+ [-0.06767526]
+Independent term: 
+ 118.63190915569211
+................................................Analizando, muestra 214 de 2874 fecha 2016-12-16
+end date: 2016-12-17
+..............Día sin sesión, next please
+end date: 2016-12-18
+..............Día sin sesión, next please
+end date: 2016-12-19
+ Datos desde archivo
+Coefficients: 
+ [-0.04051744]
+Independent term: 
+ 125.2009495465379
+Coefficients: 
+ [-0.01265912]
+Independent term: 
+ 107.76494215894101
+Coefficients: 
+ [-0.06712784]
+Independent term: 
+ 118.5237801308488
+................................................Analizando, muestra 217 de 2874 fecha 2016-12-19
+end date: 2016-12-20
+ Datos desde archivo
+Coefficients: 
+ [-0.04023116]
+Independent term: 
+ 125.15218716168428
+Coefficients: 
+ [-0.00998302]
+Independent term: 
+ 107.51470477545439
+Coefficients: 
+ [-0.06655923]
+Independent term: 
+ 118.41423709248669
+................................................Analizando, muestra 218 de 2874 fecha 2016-12-20
+end date: 2016-12-21
+ Datos desde archivo
+Coefficients: 
+ [-0.03992831]
+Independent term: 
+ 125.10050013550354
+Coefficients: 
+ [-0.00729594]
+Independent term: 
+ 107.27119111815495
+Coefficients: 
+ [-0.06596955]
+Independent term: 
+ 118.30336101314012
+................................................Analizando, muestra 219 de 2874 fecha 2016-12-21
+end date: 2016-12-22
+ Datos desde archivo
+Coefficients: 
+ [-0.03963419]
+Independent term: 
+ 125.05020533751409
+Coefficients: 
+ [-0.00470969]
+Independent term: 
+ 107.03811907867886
+Coefficients: 
+ [-0.06535999]
+Independent term: 
+ 118.19126905359323
+................................................Analizando, muestra 220 de 2874 fecha 2016-12-22
+end date: 2016-12-23
+ Datos desde archivo
+Coefficients: 
+ [-0.03934398]
+Independent term: 
+ 125.00048236796304
+Coefficients: 
+ [-0.00235133]
+Independent term: 
+ 106.8344219378571
+Coefficients: 
+ [-0.06473304]
+Independent term: 
+ 118.07826559970532
+................................................Analizando, muestra 221 de 2874 fecha 2016-12-23
+end date: 2016-12-24
+..............Día sin sesión, next please
+end date: 2016-12-25
+..............Día sin sesión, next please
+end date: 2016-12-26
+ Datos desde archivo
+Coefficients: 
+ [-0.03906143]
+Independent term: 
+ 124.95197958397931
+Coefficients: 
+ [-2.25593122e-05]
+Independent term: 
+ 106.63203434730643
+Coefficients: 
+ [-0.06408916]
+Independent term: 
+ 117.96437275142274
+................................................Analizando, muestra 224 de 2874 fecha 2016-12-26
+end date: 2016-12-27
+ Datos desde archivo
+Coefficients: 
+ [-0.03878392]
+Independent term: 
+ 124.90424635569566
+Coefficients: 
+ [0.00238442]
+Independent term: 
+ 106.41780447547116
+Coefficients: 
+ [-0.06342773]
+Independent term: 
+ 117.84948152479637
+................................................Analizando, muestra 225 de 2874 fecha 2016-12-27
+end date: 2016-12-28
+ Datos desde archivo
+Coefficients: 
+ [-0.03850233]
+Independent term: 
+ 124.85571936775142
+Coefficients: 
+ [0.00484385]
+Independent term: 
+ 106.19923176893548
+Coefficients: 
+ [-0.06274841]
+Independent term: 
+ 117.73355864165349
+................................................Analizando, muestra 226 de 2874 fecha 2016-12-28
+end date: 2016-12-29
+ Datos desde archivo
+Coefficients: 
+ [-0.03823183]
+Independent term: 
+ 124.80901299553643
+Coefficients: 
+ [0.00725909]
+Independent term: 
+ 105.9823507052749
+Coefficients: 
+ [-0.06205182]
+Independent term: 
+ 117.61663119950047
+................................................Analizando, muestra 227 de 2874 fecha 2016-12-29
+end date: 2016-12-30
+ Datos desde archivo
+Coefficients: 
+ [-0.03798168]
+Independent term: 
+ 124.76573709640287
+Coefficients: 
+ [0.00960973]
+Independent term: 
+ 105.76564679615534
+Coefficients: 
+ [-0.06133877]
+Independent term: 
+ 117.4987109566811
+................................................Analizando, muestra 228 de 2874 fecha 2016-12-30
+end date: 2016-12-31
+..............Día sin sesión, next please
+end date: 2017-01-01
+..............Día sin sesión, next please
+end date: 2017-01-02
+ Datos desde archivo
+Coefficients: 
+ [-0.03772195]
+Independent term: 
+ 124.72071821790229
+Coefficients: 
+ [0.01212749]
+Independent term: 
+ 105.53185477641091
+Coefficients: 
+ [-0.06060776]
+Independent term: 
+ 117.37963776085755
+................................................Analizando, muestra 231 de 2874 fecha 2017-01-02
+end date: 2017-01-03
+ Datos desde archivo
+Coefficients: 
+ [-0.03744905]
+Independent term: 
+ 124.67332326933497
+Coefficients: 
+ [0.01473174]
+Independent term: 
+ 105.29338641380195
+Coefficients: 
+ [-0.05985811]
+Independent term: 
+ 117.25937655342418
+................................................Analizando, muestra 232 de 2874 fecha 2017-01-03
+end date: 2017-01-04
+ Datos desde archivo
+Coefficients: 
+ [-0.03717486]
+Independent term: 
+ 124.62561453965913
+Coefficients: 
+ [0.01725116]
+Independent term: 
+ 105.06759911949955
+Coefficients: 
+ [-0.05909086]
+Independent term: 
+ 117.13806533517617
+................................................Analizando, muestra 233 de 2874 fecha 2017-01-04
+end date: 2017-01-05
+ Datos desde archivo
+Coefficients: 
+ [-0.03691485]
+Independent term: 
+ 124.58028594103192
+Coefficients: 
+ [0.01963428]
+Independent term: 
+ 104.8542135027985
+Coefficients: 
+ [-0.05830752]
+Independent term: 
+ 117.01583795375947
+................................................Analizando, muestra 234 de 2874 fecha 2017-01-05
+end date: 2017-01-06
+ Datos desde archivo
+Coefficients: 
+ [-0.03669699]
+Independent term: 
+ 124.54223380394757
+Coefficients: 
+ [0.02175165]
+Independent term: 
+ 104.65746044785229
+Coefficients: 
+ [-0.05751091]
+Independent term: 
+ 116.89286902335243
+................................................Analizando, muestra 235 de 2874 fecha 2017-01-06
+end date: 2017-01-07
+..............Día sin sesión, next please
+end date: 2017-01-08
+..............Día sin sesión, next please
+end date: 2017-01-09
+ Datos desde archivo
+Coefficients: 
+ [-0.03644017]
+Independent term: 
+ 124.4972899236082
+Coefficients: 
+ [0.02403191]
+Independent term: 
+ 104.45771445089312
+Coefficients: 
+ [-0.05669954]
+Independent term: 
+ 116.76913614203444
+................................................Analizando, muestra 238 de 2874 fecha 2017-01-09
+end date: 2017-01-10
+ Datos desde archivo
+Coefficients: 
+ [-0.0362105]
+Independent term: 
+ 124.4570208083124
+Coefficients: 
+ [0.02605899]
+Independent term: 
+ 104.27969473426022
+Coefficients: 
+ [-0.05587607]
+Independent term: 
+ 116.64486309320087
+................................................Analizando, muestra 239 de 2874 fecha 2017-01-10
+end date: 2017-01-11
+ Datos desde archivo
+Coefficients: 
+ [-0.03598506]
+Independent term: 
+ 124.41741968807924
+Coefficients: 
+ [0.02793065]
+Independent term: 
+ 104.12093489120255
+Coefficients: 
+ [-0.05504218]
+Independent term: 
+ 116.52024689218598
+................................................Analizando, muestra 240 de 2874 fecha 2017-01-11
+end date: 2017-01-12
+ Datos desde archivo
+Coefficients: 
+ [-0.03577791]
+Independent term: 
+ 124.38096013245533
+Coefficients: 
+ [0.02957618]
+Independent term: 
+ 103.98419956378083
+Coefficients: 
+ [-0.0542002]
+Independent term: 
+ 116.3955101028486
+................................................Analizando, muestra 241 de 2874 fecha 2017-01-12
+end date: 2017-01-13
+ Datos desde archivo
+Coefficients: 
+ [-0.03558154]
+Independent term: 
+ 124.3463341553189
+Coefficients: 
+ [0.03095708]
+Independent term: 
+ 103.87798517369512
+Coefficients: 
+ [-0.05335287]
+Independent term: 
+ 116.27095761599135
+................................................Analizando, muestra 242 de 2874 fecha 2017-01-13
+end date: 2017-01-14
+..............Día sin sesión, next please
+end date: 2017-01-15
+..............Día sin sesión, next please
+end date: 2017-01-16
+ Datos desde archivo
+Coefficients: 
+ [-0.03539587]
+Independent term: 
+ 124.31353312456599
+Coefficients: 
+ [0.03224591]
+Independent term: 
+ 103.77932659433849
+Coefficients: 
+ [-0.05250114]
+Independent term: 
+ 116.14666277995504
+................................................Analizando, muestra 245 de 2874 fecha 2017-01-16
+end date: 2017-01-17
+ Datos desde archivo
+Coefficients: 
+ [-0.03521313]
+Independent term: 
+ 124.28118652067762
+Coefficients: 
+ [0.03345724]
+Independent term: 
+ 103.68990971010123
+Coefficients: 
+ [-0.05164583]
+Independent term: 
+ 116.02271498821518
+................................................Analizando, muestra 246 de 2874 fecha 2017-01-17
+end date: 2017-01-18
+ Datos desde archivo
+Coefficients: 
+ [-0.03505844]
+Independent term: 
+ 124.25375541081605
+Coefficients: 
+ [0.03457611]
+Independent term: 
+ 103.59977137209763
+Coefficients: 
+ [-0.0507879]
+Independent term: 
+ 115.89910360895034
+................................................Analizando, muestra 247 de 2874 fecha 2017-01-18
+end date: 2017-01-19
+ Datos desde archivo
+Coefficients: 
+ [-0.03486533]
+Independent term: 
+ 124.21944589858309
+Coefficients: 
+ [0.03608742]
+Independent term: 
+ 103.4761067632419
+Coefficients: 
+ [-0.04992347]
+Independent term: 
+ 115.77549170003783
+................................................Analizando, muestra 248 de 2874 fecha 2017-01-19
+end date: 2017-01-20
+ Datos desde archivo
+Coefficients: 
+ [-0.0346691]
+Independent term: 
+ 124.18451710012909
+Coefficients: 
+ [0.03760757]
+Independent term: 
+ 103.35317190825049
+Coefficients: 
+ [-0.04905251]
+Independent term: 
+ 115.65188652798025
+................................................Analizando, muestra 249 de 2874 fecha 2017-01-20
+end date: 2017-01-21
+..............Día sin sesión, next please
+end date: 2017-01-22
+..............Día sin sesión, next please
+end date: 2017-01-23
+ Datos desde archivo
+Coefficients: 
+ [-0.03449863]
+Independent term: 
+ 124.1541172985745
+Coefficients: 
+ [0.03874876]
+Independent term: 
+ 103.26858792888584
+Coefficients: 
+ [-0.04817887]
+Independent term: 
+ 115.52866962649672
+................................................Analizando, muestra 252 de 2874 fecha 2017-01-23
+end date: 2017-01-24
+ Datos desde archivo
+Coefficients: 
+ [-0.03435066]
+Independent term: 
+ 124.12767922576606
+Coefficients: 
+ [0.03988673]
+Independent term: 
+ 103.17389483779223
+Coefficients: 
+ [-0.04730259]
+Independent term: 
+ 115.40573654402205
+................................................Analizando, muestra 253 de 2874 fecha 2017-01-24
+end date: 2017-01-25
+ Datos desde archivo
+Coefficients: 
+ [-0.03418176]
+Independent term: 
+ 124.09744748453876
+Coefficients: 
+ [0.04120253]
+Independent term: 
+ 103.06597326705705
+Coefficients: 
+ [-0.04642195]
+Independent term: 
+ 115.28295282982342
+................................................Analizando, muestra 254 de 2874 fecha 2017-01-25
+end date: 2017-01-26
+ Datos desde archivo
+Coefficients: 
+ [-0.03402527]
+Independent term: 
+ 124.0693835191824
+Coefficients: 
+ [0.04251993]
+Independent term: 
+ 102.95216660115256
+Coefficients: 
+ [-0.04553695]
+Independent term: 
+ 115.16025843948839
+................................................Analizando, muestra 255 de 2874 fecha 2017-01-26
+end date: 2017-01-27
+ Datos desde archivo
+Coefficients: 
+ [-0.03384604]
+Independent term: 
+ 124.03718099246696
+Coefficients: 
+ [0.04394513]
+Independent term: 
+ 102.83544903427807
+Coefficients: 
+ [-0.04464658]
+Independent term: 
+ 115.03762352003356
+................................................Analizando, muestra 256 de 2874 fecha 2017-01-27
+end date: 2017-01-28
+..............Día sin sesión, next please
+end date: 2017-01-29
+..............Día sin sesión, next please
+end date: 2017-01-30
+ Datos desde archivo
+Coefficients: 
+ [-0.03366375]
+Independent term: 
+ 124.00436872311323
+Coefficients: 
+ [0.04569596]
+Independent term: 
+ 102.67740222873972
+Coefficients: 
+ [-0.04374765]
+Independent term: 
+ 114.91463624350328
+................................................Analizando, muestra 259 de 2874 fecha 2017-01-30
+end date: 2017-01-31
+ Datos desde archivo
+Coefficients: 
+ [-0.03350346]
+Independent term: 
+ 123.97546313857868
+Coefficients: 
+ [0.04724476]
+Independent term: 
+ 102.53586575750096
+Coefficients: 
+ [-0.04284226]
+Independent term: 
+ 114.79146439787141
+................................................Analizando, muestra 260 de 2874 fecha 2017-01-31
+end date: 2017-02-01
+ Datos desde archivo
+Coefficients: 
+ [-0.03336261]
+Independent term: 
+ 123.95001607931954
+Coefficients: 
+ [0.0486686]
+Independent term: 
+ 102.40175915390698
+Coefficients: 
+ [-0.0419317]
+Independent term: 
+ 114.66818374867776
+................................................Analizando, muestra 261 de 2874 fecha 2017-02-01
+end date: 2017-02-02
+ Datos desde archivo
+Coefficients: 
+ [-0.03321118]
+Independent term: 
+ 123.92260699698565
+Coefficients: 
+ [0.05021866]
+Independent term: 
+ 102.2564832727233
+Coefficients: 
+ [-0.04101478]
+Independent term: 
+ 114.54468424145432
+................................................Analizando, muestra 262 de 2874 fecha 2017-02-02
+end date: 2017-02-03
+ Datos desde archivo
+Coefficients: 
+ [-0.03307122]
+Independent term: 
+ 123.89722868706345
+Coefficients: 
+ [0.05116892]
+Independent term: 
+ 102.1854967555715
+Coefficients: 
+ [-0.04009753]
+Independent term: 
+ 114.42170725154504
+................................................Analizando, muestra 263 de 2874 fecha 2017-02-03
+end date: 2017-02-04
+..............Día sin sesión, next please
+end date: 2017-02-05
+..............Día sin sesión, next please
+end date: 2017-02-06
+ Datos desde archivo
+Coefficients: 
+ [-0.03293514]
+Independent term: 
+ 123.87250678500048
+Coefficients: 
+ [0.05184506]
+Independent term: 
+ 102.14915116836775
+Coefficients: 
+ [-0.03918268]
+Independent term: 
+ 114.2995922656428
+................................................Analizando, muestra 266 de 2874 fecha 2017-02-06
+end date: 2017-02-07
+ Datos desde archivo
+Coefficients: 
+ [-0.03281608]
+Independent term: 
+ 123.85083746057072
+Coefficients: 
+ [0.05238213]
+Independent term: 
+ 102.1228676195287
+Coefficients: 
+ [-0.03827159]
+Independent term: 
+ 114.17843082637799
+................................................Analizando, muestra 267 de 2874 fecha 2017-02-07
+end date: 2017-02-08
+ Datos desde archivo
+Coefficients: 
+ [-0.03268653]
+Independent term: 
+ 123.82721701012915
+Coefficients: 
+ [0.05303745]
+Independent term: 
+ 102.08619834216674
+Coefficients: 
+ [-0.03736304]
+Independent term: 
+ 114.05811010514205
+................................................Analizando, muestra 268 de 2874 fecha 2017-02-08
+end date: 2017-02-09
+ Datos desde archivo
+Coefficients: 
+ [-0.03256636]
+Independent term: 
+ 123.80526557352142
+Coefficients: 
+ [0.05365547]
+Independent term: 
+ 102.04986594926066
+Coefficients: 
+ [-0.03645738]
+Independent term: 
+ 113.93862508866562
+................................................Analizando, muestra 269 de 2874 fecha 2017-02-09
+end date: 2017-02-10
+ Datos desde archivo
+Coefficients: 
+ [-0.03241761]
+Independent term: 
+ 123.77804506236109
+Coefficients: 
+ [0.05454064]
+Independent term: 
+ 101.9925857817237
+Coefficients: 
+ [-0.03555193]
+Independent term: 
+ 113.81975902590999
+................................................Analizando, muestra 270 de 2874 fecha 2017-02-10
+end date: 2017-02-11
+..............Día sin sesión, next please
+end date: 2017-02-12
+..............Día sin sesión, next please
+end date: 2017-02-13
+ Datos desde archivo
+Coefficients: 
+ [-0.03226041]
+Independent term: 
+ 123.74922378548636
+Coefficients: 
+ [0.05550104]
+Independent term: 
+ 101.92979649444125
+Coefficients: 
+ [-0.03464593]
+Independent term: 
+ 113.70145094101979
+................................................Analizando, muestra 273 de 2874 fecha 2017-02-13
+end date: 2017-02-14
+ Datos desde archivo
+Coefficients: 
+ [-0.03210836]
+Independent term: 
+ 123.72129799229987
+Coefficients: 
+ [0.05656679]
+Independent term: 
+ 101.85062420517652
+Coefficients: 
+ [-0.03373834]
+Independent term: 
+ 113.58353226703129
+................................................Analizando, muestra 274 de 2874 fecha 2017-02-14
+end date: 2017-02-15
+ Datos desde archivo
+Coefficients: 
+ [-0.0319457]
+Independent term: 
+ 123.69136813488782
+Coefficients: 
+ [0.05784354]
+Independent term: 
+ 101.74912297490818
+Coefficients: 
+ [-0.03282708]
+Independent term: 
+ 113.46577695069176
+................................................Analizando, muestra 275 de 2874 fecha 2017-02-15
+end date: 2017-02-16
+ Datos desde archivo
+Coefficients: 
+ [-0.03178784]
+Independent term: 
+ 123.66226996131861
+Coefficients: 
+ [0.05896697]
+Independent term: 
+ 101.66582579086075
+Coefficients: 
+ [-0.0319137]
+Independent term: 
+ 113.3483645013402
+................................................Analizando, muestra 276 de 2874 fecha 2017-02-16
+end date: 2017-02-17
+ Datos desde archivo
+Coefficients: 
+ [-0.0316467]
+Independent term: 
+ 123.63620612742112
+Coefficients: 
+ [0.06006469]
+Independent term: 
+ 101.57762849836207
+Coefficients: 
+ [-0.0309985]
+Independent term: 
+ 113.23124275006678
+................................................Analizando, muestra 277 de 2874 fecha 2017-02-17
+end date: 2017-02-18
+..............Día sin sesión, next please
+end date: 2017-02-19
+..............Día sin sesión, next please
+end date: 2017-02-20
+ Datos desde archivo
+Coefficients: 
+ [-0.03151407]
+Independent term: 
+ 123.61166958889812
+Coefficients: 
+ [0.0610311]
+Independent term: 
+ 101.50271989167626
+Coefficients: 
+ [-0.03008278]
+Independent term: 
+ 113.1145410300828
+................................................Analizando, muestra 280 de 2874 fecha 2017-02-20
+end date: 2017-02-21
+ Datos desde archivo
+Coefficients: 
+ [-0.03137516]
+Independent term: 
+ 123.58592438912903
+Coefficients: 
+ [0.06210939]
+Independent term: 
+ 101.41643075629847
+Coefficients: 
+ [-0.02916544]
+Independent term: 
+ 112.99814192288099
+................................................Analizando, muestra 281 de 2874 fecha 2017-02-21
+end date: 2017-02-22
+ Datos desde archivo
+Coefficients: 
+ [-0.03122967]
+Independent term: 
+ 123.55891276012746
+Coefficients: 
+ [0.06321983]
+Independent term: 
+ 101.3295366440958
+Coefficients: 
+ [-0.02824619]
+Independent term: 
+ 112.88203639771896
+................................................Analizando, muestra 282 de 2874 fecha 2017-02-22
+end date: 2017-02-23
+ Datos desde archivo
+Coefficients: 
+ [-0.03108996]
+Independent term: 
+ 123.53292577771215
+Coefficients: 
+ [0.06446498]
+Independent term: 
+ 101.22202918892476
+Coefficients: 
+ [-0.02732369]
+Independent term: 
+ 112.76601642549214
+................................................Analizando, muestra 283 de 2874 fecha 2017-02-23
+end date: 2017-02-24
+ Datos desde archivo
+Coefficients: 
+ [-0.03096513]
+Independent term: 
+ 123.5096657560654
+Coefficients: 
+ [0.06555647]
+Independent term: 
+ 101.12743119652592
+Coefficients: 
+ [-0.02639951]
+Independent term: 
+ 112.65020960729348
+................................................Analizando, muestra 284 de 2874 fecha 2017-02-24
+end date: 2017-02-25
+..............Día sin sesión, next please
+end date: 2017-02-26
+..............Día sin sesión, next please
+end date: 2017-02-27
+ Datos desde archivo
+Coefficients: 
+ [-0.03085041]
+Independent term: 
+ 123.488251027561
+Coefficients: 
+ [0.0665955]
+Independent term: 
+ 101.03473736321749
+Coefficients: 
+ [-0.02547418]
+Independent term: 
+ 112.53463276904397
+................................................Analizando, muestra 287 de 2874 fecha 2017-02-27
+end date: 2017-02-28
+ Datos desde archivo
+Coefficients: 
+ [-0.0307258]
+Independent term: 
+ 123.46494870830801
+Coefficients: 
+ [0.06761255]
+Independent term: 
+ 100.95039582665287
+Coefficients: 
+ [-0.02454795]
+Independent term: 
+ 112.41936672981623
+................................................Analizando, muestra 288 de 2874 fecha 2017-02-28
+end date: 2017-03-01
+ Datos desde archivo
+Coefficients: 
+ [-0.03059568]
+Independent term: 
+ 123.44057287720048
+Coefficients: 
+ [0.0687941]
+Independent term: 
+ 100.84736701737589
+Coefficients: 
+ [-0.02361917]
+Independent term: 
+ 112.30422245407054
+................................................Analizando, muestra 289 de 2874 fecha 2017-03-01
+end date: 2017-03-02
+ Datos desde archivo
+Coefficients: 
+ [-0.03044677]
+Independent term: 
+ 123.4126283633045
+Coefficients: 
+ [0.07011821]
+Independent term: 
+ 100.73566788516828
+Coefficients: 
+ [-0.02268646]
+Independent term: 
+ 112.18911245836007
+................................................Analizando, muestra 290 de 2874 fecha 2017-03-02
+end date: 2017-03-03
+ Datos desde archivo
+Coefficients: 
+ [-0.03029474]
+Independent term: 
+ 123.38404611961991
+Coefficients: 
+ [0.07140929]
+Independent term: 
+ 100.63035029169339
+Coefficients: 
+ [-0.02175018]
+Independent term: 
+ 112.07409989948776
+................................................Analizando, muestra 291 de 2874 fecha 2017-03-03
+end date: 2017-03-04
+..............Día sin sesión, next please
+end date: 2017-03-05
+..............Día sin sesión, next please
+end date: 2017-03-06
+ Datos desde archivo
+Coefficients: 
+ [-0.03015297]
+Independent term: 
+ 123.35734564923351
+Coefficients: 
+ [0.0727789]
+Independent term: 
+ 100.50945975687966
+Coefficients: 
+ [-0.0208096]
+Independent term: 
+ 111.95902885329271
+................................................Analizando, muestra 294 de 2874 fecha 2017-03-06
+end date: 2017-03-07
+ Datos desde archivo
+Coefficients: 
+ [-0.03001083]
+Independent term: 
+ 123.33052868376734
+Coefficients: 
+ [0.07416504]
+Independent term: 
+ 100.38691879158588
+Coefficients: 
+ [-0.01986458]
+Independent term: 
+ 111.84388347954437
+................................................Analizando, muestra 295 de 2874 fecha 2017-03-07
+end date: 2017-03-08
+ Datos desde archivo
+Coefficients: 
+ [-0.02986946]
+Independent term: 
+ 123.30381021574615
+Coefficients: 
+ [0.07552213]
+Independent term: 
+ 100.26816835204167
+Coefficients: 
+ [-0.01891545]
+Independent term: 
+ 111.72870223449458
+................................................Analizando, muestra 296 de 2874 fecha 2017-03-08
+end date: 2017-03-09
+ Datos desde archivo
+Coefficients: 
+ [-0.02972008]
+Independent term: 
+ 123.27552831134484
+Coefficients: 
+ [0.07676687]
+Independent term: 
+ 100.16898628120992
+Coefficients: 
+ [-0.01796339]
+Independent term: 
+ 111.6136801852082
+................................................Analizando, muestra 297 de 2874 fecha 2017-03-09
+end date: 2017-03-10
+ Datos desde archivo
+Coefficients: 
+ [-0.02955817]
+Independent term: 
+ 123.24481834991022
+Coefficients: 
+ [0.07802135]
+Independent term: 
+ 100.0756107239225
+Coefficients: 
+ [-0.01700832]
+Independent term: 
+ 111.49887352390188
+................................................Analizando, muestra 298 de 2874 fecha 2017-03-10
+end date: 2017-03-11
+..............Día sin sesión, next please
+end date: 2017-03-12
+..............Día sin sesión, next please
+end date: 2017-03-13
+ Datos desde archivo
+Coefficients: 
+ [-0.02940504]
+Independent term: 
+ 123.21572358737524
+Coefficients: 
+ [0.07888169]
+Independent term: 
+ 100.03006158173974
+Coefficients: 
+ [-0.01605419]
+Independent term: 
+ 111.38475599213908
+................................................Analizando, muestra 301 de 2874 fecha 2017-03-13
+end date: 2017-03-14
+ Datos desde archivo
+Coefficients: 
+ [-0.02924963]
+Independent term: 
+ 123.18614441032466
+Coefficients: 
+ [0.07986542]
+Independent term: 
+ 99.96956538072274
+Coefficients: 
+ [-0.01509977]
+Independent term: 
+ 111.27117200595583
+................................................Analizando, muestra 302 de 2874 fecha 2017-03-14
+end date: 2017-03-15
+ Datos desde archivo
+Coefficients: 
+ [-0.02909996]
+Independent term: 
+ 123.15760804891622
+Coefficients: 
+ [0.08077199]
+Independent term: 
+ 99.91638709794229
+Coefficients: 
+ [-0.01414582]
+Independent term: 
+ 111.15818907154775
+................................................Analizando, muestra 303 de 2874 fecha 2017-03-15
+end date: 2017-03-16
+ Datos desde archivo
+Coefficients: 
+ [-0.0289741]
+Independent term: 
+ 123.13356775311456
+Coefficients: 
+ [0.08140838]
+Independent term: 
+ 99.88617636951048
+Coefficients: 
+ [-0.01319503]
+Independent term: 
+ 111.04602974117923
+................................................Analizando, muestra 304 de 2874 fecha 2017-03-16
+end date: 2017-03-17
+ Datos desde archivo
+Coefficients: 
+ [-0.02885014]
+Independent term: 
+ 123.10984958060648
+Coefficients: 
+ [0.08207231]
+Independent term: 
+ 99.85136483491357
+Coefficients: 
+ [-0.0122471]
+Independent term: 
+ 110.93464004061937
+................................................Analizando, muestra 305 de 2874 fecha 2017-03-17
+end date: 2017-03-18
+..............Día sin sesión, next please
+end date: 2017-03-19
+..............Día sin sesión, next please
+end date: 2017-03-20
+ Datos desde archivo
+Coefficients: 
+ [-0.02873892]
+Independent term: 
+ 123.08853330205727
+Coefficients: 
+ [0.08253913]
+Independent term: 
+ 99.83576663230781
+Coefficients: 
+ [-0.01130395]
+Independent term: 
+ 110.8242034892929
+................................................Analizando, muestra 308 de 2874 fecha 2017-03-20
+end date: 2017-03-21
+ Datos desde archivo
+Coefficients: 
+ [-0.02863015]
+Independent term: 
+ 123.06764960904957
+Coefficients: 
+ [0.08293971]
+Independent term: 
+ 99.82764430373462
+Coefficients: 
+ [-0.0103662]
+Independent term: 
+ 110.7147849899341
+................................................Analizando, muestra 309 de 2874 fecha 2017-03-21
+end date: 2017-03-22
+ Datos desde archivo
+Coefficients: 
+ [-0.02854059]
+Independent term: 
+ 123.05042457242057
+Coefficients: 
+ [0.08315443]
+Independent term: 
+ 99.8335039178649
+Coefficients: 
+ [-0.00943565]
+Independent term: 
+ 110.6065135364807
+................................................Analizando, muestra 310 de 2874 fecha 2017-03-22
+end date: 2017-03-23
+ Datos desde archivo
+Coefficients: 
+ [-0.02845435]
+Independent term: 
+ 123.03380880723176
+Coefficients: 
+ [0.08330094]
+Independent term: 
+ 99.84652182507871
+Coefficients: 
+ [-0.0085129]
+Independent term: 
+ 110.4994489423374
+................................................Analizando, muestra 311 de 2874 fecha 2017-03-23
+end date: 2017-03-24
+ Datos desde archivo
+Coefficients: 
+ [-0.02837497]
+Independent term: 
+ 123.01848814456449
+Coefficients: 
+ [0.0832178]
+Independent term: 
+ 99.8860990860213
+Coefficients: 
+ [-0.00760015]
+Independent term: 
+ 110.39384347113028
+................................................Analizando, muestra 312 de 2874 fecha 2017-03-24
+end date: 2017-03-25
+..............Día sin sesión, next please
+end date: 2017-03-26
+..............Día sin sesión, next please
+end date: 2017-03-27
+ Datos desde archivo
+Coefficients: 
+ [-0.02830389]
+Independent term: 
+ 123.00474694723593
+Coefficients: 
+ [0.08304349]
+Independent term: 
+ 99.93296319306786
+Coefficients: 
+ [-0.00669823]
+Independent term: 
+ 110.28975511015454
+................................................Analizando, muestra 315 de 2874 fecha 2017-03-27
+end date: 2017-03-28
+ Datos desde archivo
+Coefficients: 
+ [-0.02822919]
+Independent term: 
+ 122.99027920394478
+Coefficients: 
+ [0.08276878]
+Independent term: 
+ 99.99503126571427
+Coefficients: 
+ [-0.00580801]
+Independent term: 
+ 110.18732004702579
+................................................Analizando, muestra 316 de 2874 fecha 2017-03-28
+end date: 2017-03-29
+ Datos desde archivo
+Coefficients: 
+ [-0.02814676]
+Independent term: 
+ 122.97428855909395
+Coefficients: 
+ [0.0826791]
+Independent term: 
+ 100.03673415909951
+Coefficients: 
+ [-0.00492754]
+Independent term: 
+ 110.08631919241955
+................................................Analizando, muestra 317 de 2874 fecha 2017-03-29
+end date: 2017-03-30
+ Datos desde archivo
+Coefficients: 
+ [-0.02806595]
+Independent term: 
+ 122.95858331988926
+Coefficients: 
+ [0.08256583]
+Independent term: 
+ 100.08052473267513
+Coefficients: 
+ [-0.00405696]
+Independent term: 
+ 109.98675904854151
+................................................Analizando, muestra 318 de 2874 fecha 2017-03-30
+end date: 2017-03-31
+ Datos desde archivo
+Coefficients: 
+ [-0.02797462]
+Independent term: 
+ 122.94080435176103
+Coefficients: 
+ [0.08257273]
+Independent term: 
+ 100.11423882783349
+Coefficients: 
+ [-0.00319497]
+Independent term: 
+ 109.88852501649467
+................................................Analizando, muestra 319 de 2874 fecha 2017-03-31
+end date: 2017-04-01
+..............Día sin sesión, next please
+end date: 2017-04-02
+..............Día sin sesión, next please
+end date: 2017-04-03
+ Datos desde archivo
+Coefficients: 
+ [-0.02789261]
+Independent term: 
+ 122.92481371038701
+Coefficients: 
+ [0.08207559]
+Independent term: 
+ 100.20939363166467
+Coefficients: 
+ [-0.00234651]
+Independent term: 
+ 109.79221525147152
+................................................Analizando, muestra 322 de 2874 fecha 2017-04-03
+end date: 2017-04-04
+ Datos desde archivo
+Coefficients: 
+ [-0.02782059]
+Independent term: 
+ 122.91074576195632
+Coefficients: 
+ [0.08143428]
+Independent term: 
+ 100.31768937751428
+Coefficients: 
+ [-0.00151287]
+Independent term: 
+ 109.69794136217838
+................................................Analizando, muestra 323 de 2874 fecha 2017-04-04
+end date: 2017-04-05
+ Datos desde archivo
+Coefficients: 
+ [-0.02774632]
+Independent term: 
+ 122.89621303956055
+Coefficients: 
+ [0.08093528]
+Independent term: 
+ 100.40810471036541
+Coefficients: 
+ [-0.00069249]
+Independent term: 
+ 109.60550517658822
+................................................Analizando, muestra 324 de 2874 fecha 2017-04-05
+end date: 2017-04-06
+ Datos desde archivo
+Coefficients: 
+ [-0.02768046]
+Independent term: 
+ 122.88330477219199
+Coefficients: 
+ [0.08036506]
+Independent term: 
+ 100.50285623806626
+Coefficients: 
+ [0.00011405]
+Independent term: 
+ 109.5149315553094
+................................................Analizando, muestra 325 de 2874 fecha 2017-04-06
+end date: 2017-04-07
+ Datos desde archivo
+Coefficients: 
+ [-0.02760595]
+Independent term: 
+ 122.8686748154343
+Coefficients: 
+ [0.07990493]
+Independent term: 
+ 100.58775952922764
+Coefficients: 
+ [0.00090799]
+Independent term: 
+ 109.42610397296033
+................................................Analizando, muestra 326 de 2874 fecha 2017-04-07
+end date: 2017-04-08
+..............Día sin sesión, next please
+end date: 2017-04-09
+..............Día sin sesión, next please
+end date: 2017-04-10
+ Datos desde archivo
+Coefficients: 
+ [-0.02752611]
+Independent term: 
+ 122.85297276955143
+Coefficients: 
+ [0.07939382]
+Independent term: 
+ 100.68229956555722
+Coefficients: 
+ [0.00168895]
+Independent term: 
+ 109.33910094403096
+................................................Analizando, muestra 329 de 2874 fecha 2017-04-10
+end date: 2017-04-11
+ Datos desde archivo
+Coefficients: 
+ [-0.02745525]
+Independent term: 
+ 122.83901500375387
+Coefficients: 
+ [0.07879831]
+Independent term: 
+ 100.7825477918938
+Coefficients: 
+ [0.0024562]
+Independent term: 
+ 109.2539611116714
+................................................Analizando, muestra 330 de 2874 fecha 2017-04-11
+end date: 2017-04-12
+ Datos desde archivo
+Coefficients: 
+ [-0.02740383]
+Independent term: 
+ 122.82886794302658
+Coefficients: 
+ [0.07781426]
+Independent term: 
+ 100.92269111974916
+Coefficients: 
+ [0.00320604]
+Independent term: 
+ 109.17106290279656
+................................................Analizando, muestra 331 de 2874 fecha 2017-04-12
+end date: 2017-04-13
+ Datos desde archivo
+Coefficients: 
+ [-0.02736406]
+Independent term: 
+ 122.82100516709706
+Coefficients: 
+ [0.07671666]
+Independent term: 
+ 101.07066272792531
+Coefficients: 
+ [0.00393749]
+Independent term: 
+ 109.09046190603168
+................................................Analizando, muestra 332 de 2874 fecha 2017-04-13
+end date: 2017-04-14
+ Datos desde archivo
+Coefficients: 
+ [-0.02732086]
+Independent term: 
+ 122.8124523697396
+Coefficients: 
+ [0.07558285]
+Independent term: 
+ 101.22503108921336
+Coefficients: 
+ [0.00465037]
+Independent term: 
+ 109.01219891282952
+................................................Analizando, muestra 333 de 2874 fecha 2017-04-14
+end date: 2017-04-15
+..............Día sin sesión, next please
+end date: 2017-04-16
+..............Día sin sesión, next please
+end date: 2017-04-17
+ Datos desde archivo
+Coefficients: 
+ [-0.02729071]
+Independent term: 
+ 122.80647320957688
+Coefficients: 
+ [0.07430569]
+Independent term: 
+ 101.39026376866583
+Coefficients: 
+ [0.00534346]
+Independent term: 
+ 108.93635876214131
+................................................Analizando, muestra 336 de 2874 fecha 2017-04-17
+end date: 2017-04-18
+ Datos desde archivo
+Coefficients: 
+ [-0.02724719]
+Independent term: 
+ 122.79782749114918
+Coefficients: 
+ [0.07341102]
+Independent term: 
+ 101.51222313496604
+Coefficients: 
+ [0.00602075]
+Independent term: 
+ 108.86248676585103
+................................................Analizando, muestra 337 de 2874 fecha 2017-04-18
+end date: 2017-04-19
+ Datos desde archivo
+Coefficients: 
+ [-0.02721329]
+Independent term: 
+ 122.7910801011533
+Coefficients: 
+ [0.07275684]
+Independent term: 
+ 101.59620973160018
+Coefficients: 
+ [0.00668479]
+Independent term: 
+ 108.79018550182865
+................................................Analizando, muestra 338 de 2874 fecha 2017-04-19
+end date: 2017-04-20
+ Datos desde archivo
+Coefficients: 
+ [-0.02717429]
+Independent term: 
+ 122.78330683458003
+Coefficients: 
+ [0.0720391]
+Independent term: 
+ 101.69141503177472
+Coefficients: 
+ [0.00733508]
+Independent term: 
+ 108.7195509697883
+................................................Analizando, muestra 339 de 2874 fecha 2017-04-20
+end date: 2017-04-21
+ Datos desde archivo
+Coefficients: 
+ [-0.02712626]
+Independent term: 
+ 122.7737167022437
+Coefficients: 
+ [0.07156305]
+Independent term: 
+ 101.75970111448373
+Coefficients: 
+ [0.00797417]
+Independent term: 
+ 108.6502987324221
+................................................Analizando, muestra 340 de 2874 fecha 2017-04-21
+end date: 2017-04-22
+..............Día sin sesión, next please
+end date: 2017-04-23
+..............Día sin sesión, next please
+end date: 2017-04-24
+ Datos desde archivo
+Coefficients: 
+ [-0.02706829]
+Independent term: 
+ 122.76212296730463
+Coefficients: 
+ [0.07121114]
+Independent term: 
+ 101.81731175095288
+Coefficients: 
+ [0.00860339]
+Independent term: 
+ 108.5823088122085
+................................................Analizando, muestra 343 de 2874 fecha 2017-04-24
+end date: 2017-04-25
+ Datos desde archivo
+Coefficients: 
+ [-0.027016]
+Independent term: 
+ 122.75164793308903
+Coefficients: 
+ [0.07090571]
+Independent term: 
+ 101.86517646447936
+Coefficients: 
+ [0.00922332]
+Independent term: 
+ 108.51547167442014
+................................................Analizando, muestra 344 de 2874 fecha 2017-04-25
+end date: 2017-04-26
+ Datos desde archivo
+Coefficients: 
+ [-0.02694072]
+Independent term: 
+ 122.73654109684875
+Coefficients: 
+ [0.07080339]
+Independent term: 
+ 101.89990258629642
+Coefficients: 
+ [0.00983605]
+Independent term: 
+ 108.44964511632936
+................................................Analizando, muestra 345 de 2874 fecha 2017-04-26
+end date: 2017-04-27
+ Datos desde archivo
+Coefficients: 
+ [-0.02686337]
+Independent term: 
+ 122.7209931403796
+Coefficients: 
+ [0.0708762]
+Independent term: 
+ 101.91259296701915
+Coefficients: 
+ [0.01044342]
+Independent term: 
+ 108.38459982131135
+................................................Analizando, muestra 346 de 2874 fecha 2017-04-27
+end date: 2017-04-28
+ Datos desde archivo
+Coefficients: 
+ [-0.02678577]
+Independent term: 
+ 122.70536993954073
+Coefficients: 
+ [0.07073825]
+Independent term: 
+ 101.95339379267905
+Coefficients: 
+ [0.01104337]
+Independent term: 
+ 108.32060772152397
+................................................Analizando, muestra 347 de 2874 fecha 2017-04-28
+end date: 2017-04-29
+..............Día sin sesión, next please
+end date: 2017-04-30
+..............Día sin sesión, next please
+end date: 2017-05-01
+ Datos desde archivo
+Coefficients: 
+ [-0.02670726]
+Independent term: 
+ 122.68953803939046
+Coefficients: 
+ [0.07068116]
+Independent term: 
+ 101.9839541432395
+Coefficients: 
+ [0.01163678]
+Independent term: 
+ 108.25755644213805
+................................................Analizando, muestra 350 de 2874 fecha 2017-05-01
+end date: 2017-05-02
+ Datos desde archivo
+Coefficients: 
+ [-0.02662083]
+Independent term: 
+ 122.67207918149806
+Coefficients: 
+ [0.07057997]
+Independent term: 
+ 102.02519322409559
+Coefficients: 
+ [0.01222328]
+Independent term: 
+ 108.19554287777945
+................................................Analizando, muestra 351 de 2874 fecha 2017-05-02
+end date: 2017-05-03
+ Datos desde archivo
+Coefficients: 
+ [-0.02653229]
+Independent term: 
+ 122.65416316526563
+Coefficients: 
+ [0.07038295]
+Independent term: 
+ 102.08039621040002
+Coefficients: 
+ [0.01280198]
+Independent term: 
+ 108.13469564725827
+................................................Analizando, muestra 352 de 2874 fecha 2017-05-03
+end date: 2017-05-04
+ Datos desde archivo
+Coefficients: 
+ [-0.02643108]
+Independent term: 
+ 122.63365127171679
+Coefficients: 
+ [0.07031213]
+Independent term: 
+ 102.12660347440348
+Coefficients: 
+ [0.01337422]
+Independent term: 
+ 108.07491363558808
+................................................Analizando, muestra 353 de 2874 fecha 2017-05-04
+end date: 2017-05-05
+ Datos desde archivo
+Coefficients: 
+ [-0.02633438]
+Independent term: 
+ 122.61402191862837
+Coefficients: 
+ [0.07016178]
+Independent term: 
+ 102.18052279685861
+Coefficients: 
+ [0.01393927]
+Independent term: 
+ 108.01626298047633
+................................................Analizando, muestra 354 de 2874 fecha 2017-05-05
+end date: 2017-05-06
+..............Día sin sesión, next please
+end date: 2017-05-07
+..............Día sin sesión, next please
+end date: 2017-05-08
+ Datos desde archivo
+Coefficients: 
+ [-0.02623586]
+Independent term: 
+ 122.59398879962582
+Coefficients: 
+ [0.06965792]
+Independent term: 
+ 102.28241712883337
+Coefficients: 
+ [0.01449368]
+Independent term: 
+ 107.95920978792269
+................................................Analizando, muestra 357 de 2874 fecha 2017-05-08
+end date: 2017-05-09
+ Datos desde archivo
+Coefficients: 
+ [-0.02612917]
+Independent term: 
+ 122.57226070781873
+Coefficients: 
+ [0.06922409]
+Independent term: 
+ 102.37993796732889
+Coefficients: 
+ [0.01503827]
+Independent term: 
+ 107.90369464542923
+................................................Analizando, muestra 358 de 2874 fecha 2017-05-09
+end date: 2017-05-10
+ Datos desde archivo
+Coefficients: 
+ [-0.02601568]
+Independent term: 
+ 122.54910736435541
+Coefficients: 
+ [0.06864918]
+Independent term: 
+ 102.50029125384431
+Coefficients: 
+ [0.01557171]
+Independent term: 
+ 107.84992943755276
+................................................Analizando, muestra 359 de 2874 fecha 2017-05-10
+end date: 2017-05-11
+ Datos desde archivo
+Coefficients: 
+ [-0.02589289]
+Independent term: 
+ 122.5240186991554
+Coefficients: 
+ [0.06818991]
+Independent term: 
+ 102.61094365248039
+Coefficients: 
+ [0.01609527]
+Independent term: 
+ 107.79780022576101
+................................................Analizando, muestra 360 de 2874 fecha 2017-05-11
+end date: 2017-05-12
+ Datos desde archivo
+Coefficients: 
+ [-0.02577909]
+Independent term: 
+ 122.5007263098803
+Coefficients: 
+ [0.06761289]
+Independent term: 
+ 102.73140760165542
+Coefficients: 
+ [0.01660788]
+Independent term: 
+ 107.74738835885448
+................................................Analizando, muestra 361 de 2874 fecha 2017-05-12
+end date: 2017-05-13
+..............Día sin sesión, next please
+end date: 2017-05-14
+..............Día sin sesión, next please
+end date: 2017-05-15
+ Datos desde archivo
+Coefficients: 
+ [-0.02567444]
+Independent term: 
+ 122.47927440742893
+Coefficients: 
+ [0.06707926]
+Independent term: 
+ 102.84013330374191
+Coefficients: 
+ [0.01711009]
+Independent term: 
+ 107.6985599503459
+................................................Analizando, muestra 364 de 2874 fecha 2017-05-15
+end date: 2017-05-16
+ Datos desde archivo
+Coefficients: 
+ [-0.02556459]
+Independent term: 
+ 122.456718062459
+Coefficients: 
+ [0.06660588]
+Independent term: 
+ 102.94400492312303
+Coefficients: 
+ [0.01760258]
+Independent term: 
+ 107.65125094509993
+................................................Analizando, muestra 365 de 2874 fecha 2017-05-16
+end date: 2017-05-17
+ Datos desde archivo
+Coefficients: 
+ [-0.02547097]
+Independent term: 
+ 122.43746369324255
+Coefficients: 
+ [0.06591058]
+Independent term: 
+ 103.06684248055984
+Coefficients: 
+ [0.01808326]
+Independent term: 
+ 107.60563494047764
+................................................Analizando, muestra 366 de 2874 fecha 2017-05-17
+end date: 2017-05-18
+ Datos desde archivo
+Coefficients: 
+ [-0.02540154]
+Independent term: 
+ 122.42316193606635
+Coefficients: 
+ [0.06485442]
+Independent term: 
+ 103.22189481023533
+Coefficients: 
+ [0.01854864]
+Independent term: 
+ 107.56201563569911
+................................................Analizando, muestra 367 de 2874 fecha 2017-05-18
+end date: 2017-05-19
+ Datos desde archivo
+Coefficients: 
+ [-0.02532812]
+Independent term: 
+ 122.4080121812805
+Coefficients: 
+ [0.06392608]
+Independent term: 
+ 103.36222975318113
+Coefficients: 
+ [0.01900016]
+Independent term: 
+ 107.52022672144521
+................................................Analizando, muestra 368 de 2874 fecha 2017-05-19
+end date: 2017-05-20
+..............Día sin sesión, next please
+end date: 2017-05-21
+..............Día sin sesión, next please
+end date: 2017-05-22
+ Datos desde archivo
+Coefficients: 
+ [-0.02525682]
+Independent term: 
+ 122.39327721676167
+Coefficients: 
+ [0.06288674]
+Independent term: 
+ 103.51564909863828
+Coefficients: 
+ [0.01943684]
+Independent term: 
+ 107.48038017793472
+................................................Analizando, muestra 371 de 2874 fecha 2017-05-22
+end date: 2017-05-23
+ Datos desde archivo
+Coefficients: 
+ [-0.02519189]
+Independent term: 
+ 122.37983504223638
+Coefficients: 
+ [0.06176726]
+Independent term: 
+ 103.67529243696981
+Coefficients: 
+ [0.01985804]
+Independent term: 
+ 107.44251860837286
+................................................Analizando, muestra 372 de 2874 fecha 2017-05-23
+end date: 2017-05-24
+ Datos desde archivo
+Coefficients: 
+ [-0.02511078]
+Independent term: 
+ 122.36301963888316
+Coefficients: 
+ [0.06063563]
+Independent term: 
+ 103.84667532735797
+Coefficients: 
+ [0.02026379]
+Independent term: 
+ 107.4067390732384
+................................................Analizando, muestra 373 de 2874 fecha 2017-05-24
+end date: 2017-05-25
+ Datos desde archivo
+Coefficients: 
+ [-0.02503671]
+Independent term: 
+ 122.34763735800064
+Coefficients: 
+ [0.0593774]
+Independent term: 
+ 104.02995832870256
+Coefficients: 
+ [0.02065298]
+Independent term: 
+ 107.37313926483507
+................................................Analizando, muestra 374 de 2874 fecha 2017-05-25
+end date: 2017-05-26
+ Datos desde archivo
+Coefficients: 
+ [-0.02495981]
+Independent term: 
+ 122.33164297729849
+Coefficients: 
+ [0.05816356]
+Independent term: 
+ 104.20882606847962
+Coefficients: 
+ [0.02102622]
+Independent term: 
+ 107.34165356138875
+................................................Analizando, muestra 375 de 2874 fecha 2017-05-26
+end date: 2017-05-27
+..............Día sin sesión, next please
+end date: 2017-05-28
+..............Día sin sesión, next please
+end date: 2017-05-29
+ Datos desde archivo
+Coefficients: 
+ [-0.02489049]
+Independent term: 
+ 122.31720130171026
+Coefficients: 
+ [0.05692817]
+Independent term: 
+ 104.38525713109259
+Coefficients: 
+ [0.02138345]
+Independent term: 
+ 107.31223668148529
+................................................Analizando, muestra 378 de 2874 fecha 2017-05-29
+end date: 2017-05-30
+ Datos desde archivo
+Coefficients: 
+ [-0.0248227]
+Independent term: 
+ 122.30305526666339
+Coefficients: 
+ [0.05561881]
+Independent term: 
+ 104.57015322784879
+Coefficients: 
+ [0.0217241]
+Independent term: 
+ 107.28495226901131
+................................................Analizando, muestra 379 de 2874 fecha 2017-05-30
+end date: 2017-05-31
+ Datos desde archivo
+Coefficients: 
+ [-0.02476025]
+Independent term: 
+ 122.29000293905833
+Coefficients: 
+ [0.05425211]
+Independent term: 
+ 104.75877973869665
+Coefficients: 
+ [0.02204776]
+Independent term: 
+ 107.25981622393358
+................................................Analizando, muestra 380 de 2874 fecha 2017-05-31
+end date: 2017-06-01
+ Datos desde archivo
+Coefficients: 
+ [-0.02469867]
+Independent term: 
+ 122.27711153221117
+Coefficients: 
+ [0.05289954]
+Independent term: 
+ 104.94458106880757
+Coefficients: 
+ [0.02235475]
+Independent term: 
+ 107.23677905821093
+................................................Analizando, muestra 381 de 2874 fecha 2017-06-01
+end date: 2017-06-02
+ Datos desde archivo
+Coefficients: 
+ [-0.02462765]
+Independent term: 
+ 122.26222202449713
+Coefficients: 
+ [0.05162772]
+Independent term: 
+ 105.12553706951995
+Coefficients: 
+ [0.02264602]
+Independent term: 
+ 107.21577167523887
+................................................Analizando, muestra 382 de 2874 fecha 2017-06-02
+end date: 2017-06-03
+..............Día sin sesión, next please
+end date: 2017-06-04
+..............Día sin sesión, next please
+end date: 2017-06-05
+ Datos desde archivo
+Coefficients: 
+ [-0.02457155]
+Independent term: 
+ 122.25044007976152
+Coefficients: 
+ [0.05039998]
+Independent term: 
+ 105.29041190873332
+Coefficients: 
+ [0.02292218]
+Independent term: 
+ 107.19661386661693
+................................................Analizando, muestra 385 de 2874 fecha 2017-06-05
+end date: 2017-06-06
+ Datos desde archivo
+Coefficients: 
+ [-0.02451683]
+Independent term: 
+ 122.23893152736224
+Coefficients: 
+ [0.04913046]
+Independent term: 
+ 105.45958959209385
+Coefficients: 
+ [0.02318296]
+Independent term: 
+ 107.17933004298985
+................................................Analizando, muestra 386 de 2874 fecha 2017-06-06
+end date: 2017-06-07
+ Datos desde archivo
+Coefficients: 
+ [-0.02447526]
+Independent term: 
+ 122.23017427837733
+Coefficients: 
+ [0.04787757]
+Independent term: 
+ 105.6174565078963
+Coefficients: 
+ [0.02342868]
+Independent term: 
+ 107.16378901278993
+................................................Analizando, muestra 387 de 2874 fecha 2017-06-07
+end date: 2017-06-08
+ Datos desde archivo
+Coefficients: 
+ [-0.02442791]
+Independent term: 
+ 122.22018338165034
+Coefficients: 
+ [0.04673851]
+Independent term: 
+ 105.76378287358071
+Coefficients: 
+ [0.02366061]
+Independent term: 
+ 107.14985860344454
+................................................Analizando, muestra 388 de 2874 fecha 2017-06-08
+end date: 2017-06-09
+ Datos desde archivo
+Coefficients: 
+ [-0.02438125]
+Independent term: 
+ 122.21032267695982
+Coefficients: 
+ [0.04557681]
+Independent term: 
+ 105.91237787389043
+Coefficients: 
+ [0.02387869]
+Independent term: 
+ 107.13754536235447
+................................................Analizando, muestra 389 de 2874 fecha 2017-06-09
+end date: 2017-06-10
+..............Día sin sesión, next please
+end date: 2017-06-11
+..............Día sin sesión, next please
+end date: 2017-06-12
+ Datos desde archivo
+Coefficients: 
+ [-0.02432834]
+Independent term: 
+ 122.19912235529982
+Coefficients: 
+ [0.04457113]
+Independent term: 
+ 106.04421222174345
+Coefficients: 
+ [0.02408458]
+Independent term: 
+ 107.12666642563198
+................................................Analizando, muestra 392 de 2874 fecha 2017-06-12
+end date: 2017-06-13
+ Datos desde archivo
+Coefficients: 
+ [-0.02428096]
+Independent term: 
+ 122.18907873952676
+Coefficients: 
+ [0.04343724]
+Independent term: 
+ 106.18909011499206
+Coefficients: 
+ [0.02427714]
+Independent term: 
+ 107.11733730811318
+................................................Analizando, muestra 393 de 2874 fecha 2017-06-13
+end date: 2017-06-14
+ Datos desde archivo
+Coefficients: 
+ [-0.02423171]
+Independent term: 
+ 122.17862040302563
+Coefficients: 
+ [0.04201447]
+Independent term: 
+ 106.37330485899058
+Coefficients: 
+ [0.02445364]
+Independent term: 
+ 107.10993400016173
+................................................Analizando, muestra 394 de 2874 fecha 2017-06-14
+end date: 2017-06-15
+ Datos desde archivo
+Coefficients: 
+ [-0.02419147]
+Independent term: 
+ 122.17006239478191
+Coefficients: 
+ [0.04053385]
+Independent term: 
+ 106.55871183594661
+Coefficients: 
+ [0.02461364]
+Independent term: 
+ 107.10444920250785
+................................................Analizando, muestra 395 de 2874 fecha 2017-06-15
+end date: 2017-06-16
+ Datos desde archivo
+Coefficients: 
+ [-0.02412929]
+Independent term: 
+ 122.15681886292684
+Coefficients: 
+ [0.03933849]
+Independent term: 
+ 106.72088046401294
+Coefficients: 
+ [0.02476015]
+Independent term: 
+ 107.10063259814471
+................................................Analizando, muestra 396 de 2874 fecha 2017-06-16
+end date: 2017-06-17
+..............Día sin sesión, next please
+end date: 2017-06-18
+..............Día sin sesión, next please
+end date: 2017-06-19
+ Datos desde archivo
+Coefficients: 
+ [-0.02406731]
+Independent term: 
+ 122.14359716863764
+Coefficients: 
+ [0.03815035]
+Independent term: 
+ 106.88167977404238
+Coefficients: 
+ [0.02489339]
+Independent term: 
+ 107.09845396307904
+................................................Analizando, muestra 399 de 2874 fecha 2017-06-19
+end date: 2017-06-20
+ Datos desde archivo
+Coefficients: 
+ [-0.02399515]
+Independent term: 
+ 122.12817753301287
+Coefficients: 
+ [0.03695319]
+Independent term: 
+ 107.05040758161402
+Coefficients: 
+ [0.02501339]
+Independent term: 
+ 107.0979758896316
+................................................Analizando, muestra 400 de 2874 fecha 2017-06-20
+end date: 2017-06-21
+ Datos desde archivo
+Coefficients: 
+ [-0.0239282]
+Independent term: 
+ 122.11385099715999
+Coefficients: 
+ [0.03580406]
+Independent term: 
+ 107.20889568955151
+Coefficients: 
+ [0.02512076]
+Independent term: 
+ 107.09907956923281
+................................................Analizando, muestra 401 de 2874 fecha 2017-06-21
+end date: 2017-06-22
+ Datos desde archivo
+Coefficients: 
+ [-0.02386188]
+Independent term: 
+ 122.09963543828026
+Coefficients: 
+ [0.03464474]
+Independent term: 
+ 107.3680581721975
+Coefficients: 
+ [0.02521552]
+Independent term: 
+ 107.10175597324242
+................................................Analizando, muestra 402 de 2874 fecha 2017-06-22
+end date: 2017-06-23
+ Datos desde archivo
+Coefficients: 
+ [-0.02379611]
+Independent term: 
+ 122.08551768966447
+Coefficients: 
+ [0.03338789]
+Independent term: 
+ 107.53952526377208
+Coefficients: 
+ [0.02529684]
+Independent term: 
+ 107.10611188658103
+................................................Analizando, muestra 403 de 2874 fecha 2017-06-23
+end date: 2017-06-24
+..............Día sin sesión, next please
+end date: 2017-06-25
+..............Día sin sesión, next please
+end date: 2017-06-26
+ Datos desde archivo
+Coefficients: 
+ [-0.02373134]
+Independent term: 
+ 122.07159245038075
+Coefficients: 
+ [0.03215457]
+Independent term: 
+ 107.70690022141187
+Coefficients: 
+ [0.02536508]
+Independent term: 
+ 107.11208987996244
+................................................Analizando, muestra 406 de 2874 fecha 2017-06-26
+end date: 2017-06-27
+ Datos desde archivo
+Coefficients: 
+ [-0.023658]
+Independent term: 
+ 122.05579978191672
+Coefficients: 
+ [0.03093075]
+Independent term: 
+ 107.87873063955735
+Coefficients: 
+ [0.02542046]
+Independent term: 
+ 107.11971814622707
+................................................Analizando, muestra 407 de 2874 fecha 2017-06-27
+end date: 2017-06-28
+ Datos desde archivo
+Coefficients: 
+ [-0.02358031]
+Independent term: 
+ 122.03904361509183
+Coefficients: 
+ [0.02969608]
+Independent term: 
+ 108.05478469393147
+Coefficients: 
+ [0.025463]
+Independent term: 
+ 107.12902229098037
+................................................Analizando, muestra 408 de 2874 fecha 2017-06-28
+end date: 2017-06-29
+ Datos desde archivo
+Coefficients: 
+ [-0.02350064]
+Independent term: 
+ 122.02183537182677
+Coefficients: 
+ [0.02829626]
+Independent term: 
+ 108.25387179246589
+Coefficients: 
+ [0.02549119]
+Independent term: 
+ 107.14021482333345
+................................................Analizando, muestra 409 de 2874 fecha 2017-06-29
+end date: 2017-06-30
+ Datos desde archivo
+Coefficients: 
+ [-0.02342625]
+Independent term: 
+ 122.00574207642933
+Coefficients: 
+ [0.02689304]
+Independent term: 
+ 108.44938248819379
+Coefficients: 
+ [0.02550514]
+Independent term: 
+ 107.15324136726242
+................................................Analizando, muestra 410 de 2874 fecha 2017-06-30
+end date: 2017-07-01
+..............Día sin sesión, next please
+end date: 2017-07-02
+..............Día sin sesión, next please
+end date: 2017-07-03
+ Datos desde archivo
+Coefficients: 
+ [-0.02334864]
+Independent term: 
+ 121.98892782299808
+Coefficients: 
+ [0.02551955]
+Independent term: 
+ 108.64290934662321
+Coefficients: 
+ [0.02550528]
+Independent term: 
+ 107.16806393422127
+................................................Analizando, muestra 413 de 2874 fecha 2017-07-03
+end date: 2017-07-04
+ Datos desde archivo
+Coefficients: 
+ [-0.02325563]
+Independent term: 
+ 121.96874399473386
+Coefficients: 
+ [0.02421687]
+Independent term: 
+ 108.83766139927195
+Coefficients: 
+ [0.02549246]
+Independent term: 
+ 107.18467684432125
+................................................Analizando, muestra 414 de 2874 fecha 2017-07-04
+end date: 2017-07-05
+ Datos desde archivo
+Coefficients: 
+ [-0.02316908]
+Independent term: 
+ 121.94993396887891
+Coefficients: 
+ [0.02284779]
+Independent term: 
+ 109.03635450904049
+Coefficients: 
+ [0.02546615]
+Independent term: 
+ 107.20310149770157
+................................................Analizando, muestra 415 de 2874 fecha 2017-07-05
+end date: 2017-07-06
+ Datos desde archivo
+Coefficients: 
+ [-0.02307986]
+Independent term: 
+ 121.93051283887326
+Coefficients: 
+ [0.02156396]
+Independent term: 
+ 109.22535608661708
+Coefficients: 
+ [0.02542732]
+Independent term: 
+ 107.22322343390968
+................................................Analizando, muestra 416 de 2874 fecha 2017-07-06
+end date: 2017-07-07
+ Datos desde archivo
+Coefficients: 
+ [-0.02299165]
+Independent term: 
+ 121.91128459371322
+Coefficients: 
+ [0.02029587]
+Independent term: 
+ 109.41128059501078
+Coefficients: 
+ [0.02537626]
+Independent term: 
+ 107.24499514695546
+................................................Analizando, muestra 417 de 2874 fecha 2017-07-07
+end date: 2017-07-08
+..............Día sin sesión, next please
+end date: 2017-07-09
+..............Día sin sesión, next please
+end date: 2017-07-10
+ Datos desde archivo
+Coefficients: 
+ [-0.02289233]
+Independent term: 
+ 121.88959931748191
+Coefficients: 
+ [0.01918951]
+Independent term: 
+ 109.58347335587688
+Coefficients: 
+ [0.0253147]
+Independent term: 
+ 107.26826358684524
+................................................Analizando, muestra 420 de 2874 fecha 2017-07-10
+end date: 2017-07-11
+..............Día sin sesión, next please
+end date: 2017-07-12
+ Datos desde archivo
+Coefficients: 
+ [-0.02279687]
+Independent term: 
+ 121.86872619201428
+Coefficients: 
+ [0.01806744]
+Independent term: 
+ 109.75477481215748
+Coefficients: 
+ [0.02524259]
+Independent term: 
+ 107.29300499207221
+................................................Analizando, muestra 422 de 2874 fecha 2017-07-12
+end date: 2017-07-13
+ Datos desde archivo
+Coefficients: 
+ [-0.02270767]
+Independent term: 
+ 121.84918985554951
+Coefficients: 
+ [0.01702608]
+Independent term: 
+ 109.91066547450734
+Coefficients: 
+ [0.02516083]
+Independent term: 
+ 107.31905136503178
+................................................Analizando, muestra 423 de 2874 fecha 2017-07-13
+end date: 2017-07-14
+ Datos desde archivo
+Coefficients: 
+ [-0.02261782]
+Independent term: 
+ 121.8294822456081
+Coefficients: 
+ [0.01606886]
+Independent term: 
+ 110.05569893452659
+Coefficients: 
+ [0.02507037]
+Independent term: 
+ 107.34628168910635
+................................................Analizando, muestra 424 de 2874 fecha 2017-07-14
+end date: 2017-07-15
+..............Día sin sesión, next please
+end date: 2017-07-16
+..............Día sin sesión, next please
+end date: 2017-07-17
+ Datos desde archivo
+Coefficients: 
+ [-0.02254247]
+Independent term: 
+ 121.81293042678945
+Coefficients: 
+ [0.01499029]
+Independent term: 
+ 110.20617623058718
+Coefficients: 
+ [0.02497007]
+Independent term: 
+ 107.37473835121067
+................................................Analizando, muestra 427 de 2874 fecha 2017-07-17
+end date: 2017-07-18
+ Datos desde archivo
+Coefficients: 
+ [-0.02246497]
+Independent term: 
+ 121.79588211613802
+Coefficients: 
+ [0.01381363]
+Independent term: 
+ 110.37106939970558
+Coefficients: 
+ [0.02485906]
+Independent term: 
+ 107.40455259049916
+................................................Analizando, muestra 428 de 2874 fecha 2017-07-18
+end date: 2017-07-19
+ Datos desde archivo
+Coefficients: 
+ [-0.02239586]
+Independent term: 
+ 121.78065429633013
+Coefficients: 
+ [0.01263751]
+Independent term: 
+ 110.52958238857896
+Coefficients: 
+ [0.02473745]
+Independent term: 
+ 107.43564741436067
+................................................Analizando, muestra 429 de 2874 fecha 2017-07-19
+end date: 2017-07-20
+ Datos desde archivo
+Coefficients: 
+ [-0.02232867]
+Independent term: 
+ 121.76582751017958
+Coefficients: 
+ [0.01137783]
+Independent term: 
+ 110.69759622602321
+Coefficients: 
+ [0.02460452]
+Independent term: 
+ 107.46810461646676
+................................................Analizando, muestra 430 de 2874 fecha 2017-07-20
+end date: 2017-07-21
+ Datos desde archivo
+Coefficients: 
+ [-0.02226167]
+Independent term: 
+ 121.75102108947179
+Coefficients: 
+ [0.01025156]
+Independent term: 
+ 110.84756514591957
+Coefficients: 
+ [0.0244617]
+Independent term: 
+ 107.50173108939666
+................................................Analizando, muestra 431 de 2874 fecha 2017-07-21
+end date: 2017-07-22
+..............Día sin sesión, next please
+end date: 2017-07-23
+..............Día sin sesión, next please
+end date: 2017-07-24
+ Datos desde archivo
+Coefficients: 
+ [-0.02220767]
+Independent term: 
+ 121.73906911067864
+Coefficients: 
+ [0.00888588]
+Independent term: 
+ 111.0195652987352
+Coefficients: 
+ [0.02430672]
+Independent term: 
+ 107.53673441486272
+................................................Analizando, muestra 434 de 2874 fecha 2017-07-24
+end date: 2017-07-25
+ Datos desde archivo
+Coefficients: 
+ [-0.02214999]
+Independent term: 
+ 121.7262834823043
+Coefficients: 
+ [0.00759999]
+Independent term: 
+ 111.18347629490184
+Coefficients: 
+ [0.02414048]
+Independent term: 
+ 107.57302040371884
+................................................Analizando, muestra 435 de 2874 fecha 2017-07-25
+end date: 2017-07-26
+ Datos desde archivo
+Coefficients: 
+ [-0.02208218]
+Independent term: 
+ 121.71122925719618
+Coefficients: 
+ [0.00639004]
+Independent term: 
+ 111.34462605718356
+Coefficients: 
+ [0.02396386]
+Independent term: 
+ 107.61054881818119
+................................................Analizando, muestra 436 de 2874 fecha 2017-07-26
+end date: 2017-07-27
+ Datos desde archivo
+Coefficients: 
+ [-0.02202639]
+Independent term: 
+ 121.69882565461693
+Coefficients: 
+ [0.00503938]
+Independent term: 
+ 111.51533194015276
+Coefficients: 
+ [0.02377556]
+Independent term: 
+ 107.64940238158388
+................................................Analizando, muestra 437 de 2874 fecha 2017-07-27
+end date: 2017-07-28
+ Datos desde archivo
+Coefficients: 
+ [-0.02197122]
+Independent term: 
+ 121.68654102979056
+Coefficients: 
+ [0.00360174]
+Independent term: 
+ 111.69690718921264
+Coefficients: 
+ [0.02357482]
+Independent term: 
+ 107.6896760612618
+................................................Analizando, muestra 438 de 2874 fecha 2017-07-28
+end date: 2017-07-29
+..............Día sin sesión, next please
+end date: 2017-07-30
+..............Día sin sesión, next please
+end date: 2017-07-31
+ Datos desde archivo
+Coefficients: 
+ [-0.02192406]
+Independent term: 
+ 121.67602431441664
+Coefficients: 
+ [0.00217317]
+Independent term: 
+ 111.87105490954954
+Coefficients: 
+ [0.02336187]
+Independent term: 
+ 107.73128182094625
+................................................Analizando, muestra 441 de 2874 fecha 2017-07-31
+end date: 2017-08-01
+ Datos desde archivo
+Coefficients: 
+ [-0.02187903]
+Independent term: 
+ 121.66596808417
+Coefficients: 
+ [0.00068351]
+Independent term: 
+ 112.05148550232845
+Coefficients: 
+ [0.02313622]
+Independent term: 
+ 107.77426892225353
+................................................Analizando, muestra 442 de 2874 fecha 2017-08-01
+end date: 2017-08-02
+ Datos desde archivo
+Coefficients: 
+ [-0.02183315]
+Independent term: 
+ 121.65570566864777
+Coefficients: 
+ [-0.000744]
+Independent term: 
+ 112.22407851603494
+Coefficients: 
+ [0.0228986]
+Independent term: 
+ 107.81854563462949
+................................................Analizando, muestra 443 de 2874 fecha 2017-08-02
+end date: 2017-08-03
+ Datos desde archivo
+Coefficients: 
+ [-0.0217831]
+Independent term: 
+ 121.64449456290053
+Coefficients: 
+ [-0.00215736]
+Independent term: 
+ 112.39772207801022
+Coefficients: 
+ [0.02264929]
+Independent term: 
+ 107.86410957933973
+................................................Analizando, muestra 444 de 2874 fecha 2017-08-03
+end date: 2017-08-04
+ Datos desde archivo
+Coefficients: 
+ [-0.02174448]
+Independent term: 
+ 121.63583002217945
+Coefficients: 
+ [-0.00364686]
+Independent term: 
+ 112.57261319060824
+Coefficients: 
+ [0.02238764]

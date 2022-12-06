@@ -62,9 +62,9 @@ import sys
 # In[3]:
 
 
-#instrumento_ = 'SAN.MC'  # ticker del valor en yahooFinance
+instrumento_ = 'HSY'  # ticker del valor en yahooFinance
 
-instrumento_ = sys.argv[1]
+#instrumento_ = sys.argv[1]
 
 Fecha_Cominezo_Backtesting = dt.datetime(2015,1,2)
 #Fecha_Final_Backtesting    = dt.datetime(2022,9,15)

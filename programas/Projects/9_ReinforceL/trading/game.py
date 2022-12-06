@@ -43,9 +43,13 @@ BLACK = (0,0,0)
 BLOCK_SIZE = 20
 SPEED = 80
 
+BUY = 0
+HOLD = 1
+SELL = 2
+
 class TradingAI:
 
-    def __init__(self, instrumento = 'SAN'):
+    def __init__(self, instrumento = 'rovi.mc'):
         ##self.w = w
         ##self.h = h
         # init display
@@ -56,12 +60,19 @@ class TradingAI:
         
         self.clock = time.time()
         self.reset()
+  
+        
+        self.score = 0
+        self.profit = 1
+        self.loss = 1
+        self.inside = False 
+        self.buyOrder =1
+        self.valorCompra =0
+        
         # Leemos los valores del instrumento desde el -Yahoo finnaces para tener el set de datos
-        
-        
         #### FECHAS
         #start =dt.datetime(2000,1,1)
-        self.start =dt.datetime.today() - dt.timedelta(days=1000)    #un año tiene 250 sesiones.
+        self.start =dt.datetime.today() - dt.timedelta(days=2000)    #un año tiene 250 sesiones.
         #end = dt.datetime(2019,10,1)
         self.end= dt.datetime.today()  - dt.timedelta(days=1)        #Quito hoy para no ver el valor al ejecutar antes del cierre
         #end = '2021-9-19' 
@@ -72,6 +83,8 @@ class TradingAI:
         self.df.dropna(inplace=True) 
         
         self.df =self.featured_Data(self.df)    # calculamos extra features 
+        
+       
         
     def featured_Data (self, dff):
         """
@@ -113,13 +126,18 @@ class TradingAI:
         dff['Kalman'] = state_meansS
         
         # Regresion lineal ultimas 50 sesiones
-        close_ =dff.columns.get_loc("Close")
+        close_ =dff.columns.get_loc("Close") 
         slice01= dff.iloc[-50:,close_]
         coef_, intercept_= quant_j.linearRegresion_J3(slice01)
+               
+        ################### Media Hull
+        dff['hull']=quant_j.HMA(self.df['Close'], 20)
         
         # SUPERVISED: Un poco de supervisado  https://www.aprendemachinelearning.com/pronostico-de-series-temporales-con-redes-neuronales-en-python/
-        dias = 1   # 1= cierre de mañana
-        dff['Futuro'] = dff['Close'].shift((-1)*dias)
+        dias = 1  # 1= cierre de mañana
+        dff['Futuro'] = dff['Open'].shift((-1)*dias)
+
+        dff.dropna(inplace=True)        #quito los CEROS
         
         # Coloco un indice natural y incremental
         dff['position']=dff['Close']   #columna fake
@@ -128,17 +146,12 @@ class TradingAI:
             dff.iloc[i,position_] = int( i)
         # Cambio el indice del Dataframe
         dff.set_index('position', drop=False,inplace=True)
-     
-            
 
-        
-        
+ 
         print(dff.head())
-
-        
+        #j#quant_j.salvarExcelTOTEST(dff, 'muestraa', nombreSheet="data")  
         
         return dff
-
 
 
     def Observations (self, game, _stage):
@@ -156,14 +169,15 @@ class TradingAI:
         # State son los 11 estados que definen la posicon actual del juego. Se obtienen de las propiedades de la clase game
         state = np.zeros(11)
  
-        state[0] = game.df.loc[_stage,'Open']   
-        state[1] = game.df.loc[_stage,'Close']   
-        state[2] = game.df.loc[_stage,'High']   
-        state[3] = game.df.loc[_stage,'Low']   
+        state[0] = game.df.loc[_stage,'Open']    
+        state[1] = game.df.loc[_stage,'High']   
+        state[2] = game.df.loc[_stage,'Low']   
+        state[3] = game.df.loc[_stage,'Close']  
         state[4] = game.df.loc[_stage,'Volume'] 
         state[5] = game.df.loc[_stage,'DeltaVol_EMA']
-        state[6] = game.df.loc[_stage,'Kalman']   
-        state[7] = game.df.loc[_stage,'Futuro']    
+        state[6] = game.df.loc[_stage,'Kalman']  
+        state[7] = game.df.loc[_stage,'hull']   
+        state[8] = game.df.loc[_stage,'Futuro']    
         
         return np.array(state, dtype=float)
     
@@ -179,10 +193,13 @@ class TradingAI:
         ##Point(self.head.x-BLOCK_SIZE, self.head.y),
         ##Point(self.head.x-(2*BLOCK_SIZE), self.head.y)]
 
-        self.score = 0
+
         self.food = None
         ##self._place_food()
         self.frame_iteration = 0
+        self.score =1
+        self.profit=1
+        self.loss=1
 
     """
     def _place_food(self):
@@ -197,32 +214,81 @@ class TradingAI:
         """
         Descripcion: Avanza un paso en la secuencia temporal de precios. No es como un juego que tiene un 'mapa'... en nuestro caso
         de acciones tenemos una serie temporal, digamos lineal (unidimensional)
-        
-                
+        1.- ejecuto el movimieneto
+        2.- miro si gameOver
+        3.- calculo rewards, score
         Parameters
         ----------
             Recibe un array de tres elementos con uno seteado Buy//Hold//Sell  [0,1,0]    
         Returns
         -------
-            reward
-        """        
+            reward, False, self.score
+            reward, done, score
+        """ 
+        # 1.- ejecuto movimiento
+        #para debug
+        stagee= _stage
+        insidee= self.inside
         
-        # Calculo el Reward (empiezo con la simplest version). Esta es la parte más compleja y que requiere de mi...
         reward =0
         
-        # Si el dia siguente abre mas alto reward++
-        # Si el dia sigueitne abre más bajo reward--
+        # 3. check if game over
+        reward = 0
+        game_over = False
+        if (stagee == len(game.df) -2): ## Este juego acaba cuadno hemos dado toda la vuelta a la serie    ##self.is_collision() or self.frame_iteration > 100*len(self.snake):
+            game_over = True
+            reward = -10
+            return reward, game_over, self.score
+
+        """ POLITICA DEL JUEGO """
         
-        if   (game.df.loc[_stage,'Futuro'] > game.df.loc[_stage,'Close']):
-            reward +=10  
-            self.score +=1
-        elif (game.df.loc[_stage,'Futuro'] < game.df.loc[_stage,'Close']):
-            reward -=10
-        else:
-            reward +=0
+        #DENTRO
+        if (self.inside == True):       #estoy dentro del mercado comprado
+            if(action[BUY]== True):     #me pide comprar
+                reward =0
+                #return reward, False, self.score
+            
+            elif(action[SELL]==True):    #me pide vender
+                        
+                # Calculo el Reward (empiezo con la simplest version). Esta es la parte más compleja y que requiere de mi...
+                self.inside = False
+                reward =0
+                
+                # Si el dia siguente abre mas alto reward++
+                # Si el dia sigueitne abre más bajo reward--        
+                #if   (game.df.loc[_stage,'Futuro'] > (1.01*game.df.loc[_stage,'Close'])):
+                if (game.df.loc[_stage,'Close'] > (1.03*self.valorCompra) ):
+                    reward +=10 
+                    self.score +=1
+                    self.profit +=1
+                #elif (game.df.loc[_stage,'Futuro'] < (1.01*game.df.loc[_stage,'Close'])):
+                elif (game.df.loc[_stage,'Close'] <= self.valorCompra):
+                    reward -=30
+                    self.loss +=1
+                
+                #return reward, False, self.score
+            
+            else:  #caso HOLD
+                reward =0
+            return reward, False, self.score
 
         
-        return reward, False, self.score
+        #FUERA
+        elif (self.inside == False):    # Estoy fuera
+            if(action[SELL]== True):    # me pide vender
+                reward =0
+                #return reward, False, self.score
+            
+            elif(action[BUY]== True):   # estoy fuera y me pide BUY
+                reward=0
+                self.valorCompra = game.df.loc[_stage,'Close'] 
+                self.inside =True
+                self.buyOrder +=1
+                #return reward, False, self.score 
+            else:  #hold
+                reward=0
+            return reward, False, self.score
+
 
 
     def is_collision(self, pt=None):

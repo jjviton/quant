@@ -22,6 +22,18 @@ class Linear_QNet(nn.Module):
 
         file_name = os.path.join(model_folder_path, file_name)
         torch.save(self.state_dict(), file_name)
+        
+    def load(self, file_name='model.pth'):        
+            #Ejemplo uso: Cargo el modelo entrenado y salvado
+            ##agent.model_02.load_state_dict(agent.model_02.load())
+            ##print(agent.model_02.state_dict())
+
+        model_folder_path = './model'
+        if not os.path.exists(model_folder_path):
+            os.makedirs(model_folder_path)
+        file_name = os.path.join(model_folder_path, file_name)                
+        
+        return torch.load(file_name)     
 
 
 class QTrainer:

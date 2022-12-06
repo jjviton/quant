@@ -14,6 +14,9 @@ En esta verison del programa organizamos en clases y lo tenemso preparado para h
 
 
 IMPROVEMENTS:    
+    [13 nov 22] No parece que la red aprenda bien. Probaré un cambio de tactica, cada partida es recorrer otra vez
+    el dataSerie... corro el riesgo de overfitting, pero sabre si la redNeuronal aprende (aunque sea regular :-)
+
 
 
 
@@ -42,11 +45,11 @@ from collections import deque
 from game import TradingAI, Direction, Point  # EL JUEGO, Lo cambiaré por datos de la bolsa
 
 from model import Linear_QNet, QTrainer   # RED NEURONAL
-from helper import plot
+from helper import plot, plot2
 
 MAX_MEMORY = 100_000
 BATCH_SIZE = 1000
-LR = 0.001
+LR = 0.0001    #♦j original 0.001
 
 
 class Agent:
@@ -57,14 +60,19 @@ class Agent:
     """  
 
     def __init__(self):
-        self.n_games = 0
+        self.n_games = 1
         self.epsilon = 0 # randomness
-        self.gamma = 0.9 # discount rate
+        self.gamma = 0.8 # discount rate   Original = 0.9
+        self.exploitation =1
+        self.exploration=1
+        
         self.memory = deque(maxlen=MAX_MEMORY) # popleft()  # array de doble entrada
         self.model = Linear_QNet(11, 256, 3)
         self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
         
         self.stage =0  # Indice con el que recorro el trading track
+        self.inside =False   # Estoy comprado True. Si no False
+        self.finalMove =0
 
 
     def get_state(self, game, _stage):
@@ -77,7 +85,7 @@ class Agent:
         
         return np.array(state, dtype=float)
   
-    
+
     def get_action(self, state):
         """
         Funcion que calcula el siguiente movimiento segun el tradeoff explorar//explotar
@@ -86,21 +94,42 @@ class Agent:
 
         """
         # random moves: tradeoff exploration / exploitation
-        self.epsilon = 80 - self.n_games   #ratio para manejar la explotacion
+        #self.epsilon = 80 - self.n_games   #ratio para manejar la explotacion  ORIGINAL
+        learningWindow = 600
+        self.epsilon = learningWindow - self.stage
         
         final_move = [0,0,0]
         
-        #Exploration
-        if random.randint(0, 200) < self.epsilon:
+        #Exploration  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        if random.randint(0, 2*learningWindow) < self.epsilon:
             move = random.randint(0, 2)    #decision aleatoria C/M/V
             final_move[move] = 1   #action es un array [0,0,1]  Compro, Mantengo, Vendo   B/H/S
-        
-        #Explotation
+            self.exploration +=1
+            
+        #Exploitation  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         else:
             state0 = torch.tensor(state, dtype=torch.float)     # Creo un tensor tipo Torch
             prediction = self.model(state0)                     # Pido prediccion a la red
             move = torch.argmax(prediction).item()              # Me devuelve la probabilidad para cada accion. Argmax me dice el indice de la mayor
             final_move[move] = 1                                # Pongo a 1, el indice de la mayor probalilidad
+            self.exploitation +=1                     
+
+        #final_move = [0,0,1]
+        return final_move   # el array de siguiente accion [1,0,0]    // Buy/Hold/Sell
+    
+    def get_actionExploi(self, state):
+        """
+        Funcion que calcula el siguiente movimiento segun el tradeoff explorar//explotar
+        Esta función esta hecha para explotar el sistema aprendido antes
+        Returns:un array con la información
+
+        """
+        final_move = [0,0,0]
+        state0 = torch.tensor(state, dtype=torch.float)     # Creo un tensor tipo Torch
+        prediction = self.model(state0)                     # Pido prediccion a la red
+        move = torch.argmax(prediction).item()              # Me devuelve la probabilidad para cada accion. Argmax me dice el indice de la mayor
+        final_move[move] = 1                                # Pongo a 1, el indice de la mayor probalilidad
+        self.exploitation +=1                     
 
         return final_move   # el array de siguiente accion [1,0,0]    // Buy/Hold/Sell
 
@@ -133,6 +162,7 @@ class Agent:
         #for state, action, reward, nexrt_state, done in mini_sample:
         #    self.trainer.train_step(state, action, reward, next_state, done)
 
+
     def train_short_memory(self, state, action, reward, next_state, done):
         """
         Funcion que toma un moviento de la partida y entrena la red
@@ -145,29 +175,39 @@ class Agent:
 
 
 def train():
-    plot_scores = []
-    plot_mean_scores = []
+    plot_aux01 = []
+    plot_aux02 = []
+    plot_aux03 =[]
     total_score = 0
     record = 0
     
     #Llamamos a los constructores
     agent = Agent()
     game = TradingAI()
+
     agent.stage =0
     
-    while agent.stage < 500:    #hasta que stage llegue al final y ¿repetimos?
+
     
-       
+    ##*************************************************************************
+    ## PRIMERA FASE DE ENTRENO DE LA RED PARA CALCULAR EL VALOR DE LOS TENSORES
+    ## Aqui utilizo el tradeoff 
+    
+    while True:   ##agent.stage < len(game.df):    #hasta que stage llegue al final y ¿repetimos?
+         
         # get old state
-        state_old = agent.get_state( game,agent.stage)
+        state_old = agent.get_state( game,agent.stage)  
 
         # get move
+        ##finalKK= agent.get_actionExploi(state_old)  ###
+        
         final_move = agent.get_action(state_old)
+
 
         # perform move and get new state
         reward, done, score = game.play_step(game, agent.stage, final_move)
         agent.stage+=1
-        print('reward', reward)
+        #print('reward', reward)
         state_new = agent.get_state(game, agent.stage)
 
         # train short memory
@@ -176,18 +216,102 @@ def train():
         # remember
         agent.remember(state_old, final_move, reward, state_new, done)
         
-        if (agent.stage == 498):
-            done = True
-
+        if False:   #j#(reward ==10):
+            agent.train_long_memory()  # esto se hace al acabar una partida completa,lo aplico a ver que pasa.
+            
         if done:
             # train long memory, plot result
-            game.reset()
-            agent.n_games += 1
+        
+            #j#agent.n_games += 1
             agent.train_long_memory()
 
-            if score > record:
-               record = score
-               agent.model.save()   # Solo debemos hacer save de la red si ha ido bien???
+            if score > record:  
+                record = score
+                agent.model.save()   # Solo debemos hacer save de la red si ha ido bien???
+                ##Creo que al grabar se pierden los datos de los tensores
+                print('\n ********************************************** R E C O R D ')
+                if record >30:
+                    break
+
+            #print('Game', agent.n_games, 'Score', score, 'Record:', record)
+
+            print(' Acabado ')
+            print('Total ',len(game.df), '; ///////// SCORE =>', score,'\n', 'Exploitation %d' %(100*agent.exploitation/len(game.df)), '%','\n')    
+            print('Profit = %d' %game.profit, 'Loss= %d' %game.loss, '__________ Porcentage %.2f' %(100*game.profit/(game.loss+game.profit)),'%')
+            ##plot(plot_aux01 , plot_aux02 , plot_aux03)
+            
+            
+            game.reset()
+            agent.stage=0
+            agent.exploitation =0
+            agent.exploration =0
+            #j# return
+            #j#break
+      
+        ## Grafico
+        #total_score += score
+        #mean_score = total_score / agent.n_games
+        
+        plot_aux01.append(game.profit )
+        plot_aux02.append(game.buyOrder)
+        plot_aux03.append(agent.exploration)
+        ##plot(plot_aux01 , plot_aux02 , plot_aux03)
+        
+    ##*************************************************************************
+    ## SEGUNDA FASE EXPLOTO EL SISTEMA
+    ## Casi igual pero ahora todo explotar y ver que tasa de acierto nos da.
+    
+    agent.stage=0   #Reiniciamos la serie
+    agent.exploitation =0
+    agent.exploration =0
+    game.score = 0
+    game.profit = 1
+    agent.finalMove =0
+    game.loss = 1
+    game.inside = False 
+    game.buyOrder =0
+    
+    plot_aux011 = []
+    plot_aux022 = []
+    plot_aux033 =[]
+    done = False
+    
+    while agent.stage < len(game.df):    #hasta que stage llegue al final y ¿repetimos?
+         
+        # get old state
+        state_old = agent.get_state( game,agent.stage)
+
+        # get move
+        final_move = agent.get_actionExploi(state_old)
+        
+        # perform move and get new state
+        reward, done, score = game.play_step(game, agent.stage, final_move)
+        agent.stage+=1
+        #print('reward', reward)
+        #state_new = agent.get_state(game, agent.stage)
+
+        # train short memory
+        ##agent.train_short_memory(state_old, final_move, reward, state_new, done)
+
+        # remember
+        ##agent.remember(state_old, final_move, reward, state_new, done)
+        
+        if (agent.stage == len(game.df) -1):
+            done = True
+
+        plot_aux011.append(game.profit )
+        plot_aux022.append(game.buyOrder)
+        plot_aux033.append(agent.finalMove)
+        
+        if done:
+            # train long memory, plot result
+            #game.reset()
+            #agent.n_games += 1
+            ##agent.train_long_memory()
+
+            #if score > record:
+            #   record = score
+            #   agent.model.save()   # Solo debemos hacer save de la red si ha ido bien???
 
             #print('Game', agent.n_games, 'Score', score, 'Record:', record)
 
@@ -197,9 +321,13 @@ def train():
             #plot_mean_scores.append(mean_score)
             #plot(plot_scores, plot_mean_scores)
             
-            print('Acabado \n')
-            print('Reward',reward, 'score', score)
-            return
+            print('\n ----- EXPLOITATION ----')
+            print('Total ',len(game.df), '; Score', score,'\n', 'Exploration %d' %(100*agent.exploration/len(game.df)), '%','\n')    
+            print('Profit = %d' %game.profit, 'Loss= %d' %game.loss, '__________ Porcentage %.2f' %(100*game.profit/(game.loss+game.profit)),'%')
+            
+
+            #j#plot2(plot_aux011 , plot_aux022 , plot_aux033)
+            return        
 
 
 if __name__ == '__main__':
